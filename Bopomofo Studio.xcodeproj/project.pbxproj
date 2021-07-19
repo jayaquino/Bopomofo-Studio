@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5237C17626A5CB3E00C7BC56 /* Bopomofo_StudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17526A5CB3E00C7BC56 /* Bopomofo_StudioApp.swift */; };
+		5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17726A5CB3E00C7BC56 /* ContentView.swift */; };
+		5237C17A26A5CB3F00C7BC56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5237C17926A5CB3F00C7BC56 /* Assets.xcassets */; };
+		5237C17D26A5CB3F00C7BC56 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5237C17C26A5CB3F00C7BC56 /* Preview Assets.xcassets */; };
+		5237C18826A5CB4000C7BC56 /* Bopomofo_StudioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C18726A5CB4000C7BC56 /* Bopomofo_StudioTests.swift */; };
+		5237C19326A5CB4000C7BC56 /* Bopomofo_StudioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C19226A5CB4000C7BC56 /* Bopomofo_StudioUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5237C18426A5CB4000C7BC56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5237C16A26A5CB3E00C7BC56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5237C17126A5CB3E00C7BC56;
+			remoteInfo = "Bopomofo Studio";
+		};
+		5237C18F26A5CB4000C7BC56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5237C16A26A5CB3E00C7BC56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5237C17126A5CB3E00C7BC56;
+			remoteInfo = "Bopomofo Studio";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5237C17526A5CB3E00C7BC56 /* Bopomofo_StudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bopomofo_StudioApp.swift; sourceTree = "<group>"; };
+		5237C17726A5CB3E00C7BC56 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5237C17926A5CB3F00C7BC56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5237C17C26A5CB3F00C7BC56 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5237C17E26A5CB4000C7BC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5237C18326A5CB4000C7BC56 /* Bopomofo StudioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bopomofo StudioTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5237C18726A5CB4000C7BC56 /* Bopomofo_StudioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bopomofo_StudioTests.swift; sourceTree = "<group>"; };
+		5237C18926A5CB4000C7BC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5237C18E26A5CB4000C7BC56 /* Bopomofo StudioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bopomofo StudioUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5237C19226A5CB4000C7BC56 /* Bopomofo_StudioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bopomofo_StudioUITests.swift; sourceTree = "<group>"; };
+		5237C19426A5CB4000C7BC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5237C16F26A5CB3E00C7BC56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5237C18026A5CB4000C7BC56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5237C18B26A5CB4000C7BC56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5237C16926A5CB3E00C7BC56 = {
+			isa = PBXGroup;
+			children = (
+				5237C17426A5CB3E00C7BC56 /* Bopomofo Studio */,
+				5237C18626A5CB4000C7BC56 /* Bopomofo StudioTests */,
+				5237C19126A5CB4000C7BC56 /* Bopomofo StudioUITests */,
+				5237C17326A5CB3E00C7BC56 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5237C17326A5CB3E00C7BC56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */,
+				5237C18326A5CB4000C7BC56 /* Bopomofo StudioTests.xctest */,
+				5237C18E26A5CB4000C7BC56 /* Bopomofo StudioUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5237C17426A5CB3E00C7BC56 /* Bopomofo Studio */ = {
+			isa = PBXGroup;
+			children = (
+				5237C17526A5CB3E00C7BC56 /* Bopomofo_StudioApp.swift */,
+				5237C17726A5CB3E00C7BC56 /* ContentView.swift */,
+				5237C17926A5CB3F00C7BC56 /* Assets.xcassets */,
+				5237C17E26A5CB4000C7BC56 /* Info.plist */,
+				5237C17B26A5CB3F00C7BC56 /* Preview Content */,
+			);
+			path = "Bopomofo Studio";
+			sourceTree = "<group>";
+		};
+		5237C17B26A5CB3F00C7BC56 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5237C17C26A5CB3F00C7BC56 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5237C18626A5CB4000C7BC56 /* Bopomofo StudioTests */ = {
+			isa = PBXGroup;
+			children = (
+				5237C18726A5CB4000C7BC56 /* Bopomofo_StudioTests.swift */,
+				5237C18926A5CB4000C7BC56 /* Info.plist */,
+			);
+			path = "Bopomofo StudioTests";
+			sourceTree = "<group>";
+		};
+		5237C19126A5CB4000C7BC56 /* Bopomofo StudioUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5237C19226A5CB4000C7BC56 /* Bopomofo_StudioUITests.swift */,
+				5237C19426A5CB4000C7BC56 /* Info.plist */,
+			);
+			path = "Bopomofo StudioUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5237C17126A5CB3E00C7BC56 /* Bopomofo Studio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5237C19726A5CB4000C7BC56 /* Build configuration list for PBXNativeTarget "Bopomofo Studio" */;
+			buildPhases = (
+				5237C16E26A5CB3E00C7BC56 /* Sources */,
+				5237C16F26A5CB3E00C7BC56 /* Frameworks */,
+				5237C17026A5CB3E00C7BC56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bopomofo Studio";
+			productName = "Bopomofo Studio";
+			productReference = 5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5237C18226A5CB4000C7BC56 /* Bopomofo StudioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5237C19A26A5CB4000C7BC56 /* Build configuration list for PBXNativeTarget "Bopomofo StudioTests" */;
+			buildPhases = (
+				5237C17F26A5CB4000C7BC56 /* Sources */,
+				5237C18026A5CB4000C7BC56 /* Frameworks */,
+				5237C18126A5CB4000C7BC56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5237C18526A5CB4000C7BC56 /* PBXTargetDependency */,
+			);
+			name = "Bopomofo StudioTests";
+			productName = "Bopomofo StudioTests";
+			productReference = 5237C18326A5CB4000C7BC56 /* Bopomofo StudioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5237C18D26A5CB4000C7BC56 /* Bopomofo StudioUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5237C19D26A5CB4000C7BC56 /* Build configuration list for PBXNativeTarget "Bopomofo StudioUITests" */;
+			buildPhases = (
+				5237C18A26A5CB4000C7BC56 /* Sources */,
+				5237C18B26A5CB4000C7BC56 /* Frameworks */,
+				5237C18C26A5CB4000C7BC56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5237C19026A5CB4000C7BC56 /* PBXTargetDependency */,
+			);
+			name = "Bopomofo StudioUITests";
+			productName = "Bopomofo StudioUITests";
+			productReference = 5237C18E26A5CB4000C7BC56 /* Bopomofo StudioUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5237C16A26A5CB3E00C7BC56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					5237C17126A5CB3E00C7BC56 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					5237C18226A5CB4000C7BC56 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 5237C17126A5CB3E00C7BC56;
+					};
+					5237C18D26A5CB4000C7BC56 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 5237C17126A5CB3E00C7BC56;
+					};
+				};
+			};
+			buildConfigurationList = 5237C16D26A5CB3E00C7BC56 /* Build configuration list for PBXProject "Bopomofo Studio" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5237C16926A5CB3E00C7BC56;
+			productRefGroup = 5237C17326A5CB3E00C7BC56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5237C17126A5CB3E00C7BC56 /* Bopomofo Studio */,
+				5237C18226A5CB4000C7BC56 /* Bopomofo StudioTests */,
+				5237C18D26A5CB4000C7BC56 /* Bopomofo StudioUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5237C17026A5CB3E00C7BC56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5237C17D26A5CB3F00C7BC56 /* Preview Assets.xcassets in Resources */,
+				5237C17A26A5CB3F00C7BC56 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5237C18126A5CB4000C7BC56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5237C18C26A5CB4000C7BC56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5237C16E26A5CB3E00C7BC56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */,
+				5237C17626A5CB3E00C7BC56 /* Bopomofo_StudioApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5237C17F26A5CB4000C7BC56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5237C18826A5CB4000C7BC56 /* Bopomofo_StudioTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5237C18A26A5CB4000C7BC56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5237C19326A5CB4000C7BC56 /* Bopomofo_StudioUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5237C18526A5CB4000C7BC56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5237C17126A5CB3E00C7BC56 /* Bopomofo Studio */;
+			targetProxy = 5237C18426A5CB4000C7BC56 /* PBXContainerItemProxy */;
+		};
+		5237C19026A5CB4000C7BC56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5237C17126A5CB3E00C7BC56 /* Bopomofo Studio */;
+			targetProxy = 5237C18F26A5CB4000C7BC56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5237C19526A5CB4000C7BC56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5237C19626A5CB4000C7BC56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5237C19826A5CB4000C7BC56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Bopomofo Studio/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Bopomofo Studio/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5237C19926A5CB4000C7BC56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Bopomofo Studio/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Bopomofo Studio/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5237C19B26A5CB4000C7BC56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bopomofo StudioTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-StudioTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bopomofo Studio.app/Bopomofo Studio";
+			};
+			name = Debug;
+		};
+		5237C19C26A5CB4000C7BC56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bopomofo StudioTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-StudioTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bopomofo Studio.app/Bopomofo Studio";
+			};
+			name = Release;
+		};
+		5237C19E26A5CB4000C7BC56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bopomofo StudioUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-StudioUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Bopomofo Studio";
+			};
+			name = Debug;
+		};
+		5237C19F26A5CB4000C7BC56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Bopomofo StudioUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-StudioUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Bopomofo Studio";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5237C16D26A5CB3E00C7BC56 /* Build configuration list for PBXProject "Bopomofo Studio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5237C19526A5CB4000C7BC56 /* Debug */,
+				5237C19626A5CB4000C7BC56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5237C19726A5CB4000C7BC56 /* Build configuration list for PBXNativeTarget "Bopomofo Studio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5237C19826A5CB4000C7BC56 /* Debug */,
+				5237C19926A5CB4000C7BC56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5237C19A26A5CB4000C7BC56 /* Build configuration list for PBXNativeTarget "Bopomofo StudioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5237C19B26A5CB4000C7BC56 /* Debug */,
+				5237C19C26A5CB4000C7BC56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5237C19D26A5CB4000C7BC56 /* Build configuration list for PBXNativeTarget "Bopomofo StudioUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5237C19E26A5CB4000C7BC56 /* Debug */,
+				5237C19F26A5CB4000C7BC56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5237C16A26A5CB3E00C7BC56 /* Project object */;
+}
