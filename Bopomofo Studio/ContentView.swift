@@ -44,56 +44,85 @@ class SoundManager{
     }
 }
 
+
 struct ContentView: View {
     
     @ObservedObject var testMode = TestMode()
     
-    var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
+    public var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    public var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
     
+    let textBPMFSize = CGFloat(25)
+    
+    var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
+
     var body: some View {
         NavigationView {
 
                     VStack {
-                        Text("Bo ㄅ\n            Po ㄆ\n                      Mo ㄇ\n                                  Fo ㄈ\n")
-                            .font(.title).bold().italic()
-                            .foregroundColor(Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255))
-                            .frame(minWidth:0,maxWidth:300)
-                        Spacer()
-                        Text("Studio")
-                            .font(.system(size: 90))
-                            .font(.title).bold().italic().underline()
-                            .foregroundColor(teal)
-                        Spacer()
-                        Spacer()
+                        VStack{
+                            HStack{
+
+                                Text("Bo ㄅ").font(.custom("Chalkboard SE", size: textBPMFSize))
+                                Spacer()
+                                Text("Po ㄆ").font(.custom("Chalkboard SE", size: textBPMFSize))
+                                Spacer()
+                                Spacer()
+                                Spacer()
+                            }.padding(10)
+                            
+                            HStack{
+                                Spacer()
+                                Text("Mo ㄇ").font(.custom("Chalkboard SE", size: textBPMFSize))
+                                Spacer()
+                                Text("Fo ㄈ").font(.custom("Chalkboard SE", size: textBPMFSize))
+                                Spacer()
+                            }
+                        }
+                        .foregroundColor(teal)
+                        .frame(minWidth:0,maxWidth:screenWidth)
+                        .padding(30)
+                        HStack{
+                            Spacer()
+                            Spacer()
+                            Text("Studio")
+                                .font(.custom("Chalkboard SE", size: 90))
+                                .foregroundColor(teal)
+                                .padding(30)
+                        }
+                        
                         NavigationLink(destination: Settings( testModeSelection: self.$testMode.Zhuyin)) {
-                            Text("Zhuyin Characters")
+                            Text("Learn Zhuyin Characters")
                                 .frame(minWidth: 0, maxWidth: 300)
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(teal)
                                 .cornerRadius(40)
-                                .font(.title).fixedSize()
                         }
                         NavigationLink(destination: Settings(testModeSelection: self.$testMode.PinyintoZhuyin)){
-                            Text("Pinyin-to-Zhuyin")
+                            Text("Learn Pinyin-to-Zhuyin")
                                 .frame(minWidth: 0, maxWidth: 300)
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(teal)
                                 .cornerRadius(40)
-                                .font(.title)
                         }
                         NavigationLink(destination: Settings(testModeSelection: self.$testMode.Vocabulary)){
-                            Text("Vocabulary")
+                            Text("Learn Vocabulary")
                                 .frame(minWidth: 0, maxWidth: 300)
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(teal)
                                 .cornerRadius(40)
-                                .font(.title)
+                            
                         }
                         Spacer()
-                    }
+                        
+                    }.font(.custom("Chalkboard SE", size: 20))
         }
     }
 }

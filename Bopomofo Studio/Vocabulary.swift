@@ -219,11 +219,14 @@ class VocabularyList: ObservableObject{
     @Published var wearablesBPMF = ["ㄨㄞˋㄊㄠˋ","ㄨㄚ ㄗ˙","ㄒㄧㄤˋㄌㄧㄢˋ","ㄕㄡˇㄌㄧㄢˋ","ㄒㄩㄝ ㄗ˙","ㄊㄨㄛ ㄒㄧㄝˊ","ㄍㄠ ㄍㄣ ㄒㄧㄝˊ","ㄔㄤˊㄒㄧㄡˋ","ㄉㄨㄢˇㄒㄧㄡˋ"]
     @Published var wearablesTranslation = ["Jacket","Socks","Necklace","Bracelet","Boots","Slippers","High\nHeels","Long Sleeves","Short Sleeves"]
     
-    @Published var workBPMF = ["ㄈㄥ ㄒㄧㄢˇ","ㄍㄨㄥ ㄔㄚ ","ㄗㄨㄟˋㄒㄧㄠˇㄏㄨㄚˋ","ㄗㄨㄟˋㄉㄚˋㄏㄨㄚˋ","ㄉㄧㄢˋㄧㄚ ","ㄉㄧㄢˋㄌㄧㄡˊ","ㄓㄨˋㄙㄨˋ","ㄗㄨˇㄓㄨㄤ ","ㄑㄧˊㄒㄧㄢˋ","ㄅㄧㄢˋㄒㄧㄥˊ","ㄎㄜˋㄏㄨˋ","ㄕㄥ ㄔㄤˇ","ㄈㄨˋㄐㄧㄢˋ","ㄔㄚˊㄎㄢˋ","ㄧㄡ ㄉㄧㄢˇ","ㄑㄩㄝ ㄉㄧㄢˇ","ㄕㄡˇㄕㄨˋ","ㄐㄧㄣˋㄉㄨˋ","ㄏㄨㄟˊㄎㄨㄟˋ","ㄢ ㄆㄞˊ"]
-    @Published var workTranslation = ["Risk","Tolerance","To Minimize","To Maximize","Voltage","Current","Injection\nMold","Assemble","Deadline","Deformed","Client","To\nManufacture","E-Mail\nAttachment","To Examine","Advantage","Disadvantage","Surgery","Progress","Feedback","To Arrange\n(Matters)"]
+    @Published var officeWorkBPMF = ["ㄓㄨˇㄍㄨㄢˇ","ㄗㄜˊㄖㄣˋ","ㄖㄣˋㄨ˙","ㄑㄧˊㄒㄧㄢˋ","ㄔㄚˊㄎㄢˋ","ㄈㄨˋㄐㄧㄢˋ","ㄐㄧㄣˋㄉㄨˋ","ㄏㄨㄟˊㄎㄨㄟˋ","ㄢ ㄆㄞˊ","ㄎㄜˋㄏㄨˋ","ㄧㄡ ㄉㄧㄢˇ","ㄑㄩㄝ ㄉㄧㄢˇ"]
+    @Published var officeWorkTranslation = ["Supervisor","Responsibility","Task","Deadline","To Examine","E-Mail\nAttachment","Progress","Feedback","To Arrange\n(Matters)","Client","Advantage","Disadvantage"]
     
-    @Published var workBPMF2 = ["ㄐㄧㄥ ㄧㄥˊ","ㄓㄨˇㄍㄨㄢˇ","ㄗㄜˊㄖㄣˋ","ㄓ ㄕˋ","ㄖㄣˋㄨ","ㄩˋㄉㄧㄥˋ","ㄒㄧㄡ ㄍㄞˇ","ㄗㄠˇㄅㄢ ","ㄨㄢˇㄅㄢ ","ㄧㄝˋㄅㄢ ","ㄅㄨˋㄇㄣˊ","ㄙ ㄒㄧㄚˋ","ㄊㄧㄠˇㄓㄢˋ","ㄗ ㄍㄜˊ","ㄅㄠˇㄓㄥˋ","ㄩㄢˊㄍㄨㄥ ","ㄧㄢˋㄕㄡ ","ㄩˋㄓ ","ㄊㄨˊㄘㄥˊ","ㄕㄥˋㄖㄣˋ"]
-    @Published var workTranslation2 = ["To Manage\n(Run)","Supervisor","Responsibility","Knowledge","Task","To Schedule","To Revise","Morning\nShift","Night\nShift","Late Night\nShift","Department","In Private","Challenge","Qualifications","Guarantee","Employee","To Check &\nAccept","Pay in\nadvance","Coating","To be\ncompetent"]
+    @Published var workBPMF = ["ㄈㄥ ㄒㄧㄢˇ","ㄍㄨㄥ ㄔㄚ ","ㄗㄨㄟˋㄒㄧㄠˇㄏㄨㄚˋ","ㄗㄨㄟˋㄉㄚˋㄏㄨㄚˋ","ㄉㄧㄢˋㄧㄚ ","ㄉㄧㄢˋㄌㄧㄡˊ","ㄓㄨˋㄙㄨˋ","ㄗㄨˇㄓㄨㄤ ","ㄅㄧㄢˋㄒㄧㄥˊ","ㄕㄥ ㄔㄤˇ","ㄕㄡˇㄕㄨˋ","ㄊㄨˊㄘㄥˊ"]
+    @Published var workTranslation = ["Risk","Tolerance","To Minimize","To Maximize","Voltage","Current","Injection\nMold","Assemble","Deformed","To\nManufacture","Surgery","Coating"]
+    
+    @Published var workBPMF2 = ["ㄐㄧㄥ ㄧㄥˊ","ㄓ ㄕˋ","ㄩˋㄉㄧㄥˋ","ㄒㄧㄡ ㄍㄞˇ","ㄗㄠˇㄅㄢ ","ㄨㄢˇㄅㄢ ","ㄧㄝˋㄅㄢ ","ㄅㄨˋㄇㄣˊ","ㄙ ㄒㄧㄚˋ","ㄊㄧㄠˇㄓㄢˋ","ㄗ ㄍㄜˊ","ㄅㄠˇㄓㄥˋ","ㄩㄢˊㄍㄨㄥ ","ㄧㄢˋㄕㄡ ","ㄩˋㄓ ","ㄕㄥˋㄖㄣˋ"]
+    @Published var workTranslation2 = ["To Manage\n(Run)","Knowledge","To Schedule","To Revise","Morning\nShift","Night\nShift","Late Night\nShift","Department","In Private","Challenge","Qualifications","Guarantee","Employee","To Check &\nAccept","Pay in\nadvance","To be\ncompetent"]
     
     @Published var workBPMF3 = ["ㄑㄧㄥˇㄐㄧㄠˋ","ㄓˋㄌㄧㄤˋ","ㄍㄥ ㄒㄧㄣ ","ㄊㄧˊㄍㄨㄥ ","ㄍㄨㄟ ㄍㄜˊ","ㄖㄣˊㄩㄢˊ","ㄍㄨㄟˋㄊㄞˊ","ㄖㄨㄢˇㄊㄧˇ","ㄌㄧˊㄑㄧㄥ ","ㄊㄧㄠˊㄐㄧㄢˋ","ㄊㄧˊㄐㄧㄠ ","ㄈㄣ ㄒㄧ ","ㄒㄧㄥˊㄕˋ","ㄍㄡˋㄗㄠˋ","ㄓㄨㄢˋㄑㄧㄢˊ","ㄐㄧㄢˇㄔㄚˊ","ㄎㄜˇㄋㄥˊㄒㄧㄥˋ","ㄓㄤˇㄒㄧㄤˋ","ㄐㄧㄚˇㄕㄜˋ","ㄔㄨ ㄅㄨˋ","ㄍㄨ ㄐㄧㄚˋ","ㄐㄧㄚ ㄒㄧㄣ "]
     @Published var workTranslation3 = ["To ask for\nguidance","Quality","To Update","To Provide","Specifications","Personnel","Front Desk","Software","To Clarify\n(Facts)","Condition or\nRequirement","To Submit\n(Reports)","Analysis","Outer\nAppearance","Composition","To Earn\nMoney","To Inspect","Probability\nPossibility","Appearance","To Assume","Initial\nPreliminary","Estimation","To Raise\nSalary"]
@@ -241,16 +244,26 @@ class VocabularyList: ObservableObject{
 struct Vocabulary: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @Binding var pronunciation : Bool
+    @Binding var pronunciationTextMode : Bool
+    @Binding var pronunciationVoiceMode : Bool
+    @Binding var voiceSelection : String
     @Binding var timerValue: Double
+    @Binding var testModeSelection: String
     
     @ObservedObject var vocabularyList = VocabularyList()
     @State var vocabularyTranslation = [""]
     @State var vocabularyBPMF = [""]
     
+    let previewText = "Preview "
+    @State var statePreviewText = ""
+    
+    let screenWidth = UIScreen.main.bounds.size.width
+    let screenHeight = UIScreen.main.bounds.size.height
+    
+    var PreviewStartColor = Color(red: 255 / 255, green: 153 / 255, blue: 51 / 255)
     
     var body: some View {
-        HStack{
+        VStack{
             Group{
                 ScrollView{
                     
@@ -258,41 +271,49 @@ struct Vocabulary: View {
                         Button("Activities"){
                             vocabularyTranslation = self.vocabularyList.activitiesTranslation
                             vocabularyBPMF = self.vocabularyList.activitiesBPMF
+                            statePreviewText = previewText + "Activities"
                         }.padding(.bottom,5)
                         
                         Button("Alcohol"){
                             vocabularyTranslation = self.vocabularyList.alcoholTranslation
                             vocabularyBPMF = self.vocabularyList.alcoholBPMF
+                            statePreviewText = previewText + "Alcohol"
                         }.padding(.bottom,5)
                         
                         Button("Animals"){
                             vocabularyTranslation = self.vocabularyList.animalsTranslation
                             vocabularyBPMF = self.vocabularyList.animalsBPMF
+                            statePreviewText = previewText + "Animals"
                         }.padding(.bottom,5)
                         
-                        Button("Body\nRelated"){
+                        Button("Body Related I"){
                             vocabularyTranslation = self.vocabularyList.bodyRelatedTranslation
                             vocabularyBPMF = self.vocabularyList.bodyRelatedBPMF
+                            statePreviewText = previewText + "Body Related I"
                         }.padding(.bottom,5)
                         
-                        Button("Body\nRelated(2)"){
+                        Button("Body Related II"){
                             vocabularyTranslation = self.vocabularyList.bodyRelatedTranslation2
                             vocabularyBPMF = self.vocabularyList.bodyRelatedBPMF2
+                            statePreviewText = previewText + "Body Related II"
                         }.padding(.bottom,5)
                         
                         Button("Breakfast"){
                             vocabularyTranslation = self.vocabularyList.breakfastTranslation
                             vocabularyBPMF = self.vocabularyList.breakfastBPMF
+                            statePreviewText = previewText + "Breakfast"
                         }.padding(.bottom,5)
                         
-                        Button("Conversation"){
+                        Button("Conversation I"){
                             vocabularyTranslation = self.vocabularyList.conversationTranslation
                             vocabularyBPMF = self.vocabularyList.conversationBPMF
+                            statePreviewText = previewText + "Conversation I"
                         }.padding(.bottom,5)
                         
-                        Button("Conversation\n(2)"){
+                        Button("Conversation II"){
                             vocabularyTranslation = self.vocabularyList.conversationTranslation2
                             vocabularyBPMF = self.vocabularyList.conversationBPMF2
+                            statePreviewText = previewText + "Conversation II"
                         }.padding(.bottom,5)
                     }
                     VStack{
@@ -300,132 +321,157 @@ struct Vocabulary: View {
                         Button("Covid19"){
                             vocabularyTranslation = self.vocabularyList.covid19Translation
                             vocabularyBPMF = self.vocabularyList.covid19BPMF
+                            statePreviewText = previewText + "Covid19"
                         }.padding(.bottom,5)
                         
                         Button("Cleaning"){
                             vocabularyTranslation = self.vocabularyList.cleaningTranslation
                             vocabularyBPMF = self.vocabularyList.cleaningBPMF
+                            statePreviewText = previewText + "Cleaning"
                         }.padding(.bottom,5)
                     }
                     VStack{
                         Button("Driving"){
                             vocabularyTranslation = self.vocabularyList.drivingTranslation
                             vocabularyBPMF = self.vocabularyList.drivingBPMF
+                            statePreviewText = previewText + "Driving"
                         }.padding(.bottom,5)
                         
-                        Button("Emotions(1)"){
+                        Button("Emotions I"){
                             vocabularyTranslation = self.vocabularyList.emotionTranslation
                             vocabularyBPMF = self.vocabularyList.emotionBPMF
+                            statePreviewText = previewText + "Emotions I"
                         }.padding(.bottom,5)
                         
-                        Button("Emotions(2)"){
+                        Button("Emotions II"){
                             vocabularyTranslation = self.vocabularyList.emotionTranslation2
                             vocabularyBPMF = self.vocabularyList.emotionBPMF2
+                            statePreviewText = previewText + "Emotions II"
                         }.padding(.bottom,5)
                         
-                        Button("Emotions(3)"){
+                        Button("Emotions III"){
                             vocabularyTranslation = self.vocabularyList.emotionTranslation3
                             vocabularyBPMF = self.vocabularyList.emotionBPMF3
+                            statePreviewText = previewText + "Emotions III"
                         }.padding(.bottom,5)
                         
                         Button("Exercise"){
                             vocabularyTranslation = self.vocabularyList.exerciseTranslation
                             vocabularyBPMF = self.vocabularyList.exerciseBPMF
+                            statePreviewText = previewText + "Exercise"
                         }.padding(.bottom,5)
                         
                         Button("Family"){
                             vocabularyTranslation = self.vocabularyList.familyTranslation
                             vocabularyBPMF = self.vocabularyList.familyBPMF
+                            statePreviewText = previewText + "Family"
                         }.padding(.bottom,5)
                         
                         Button("Finance"){
                             vocabularyTranslation = self.vocabularyList.financeTranslation
                             vocabularyBPMF = self.vocabularyList.financeBPMF
+                            statePreviewText = previewText + "Finance"
                         }.padding(.bottom,5)
                         
                         VStack{
                             Button("Food"){
                                 vocabularyTranslation = self.vocabularyList.foodTranslation
                                 vocabularyBPMF = self.vocabularyList.foodBPMF
+                                statePreviewText = previewText + "Food"
                             }.padding(.bottom,5)
                             
                             Button("Food Related"){
                                 vocabularyTranslation = self.vocabularyList.foodRelatedTranslation
                                 vocabularyBPMF = self.vocabularyList.foodRelatedBPMF
+                                statePreviewText = previewText + "Food Related"
                             }.padding(.bottom,5)
                         }
                         
                         Button("Fruit"){
                             vocabularyTranslation = self.vocabularyList.fruitTranslation
                             vocabularyBPMF = self.vocabularyList.fruitBPMF
+                            statePreviewText = previewText + "Fruit"
                         }.padding(.bottom,5)
                         
                         Button("Games"){
                             vocabularyTranslation = self.vocabularyList.gamesTranslation
                             vocabularyBPMF = self.vocabularyList.gamesBPMF
+                            statePreviewText = previewText + "Games"
                         }.padding(.bottom,5)
                         
                     }
                     VStack{
-                        Button("General\nAdverbs"){
+                        Button("General Adverbs I"){
                             vocabularyTranslation = self.vocabularyList.generalAdverbsTranslation
                             vocabularyBPMF = self.vocabularyList.generalAdverbsBPMF
+                            statePreviewText = previewText + "General Adverbs I"
                         }.padding(.bottom,5)
                         
-                        Button("General\nAdverbs(2)"){
+                        Button("General Adverbs II"){
                             vocabularyTranslation = self.vocabularyList.generalAdverbsTranslation2
                             vocabularyBPMF = self.vocabularyList.generalAdverbsBPMF2
+                            statePreviewText = previewText + "General Adverbs II"
                         }.padding(.bottom,5)
                         
-                        Button("General\nAdjectives"){
+                        Button("General Adjectives I"){
                             vocabularyTranslation = self.vocabularyList.generalAdjectivesTranslation
                             vocabularyBPMF = self.vocabularyList.generalAdjectivesBPMF
+                            statePreviewText = previewText + "General Adjectives I"
                         }.padding(.bottom,5)
                         
-                        Button("General\nAdjectives(2)"){
+                        Button("General Adjectives II"){
                             vocabularyTranslation = self.vocabularyList.generalAdjectivesTranslation2
                             vocabularyBPMF = self.vocabularyList.generalAdjectivesBPMF2
+                            statePreviewText = previewText + "General Adjectives II"
                         }.padding(.bottom,5)
                         
-                        Button("General\nAdjectives(3)"){
+                        Button("General Adjectives III"){
                             vocabularyTranslation = self.vocabularyList.generalAdjectivesTranslation3
                             vocabularyBPMF = self.vocabularyList.generalAdjectivesBPMF3
+                            statePreviewText = previewText + "General Adjectives III"
                         }.padding(.bottom,5)
                         
-                        Button("General\nNouns"){
+                        Button("General Nouns I"){
                             vocabularyTranslation = self.vocabularyList.generalNounsTranslation
                             vocabularyBPMF = self.vocabularyList.generalNounsBPMF
+                            statePreviewText = previewText + "General Nouns I"
                         }.padding(.bottom,5)
                         
                         VStack{
-                            Button("General\nNouns(2)"){
+                            Button("General Nouns II"){
                                 vocabularyTranslation = self.vocabularyList.generalNounsTranslation2
                                 vocabularyBPMF = self.vocabularyList.generalNounsBPMF2
+                                statePreviewText = previewText + "General Nouns II"
                             }.padding(.bottom,5)
                             
-                            Button("General\nNouns(3)"){
+                            Button("General Nouns III"){
                                 vocabularyTranslation = self.vocabularyList.generalNounsTranslation3
                                 vocabularyBPMF = self.vocabularyList.generalNounsBPMF3
+                                statePreviewText = previewText + "General Nouns III"
                             }.padding(.bottom,5)
                             
-                            Button("General\nVerbs"){
+                            Button("General Verbs I"){
                                 vocabularyTranslation = self.vocabularyList.generalVerbsTranslation
                                 vocabularyBPMF = self.vocabularyList.generalVerbsBPMF
+                                statePreviewText = previewText + "General Verbs I"
                             }.padding(.bottom,5)
                             
-                            Button("General\nVerbs(2)"){
+                            Button("General Verbs II"){
                                 vocabularyTranslation = self.vocabularyList.generalVerbsTranslation2
                                 vocabularyBPMF = self.vocabularyList.generalVerbsBPMF2
+                                statePreviewText = previewText + "General Verbs II"
                             }.padding(.bottom,5)
                             
-                            Button("General\nVerbs(3)"){
+                            Button("General Verbs III"){
                                 vocabularyTranslation = self.vocabularyList.generalVerbsTranslation3
                                 vocabularyBPMF = self.vocabularyList.generalVerbsBPMF3
+                                statePreviewText = previewText + "General Verbs III"
                             }.padding(.bottom,5)
                             
-                            Button("General\nVerbs(4)"){
+                            Button("General Verbs IV"){
                                 vocabularyTranslation = self.vocabularyList.generalVerbsTranslation4
                                 vocabularyBPMF = self.vocabularyList.generalVerbsBPMF4
+                                statePreviewText = previewText + "General Verbs IV"
                             }.padding(.bottom,5)
                         }
 
@@ -435,63 +481,75 @@ struct Vocabulary: View {
                         Button("Health"){
                             vocabularyTranslation = self.vocabularyList.healthTranslation
                             vocabularyBPMF = self.vocabularyList.healthBPMF
+                            statePreviewText = previewText + "Health"
                         }.padding(.bottom,5)
                         
                         Button("Horror"){
                             vocabularyTranslation = self.vocabularyList.horrorTranslation
                             vocabularyBPMF = self.vocabularyList.horrorBPMF
+                            statePreviewText = previewText + "Horror"
                         }.padding(.bottom,5)
                     
                         Button("Household"){
                             vocabularyTranslation = self.vocabularyList.householdTranslation
                             vocabularyBPMF = self.vocabularyList.householdBPMF
+                            statePreviewText = previewText + "Household"
                         }.padding(.bottom,5)
                         
                         Button("Infrastructure"){
                             vocabularyTranslation = self.vocabularyList.infrastructureTranslation
                             vocabularyBPMF = self.vocabularyList.infrastructureBPMF
+                            statePreviewText = previewText + "Infrastructure"
                         }.padding(.bottom,5)
                         
                         Button("Language"){
                             vocabularyTranslation = self.vocabularyList.languageTranslation
                             vocabularyBPMF = self.vocabularyList.languageBPMF
+                            statePreviewText = previewText + "Language"
                         }.padding(.bottom,5)
                         
                         Button("Location"){
                             vocabularyTranslation = self.vocabularyList.locationTranslation
                             vocabularyBPMF = self.vocabularyList.locationBPMF
+                            statePreviewText = previewText + "Location"
                         }.padding(.bottom,5)
                         
                         Button("Machines"){
                             vocabularyTranslation = self.vocabularyList.machinesTranslation
                             vocabularyBPMF = self.vocabularyList.machinesBPMF
+                            statePreviewText = previewText + "Machines"
                         }.padding(.bottom,5)
                         
-                        Button("Measure\nWords"){
+                        Button("Measure Words"){
                             vocabularyTranslation = self.vocabularyList.measureWordsTranslation
                             vocabularyBPMF = self.vocabularyList.measureWordsBPMF
+                            statePreviewText = previewText + "Measure Words"
                         }.padding(.bottom,5)
                         
                         Button("Media"){
                             vocabularyTranslation = self.vocabularyList.mediaTranslation
                             vocabularyBPMF = self.vocabularyList.mediaBPMF
+                            statePreviewText = previewText + "Media"
                         }.padding(.bottom,5)
                     }
                     VStack{
-                            Button("Mental\nVerbs"){
+                            Button("Mental Verbs"){
                                 vocabularyTranslation = self.vocabularyList.mentalVerbsTranslation
                                 vocabularyBPMF = self.vocabularyList.mentalVerbsBPMF
+                                statePreviewText = previewText + "Mental Verbs"
                             }.padding(.bottom,5)
                         
                             Button("Dessert"){
                                 vocabularyTranslation = self.vocabularyList.dessertTranslation
                                 vocabularyBPMF = self.vocabularyList.dessertBPMF
+                                statePreviewText = previewText + "Dessert"
                             }.padding(.bottom,5)
                         
                             
                             Button("Nature"){
                                 vocabularyTranslation = self.vocabularyList.natureTranslation
                                 vocabularyBPMF = self.vocabularyList.natureBPMF
+                                statePreviewText = previewText + "Nature"
                             }.padding(.bottom,5)
                         }
                         
@@ -499,26 +557,31 @@ struct Vocabulary: View {
                         Button("Patterns"){
                             vocabularyTranslation = self.vocabularyList.patternsTranslation
                             vocabularyBPMF = self.vocabularyList.patternsBPMF
+                            statePreviewText = previewText + "Patterns"
                         }.padding(.bottom,5)
                         
-                        Button("Personal\nCharacteristics"){
+                        Button("Personal Characteristics I"){
                             vocabularyTranslation = self.vocabularyList.personalCharacteristicTranslation
                             vocabularyBPMF = self.vocabularyList.personalCharacteristicBPMF
-                        }.padding(.bottom,5).font(.system(size: 10))
+                            statePreviewText = previewText + "Personal Characteristics I"
+                        }.padding(.bottom,5)
                         
-                        Button("Personal\nCharacteristics(2)"){
+                        Button("Personal Characteristics II"){
                             vocabularyTranslation = self.vocabularyList.personalCharacteristicTranslation2
                             vocabularyBPMF = self.vocabularyList.personalCharacteristicBPMF2
-                        }.padding(.bottom,5).font(.system(size: 10))
+                            statePreviewText = previewText + "Personal Characteristics II"
+                        }.padding(.bottom,5)
                         
-                        Button("Physical\nDescription"){
+                        Button("Physical Description"){
                             vocabularyTranslation = self.vocabularyList.physicalDescriptionTranslation
                             vocabularyBPMF = self.vocabularyList.physicalDescriptionBPMF
+                            statePreviewText = previewText + "Physical Description"
                         }.padding(.bottom,5)
                         
                         Button("Place Names"){
                             vocabularyTranslation = self.vocabularyList.placeNamesTranslation
                             vocabularyBPMF = self.vocabularyList.placeNamesBPMF
+                            statePreviewText = previewText + "Place Names"
                         }.padding(.bottom,5)
                         
                     }
@@ -527,159 +590,176 @@ struct Vocabulary: View {
                         Button("Occupation"){
                             vocabularyTranslation = self.vocabularyList.occupationTranslation
                             vocabularyBPMF = self.vocabularyList.occupationBPMF
+                            statePreviewText = previewText + "Occupation"
                         }.padding(.bottom,5)
                         
                         Button("Relationships"){
                             vocabularyTranslation = self.vocabularyList.relationshipsTranslation
                             vocabularyBPMF = self.vocabularyList.relationshipsBPMF
+                            statePreviewText = previewText + "Relationships"
                         }.padding(.bottom,5)
                         
                         Button("Remarks"){
                             vocabularyTranslation = self.vocabularyList.remarksTranslation
                             vocabularyBPMF = self.vocabularyList.remarksBPMF
+                            statePreviewText = previewText + "Remarks"
                         }.padding(.bottom,5)
                         
                         Button("Restaurants"){
                             vocabularyTranslation = self.vocabularyList.restaurantsTranslation
                             vocabularyBPMF = self.vocabularyList.restaurantsBPMF
+                            statePreviewText = previewText + "Restaurants"
                         }.padding(.bottom,5)
                         
                         Button("Sayings"){
                             vocabularyTranslation = self.vocabularyList.sayingsTranslation
                             vocabularyBPMF = self.vocabularyList.sayingsBPMF
+                            statePreviewText = previewText + "Sayings"
                         }.padding(.bottom,5)
                         
                         Button("School"){
                             vocabularyTranslation = self.vocabularyList.schoolTranslation
                             vocabularyBPMF = self.vocabularyList.schoolBPMF
+                            statePreviewText = previewText + "School"
                         }.padding(.bottom,5)
                         
                         Button("Shopping"){
                             vocabularyTranslation = self.vocabularyList.shoppingTranslation
                             vocabularyBPMF = self.vocabularyList.shoppingBPMF
+                            statePreviewText = previewText + "Shopping"
                         }.padding(.bottom,5)
+                            
                     }
                     
                     VStack{
-                        Button("Specific\nMovements (1)"){
+                        Button("Specific Movements I"){
                             vocabularyTranslation = self.vocabularyList.specificMovementTranslation
                             vocabularyBPMF = self.vocabularyList.specificMovementBPMF
+                            statePreviewText = previewText + "Specific Movements I"
                         }.padding(.bottom,5)
                         
-                        Button("Specific\nMovements (2)"){
+                        Button("Specific Movements II"){
                             vocabularyTranslation = self.vocabularyList.specificMovementTranslation2
                             vocabularyBPMF = self.vocabularyList.specificMovementBPMF2
+                            statePreviewText = previewText + "Specific Movements II"
                         }.padding(.bottom,5)
                         
-                        Button("Specific\nMovements (3)"){
+                        Button("Specific Movements III"){
                             vocabularyTranslation = self.vocabularyList.specificMovementTranslation3
                             vocabularyBPMF = self.vocabularyList.specificMovementBPMF3
+                            statePreviewText = previewText + "Specific Movements III"
                         }.padding(.bottom,5)
                         
-                        Button("Specific\nMovements (4)"){
+                        Button("Specific Movements IV"){
                             vocabularyTranslation = self.vocabularyList.specificMovementTranslation4
                             vocabularyBPMF = self.vocabularyList.specificMovementBPMF4
+                            statePreviewText = previewText + "Specific Movements IV"
                         }.padding(.bottom,5)
                         
                         Button("Technology"){
                             vocabularyTranslation = self.vocabularyList.technologyTranslation
                             vocabularyBPMF = self.vocabularyList.technologyBPMF
+                            statePreviewText = previewText + "Technology"
                         }.padding(.bottom,5)
                         
-                        Button("Time\nWords"){
+                        Button("Time Words"){
                             vocabularyTranslation = self.vocabularyList.timeWordsTranslation
                             vocabularyBPMF = self.vocabularyList.timeWordsBPMF
+                            statePreviewText = previewText + "Time Words"
                         }.padding(.bottom,5)
                         
                         Button("Travel"){
                             vocabularyTranslation = self.vocabularyList.travelTranslation
                             vocabularyBPMF = self.vocabularyList.travelBPMF
+                            statePreviewText = previewText + "Travel"
                         }.padding(.bottom,5)
                         
                         Button("Vegetables"){
                             vocabularyTranslation = self.vocabularyList.vegetableTranslation
                             vocabularyBPMF = self.vocabularyList.vegetableBPMF
+                            statePreviewText = previewText + "Vegetables"
                         }.padding(.bottom,5)
                         
                         Button("Wearables"){
                             vocabularyTranslation = self.vocabularyList.wearablesTranslation
                             vocabularyBPMF = self.vocabularyList.wearablesBPMF
+                            statePreviewText = previewText + "Wearables"
                         }.padding(.bottom,5)
                         
                     }
                 
                         
                     VStack{
-                        Button("Work(1)"){
+                        Button("Work I"){
                             vocabularyTranslation = self.vocabularyList.workTranslation
                             vocabularyBPMF = self.vocabularyList.workBPMF
+                            statePreviewText = previewText + "Work I"
                         }.padding(.bottom,5)
                         
-                        Button("Work(2)"){
+                        Button("Work II"){
                             vocabularyTranslation = self.vocabularyList.workTranslation2
                             vocabularyBPMF = self.vocabularyList.workBPMF2
+                            statePreviewText = previewText + "Work II"
                         }.padding(.bottom,5)
                         
-                        Button("Work(3)"){
+                        Button("Work III"){
                             vocabularyTranslation = self.vocabularyList.workTranslation3
                             vocabularyBPMF = self.vocabularyList.workBPMF3
+                            statePreviewText = previewText + "Work III"
                         }.padding(.bottom,5)
                         
-                        Button("Work(4)"){
+                        Button("Work IV"){
                             vocabularyTranslation = self.vocabularyList.workTranslation4
                             vocabularyBPMF = self.vocabularyList.workBPMF4
+                            statePreviewText = previewText + "Work IV"
                         }.padding(.bottom,5)
                         
-                        Button("Work(5)"){
+                        Button("Work V"){
                             vocabularyTranslation = self.vocabularyList.workTranslation5
                             vocabularyBPMF = self.vocabularyList.workBPMF5
+                            statePreviewText = previewText + "Work V"
                         }.padding(.bottom,5)
                         
-                        Button("Work(6)"){
+                        Button("Work VI"){
                             vocabularyTranslation = self.vocabularyList.workTranslation6
                             vocabularyBPMF = self.vocabularyList.workBPMF6
+                            statePreviewText = previewText + "Work VI"
                         }.padding(.bottom,5)
                         
                         
                         
                     }
                 }
-                .frame(maxWidth: 80)
-                .multilineTextAlignment(.center)
-                
+                .font(.custom("Chalkboard SE",size: 26))
+                .frame(minWidth:200, maxWidth: 250)
+                .multilineTextAlignment(.leading)
+                .padding(10)
+                .frame(alignment: .leading)
+                .foregroundColor(.black)
             }
-            .padding(.leading,10)
-            .font(.system(size: 12))
-            NavigationView{
-                VStack{
-                    NavigationLink(destination: ContentPreview(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF)){
-                    Text("Preview")
 
-                    }
-                    
+                NavigationLink(destination: ContentPreview(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF, pronunciationTextMode: self.$pronunciationTextMode,pronunciationVoiceMode: self.$pronunciationVoiceMode, voiceSelection:self.$voiceSelection, timerValue: self.$timerValue,testModeSelection: self.$testModeSelection)){
+                Text(statePreviewText)
                 }
-                .navigationBarHidden(true)
-                .navigationBarTitle("")
-                
-                
-            }
+                .frame(width: screenWidth, height: 40, alignment: .center)
+                //.navigationBarHidden(true)
+                //.navigationBarTitle("")
+                .foregroundColor(PreviewStartColor)
+                .font(.system(size: 20, weight: .heavy))
+                .padding()
+    
             
-            VStack{
-                
-                NavigationLink(destination: Test(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF, pronunciation: self.$pronunciation, timerValue: self.$timerValue)){
-                Text("S\nt\na\nr\nt\n \nT\ne\ns\nt\n")
-                }.disabled(self.vocabularyTranslation == [""])
-            }
-            .padding(.leading,5)
-            .padding(.trailing)
         }
     }
 }
 
 struct Vocabulary_Previews: PreviewProvider {
-    @State static var pronunciation = true
+    @State static var pronunciationTextMode = true
+    @State static var pronunciationVoiceMode = true
+    @State static var voiceSelection = ""
     @State static var timerValue = 1.1
+    @State static var testModeSelection = ""
     static var previews: some View {
-        Vocabulary(pronunciation:$pronunciation, timerValue:$timerValue)
+        Vocabulary(pronunciationTextMode:$pronunciationTextMode,pronunciationVoiceMode:$pronunciationVoiceMode, voiceSelection:$voiceSelection, timerValue:$timerValue,testModeSelection: $testModeSelection)
     }
 }

@@ -6,60 +6,69 @@
 //
 
 import SwiftUI
+import Darwin
 
 struct PinyinZhuyin: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @Binding var pronunciation : Bool
-    
+    @Binding var pronunciationTextMode : Bool
+    @Binding var pronunciationVoiceMode : Bool
+    @Binding var voiceSelection : String
+    @Binding var timerValue : Double
+  
+    @State var timerSetValue = 0.0
     // Symbols
-    let zhuyinSymbols = ["b","d","ˇ","ˋ","zh","ˊ","˙","a","ai","an","er",
-    "p","t","g","j","ch","z","i","o","ei","en","m","n","k","q","sh","c","wu","e","ao","ang","f","l","h","x","r","s","ü","eh","ou","eng"]
+    let pinyinSymbols = ["b","p","m","f","d","t","n","l","ˇ","g","k",
+                         "h","ˋ","j","q","x","zh","ch","sh","r","ˊ","z","c","s","˙","i","u","ü","a","o","e","e","ai","ei","ao","ou","an","en","ang","eng","er"]
+    
+    let zhuyinSymbols = ["ㄅ","ㄆ","ㄇ","ㄈ","ㄉ","ㄊ","ㄋ","ㄌ","ˇ","ㄍ","ㄎ",
+                         "ㄏ","ˋ","ㄐ","ㄑ","ㄒ","ㄓ","ㄔ","ㄕ","ㄖ","ˊ","ㄗ","ㄘ","ㄙ","˙","ㄧ","ㄨ","ㄩ","ㄚ","ㄛ","ㄜ","ㄝ","ㄞ","ㄟ","ㄠ","ㄡ","ㄢ","ㄣ","ㄤ","ㄥ","ㄦ"]
     
     let zhuyinSymbolsExample =
         ["ㄅ b in boy",
-         "ㄉ d in dad",
-         "n/a",
-         "n/a",
-         "ㄓ je in jerk",
-         "n/a",
-         "n/a",
-         "ㄚ a in fat",
-         "ㄞ igh in sigh",
-         "ㄢ an in iguana",
-         "ㄦ ur in fur",
          "ㄆ p in pout",
-         "ㄊ t in tone",
-         "ㄍ g in iguana",
-         "ㄐ j in june",
-         "ㄔ ch in choke",
-         "ㄗ z in zip",
-         "ㄧ i in iguana",
-         "ㄛ o in go",
-         "ㄟ ay in lay",
-         "ㄣ en in pen",
          "ㄇ m in mom",
-         "ㄋ n in no",
-         "ㄎ k in kit",
-         "ㄑ like the ch sound, but using kissy lips",
-         "ㄕ sh in shot",
-         "ㄘ ts in cats",
-         "ㄨ u in iguana",
-         "ㄜ uh in duh",
-         "ㄠ ow in cow",
-         "ㄤ a(ㄚ) + ng from rung\nang",
          "ㄈ f in fat",
+         "ㄉ d in dad",
+         "ㄊ t in tone",
+         "ㄋ n in no",
          "ㄌ l in low",
+         "ˇ 3rd tone",
+         "ㄍ g in iguana",
+         "ㄎ k in kit",
          "ㄏ h in how",
-         "ㄒ e when smiling while\nsaying 'she'",
+         "ˋ 4th tone",
+         "ㄐ j in june",
+         "ㄑ like the ch sound, but while smiling",
+         "ㄒ sh in sheesh",
+         "ㄓ je in jerk",
+         "ㄔ ch in choke",
+         "ㄕ sh in shot",
          "ㄖ r in drought",
+         "ˊ 2nd tone",
+         "ㄗ z in zip",
+         "ㄘ ts in cats",
          "ㄙ s in soon",
-         "ㄩ u in june",
+         "˙ neutral tone",
+         "ㄧ i in iguana",
+         "ㄨ u in iguana",
+         "ㄩ ü in june",
+         "ㄚ a in fat",
+         "ㄛ o in go",
+         "ㄜ uh in duh",
          "ㄝ e in yet",
+         "ㄞ igh in sigh",
+         "ㄟ ay in lay",
+         "ㄠ ow in cow",
          "ㄡ ow in row",
-         "ㄥ e(ㄝ) + ng from rung"]
+         "ㄢ an in iguana",
+         "ㄣ en in pen",
+         "ㄤ a + nasal sound",
+         "ㄥ ngue in tongue",
+         "ㄦ ur in fur"]
     
     @State var randomSymbol = ""
+    @State var randomZhuyinSymbol = ""
     @State var randomSymbolExample = ""
     @State var inputSymbol = ""
     
@@ -67,35 +76,63 @@ struct PinyinZhuyin: View {
     @State var score = 0
    
     // Timer
-    @State var timeRemaining = 30
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
+    let delayInSeconds = 0.5
+    
+    @State var femaleSoundBPMF = ""
+    @State var maleSoundBPMF = ""
     
     // Functions
     func generateNewSymbol() {
-        if timeRemaining > 0 {
-            let randomNumber = Int.random(in: 0...zhuyinSymbols.count-1)
-            randomSymbol = zhuyinSymbols[randomNumber]
-            randomSymbolExample = zhuyinSymbolsExample[randomNumber]
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delayInSeconds) {
+            if timerSetValue > 0 {
+                let randomNumber = Int.random(in: 0...pinyinSymbols.count-1)
+                randomSymbol = pinyinSymbols[randomNumber]
+                randomZhuyinSymbol = zhuyinSymbols[randomNumber]
+                randomSymbolExample = zhuyinSymbolsExample[randomNumber]
+                femaleSoundBPMF = "F_" + randomZhuyinSymbol
+                maleSoundBPMF = "M_" + randomZhuyinSymbol
+                if pronunciationVoiceMode == true {
+                    
+                    if voiceSelection == "Male" {
+                        SoundManager.instance.playSound(sound: maleSoundBPMF)
+                    }
+                    if voiceSelection == "Female"{
+                        SoundManager.instance.playSound(sound: femaleSoundBPMF)
+                    }
+                }
+            }
         }
     }
     
     func checkSymbols(a:String,b:String) {
-        if a == b && timeRemaining > 0{
+        if a == b && timerSetValue > 0{
             self.score += 1
+            SoundManager.instance.playSound(sound: "ding")
         }
+        else{
+            SoundManager.instance.playSound(sound: "bonk")
+        }
+        
     }
     
     // Game
     @State var showingGame = false
+    
+    init(pronunciationTextMode: Binding<Bool>,pronunciationVoiceMode: Binding<Bool>,voiceSelection: Binding<String>,timerValue:Binding<Double>){
+        _pronunciationTextMode = pronunciationTextMode
+        _pronunciationVoiceMode = pronunciationVoiceMode
+        _voiceSelection = voiceSelection
+        _timerValue = timerValue
+        _timerSetValue = State(initialValue: timerValue.wrappedValue)
+    }
+    
     var body: some View {
         ZStack{
             
-            
             VStack(alignment: .center) {
-                Text("Score: " + String(self.score))
- 
-                Spacer()
-                    .frame(width: 0.0, height: 100.0)
+                Text("Score: " + String(self.score)).padding(10)
                 ZStack{
                     VStack{
                         Text(randomSymbol)
@@ -104,10 +141,11 @@ struct PinyinZhuyin: View {
                             .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                             .font(.system(size:100))
                             .foregroundColor(.black)
-                            .onAppear(perform: {
-                                generateNewSymbol()
-                            })
-                        if pronunciation == true {
+                            .onAppear{
+                                let randomNumber = Int.random(in: 0...zhuyinSymbols.count-1)
+                                    randomSymbol = pinyinSymbols[randomNumber]
+                            }
+                        if pronunciationTextMode == true {
                             Text(randomSymbolExample)
                                 .padding()
                                 .opacity(0.5)
@@ -118,10 +156,10 @@ struct PinyinZhuyin: View {
                 }
                 Spacer()
                 HStack{
-                    Text("Time Remaining: \(timeRemaining)")
+                    Text("Time Remaining: \(timerSetValue, specifier: "%.0f")")
                         .onReceive(timer) { _ in
-                                        if timeRemaining > 0 {
-                                            timeRemaining -= 1
+                                        if timerSetValue > 0 {
+                                            timerSetValue -= 1
                                         }
                         }
                 }
@@ -304,7 +342,7 @@ struct PinyinZhuyin: View {
             }.foregroundColor(.black)
             
             VStack{
-                if timeRemaining == 0 {
+                if timerSetValue == 0 {
                     ZStack{
                         Color.gray
                                     .opacity(0.4)
@@ -323,9 +361,13 @@ struct PinyinZhuyin: View {
 
 struct PinyinZhuyin_Previews: PreviewProvider {
     
-    @State static var pronunciation = true
+    @State static var pronunciationTextMode = true
+    @State static var pronunciationVoiceMode = true
+    @State static var voiceSelection = ""
+    @State static var timerValue = 1.1
+
     
     static var previews: some View {
-        PinyinZhuyin(pronunciation : $pronunciation)
+        PinyinZhuyin(pronunciationTextMode : $pronunciationTextMode, pronunciationVoiceMode : $pronunciationVoiceMode, voiceSelection: $voiceSelection, timerValue:$timerValue)
     }
 }

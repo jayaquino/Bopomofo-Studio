@@ -12,7 +12,7 @@ struct Test: View {
     
     @Binding var contentOne: [String]
     @Binding var contentTwo: [String]
-    @Binding var pronunciation: Bool
+    @Binding var pronunciationTextMode: Bool
     @Binding var timerValue: Double
     @State var timerSetValue = 0.0
     @State var randomSymbol:String = ""
@@ -32,10 +32,10 @@ struct Test: View {
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     let randomNumber = 0
     
-    init(contentOne: Binding<[String]>,contentTwo: Binding<[String]>,pronunciation: Binding<Bool>,timerValue: Binding<Double>){
+    init(contentOne: Binding<[String]>,contentTwo: Binding<[String]>,pronunciationTextMode: Binding<Bool>,timerValue: Binding<Double>){
         _contentOne = contentOne
         _contentTwo = contentTwo
-        _pronunciation = pronunciation
+        _pronunciationTextMode = pronunciationTextMode
         _timerValue = timerValue
         _timerSetValue = State(initialValue: timerValue.wrappedValue)
     }
@@ -52,6 +52,10 @@ struct Test: View {
     func checkSymbols(a:String,b:String) {
         if a == b && timerValue > 0{
             self.score += 1
+            SoundManager.instance.playSound(sound: "ding")
+        }
+        else{
+            SoundManager.instance.playSound(sound: "bonk")
         }
     }
   
@@ -62,7 +66,7 @@ struct Test: View {
             VStack(alignment: .center) {
                 Text("Score: " + String(self.score))
                     .navigationBarBackButtonHidden(true)
-                if pronunciation == true{
+                if pronunciationTextMode == true{
                     Text(randomKey)
                         .padding()
                         .opacity(0.5)
@@ -247,9 +251,7 @@ struct Test: View {
                         Spacer()
                         
                         Button("Submit") {
-                            if userInput == randomKey {
-                                score += 1
-                            }
+                            checkSymbols(a: userInput, b: randomKey)
                             if userInput != randomKey {
                                 wrongWords.append(randomSymbol)
                                 wrongKey.append(userInput)
@@ -330,10 +332,10 @@ struct Test: View {
 struct Test_Previews: PreviewProvider {
     @State static var contentOne = [""]
     @State static var contentTwo = [""]
-    @State static var pronunciation = true
+    @State static var pronunciationTextMode = true
     @State static var timerValue = 1.1
     
     static var previews: some View {
-        Test(contentOne: $contentOne,contentTwo: $contentTwo, pronunciation: $pronunciation, timerValue:$timerValue)
+        Test(contentOne: $contentOne,contentTwo: $contentTwo, pronunciationTextMode: $pronunciationTextMode, timerValue:$timerValue)
     }
 }
