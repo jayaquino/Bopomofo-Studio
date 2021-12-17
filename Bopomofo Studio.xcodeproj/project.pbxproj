@@ -13,7 +13,6 @@
 		5237C18826A5CB4000C7BC56 /* Bopomofo_StudioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C18726A5CB4000C7BC56 /* Bopomofo_StudioTests.swift */; };
 		5237C19326A5CB4000C7BC56 /* Bopomofo_StudioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C19226A5CB4000C7BC56 /* Bopomofo_StudioUITests.swift */; };
 		5237C1A126A5CC0800C7BC56 /* Zhuyin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C1A026A5CC0800C7BC56 /* Zhuyin.swift */; };
-		5237C1A326A5CC3900C7BC56 /* PinyinZhuyin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C1A226A5CC3900C7BC56 /* PinyinZhuyin.swift */; };
 		5253431B2751026400C439AC /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5253431A2751026400C439AC /* ding.mp3 */; };
 		5253431D275102F300C439AC /* bonk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5253431C275102F300C439AC /* bonk.mp3 */; };
 		5253431F2751034A00C439AC /* eng.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5253431E2751034A00C439AC /* eng.mp3 */; };
@@ -127,7 +126,6 @@
 		5237C19226A5CB4000C7BC56 /* Bopomofo_StudioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bopomofo_StudioUITests.swift; sourceTree = "<group>"; };
 		5237C19426A5CB4000C7BC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5237C1A026A5CC0800C7BC56 /* Zhuyin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zhuyin.swift; sourceTree = "<group>"; };
-		5237C1A226A5CC3900C7BC56 /* PinyinZhuyin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinyinZhuyin.swift; sourceTree = "<group>"; };
 		5253431A2751026400C439AC /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
 		5253431C275102F300C439AC /* bonk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bonk.mp3; sourceTree = "<group>"; };
 		5253431E2751034A00C439AC /* eng.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eng.mp3; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 				5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */,
 				5237C17726A5CB3E00C7BC56 /* ContentView.swift */,
 				5237C1A026A5CC0800C7BC56 /* Zhuyin.swift */,
-				5237C1A226A5CC3900C7BC56 /* PinyinZhuyin.swift */,
 				52C479AC26AB886900E3540F /* Settings.swift */,
 				52C479AE26AB9BDC00E3540F /* ContentPreview.swift */,
 				52C479B026AC8DFE00E3540F /* Vocabulary.swift */,
@@ -611,7 +608,6 @@
 				5237C1A126A5CC0800C7BC56 /* Zhuyin.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
 				52C479B326B3906200E3540F /* Test.swift in Sources */,
-				5237C1A326A5CC3900C7BC56 /* PinyinZhuyin.swift in Sources */,
 				52C479AD26AB886900E3540F /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -779,7 +775,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -802,7 +798,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

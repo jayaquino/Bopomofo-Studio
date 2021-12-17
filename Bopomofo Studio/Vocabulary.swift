@@ -551,6 +551,12 @@ struct Vocabulary: View {
                                 vocabularyBPMF = self.vocabularyList.natureBPMF
                                 statePreviewText = previewText + "Nature"
                             }.padding(.bottom,5)
+                        
+                        Button("Office Work"){
+                            vocabularyTranslation = self.vocabularyList.officeWorkTranslation
+                            vocabularyBPMF = self.vocabularyList.officeWorkBPMF
+                            statePreviewText = previewText + "Office Work"
+                        }.padding(.bottom,5)
                         }
                         
                     VStack{
