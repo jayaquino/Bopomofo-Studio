@@ -8,237 +8,381 @@
 import SwiftUI
 
 class VocabularyList: ObservableObject{
+    
     @Published var testCharacters = [""]
     @Published var testPronunciation = [""]
+    
+    /*Basics section
+     */
+    @Published var basicsChineseBPMF = [""]
+    @Published var basicsChineseTranslation = ["i/me","he/she/it","we/us","they/them","who","what","where","when","why","to go","to come","to talk","to want","to feel\n(opinion)","to eat","to drink","and\n(only nouns)","and\n(connecting sentences)"]
+    
+    @Published var basicsNumbersBPMF = ["ㄌㄧㄥˊ","ㄧ ","ㄦˋ","ㄙㄢ ","ㄙˋ","ㄨˇ","ㄌㄧㄡˋ","ㄑㄧ ","ㄅㄚ ","ㄐㄧㄡˇ","ㄕˊ","ㄅㄞˇ","ㄑㄧㄢ ","ㄨㄢˋ"]
+    @Published var basicsNumbersTranslation = ["0","1","2","3","4","5","6","7","8","9","10s place","100s place","1000s place","10000s place"]
+    
+    @Published var basicsIntroducingYourselfBPMF = ["ㄇㄧㄥˊㄗ˙","ㄐㄧㄠˋ","ㄔㄨㄛˋㄏㄠˋ"]
+    @Published var basicsIntroducingYourselfTranslation = ["name","to be called\n(a name)","nickname"]
+    
+    @Published var basicsPersonalFavoritesBPMF = ["ㄓㄥˇㄌㄧˇ"]
+    @Published var basicsPersonalFavoritesTranslation = ["to organize"]
+    
+    
+    // This section is about popular topics
+    
+    @Published var topicLanguageLearningBPMF = ["ㄕㄤˋㄎㄜˋ","ㄒㄧㄚˋㄎㄜˋ","ㄌㄠˇㄕ ","ㄒㄩㄝˊㄕㄥ ","ㄍㄡ ㄊㄨㄥ ","ㄐㄩˇㄕㄡˇ","ㄐㄧ ㄅㄣˇ","ㄐㄧ ㄔㄨˇ","ㄕˊㄐㄧˋ","ㄐㄧㄡ ㄓㄥˋ","ㄍㄞˇㄓㄥˋ","ㄊㄨㄟˋㄅㄨˋ"]
+    @Published var topicLanguageLearningTranslation = ["to go\nto class","to get out\nof class","teacher","student","to communicate","to raise\nhand","basic","foundation\nbasic","practical","to correct\n(someone else)","to correct\n(self)","to regress\nbecome worse"]
+    
+    @Published var topicLanguageExchangeBPMF = ["ㄇㄧㄥˊㄘˊ","ㄉㄨㄥˋㄘˊ","ㄒㄧㄥˊㄖㄨㄥˊㄘˊ","ㄊㄨㄥˊㄧㄣ ㄘˊ","ㄌㄨˋㄧㄣ ","ㄊㄨㄥˊㄧㄣ ㄘˊ","ㄊㄨㄛ ㄈㄨˊ","ㄈㄢˊㄊㄧˇ","ㄅㄧㄠ ㄉㄧㄢˇㄈㄨˊㄏㄠˋ","ㄏㄨㄟˊㄎㄨㄟˋ","ㄏㄢˊㄧˋ","ㄎㄡˇㄩˇ"]
+    @Published var topicLanguageExchangeTranslation = ["noun","verb","adjective","homophones","sound\nrecording","homophones","TOEFL","traditional\nchinese","punctuation\nmarks","feedback","implied\nmeaning","colloquial"]
+    
+    @Published var topicDrivingOnRoadBPMF = ["ㄔㄜ ㄎㄨˋ","ㄉㄤˇ","ㄕㄡˇㄆㄞˊ","ㄓㄨㄢˇㄨㄢ ","ㄌㄨㄣˊㄗ˙","ㄔㄜ ㄉㄥ ","ㄢ ㄑㄩㄢˊㄉㄞˋ","ㄉㄠˋㄉㄤˇ","ㄘㄞˇ","ㄋㄧㄡˇ","ㄧㄡˊㄇㄣˊ","ㄗˋㄆㄞˊ","ㄔㄜ ㄉㄠˋ","ㄊㄧㄥˊㄔㄜ ㄨㄟˋ","ㄙㄞ ㄔㄜ ","ㄑㄧˇㄉㄨㄥˋ","ㄗㄞˋㄖㄣˊ","ㄐㄧㄝ ","ㄕㄨㄣˋㄌㄨˋ"]
+    @Published var topicDrivingOnRoadTranslation = ["garage","gear","manual\ntransmission","corner;turn","wheel","headlights","seat belt","reverse\ngear","to step on","to twist","throttle","automatic\ntransmission","traffic\nlane","parking\nspace","held up\nin traffic","to turn on\n(machine)","to carry\npassengers","to pick\nsmbdy up","on the way"]
+    
+    @Published var topicWorkingBPMF = ["ㄓㄨㄢˋㄑㄧㄢˊ","ㄧㄥˋㄓㄥ ","ㄗ ㄍㄜˊ","ㄐㄧㄚ ㄒㄧㄣ ","ㄓ ㄕˋ","ㄗㄠˇㄅㄢ ","ㄨㄢˇㄅㄢ ","ㄧㄝˋㄅㄢ ","ㄐㄧㄥˇㄍㄠˋ","ㄉㄧㄥ ㄓㄨˋ","ㄍㄨˋㄌㄧˋ","ㄉㄧˋㄨㄟˋ"]
+    @Published var topicWorkingTranslation = ["to earn\nmoney","to apply\nfor a job","qualifications","to raise\nsalary","knowledge","morning\nshift","night\nshift","late night\nshift","to warn","to breathe\ndown smbdy's\nback","to encourage","position\n(not physical)"]
+    
+    @Published var topicOfficeJobBPMF = ["ㄖㄣˊㄩㄢˊ","ㄓㄨˇㄍㄨㄢˇ","ㄍㄨㄟˋㄊㄞˊ","ㄊㄧˊㄍㄨㄥ ","ㄗㄜˊㄖㄣˋ","ㄖㄣˋㄨ˙","ㄑㄧˊㄒㄧㄢˋ","ㄔㄚˊㄎㄢˋ","ㄈㄨˋㄐㄧㄢˋ","ㄋㄟˋㄖㄨㄥˊ","ㄐㄧㄣˋㄉㄨˋ","ㄏㄨㄟˊㄎㄨㄟˋ","ㄢ ㄆㄞˊ","ㄎㄜˋㄏㄨˋ","ㄉㄨㄟˋㄧㄡˇ","ㄧㄡ ㄉㄧㄢˇ","ㄑㄩㄝ ㄉㄧㄢˇ","ㄓˋㄉㄨˋ","ㄆㄟˋㄏㄜˊ","ㄙ ㄒㄧㄚˋ"]
+    @Published var topicOfficeJobTranslation = ["personnel","supervisor","front desk","to provide","responsibility","task","deadline","to examine","e-mail\nattachment","contents","progress","feedback","to arrange\n(matters)","client","team member","advantage","disadvantage","system","to coordinate\nwith","in private"]
+    
+    @Published var topicAskingForHelpBPMF = ["ㄅㄤ ","","ㄖㄣˊㄑㄧㄥˊ"]
+    @Published var topicAskingForHelpTranslation = ["to help","to bother\nsomeone","favor"]
+    
+    @Published var topicDrinkingBPMF = ["ㄐㄧㄡˇㄌㄧㄤˋ","ㄕㄥ ㄆㄧˊㄐㄧㄡˇ"]
+    @Published var topicDrinkingTranslation = ["tolerance","draft beer"]
+    
+    @Published var topicMRTBPMF = ["ㄐㄧㄝˊㄩㄣˋ","ㄉㄧㄢˋㄈㄨˊㄊㄧ ","ㄧㄡ ㄧㄡˊㄎㄚˇ","ㄐㄧㄚ ㄓˊ","ㄆㄚˊㄉㄨㄟˋ","ㄔㄚ ㄉㄨㄟˋ"]
+    @Published var topicMRTTranslation = ["mass rapid\ntransit","escalator","MRT card","to recharge\n(money)","to get\nin line","to cut\nin line"]
+    
+    @Published var topicShoppingBPMF = ["ㄓㄜˊ","ㄧㄡ ㄏㄨㄟˋ","ㄉㄧㄥˋㄉㄢ ","ㄐㄧㄚˋㄓˊ","ㄓˊㄉㄜ˙","ㄊㄧㄠ "]
+    @Published var topicShoppingTranslation = ["discount\n(percentage)","discount","to order","value\nworth","to be\nworth it","to pick"]
+    
+    @Published var topicExplainingYourPerspectiveBPMF = ["ㄓㄨㄥˋㄉㄧㄢˇ","ㄨˋㄐㄧㄝˇ","ㄓㄨˋㄧˋ","ㄎㄨㄥˇㄆㄚˋ","ㄨˊㄙㄨㄛˇㄨㄟˋ","ㄗㄨㄛˋㄈㄚˇ","ㄉㄞˋㄅㄧㄠˇ","ㄈㄣ ㄅㄧㄢˋ"]
+    @Published var topicExplainingYourPerspectiveTranslation = ["main point","to misunderstand","to pay\nattention","to be afraid\nthat","indifferent","way of doing\nsmth","to represent","to distinguish\nto differentiate"]
+    
+    @Published var topicApologizingBPMF = ["ㄉㄨㄟˋㄅㄨˋㄑㄧˇ","ㄅㄨˋㄏㄠˇㄧˋㄙ˙","ㄘㄨㄛˋ","ㄘㄨㄛˋㄨˋ"]
+    @Published var topicApologizingTranslation = ["sorry","sorry (casual)\nexcuse me","wrong doing\nfault","mistake"]
+    
+    @Published var topicCultureBPMF = ["ㄨㄣˊㄏㄨㄚˋ","ㄨㄣˊㄏㄨㄚˋㄔㄨㄥ ㄐㄧ ","ㄇㄧˊㄒㄧㄣˋ"]
+    @Published var topicCultureTranslation = ["culture","culture shock","superstition"]
+    
+    @Published var topicCookingBPMF = ["ㄑㄧㄝ ","ㄏㄨㄥ ㄅㄟˋ","ㄓㄥ ","ㄔㄠˇ","ㄐㄧㄢ ","ㄐㄧㄤˋ","ㄓㄚˋ","ㄐㄧˇ","ㄊㄧㄢˇ"]
+    @Published var topicCookingTranslation = ["to slice/cut","to bake","steamed","scrambled","pan fried","sauce","to press\n(juice)","to squeeze\n(w/ fingers)","to lick"]
+    
+    @Published var topicDirectionsBPMF = ["ㄕㄤˋ","ㄒㄧㄚˋ","ㄗㄨㄛˇ","ㄧㄡˋ","ㄧ ㄓˊ","ㄇㄚˇㄌㄨˋ","ㄍㄨㄛˋ","ㄅㄧㄢ ","ㄅㄨˋ"]
+    @Published var topicDirectionsTranslation = ["up","down","left","right","straight","street","to cross\n(street)","side","relative\nlocation"]
+    
+    @Published var topicConvenienceStoreBPMF = ["ㄏㄨㄢ ㄧㄥˊㄍㄨㄤ ㄌㄧㄣˊ","ㄏㄨㄟˋㄩㄢˊ","ㄩㄥˋ","ㄎㄚˇ"]
+    @Published var topicConvenienceStoreTranslation = ["welcome","membership","to use","card"]
 
-    @Published var activitiesBPMF = ["ㄌㄨˋㄧㄥˊ","ㄌㄧㄡ ㄅㄧㄥ "]
-    @Published var activitiesTranslation = ["Camping","Ice Skate"]
+    @Published var topicComplainingWorkBPMF = ["ㄅㄠˋㄩㄢˋ","ㄈㄚ ㄒㄧㄝˋ","ㄌㄢˇㄍㄨㄟˇ","ㄕㄥˋㄖㄣˋ","ㄋㄧˋ","ㄧㄚ ㄓㄚˋ","ㄊㄨ ㄊㄡˊ"]
+    @Published var topicComplainingWorkTranslation = ["to complain","to vent","lazy ass","to be\ncompetent","tired\nof smth.","exploit\nworking","bald"]
     
-    @Published var alcoholBPMF = ["ㄨㄟ ㄕˋㄐㄧˋ","ㄈㄨˊㄊㄜˋㄐㄧㄚ ","ㄆㄨˊㄊㄠ˙ㄐㄧㄡˇ","ㄌㄢˊㄈㄨˇㄐㄧㄡˇ","ㄆㄧˊㄐㄧㄡˇ","ㄐㄧㄡˇㄌㄧㄤˋ"]
-    @Published var alcoholTranslation = ["Whiskey","Vodka","Wine","Rum","Beer","Tolerance"]
+    @Published var topicComplainingRelationshipBPMF = ["ㄔㄠˇㄐㄧㄚˋ","ㄅㄧˋㄇㄧㄢˇ","ㄉㄚˇㄉㄨㄢˋ","ㄐㄩˋㄐㄩㄝˊ","ㄔㄨㄥ ㄊㄨ ","ㄐㄧㄚˇㄕㄜˋ","ㄌㄧˋㄔㄤˇ","ㄐㄧㄠ ㄠˋ","ㄅㄨˋㄌㄧˇ","ㄇㄚˋ","ㄧㄣˇㄙ ","ㄏㄨㄞˊㄧˊ","ㄗㄞˋㄏㄨ˙","ㄗㄞˋㄧˋ","ㄐㄧㄝˋㄧˋ","ㄑㄧˋㄓㄚˋ","ㄢ ㄨㄟˋ","ㄇㄠˋㄈㄢˋ","ㄐㄩˋㄌㄧˊ","ㄈㄥ ㄎㄨㄤˊ","ㄓㄢˋㄆㄧㄢˊㄧ˙"]
+    @Published var topicComplainingRelationshipTranslation = ["to argue","to avoid","to interrupt","to reject","conflicts","to assume","perspective","pride","ignore","to scold","secrets","to doubt","to care\n(about people)","to care\n(about things)","to mind","to burst\nwith rage","to comfort","to offend","distant\n(emotionally)","crazy","take\nadvantage of"]
     
-    @Published var animalsBPMF = ["ㄔㄨㄥˊㄗ˙","ㄉㄧㄥ ","ㄉㄚˋㄒㄧㄥ ㄒㄧㄥ˙","ㄧㄚ ㄗ˙","ㄆㄧˊㄒㄧㄡ "]
-    @Published var animalsTranslation = ["Insects","To Sting","Gorilla","Duck","Mythical\n(dragon head;\nlion body)"]
+    @Published var topicObsceneWordsBPMF = ["ㄗㄤ ㄏㄨㄚˋ","ㄍㄠˇ","ㄒㄧㄚˋㄌㄧㄡˊㄏㄨㄚˋ","ㄈㄟˋㄏㄨㄚˋ","ㄍㄢˋ","ㄎㄠˋ"]
+    @Published var topicObsceneWordsTranslation = ["obscene\nwords","to do (bad)","dirty\nwords","bullshit","fuck","shit\ndamn"]
     
-    @Published var bodyRelatedBPMF = ["ㄓㄥ ㄊㄧˇ","ㄊㄧˇㄨㄣ ","ㄐㄧㄠˇㄐㄧㄢ ","ㄐㄧㄠˇㄅㄟˋ","ㄓㄨㄥ ㄒㄧㄣ ","ㄒㄩㄥ ㄎㄡˇ","ㄕㄡˇㄓˇㄐㄧㄚ˙","ㄊㄨㄟˇ","ㄒㄧㄝˇ","ㄎㄡˇㄑㄧˋ","ㄈㄚˋㄨㄟˇ","ㄅㄛˊㄗ˙","ㄐㄧㄠˇㄏㄨㄞˊ","ㄍㄨˇㄊㄡ˙","ㄊㄨ ㄊㄡˊ","ㄅㄟˋ","ㄊㄨㄟˇㄐㄧㄠˇ","ㄕㄡˇㄨㄢˋ","ㄍㄜ ㄅㄛ˙","ㄕㄡˇㄅㄧˋ","ㄐㄧㄢ ㄅㄤˇ"]
-    @Published var bodyRelatedTranslation = ["Limbs","Body\nTemp.","Tip of Toe","Top of Foot","Central\nPoint\nof Weight","Chest","Fingernail","Leg","Blood","Breathe","Hair Ends","Neck","Ankle","Bone","Bald","Back","Legs+Feet","Wrist","Arms","Arms\n(W/ Hands)","Shoulder"]
+    @Published var topicRemarksReactionsBPMF = ["ㄓㄣ ㄐㄧㄚˇㄉㄜ˙","ㄅㄨˋㄙㄨㄢˋ","ㄕㄚˇㄧㄢˇ","ㄒㄧㄤ ㄏㄨㄚˋㄇㄚ","ㄕ ㄗㄨㄥ ","ㄈㄢˇㄓㄥˋ","","ㄌㄧㄥˋㄧ ㄈㄤ ㄇㄧㄢˋ","ㄗㄣˇㄇㄜ˙ㄕㄨㄛ ","ㄅㄧˋㄗㄨㄟˇ","ㄧ ㄌㄨˋㄕㄨㄣˋㄈㄥ ","ㄏㄨㄛˊㄍㄞ "]
+    @Published var topicRemarksReactionsTranslation = ["really?!","it doesn't count","unbelievable","is that\nreasonable?","anyway,...","where did\nhe/she go?\nhe/she disappeared","on the other hand,...","how so?","shut up","have a\ngood trip!","serves you right"]
     
-    @Published var bodyRelatedBPMF2 = ["ㄍㄜ ㄅㄛ˙ㄓㄡˇ","ㄒㄧㄚˋㄅㄚ˙","ㄔㄨㄣˊ","ㄌㄧㄢˇㄐㄧㄚˊ","ㄐㄧㄝˊㄇㄠˊ","ㄇㄟˊㄇㄠˊ","ㄜˊㄊㄡˊ","ㄉㄚˋㄊㄨㄟˇ","ㄒㄧㄠˇㄊㄨㄟˇ","ㄖㄢˇㄈㄚˋ"]
-    @Published var bodyRelatedTranslation2 = ["Elbow","Chin","Lip","Cheeks","Eyelash","Eyebrows","Forehead","Thigh","Lower Leg","To Dye Hair"]
     
-    @Published var breakfastBPMF = ["ㄏㄨㄚ ㄕㄥ "]
-    @Published var breakfastTranslation = ["Peanut"]
     
-    @Published var clothesBPMF = ["ㄒㄧ ㄓㄨㄤ "]
-    @Published var clothesTranslation = ["Western\nSuit"]
+    // This section is about specific scenarios that happen in everyday life
+    @Published var scenarioRunningOutOfBatteryBPMF = ["ㄔㄚ ㄗㄨㄛˋ","ㄔㄚ ","ㄅㄚˊ","ㄔㄨㄥ ㄉㄧㄢˋㄑㄧˋ","ㄔㄚ ㄊㄡˊ","ㄒㄧㄥˊㄉㄨㄥˋㄉㄧㄢˋㄩㄢˊ","ㄉㄧㄢˋㄩㄢˊㄒㄧㄢˋ"]
+    @Published var scenarioRunningOutofBatteryTranslation = ["electric\nsocket","to plug in","to pull out","charger","charger block","power bank","power cable"]
     
-    @Published var conversationBPMF = ["ㄓㄨㄥˋㄉㄧㄢˇ","ㄏㄨㄟˊㄎㄨㄟˋ","ㄒㄩㄣˋㄏㄠˋ","ㄔㄨㄟ ㄋㄧㄡˊ","ㄈㄚ ㄒㄧㄝˋ","ㄏㄢˊㄧˋ","ㄇㄧㄢˋㄉㄨㄟˋ","ㄕㄥ ㄕㄨ ","ㄔㄨㄛˋㄏㄠˋ","ㄍㄡ ㄊㄨㄥ ","ㄇㄧㄥˊㄑㄩㄝˋ","ㄧ ㄐㄧㄢˋ","ㄒㄧㄣ ㄌㄧㄥˇ","ㄊㄨㄥˇㄎㄨㄞ˙","ㄊㄧˊㄑㄧˇ","ㄇㄚˋ","ㄅㄠˋㄩㄢˋ","ㄌㄨㄢˋㄐㄧㄤˇ","ㄌㄨˋㄧㄣ ","ㄧㄣˇㄙ "]
-    @Published var conversationTranslation = ["Main Point","Feedback","Reception\nor Signal","To Brag","To Vent","Implied\nMeaning","To Confront","To Be Rusty","Nickname","To Communicate","Accurate\nTo Make Clear\nClear","An Objection","To Understand\nBut Reject","Straightforward\nDirect","To Mention","To Scold","To Complain","To speak\ncarelessly","Sound\nRecording","Secrets"]
+    @Published var scenarioOrderingDrinksBPMF = ["ㄖㄜˋ","ㄨㄣ ","ㄅㄧㄥ ","ㄅㄟ ","ㄒㄧㄠˇ","ㄓㄨㄥ ","ㄉㄚˋ","ㄊㄤˊ","ㄑㄩˋ","ㄨㄟ ","ㄅㄢˋ","ㄑㄩㄢˊ"]
+    @Published var scenarioOrderingDrinksTranslation = ["hot","warm","ice","cup\n(drink size)","small(size)","medium(size)","large(size)","sugar","none~0%","micro~30%","half~50%","full~100%"]
     
+    @Published var scenarioGettingGasBPMF = ["ㄐㄧㄚ ㄇㄢˇ","ㄊㄧㄢˋㄊㄧㄥˊ"]
+    @Published var scenarioGettingGasTranslation = ["fill till full","gas popping noise\n(when full)"]
+    
+    @Published var scenarioRestaurantBPMF = ["ㄩㄥˋㄘㄢ ","ㄋㄟˋㄩㄥˋ","ㄨㄞˋㄉㄞˋ","ㄉㄚˇㄅㄠ ","ㄉㄧㄥˋㄨㄟˋ","ㄈㄨˊㄨˋ","ㄏㄨㄟˊㄔㄨㄥ ","ㄎㄣˇ","ㄐㄧㄠˊ","ㄗㄠˇ","ㄇㄢˇㄧˋ"]
+    @Published var scenarioRestaurantTranslation = ["to have a meal","eat in","take out","to make\na reservation","bag\nleftovers","service","to refill\n(tea bag)","to nibble","to chew","to bite","satisfied"]
+    
+    @Published var scenarioWearingClothesBPMF = ["ㄧ ㄈㄨˊ","ㄎㄡˋ","ㄒㄧˋ","ㄆㄧˊㄉㄞˋ","ㄉㄞˋ","ㄔㄨㄢ ","ㄉㄚ ㄆㄟˋ","ㄐㄩㄢ "]
+    @Published var scenarioWearingClothesTranslation = ["clothes","to button\nup","to fasten\n(belt)","belt","to wear\n(accessories)","to wear(clothes)","to match\n(clothes)","to donate"]
+    
+    @Published var scenarioHaircutBPMF = ["ㄐㄧㄢˇ","ㄉㄨㄢˋ","ㄐㄧㄢˇㄘㄥˊ"]
+    @Published var scenarioHaircutTranslation = ["to cut","short","fade"]
+    
+    @Published var scenarioFacingChallengesBPMF = ["ㄊㄧㄠˇㄓㄢˋ","ㄧㄥˋㄧㄠˋ","ㄎㄜˋㄈㄨˊ","ㄈㄢˇㄏㄨㄟˇ","ㄔㄨˇㄌㄧˇ","ㄍㄠˇㄗㄚˊ","ㄘㄡˋㄏㄜ˙","ㄐㄧㄝˇㄐㄩㄝˊ","ㄍㄨㄢ ㄔㄚˊ"]
+    @Published var scenarioFacingChallengesTranslation = ["challenge","set on doing\nsmth","to overcome","to back out","to deal with\nto handle","to mess\nsmth up","to improvise\nto make do","to fix\na problem","to observe and\nsee what\nhappens"]
+    
+    @Published var scenarioInterviewBPMF = ["ㄇㄧㄢˋㄕˋ","ㄅㄧㄠˇㄑㄧㄥˊ"]
+    @Published var scenarioInterviewTranslation = ["interview","expression\n(facial)"]
+    
+    @Published var scenarioBeingDownBPMF = ["ㄐㄧㄥ ㄕㄣ ","ㄒㄧㄣ ㄑㄧㄥˊ","ㄎㄨ ","ㄌㄧㄡˊㄧㄢˇㄌㄟˋ"]
+    @Published var scenarioBeingDownTranslation = ["energy","state of mind\n(mood)","to cry","to shed tears"]
+    
+    @Published var scenarioComputerBPMF = ["ㄉㄧㄢˋㄋㄠˇ","ㄨㄤˇㄓㄢˋ","ㄉㄚˇㄗˋ","ㄕㄢ ㄔㄨˊ","ㄆㄧㄥˊㄐㄧㄚˋ","ㄒㄧㄡ ㄌㄧˇ"]
+    @Published var scenarioComputerTranslation = ["computer","website","to type","to delete","reviews","to repair"]
+    
+    @Published var scenarioThrowingTrashBPMF = ["ㄌㄜˋㄙㄜˋ","ㄉㄧㄡ ","ㄏㄨㄟˊㄕㄡ ","ㄌㄜˋㄙㄜˋㄔㄜ "]
+    @Published var scenarioThrowingTrashTranslation = ["trash","to throw","to recycle","trash truck"]
+    
+    @Published var scenarioBeingSingleBPMF = ["ㄉㄢ ㄕㄣ ","ㄊㄡˊㄎㄢˋ","ㄈㄤˋㄍㄜ ㄗ˙","ㄊㄧㄠˊㄎㄢˇ","ㄓㄨㄟ ","ㄅㄚˇㄇㄟˋ","ㄒㄧㄣˋㄉㄨㄥˋ","ㄧˊㄏㄢˋ","ㄧㄡˊㄩˋ","ㄇㄧˊㄌㄧㄢˋ","ㄇㄟˊㄒㄧˋ","ㄕㄨˊ","ㄑㄧㄣ ㄐㄧㄣˋ","ㄍㄠˋㄅㄞˊ","ㄒㄧˋㄨㄟˊ","ㄋㄧˋㄇㄧㄥˊ","ㄌㄧˋㄒㄧㄤˇ","ㄇㄧㄥˊㄒㄧㄢˇ"]
+    @Published var scenarioBeingSingleTranslation = ["single","to steal\na glance","to stand\nsmbdy up","to tease","to pursue\n(smbdy)","to get\na girl","to feel something\n(for someone)","to regret","to hesitate","to obsess","to have\nno chance\n(hopeless)","to be familiar","to be close to","to confess\n(love)","subtle","anonymous","ideal","obvious"]
+    
+    @Published var scenarioHouseholdChoresBPMF = ["ㄇㄛˇㄅㄨˋ","ㄋㄧˊㄊㄨˇ","ㄍㄨㄚˋ"]
+    @Published var scenarioHouseholdChoresTranslation = ["cleaning\nrag","dirt","to hang\n(things)"]
 
-    @Published var conversationBPMF2 = ["ㄒㄧㄚˋㄌㄧㄡˊㄏㄨㄚˋ","ㄉㄚˇㄉㄨㄢˋ","ㄓㄨㄥ ㄉㄨㄢˋ","ㄒㄩˋㄐㄧㄡˋ","ㄨˋㄐㄧㄝˇ","ㄎㄡˇㄩˇ"]
-    @Published var conversationTranslation2 = ["Dirty\nWords","To Interrupt","To Interrupt","To talk about\nthe past","To Misunderstand","Colloquial"]
+    @Published var scenarioBeachBPMF = ["ㄕㄚ ㄊㄢ ","ㄕㄞˋ","ㄊㄞˋㄧㄤˊ"]
+    @Published var scenarioBeachTranslation = ["beach","to bathe\n(in sun)","sun"]
     
-    @Published var covid19BPMF = ["ㄐㄧㄝˇㄔㄨˊ","ㄓㄥˋㄈㄨˇ","ㄍㄢˇㄖㄢˇ","ㄖㄣˊㄕㄨˋ","ㄧˋㄇㄧㄠˊ","ㄉㄚˇ","ㄔㄨㄢˊㄖㄢˇ","ㄧˋㄑㄧㄥˊ","ㄍㄜˊㄌㄧˊ","ㄅㄠˋㄈㄚ "]
-    @Published var covid19Translation = ["To Remove\n(A level)","Government","Infection","Number\nof People","Vaccine","To take\n(vaccine)","To infect\n(others)","Epidemic\nSituation\n(Covid)","Quarantine","To Break\nOut\nOutbreak"]
+    @Published var scenarioYogaBPMF = ["ㄩˊㄐㄧㄚ ","ㄒㄧㄚˋㄑㄩㄢˇㄕˋ","ㄅㄟˋㄆㄧㄥˊ","ㄓㄨㄥ ㄒㄧㄣ ","ㄎㄡˇㄑㄧˋ","ㄒㄧ ","ㄊㄨˇ","ㄆㄧㄥˊㄅㄢˇ"]
+    @Published var scenarioYogaTranslation = ["yoga","downward\ndog","flat back","central\npoint\nof weight","breathe","breathe in","breathe out","to plank"]
     
-    @Published var cleaningBPMF = ["ㄇㄛˇㄅㄨˋ","ㄋㄧˊㄊㄨˇ"]
-    @Published var cleaningTranslation = ["Cleaning\nRag","Dirt"]
+    @Published var scenarioHandlingCameraBPMF = [""]
+    @Published var scenarioHandlingCameraTranslation = [""]
     
-    @Published var dessertBPMF = ["ㄒㄧㄢ ㄘㄠˇ","ㄒㄧㄥˋㄖㄣˊ","ㄨㄟˋㄘㄥ ","ㄅㄨˋㄌㄤˇㄋㄧˊ"]
-    @Published var dessertTranslation = ["Grass Jelly","Almond","Miso","Brownie"]
+    @Published var scenarioPackageDeliveryBPMF = ["ㄅㄠ ㄍㄨㄛˇ","ㄋㄚˊ"]
+    @Published var scenarioPackageDeliveryTranslation = ["package","to take"]
     
-    @Published var drivingBPMF = ["ㄔㄜ ㄎㄨˋ","ㄉㄤˇ","ㄕㄡˇㄆㄞˊ","ㄓㄨㄢˇㄨㄢ ","ㄌㄨㄣˊㄗ˙","ㄔㄜ ㄉㄥ ","ㄢ ㄑㄩㄢˊㄉㄞˋ","ㄉㄠˋㄉㄤˇ","ㄘㄞˇ","ㄧㄡˊㄇㄣˊ","ㄗˋㄆㄞˊ","ㄔㄜ ㄉㄠˋ","ㄊㄧㄥˊㄔㄜ ㄨㄟˋ"]
-    @Published var drivingTranslation = ["Garage","Gear","Manual\nTransmission","Corner;Turn","Wheel","Headlights","Seat Belt","Reverse\nGear","To Step On","Throttle","Automatic\nTransmission","Traffic\nLane","Parking\nSpace"]
+    @Published var scenarioSalonBPMF = ["ㄖㄢˇㄈㄚˋ"]
+    @Published var scenarioSalonTranslation = ["to dye hair"]
     
-    @Published var emotionBPMF = ["ㄎㄨㄞˋㄌㄜˋ","ㄋㄢˊㄍㄨㄛˋ","ㄕㄥ ㄑㄧˋ","ㄎㄨㄣˋㄏㄨㄛˋ","ㄕㄨ ㄈㄨ","ㄌㄨˇㄇㄤˇ","ㄑㄧˋㄓㄚˋ","ㄢ ㄨㄟˋ","ㄎㄜˋㄈㄨˊ","ㄏㄨㄞˊㄧˊ","ㄗㄞˋㄏㄨ","ㄗㄞˋㄧˋ","ㄑㄧ ㄉㄞˋ","ㄈㄢˇㄧㄥˋ","ㄅㄧㄠˇㄑㄧㄥˊ","ㄌㄧㄡˊㄌㄧㄢˋ","ㄋㄧˋ","ㄎㄤˋㄐㄩˋ","ㄍㄢˇㄖㄣˊ","ㄐㄧㄝˋㄧˋ"]
-    @Published var emotionTranslation = ["Happy","Sad","Angry","Confused","Comfy","Hot Head","To Burst\nwith Rage","To Comfort","To Endure\nHardships","To Doubt","To Care\n(Neutral)","To Care\n(Bad)","To Look\nForward To","Reaction","Expression","Reluctant\nto Leave","Tired\nof smth.","To Resist","Touching","To Mind"]
+    @Published var scenarioNatureBPMF = ["ㄌㄨˋㄊㄧㄢ ","ㄖˋㄔㄨ ","ㄖˋㄌㄨㄛˋ","ㄕㄨˋ","ㄕˊㄊㄡ˙","ㄍㄨㄤ ㄒㄧㄢˋ","ㄌㄨˋㄕㄨㄟ˙","ㄙㄣ ㄌㄧㄣˊ"]
+    @Published var scenarioNatureTranslation = ["outdoors","sunrise","sunset","trees","rocks","natural\nlighting","dew","forest"]
     
-    @Published var emotionBPMF2 = ["ㄔㄥˊㄕㄡˋ","ㄍㄨ ㄉㄢ ","ㄖㄜˋㄒㄧㄣ ","ㄈㄥ ㄎㄨㄤˊ","ㄕㄨㄤˇ","ㄧㄡˊㄩˋ","ㄒㄧㄣ ㄑㄧㄥˊ","ㄓㄨㄢ ㄓㄨˋ","ㄈㄨˋㄉㄢ ","ㄒㄧㄣ ㄉㄨㄥˋ","ㄐㄩˋㄌㄧˊ","ㄇㄧˊㄌㄧㄢˋ","ㄍㄨˇㄌㄧˋ","ㄅㄧㄠˇㄒㄧㄢˋ","ㄨˊㄙㄨㄛˇㄨㄟˋ","ㄉㄞ ㄓㄨˋ","ㄑㄧㄥˊㄒㄩˋ","ㄍㄢˇㄐㄧ ","ㄧˊㄏㄢˋ","ㄎㄨㄥˇㄆㄚˋ"]
-    @Published var emotionTranslation2 = ["To Endure","Lonely","To be Enthusiastic","Insane or\nCrazy","To feel\ngood","To Hesitate","Feeling to\ndo smth.","To Concentrate","To Bear\n(a burden)","Emotinally\nAffected\nHeartbeat","Distant","To Be\nObsessed","To Encourage","Behavior","Indifferent","To Be\nAstonished","Emotions","To Feel\nGrateful","Regret","Afraid That"]
+    @Published var scenarioImmigrantBPMF = ["ㄕㄣ ㄈㄣ˙ㄖㄣˋㄊㄨㄥˊ","ㄧˊㄇㄧㄣˊ","ㄍㄨㄟ ㄕㄨˇㄍㄢˇ","ㄈㄨˋㄉㄢ ","ㄎㄜˋㄈㄨˊ","ㄍㄨㄛˊㄇㄧㄣˊ","ㄆㄧㄢˋㄐㄧㄢˋ"]
+    @Published var scenarioImmigrantTranslation = ["personal\nidentity","to immigrate","sense of\nbelonging","to bear a\nburden","to endure\n(hardships)","citizens","prejudice"]
     
-    @Published var emotionBPMF3 = ["ㄉㄨˇㄌㄢˋ","ㄒㄧㄣ ㄊㄥˊ","ㄋㄢˊㄕㄡˋ","ㄇㄠˊㄉㄨㄣˋ","ㄊㄨㄥˊㄑㄧㄥˊㄒㄧㄣ ","ㄊㄨㄥˊㄌㄧˇㄒㄧㄣ ","ㄖㄨㄢˇㄌㄢˋ","ㄍㄨㄟ ㄕㄨˇㄍㄢˇ","ㄐㄧㄥ ㄕㄣ"]
-    @Published var emotionTranslation3 = ["To be\nticked off","To feel\nsorry","To feel\nuneasy","to feel\nconflicted","Sympathy","Empathy","Lacking\nDrive","Sense of\nBelonging","Energy"]
+    @Published var scenarioWorkingOnSomethingBPMF = ["ㄓㄨㄢ ㄒㄧㄣ ","ㄈㄣ ㄒㄧㄣ ","ㄉㄚˇㄖㄠˇ"]
+    @Published var scenarioWorkingOnSomethingTranslation = ["to concentrate","distracted","to disturb"]
     
-    @Published var exerciseBPMF = ["ㄒㄧㄚˋㄑㄩㄢˇㄕˋ","ㄅㄟˋㄆㄧㄥˊ","ㄐㄧㄢˋㄕㄣ ","ㄩˊㄐㄧㄚ "]
-    @Published var exerciseTranslation = ["Downward\nDog","Flat Back","To keep fit\nwith\nexercise","Yoga"]
+    @Published var scenarioWorkingInManufacturingDesignBPMF = ["ㄍㄨㄟ ㄍㄜˊ","ㄈㄥ ㄒㄧㄢˇ","ㄍㄨㄥ ㄔㄚ ","ㄗㄨㄟˋㄒㄧㄠˇㄏㄨㄚˋ","ㄗㄨㄟˋㄉㄚˋㄏㄨㄚˋ","ㄊㄜˋㄒㄧㄥˊ","ㄒㄧㄥˊㄕˋ","ㄅㄧㄢˋㄒㄧㄥˊ","ㄖㄨㄢˇㄊㄧˇ","ㄉㄧㄢˋㄧㄚ ","ㄉㄧㄢˋㄌㄧㄡˊ","ㄆㄧㄥˊㄐㄩㄣ ","ㄐㄩˋㄊㄧˇ","ㄐㄧˊㄒㄧㄢˋ"]
+    @Published var scenarioWorkingInManufacturingDesignTranslation = ["specifications","risk","tolerance","to minimize","to maximize","specific\nproperty","outer\nappearance","to deform","software","voltage","current","average","specific or\nconcrete","limit"]
     
-    @Published var familyBPMF = ["ㄦˊㄊㄨㄥˊ","ㄓˊㄗ˙","ㄓˊㄋㄩˇ","ㄒㄧㄠˋㄕㄨㄣˋ","ㄌㄠˇㄆㄛˊ","ㄌㄠˇㄍㄨㄥ ","ㄚ ㄍㄨㄥ ","ㄚ ㄇㄚˊ","ㄨㄞˋㄕㄥ ㄋㄩˇ","ㄨㄞˋㄕㄥ ","ㄅㄧㄠˇ","ㄊㄤˊ"]
-    @Published var familyTranslation = ["Children\n(Young)","Nephew\n(Brother's)","Niece\n(Brother's)","Filial","Wife","Husband","Grandpa","Grandma","Niece\n(Sister's)","Nephew\n(Brother's)","Cousin\n(Mom's Side)","Cousin\n(Dad's Side)"]
+    @Published var scenarioWorkingInManufacturngProcessBPMF = ["ㄓˋㄔㄥˊ","ㄕㄥ ㄔㄤˇ","ㄓˋㄌㄧㄤˋ","ㄧㄢˋㄓㄥˋ","ㄧˊㄐㄧ ","ㄅㄠ ㄓㄨㄤ ","ㄇㄠˇ","ㄉㄧㄢˇㄏㄢˋ","ㄌㄟˊㄏㄢˋ","ㄒㄧ ㄏㄢˋ","ㄏㄨㄥ ㄍㄢ ","ㄕㄨˋㄌㄧㄤˋ","ㄓㄨˋㄙㄨˋ","ㄗㄨˇㄓㄨㄤ ","ㄓㄜˊ"]
+    @Published var scenarioWorkingInManufacturingProcessTranslation = ["manufacturing\nprocess","to\nmanufacture","quality","validation","to relocate\nequipment","packaging","crimp","spot welding","laser weld","soldering","oven baking","number\n(of things)","injection\nmold","assemble","to bend"]
     
-    @Published var financeBPMF = ["ㄓ ㄔㄨ ","ㄕㄡ ㄖㄨˋ","ㄌㄧˋㄖㄨㄣˋ","ㄉㄞˋㄎㄨㄢˇ","ㄏㄜˊㄈㄚˇ","ㄌㄧˋㄒㄧ ","ㄎㄨㄟ ㄑㄧㄢˋ","ㄇㄧㄢˇㄈㄟˋ","ㄕㄚ ㄐㄧㄚˋ","ㄌㄜˋㄊㄡˋ","ㄈㄚˊㄑㄧㄢˊ","ㄒㄧㄣ ㄕㄨㄟˇ"]
-    @Published var financeTranslation = ["Expense","Income","Profit","Loan","Legal","Interest","To Owe","Free","To Bargain","Lottery","To Impose\nA Fine","Salary"]
+    @Published var scenarioWorkingInManufacturingMaterialsBPMF = ["ㄔㄤˇㄕㄤ ","ㄔㄨ ㄅㄨˋ","ㄍㄨ ㄐㄧㄚˋ","ㄌㄧㄥˊㄐㄧㄢˋ","ㄊㄨˊㄘㄥˊ","ㄍㄨㄢˇㄗ˙"]
+    @Published var scenarioWorkingInManufacturingMaterialsTranslation = ["supplier\nmanufacturer\nproducer","preliminary","estimation","parts\ncomponents","coating","tube\npipe"]
     
-    @Published var foodBPMF = ["ㄨㄞˋㄙㄨㄥˋ","ㄍㄨㄟ ㄩˊ","ㄨㄟˇㄩˊ","ㄓㄤ ㄩˊ","ㄒㄧㄚ ㄗ˙","ㄩˊㄨㄢˊ","ㄐㄧㄤˋ"]
-    @Published var foodTranslation = ["Delivery","Salmon","Tuna","Octopus","Shrimp","Fish\nBall","Sauce"]
+    @Published var scenarioWorkingInManufacturingProjectManagementBPMF = ["ㄖㄣˋㄨˋ","ㄧㄠ ㄑㄧㄡˊ","ㄓㄨㄥˋㄧㄠˋㄒㄧㄥˋ","ㄊㄨㄥ ㄓ ","ㄆㄧㄥˊㄒㄧㄥˊ","ㄑㄧㄢˊㄊㄧˊ","ㄍㄨㄟ ㄏㄨㄚˋ","ㄎㄜˇㄋㄥˊㄒㄧㄥˋ","ㄊㄧㄠˊㄐㄧㄢˋ","ㄔㄥˊㄒㄩˋ","ㄈㄣ ㄒㄧ ","ㄒㄧㄠˋㄌㄩˋ","ㄎㄨㄤˋㄎㄨㄤˋ","ㄐㄧㄢˇㄔㄚˊ","ㄍㄥ ㄒㄧㄣ ","ㄒㄧㄡ ㄍㄞˇ","ㄔㄨ ㄅㄨˋ","ㄍㄨ ㄐㄧㄚˋ","ㄈㄨˋㄎㄨㄢˇ","ㄔㄨ ㄔㄞ ","ㄨㄟˊㄓㄨˇ","ㄨㄟˊㄈㄨˇ","ㄍㄨㄢˇㄌㄧˇㄅㄨˋㄇㄣˊ","ㄒㄧㄠ ㄕㄡˋㄅㄨˋ","ㄖㄣˊㄕˋㄅㄨˋ","ㄧㄢˊㄈㄚ ㄅㄨˋ"]
+    @Published var scenarioWorkingInManufacturingProjectManagementTranslation = ["tasks","requests","significance\nimportance","to notify","simultaneous","prerequisite","to schedule\n(on timeline)","probability\npossibility","requirement","procedure","analysis","efficiency","to frame","to inspect","to update","to revise","initial\npreliminary","estimation","payment","to go away\nfor business","to give\npriority to","to give\nsecondary to","administrative\ndepartment","sales\nmarketing\ndepartment","hr\ndepartment","r&d\ndepartment"]
     
-    @Published var foodRelatedBPMF = ["ㄎㄨㄞˋㄗ˙","ㄔㄚ ㄗ˙","ㄊㄤ ㄔˊ","ㄆㄢˊㄗ˙","ㄓㄥ ","ㄔㄠˇ","ㄐㄧㄢ ","ㄏㄨㄥ ㄅㄟˋ","ㄉㄠ ㄗ˙","ㄒㄧ ㄍㄨㄢˇ"]
-    @Published var foodRelatedTranslation = ["Chopstick","Fork","Soup Spoon","Plate","Steamed","Scrambled","Pan Fried","To Bake","Knife","Straw"]
     
-    @Published var fruitBPMF = ["ㄆㄧㄥˊㄍㄨㄛˇ","ㄔㄥˊㄗ˙","ㄘㄠˇㄇㄟˊ","ㄇㄤˊㄍㄨㄛˇ","ㄧㄥ ㄊㄠˊ","ㄌㄢˊㄇㄟˊ","ㄒㄧ ㄍㄨㄚ ","ㄈㄢ ㄑㄧㄝˊ","ㄆㄨˊㄊㄠˊ","ㄌㄧㄡˊㄌㄧㄢˊ","ㄩˋㄏㄜˊㄅㄠ "]
-    @Published var fruitTranslation = ["Apple","Orange","Strawberry","Mango","Cherry","Blueberry","Watermelon","Tomato","Grape","Durian","Lychee"]
     
-    @Published var gamesBPMF = ["ㄆㄧㄥˊㄊㄨˇ","ㄨㄢˊㄐㄩˋ","ㄧㄥˊㄇㄨˋ","ㄕㄨ ","ㄧㄥˊ"]
-    @Published var gamesTranslation = ["Puzzle","Toys","Screen\n(Digital)","To Lose","To Win"]
     
-    @Published var generalAdverbsBPMF = ["ㄔㄨㄥ ㄈㄣˋ","ㄅㄨˋㄉㄨㄢˋ","ㄨㄟˊㄧ ","ㄑㄧˊㄓㄨㄥ ","ㄉㄤ ㄓㄨㄥ ","ㄅㄨˋㄍㄢˇ","ㄕㄣˋㄓˋ","ㄌㄠˇㄕ˙","ㄧ ㄉㄨㄢˋㄧ ㄉㄨㄢˋ","ㄧ ㄉㄨㄟ ","ㄧ ㄅㄢ ","ㄇㄧㄢˇㄑㄧㄤˇ","ㄕㄣ ㄕㄤˋ","ㄐㄩㄝˊㄉㄨㄟˋ","ㄕㄠ ㄨㄟ ","ㄍㄢˇㄐㄧㄣˇ","ㄍㄤ ㄏㄠˇ","ㄅㄧㄥˋㄅㄨˋ","ㄖㄣˋㄏㄜˊ","ㄧㄡˊㄑㄧˊ"]
-    @Published var generalAdverbsTranslation = ["As much\nas possible","Not\nStopping","Only(Sole)","Among\nThem","Among\n(Location)","Not Dare To","Even","Always\n(neg.)","Section\nby-\nSection","A bunch","Usually\nNormally","Barely\nEnough","On Oneself","Absolutely","Slightly;\nA little","Without\nLosing\nTime","Just About\nTime","Not\nAt All","Any","Specially;\nParticularly"]
     
-    @Published var generalAdverbsBPMF2 = ["ㄐㄧㄤ ㄐㄧㄣˋ","ㄅㄞˊ","ㄗㄨㄥˇㄧㄡˇ","ㄖˋㄏㄡˋ","ㄧ ㄕㄨㄣˋ","ㄇㄢˇ","ㄐㄧ ㄏㄨ ","ㄍㄜˋㄓㄨㄥˇ"]
-    @Published var generalAdverbsTranslation2 = ["Almost","In Vain","Inevitably","Sometime\n(in the future)","In a flash","Quite","Almost","Every Kind"]
     
-    @Published var generalAdjectivesBPMF = ["ㄞˋㄇㄟˋ","ㄒㄧˋㄨㄟˊ","ㄓㄥˋㄇㄧㄢˋ","ㄈㄨˋㄇㄧㄢˋ","ㄉㄤ ㄉㄧˋ","ㄊㄜˋㄕㄨ ","ㄩˊㄔㄨㄣˇ","ㄨㄣ ㄋㄨㄢˇ","ㄒㄩ ㄏㄨㄢˋ","ㄧㄡˇㄐㄧㄢ ㄅㄤˇ","ㄓㄣ ㄓㄥˋ","ㄕㄣ ","ㄆㄧㄥˊ","ㄗㄠ ㄍㄠ ","ㄓㄣ ㄕˊ","ㄈㄢˇ","ㄕˊㄐㄧˋ","ㄨㄢˊㄇㄟˇ","ㄆㄨˇㄅㄧㄢˋ","ㄇㄛˊㄏㄨ˙","ㄕㄨㄣˋㄌㄨˋ","ㄌㄧㄠˇㄅㄨ˙ㄑㄧˇ"]
-    @Published var generalAdjectivesTranslation = ["Ambiguous","Subtle","Positive","Negative","Local","Special\nUncommon","Stupid\n(Mean)","Warm","Imaginary","Responsible","Real;True","Deep","Flat","Worse","True/Fact","Upside down\nInside out","Practical","Perfect","Common\nWidespread","Ambiguous\n(Blurry)","On The Way","Amazing\nExtraordinary"]
+    // This section is about possible discussion topics that happen in everyday life
     
-    @Published var generalAdjectivesBPMF2 = ["ㄅㄧˋㄧㄠˋ","ㄇㄧㄥˊㄒㄧㄢˇ","ㄅㄛˊ","ㄖㄡˊㄖㄨㄣˋ","ㄇㄧˊㄖㄣˊ","ㄋㄧˋㄇㄧㄥˊ","ㄌㄧˇㄒㄧㄤˇ","ㄘㄢˇ","ㄧㄠˊㄩㄢˇ","ㄐㄩˋㄊㄧˇ","ㄒㄩ ㄖㄨㄛˋ","ㄇㄢˇㄧˋ","ㄆㄧㄥˊㄐㄩㄣ ","ㄨㄢˊㄓㄥˇ","ㄌㄧㄡˊㄒㄧㄥˊ","ㄑㄩㄢˊㄇㄧㄢˋ","ㄇㄚˇㄏㄨˇ","ㄇㄢˋㄧㄡ ㄧㄡ ","ㄉㄢ ㄔㄨㄣˊ","ㄒㄧㄣ ㄎㄨˇ"]
-    @Published var generalAdjectivesTranslation2 = ["Necessary","Obvious","Thin and\nWeak","Soft and\nsmooth","Enchanting\nFascinating","Anonymous","Ideal","Brutal","Distant;\nFaraway","Specific\nConcrete","Weak","Satisfied","Average","Complete","Popular","Comprehensive","Careless","Unhurried\nLeisurely","Purely","Tough\n(work/life)"]
+    @Published var discussionGeneralBPMF = ["ㄈㄢˇㄧㄥˋ","ㄒㄧㄥˊㄖㄨㄥˊ","ㄔㄨㄟ ㄋㄧㄡˊ","ㄇㄧㄢˋㄉㄨㄟˋ","ㄊㄧˊㄑㄧˇ","ㄌㄨㄢˋㄐㄧㄤˇ","ㄇㄧㄥˊㄑㄩㄝˋ","ㄧ ㄐㄧㄢˋ","ㄕㄣ ","ㄒㄧˋㄐㄧㄝˊ","ㄒㄧㄤ ㄈㄢˇ","ㄕˋㄕˊ","ㄘˋㄕㄨˋ","ㄌㄧˋㄩㄥˋ","ㄍㄞˇㄅㄧㄢˋ","ㄈㄟ ㄧㄠˋ","ㄊㄧㄠˊㄓㄥˇ"]
+    @Published var discussionGeneralTranslation = ["reaction","to describe","to brag","to confront","to mention","to speak\ncarelessly","to make clear","an objection","deep","details","opposite","facts","number of\ntimes","to make\nuse of","to change","to insist","to adjust"]
     
-    @Published var generalAdjectivesBPMF3 = ["ㄆㄧㄥˊㄒㄧㄥˊ","ㄐㄧ ㄅㄣˇ","ㄖㄜˋㄋㄠˋ"]
-    @Published var generalAdjectivesTranslation3 = ["Simultaneously","Basic (Adj)","Lively"]
+    @Published var discussionWhatToDoBPMF = ["ㄑㄧ ㄉㄞˋ","ㄉㄚˇㄈㄚ ","ㄓㄨㄣˇㄕˊ","ㄌㄨˋㄧㄥˊ","ㄅㄠˋㄇㄧㄥˊ","ㄑㄩˇㄒㄧㄠ ","ㄕㄨㄚˇㄈㄟˋ","ㄆㄚˊㄕㄢ ","ㄌㄧㄡ ㄅㄧㄥ ","ㄌㄞˋㄔㄨㄤˊ","ㄨㄣ ㄑㄩㄢˊ"]
+    @Published var discussionWhatToDoTranslation = ["to look\nforward to","to kill\ntime","to be punctual","to be lazy in bed","to sign up","to cancel","to chill\npass time idly","to go hiking","camping","ice skate","hotsprings"]
     
-    @Published var generalNounsBPMF = ["ㄐㄧㄝ ㄉㄨㄢˋ","ㄐㄧˊㄒㄧㄢˋ","ㄎㄜ ㄒㄩㄝˊ","ㄒㄧㄤ ㄈㄢˇ","ㄕㄜˋㄏㄨㄟˋ","ㄖㄣˊㄑㄧㄥˊ","ㄆㄧㄢˋㄐㄧㄢˋ","ㄕˋㄏㄠˋ","ㄎㄜ ㄐㄧˋ","ㄘˋㄕㄨˋ","ㄩˋㄉㄧㄥˋ","ㄔˋㄅㄤˇ","ㄌㄢˊㄗ˙","ㄊㄧㄠˇㄓㄢˋ","ㄘㄨㄛˋㄨˋ","ㄔㄥˊㄈㄚˊ","ㄉㄧˋㄨㄟˋ","ㄅㄠ ㄍㄨㄛˇ","ㄊㄧㄢ ㄧˋ","ㄩㄣˋㄑㄧ˙","ㄐㄧ ㄔㄨˇ"]
-    @Published var generalNounsTranslation = ["Phase/\nStage","Limit","Science","Opposite","Society","Favor","Prejudice","Hobby\n(Good at)","Technology","Number\nof Times","Reservations","Wing-like\nthings","Basket","A Challenge","Mistake","Punishment\nPenalty","Position\n(not physical)","Package","Fate","Luck","Foundations\nBasics"]
+    @Published var discussionWhatToEatBPMF = ["ㄨㄞˋㄙㄨㄥˋ","ㄊㄧㄠ ㄕˊ","ㄔ ㄉㄠˋㄅㄠˇ","ㄕㄡˋㄙ ","ㄏㄞˇㄒㄧㄢ ","ㄕˋ"]
+    @Published var discussionWhatToEatTranslation = ["delivery","picky\neater","buffet","sushi","seafood","something-style\n(e.g. thai-style)"]
+
+    @Published var discussionRelationshipsBPMF = ["ㄌㄤˋㄇㄢˋ","ㄑㄧㄣ ㄞˋㄉㄜ˙","ㄌㄧㄥˋㄧ ㄅㄢˋ","ㄔㄨ ㄌㄧㄢˋ","ㄔㄥˊㄓㄤˇ","ㄓㄡ ㄋㄧㄢˊ","ㄓㄣ ㄒㄧ ","ㄔㄨㄥˇㄏㄨㄞˋ","ㄊㄨㄥˊㄐㄩ ","ㄈㄣ ㄐㄩ ","ㄍㄨㄢˇㄑㄧㄥˊ","ㄩㄝ ㄏㄨㄟˋ","ㄨㄣ ㄋㄨㄢˇ","ㄉㄨㄣˋㄆㄞˊ"]
+    @Published var discussionRelationshipsTranslation = ["romantic","dear","other half","first love","to grow","anniversary","to cherish","to spoil","to live\ntogether","to live\nseparate","affection\n(between two)","date\n(romantic)","warm","shield"]
     
-    @Published var generalNounsBPMF2 = ["ㄒㄧㄢˋㄓˋ","ㄉㄨㄣˋㄆㄞˊ","ㄈㄚˇㄩㄢˋ","ㄌㄧˇㄧㄡˊ","ㄩㄢˊㄧㄣ ","ㄓㄨˇㄧ˙","ㄔㄚ ㄑㄩˇ","ㄌㄧㄥˇㄌㄨˋㄖㄣˊ","ㄔㄥˊㄅㄞˋ","ㄓㄨㄟ ㄑㄧㄡˊ","ㄑㄧㄢˊㄊㄧˊ","ㄘㄢ ㄎㄠˇㄉㄧㄢˇ","ㄒㄧ ㄤˇ","ㄑㄧ ㄐㄧㄢ ","ㄩˋㄩㄝ ","ㄓㄨㄥˋㄧㄠˋㄒㄧㄥˋ","ㄍㄨㄛˊㄇㄧㄣˊ","ㄕˋㄕˊ","ㄖㄣˋㄨˋ"]
-    @Published var generalNounsTranslation2 = ["Restrictions","Shield","Court","Excuse;\nReason","Cause;\nReason","Idea","A Small\nIncident","A Guide\nLeader","Success or\nFailure","Ambitions","Prerequisite","Reference\nPoint","Thoughts","Time Period","Appointment","Significance\nImportance","Citizens","Facts","Tasks"]
+    @Published var discussionLifeGoalsBPMF = ["ㄐㄧㄝ ㄉㄨㄢˋ","ㄇㄥˋㄒㄧㄤˇ","ㄓㄨㄟ ㄑㄧㄡˊ","ㄕˋㄏㄠˋ","ㄩㄣˋㄑㄧˋ","ㄒㄧㄥˋㄩㄣˋ","ㄌㄧˇㄧㄡˊ","ㄩㄢˊㄧㄣ ","ㄧㄠˋㄎㄢˋ","ㄓㄨˇㄧ˙","ㄔㄥˊㄅㄞˋ","ㄒㄧㄢˋㄓˋ","ㄕㄤˋㄐㄧㄣˋㄒㄧㄣ ","ㄩㄢˋㄨㄤˋ","ㄓㄤˋㄞˋ","ㄕˋㄊㄨˊ","ㄒㄧㄤˋㄕㄤˋ","ㄓㄥˋㄇㄧㄥˊ","ㄔㄥˊㄨㄟˊ","ㄒㄧㄤˇㄒㄧㄤˋ"]
+    @Published var discussionLifeGoalsTranslation = ["stage\nphase","dreams\ngoals","ambitions","hobby\n(want to be\ngood)","luck\n(noun)","luck\n(adj)","excuse\n(to not do\nsmth)","reason","depends on","idea","success and\nfailures","restrictions","desire to\ndo better","wish","obstacles","try to do\n(smth)","to advance\nhigher","to prove","to become\n(end state)","to imagine"]
     
-    @Published var generalNounsBPMF3 = ["ㄅㄛ ㄌㄧˊ","ㄆㄧㄥˊㄉㄥˇ","ㄩㄢˋㄨㄤˋ","ㄗㄨㄛˋㄈㄚˇ","ㄕㄤˋㄐㄧㄣˋㄒㄧㄣ ","ㄐㄧㄚˋㄓˊ","ㄓㄤˋㄞˋ","ㄍㄨㄛˊㄓㄨㄥ ","ㄓㄥˋㄓˋ","ㄏㄨㄛˇㄅㄢˋ","ㄒㄧㄥˊㄨㄟˊ","ㄒㄧˋㄐㄧㄝˊ","ㄌㄧㄣˊㄐㄩ "]
-    @Published var generalNounsTranslation3 = ["Glass","Equality","Wish","Way of\ndoing\nsomething","Desire to\ndo better","Value\nWorth","Obstacle","Junior\nHigh","Politics","Partner","Behavior","Details","Neighbor"]
+    @Published var discussionThePastBPMF = ["ㄑㄧ ㄐㄧㄢ "]
+    @Published var discussionThePastTranslation = ["time period"]
     
-    @Published var generalVerbsBPMF = ["ㄕˋㄊㄨˊ","ㄉㄨˋㄐㄧㄚˋ","ㄩㄥˋㄘㄢ ","ㄓㄥˇㄌㄧˇ","ㄍㄠˇ","ㄊㄧㄠ ","ㄩㄥ ㄧㄡˇ","ㄐㄧㄢˇㄕㄠˇ","ㄅㄠˋㄇㄧㄥˊ","ㄑㄧㄢˋ","ㄒㄧㄤˋㄕㄤˋ","ㄌㄧㄡˊㄉㄨㄥˋ","ㄉㄚ ㄆㄟˋ","ㄓㄨㄣˇㄕˊ","ㄅㄧˋㄇㄧㄢˇ","ㄐㄩㄢ ","ㄒㄧㄤ ㄍㄢ ","ㄔㄨㄤˋㄗㄨㄛˋ","ㄔㄨㄤˋㄗㄠ ","ㄍㄞˇㄗㄠˋ"]
-    @Published var generalVerbsTranslation = ["Try to\ndo smth.","Spend One's\nHoliday","Have a Meal","To Organize Things","To Do\n(Bad)","To Pick","To Possess","To Reduce","To Sign Up","To Owe","To Advance\nHigher","To Flow","To Match\n(Clothes,etc)","To be\n on time","To Avoid","To Donate","Have to\ndo with (neg.)","To Create\n(Small)","To Create\n(Big)","Change\n(bc. someone)"]
+    @Published var discussionGovernmentBPMF = ["ㄓㄥˋㄓˋ","ㄕㄜˋㄏㄨㄟˋ","ㄈㄚˇㄩㄢˋ","ㄈㄚˇㄌㄩˋ","ㄈㄢˋㄍㄨㄟ ","ㄊㄨㄥ ㄖㄨㄥˊ"]
+    @Published var discussionGovernmentTranslation = ["government","society","politics","court","law","to break\nthe rules","to bend\nthe rules"]
     
-    @Published var generalVerbsBPMF2 = ["ㄍㄞˇㄅㄧㄢˋ","ㄈㄢˋㄍㄨㄟ ","ㄧㄥˋㄧㄠˋ","ㄒㄧㄡ ㄌㄧˇ","ㄔㄠ ㄍㄨㄛˋ","ㄑㄩˇㄒㄧㄠ ","ㄓㄥˋㄇㄧㄥˊ","ㄆㄟˋㄈㄨ˙","ㄈㄟ ㄧㄠˋ","ㄘㄡˋㄏㄜ˙","ㄆㄠ ㄑㄧˋ","ㄅㄧˇㄕˋ","ㄒㄧㄥˊㄖㄨㄥˊ","ㄍㄠˇㄗㄚˊ","ㄊㄧㄠˊㄓㄥˇ","ㄧㄠ ㄑㄧㄡˊ","ㄙㄡ ㄒㄩㄣˊ","ㄈㄣ ㄅㄧㄢˋ","ㄘㄤˊ","ㄔㄨˇㄌㄧˇ","ㄉㄞˋㄅㄧㄠˇ","ㄐㄧㄝˇㄐㄩㄝˊ","ㄑㄧ ㄈㄨ˙","ㄉㄞˋㄌㄧㄥˇ"]
-    @Published var generalVerbsTranslation2 = ["To Change","To Break\nRules","Firmly set\non doing\nsth","To Repair","To Go\nPass/Exceed","To Cancel","To Prove","To Admire","To Insist","To Make Do/\nImprovise","To Abandon","To Despise","To Describe","To mess\nsmth. up","To Adjust","To Request","To Search","To Distinguish","To Hide","To Deal With\nTo Handle","To Represent","To fix\na problem","To Bully","To Lead"]
+    @Published var discussionAccidentsBPMF = ["ㄔㄜ ㄏㄨㄛˋ","ㄨㄟ ㄒㄧㄢˇ"]
+    @Published var discussionAccidentsTranslation = ["accident","dangerous"]
     
-    @Published var generalVerbsBPMF3 = ["ㄉㄞˋㄓㄜ˙","ㄓˊㄉㄜ˙","ㄧㄥ ㄉㄜ˙","ㄒㄧㄠ ㄕ ","ㄕ ㄗㄨㄥ ","ㄕㄚ ","ㄉㄢ ㄨˋ","ㄊㄨㄥ ㄖㄨㄥˊ","ㄇㄛˊㄈㄤˇ","ㄎㄜˋㄈㄨˊ","ㄉㄠˋㄅㄧㄝˊ","ㄧㄡˇㄑㄧㄢˊㄐㄧㄥˇ","ㄉㄥˇㄩˊ","ㄔㄥˊㄨㄟˊ","ㄍㄨ ㄐㄧˋ","ㄐㄧㄚ ㄖㄨˋ","ㄍㄢ ㄕㄜˋ","ㄐㄧㄥˇㄍㄠˋ","ㄉㄚˇㄈㄚ "]
-    @Published var generalVerbsTranslation3 = ["To Lead\n(Casual)","To Be Worth It","To Deserve","To Disappear","To Disappear\n(Sarcastic,\nSmth. bad\nhappens)","To Kill","To Delay","To bend\nthe rules for\nbenefit","To Imitate","To Overcome","To Say\nGoodbye","To Be\nPromising","To Equal To","To Become\n(End State)","To Estimate","To Join In","To Interfere","To Warn","To Kill\nTime"]
+    @Published var discussionOnThePhoneBPMF = ["ㄨㄟˊ","ㄒㄩㄣˋㄏㄠˋ","ㄉㄚˇㄉㄧㄢˋㄏㄨㄚˋ"]
+    @Published var discussionOnThePhoneTranslation = ["hello~","reception\n signal","give a\nphone call"]
     
-    @Published var generalVerbsBPMF4 = ["ㄨㄢˊㄍㄨㄥ ","ㄐㄧㄚ ㄑㄧㄤˊ","ㄙㄨㄢˋㄕˋ","ㄗㄨㄣ ㄓㄨㄥˋ","ㄑㄧㄤˇ","ㄨㄚˇㄐㄧㄝˇ","ㄑㄩˇㄉㄞˋ","ㄊㄨㄟˋㄅㄨˋ","ㄐㄧㄢˋㄅㄧㄢˋ","ㄧ ㄌㄞˋ","ㄅㄠˇㄔˊ","ㄨㄟˊㄔˊ","ㄉㄤˇㄓㄨˋ","ㄙㄠˇㄇㄧㄠˊ","ㄐㄧㄝ ㄍㄨㄢˇ","ㄌㄧˋㄩㄥˋ","ㄐㄧㄡ ㄓㄥˋ","ㄍㄞˇㄓㄥˋ"]
-    @Published var generalVerbsTranslation4 = ["To Complete\nA Project","To Strengthen","To Consider\nAs","To respect","To fight\nover","To collapse\n(figurative)","To Replace","To Regress","To Gradually\nChange","To Depend\nOn","To Maintain\nTo Keep","To Maintain\nTo Keep","To Obstruct","To Scan","To Take Over\n(Control)","To Make\nUse Of","To Correct\n(Smne Else)","To Correct\n(Self)"]
+    @Published var discussionAmbienceBPMF = ["ㄖㄜˋㄋㄠˋ","ㄔㄠˇ","ㄑㄧˋㄈㄣ "]
+    @Published var discussionAmbienceTranslation = ["lively","loud","atmosphere"]
     
-    @Published var healthBPMF = ["ㄕ ㄇㄧㄢˊ","ㄐㄧㄣˋㄕˋ","ㄧㄥˊㄧㄤˇ","ㄑㄧㄤˇㄆㄛˋㄓㄥˋ","ㄅㄧㄥ ㄈㄨ ","ㄓㄣ ㄐㄧㄡˇ"]
-    @Published var healthTranslation = ["Insomnia","Nearsightedness","Nutritious","OCD","Ice Packs","Acupuncture"]
+    @Published var discussionWorkBPMF = ["ㄋㄧㄢˊㄐㄧㄚˋ","ㄍㄣ ㄐㄧㄣˋ","ㄨㄞˋㄆㄞˋ","ㄊㄨㄟˋㄒㄧㄡ ","ㄒㄧㄣ ㄎㄨˇ","ㄉㄨˋㄐㄧㄚˋ","ㄌㄧㄥˇㄌㄨˋㄖㄣˊ"]
+    @Published var discussionWorkTranslation = ["annual\nleave","to follow\nup","to send to\nanother\nplace","to retire","tough\n(work/life)","spend one's\nbreak","guide\nleader\nmentor"]
     
-    @Published var householdBPMF = ["ㄧㄚˊㄍㄠ ","ㄓㄣˇㄊㄡ˙","ㄇㄧㄢˋㄇㄛˊ","ㄔㄡ ㄊㄧ˙","ㄓˇㄊㄨㄥˋㄧㄠˋ","ㄈㄟ ㄗㄠˋ","ㄓˇㄐㄧㄣ ","ㄧㄣ ㄒㄧㄤ ","ㄉㄧˋㄊㄢˇ","ㄊㄢˇㄗ˙","ㄌㄨˊㄗ˙","ㄈㄥ ㄕㄢˋ","ㄔㄚ ㄗㄨㄛˋ","ㄐㄧㄥˋㄗ˙","ㄇㄠˊㄐㄧㄣ ","ㄕㄨ ㄗ˙","ㄒㄧㄤ ㄕㄨㄟˇ","ㄍㄨㄥ ㄩˋ"]
-    @Published var householdTranslation = ["Toothpaste","Pillow","Facial Mask","Drawer","Painkiller","Soap","Napkin","Speakers","Carpet\nRug","Blanket","Stove","Electric\nFan","Electric\nSocket","Mirror","Towel","Comb","Perfume","Apartment"]
+    @Published var discussionPublicTransportationBPMF = [""]
+    @Published var discussionPublicTransportationTranslation = [""]
     
-    @Published var horrorBPMF = ["ㄇㄧˊㄒㄧㄣˋ","ㄈㄥˋㄧㄢˇ","ㄉㄧˋㄩˋ"]
-    @Published var horrorTranslation = ["Superstition","Nightmare","Hell"]
+    @Published var discussionCovid19BPMF = ["ㄙㄠˇㄇㄧㄠˊ","ㄊㄧˇㄨㄣ ","ㄐㄧㄝˇㄔㄨˊ","ㄓㄥˋㄈㄨˇ","ㄍㄢˇㄖㄢˇ","ㄖㄣˊㄕㄨˋ","ㄧˋㄇㄧㄠˊ","ㄉㄚˇ","ㄔㄨㄢˊㄖㄢˇ","ㄧˋㄑㄧㄥˊ","ㄍㄜˊㄌㄧˊ","ㄅㄠˋㄈㄚ "]
+    @Published var discussionCovid19Translation = ["to scan","body\ntemp.","to remove\n(a level)","government","infection","number\nof people","vaccine","to take\n(vaccine)","to infect\n(others)","epidemic\nsituation\n(covid)","to quarantine","to break\nout\nan outbreak"]
     
-    @Published var infrastructureBPMF = ["ㄍㄠ ㄌㄡˊ","ㄐㄧㄢˋㄓㄨˋ","ㄕ ㄍㄨㄥ ","ㄍㄨㄥ ㄩˋ","ㄉㄨˊㄉㄨㄥˋ"]
-    @Published var infrastructureTranslation = ["Highrises","Buildings","Carry Out\nConstruction","Apartment","Detached\nHouse"]
+    @Published var discussionDreamsBPMF = ["ㄗㄨㄛˋㄈㄥˋ","ㄜˋㄇㄥˋ","ㄏㄡˋㄌㄞˊ"]
+    @Published var discussionDreamsTranslation = ["to dream","to have a\nnightmare","and then\n(talking about\nthe past)"]
     
-    @Published var languageBPMF = ["ㄊㄨㄥˊㄧㄣ ㄘˊ","ㄊㄨㄛ ㄈㄨˊ","ㄨㄣˊㄏㄨㄚˋㄔㄨㄥ ㄐㄧ ","ㄈㄢˊㄊㄧˇ","ㄅㄧㄠ ㄉㄧㄢˇㄈㄨˊㄏㄠˋ"]
-    @Published var languageTranslation = ["Homophones","TOEFL","Culture\nShock","Traditional\nChinese","Punctuation\nMarks"]
+    @Published var discussionSocialMediaBPMF = ["ㄍㄨㄢ ㄓㄨˋ","ㄉㄧㄢˇㄗㄢˋ","ㄆㄧㄣˊㄉㄠˋ","ㄉㄧㄥˋㄩㄝˋ","ㄈㄥ ㄙㄨㄛˇ","ㄕㄤˋㄔㄨㄢˊ","ㄧㄣˇㄘㄤˊ"]
+    @Published var discussionSocialMediaTranslation = ["to follow","to like","channel","subscribe","to block","to upload\nto post","to hide"]
     
-    @Published var locationBPMF = ["ㄒㄧㄤ ㄒㄧㄚˋ","ㄒㄧㄤ ㄘㄨㄣ ","ㄙㄣ ㄌㄧㄣˊ","ㄇㄟˇㄓㄡ ","ㄒㄧㄠˇㄓㄣˋ","ㄕˋㄓㄨㄥ ㄒㄧㄣ ","ㄨㄣ ㄑㄩㄢˊ","ㄐㄧㄝ ㄈㄤ˙","ㄇㄚˇㄌㄨˋ","ㄉㄠˋㄔㄨˇ"]
-    @Published var locationTranslation = ["Countryside","Village","Forest","Americas","Lively Place\nIn City","Downtown","Hotsprings","Neighborhood","Street","Everywhere"]
+    @Published var discussionFinanceBPMF = ["ㄓ ㄔㄨ ","ㄕㄡ ㄖㄨˋ","ㄉㄞˋㄎㄨㄢˇ","ㄏㄜˊㄈㄚˇ","ㄌㄧˋㄒㄧ ","ㄎㄨㄟ ㄑㄧㄢˋ","ㄇㄧㄢˇㄈㄟˋ","ㄕㄚ ㄐㄧㄚˋ","ㄌㄜˋㄊㄡˋ","ㄈㄚˊㄑㄧㄢˊ","ㄒㄧㄣ ㄕㄨㄟˇ"]
+    @Published var discussionFinanceTranslation = ["expense","income","loan","legal","interest","to owe","free","to bargain","lottery","to impose\na fine","salary"]
     
-    @Published var machinesBPMF = ["ㄉㄧㄢˋㄈㄨˊㄊㄧ ","ㄑㄧˇㄉㄨㄥˋ","ㄔㄨˊㄕ ㄐㄧ "]
-    @Published var machinesTranslation = ["Escalator","Switch On","Dehumidifier"]
+    @Published var discussionLocationsBPMF = ["ㄉㄠˋㄔㄨˇ","ㄕˋㄓㄨㄥ ㄒㄧㄣ ","ㄒㄧㄤ ㄒㄧㄚˋ","ㄒㄧㄤ ㄘㄨㄣ ","ㄒㄧㄠˇㄓㄣˋ"]
+    @Published var discussionLocationsTranslation = ["everywhere","downtown","countryside","village","lively town\nin a quiet\nplace"]
     
-    @Published var marriageBPMF = ["ㄏㄨㄣ ㄌㄧˇ","ㄐㄧㄝˊㄏㄨㄣ "]
-    @Published var marriageTranslation = ["Wedding\nCeremony","To get married"]
+    @Published var discussionKidsBPMF = ["ㄏㄞˊㄗ˙","ㄨㄢˊㄐㄩˋ","ㄌㄨㄢˋㄆㄠˇ","ㄆㄧㄣ ㄊㄨˊ","ㄆㄧㄣ ","ㄧㄥˊ","ㄕㄨ ","ㄕㄨ ㄐㄧㄚ˙","ㄧㄥˊㄇㄨˋ","ㄒㄧㄥˊㄨㄟˊ","ㄎㄤˋㄐㄩˋ","ㄔㄥˊㄈㄚˊ","ㄑㄧ ㄈㄨˋ","ㄇㄚˇㄏㄨˇ","ㄗㄨㄣ ㄓㄨㄥˋ","ㄑㄧㄤˇ","ㄇㄛˊㄈㄤˇ"]
+    @Published var discussionKidsTranslation = ["kids","toys","to run\naround","jigsaw\npuzzle","to piece\ntogether","to win","to lose","loser","screen\n(tv/computer)","behavior","to resist","punishment","to bully","careless","to respect","to fight\nover","to imitate"]
     
-    @Published var measureWordsBPMF = ["ㄧㄤˋ","ㄐㄧˊ","ㄊㄧㄠˊ","ㄨㄟˋ","ㄇㄧㄢˋ","ㄊㄞˊ","ㄐㄧㄢˋ","ㄓㄤ ","ㄑㄩㄢ ","ㄎㄨㄞˋ","ㄎㄜ ","ㄎㄜ ","ㄊㄤˊ","ㄎㄨㄢˇ","ㄊㄠˋ","ㄆㄧㄢˋ"]
-    @Published var measureWordsTranslation = ["Kinds","Episode","Long & Thin","Seats","Flat\nSurfaces","Vehicles\nMachines","Clothes","Flat","Loops\nLaps","Ｍoney","Plants\nTrees","Round","Classes","Types Of\nProducts","Sets","A Piece"]
+    @Published var discussionInvestmentsBPMF = ["ㄌㄧˋㄖㄨㄣˋ","ㄍㄨˇㄆㄧㄠˋ"]
+    @Published var discussionInvestmentsTranslation = ["profit","stocks"]
     
-    @Published var mediaBPMF = ["ㄉㄧㄢˋㄕˋㄐㄩˋ","ㄓㄨˇㄐㄩㄝˊ","ㄍㄨㄢ ㄓㄨˋ","ㄉㄧㄢˇㄗㄢˋ","ㄆㄧㄣˊㄉㄠˋ","ㄉㄧㄥˋㄩㄝˋ","ㄈㄥ ㄙㄨㄛˇ"]
-    @Published var mediaTranslation = ["TV Drama","Protagonist","To Follow\n(Social)","To Like\n(Social)","Channel\n(Social)","Subscribe\n(Social)","To Block"]
+    @Published var discussionLivingSituationBPMF = ["ㄍㄨㄥ ㄩˋ","ㄉㄨˊㄉㄨㄥˋ","ㄐㄧㄝ ㄈㄤ˙","ㄍㄠ ㄌㄡˊ","ㄐㄧㄢˋㄓㄨˋ","ㄕ ㄍㄨㄥ "]
+    @Published var discussionLivingSituationTranslation = ["apartment","single family\nhouse","neighborhood","highrise","buildings","carrying out\nconstruction"]
     
-    @Published var mentalVerbsBPMF = ["ㄅㄨˋㄌㄧˇ","ㄎㄢˋㄑㄧㄥ ","ㄓㄢˋㄆㄧㄢˊㄧ˙","ㄈㄢˇㄏㄨㄟˇ","ㄐㄧㄚ ㄑㄧˇㄌㄞˊ","ㄓㄥˇㄌㄧˇ","ㄒㄧㄤˇㄒㄧㄤˋ","ㄈㄣ ㄒㄧㄣ ","ㄊㄨㄟˊㄙㄤˋ","ㄧˋㄕˊ","ㄐㄩㄝˊㄒㄧㄣ "]
-    @Published var mentalVerbsTranslation = ["Ignore","To Look\nDown On","Take\nadvantage of","To Back Out","To Add\nTogether","To Process\nThings","To Imagine","Distracted","Disheartened","To Realize","Make Up\nOne's Mind"]
+    @Published var discussionSchoolBPMF = ["ㄐㄧㄠˋㄕㄡˋ","ㄒㄩㄝˊㄑㄧˊ","ㄕˊㄒㄧˊ","ㄉㄚˋㄒㄩㄝˊ","ㄍㄠ ㄓㄨㄥ ","ㄍㄨㄛˊㄓㄨㄥ ","ㄎㄜ ㄒㄩㄝˊ","ㄎㄜ ㄐㄧˋ"]
+    @Published var discussionSchoolTranslation = ["professor","semester","internship","university","highschool","middle school","science","technology"]
     
-    @Published var natureBPMF = ["ㄌㄨˋㄕㄨㄟ˙","ㄌㄨˋㄊㄧㄢ ","ㄖˋㄔㄨ ","ㄖˋㄌㄨㄛˋ","ㄕㄨˋ","ㄕˊㄊㄡ˙","ㄧㄤˇ","ㄏㄨˋㄨㄞˋ","ㄉㄧˋㄓㄣˋ","ㄍㄨㄤ ㄒㄧㄢˋ","ㄔㄨㄣ ㄊㄧㄢ ","ㄒㄧㄚˋㄊㄧㄢ ","ㄑㄧㄡ ㄊㄧㄢ ","ㄉㄨㄥ ㄊㄧㄢ "]
-    @Published var natureTranslation = ["Dew","Outdoors","Sunrise","Sunset","Trees","Rocks","To Raise\nProvide For","Outdoor","Earthquake","Lighting","Spring","Summer","Autumn","Winter"]
+    @Published var discussionTravellingBPMF = ["ㄌㄩˇㄍㄨㄢ ","ㄏㄨˋㄓㄠˋ","ㄍㄨㄛˊㄐㄧˋㄐㄧㄚˋㄓㄠˋ","ㄏㄤˊㄒㄧㄤˋ","ㄊㄨㄟ ㄐㄧㄢˋ","ㄉㄠˇㄧㄡˊ","ㄍㄨㄛˊㄨㄞˋ","ㄑㄧㄢ ㄓㄥˋ","ㄇㄥˊㄧㄡˇ","ㄇㄢˋㄧㄡ ㄧㄡ ","ㄅㄧˋㄧㄠˋ"]
+    @Published var discussionTravellingTranslation = ["hotel","passport","international\ndriver's\nlicense","direction\n(ship/plane)","to recommend","tour guide","abroad","visa","allied\ncountry","unhurried\nleisurely","necessary"]
     
-    @Published var occupationBPMF = ["ㄐㄧㄥˇㄔㄚ ","ㄒㄧㄠ ㄈㄤˊㄩㄢˊ","ㄕㄡˋㄧ ","ㄐㄩㄣ ㄉㄨㄟˋ","ㄕㄥ ㄧˋ","ㄧㄢˊㄐㄧㄡ ㄕㄥ ","ㄩㄥˋㄖㄣˊ"]
-    @Published var occupationTranslation = ["Police","Firefighter","Vet.","Military","Business","Graduate\nStudent","Servant\nMaid"]
+    @Published var discussionDietBPMF = ["ㄧㄥˊㄧㄤˇ","ㄐㄧㄢˇㄕㄠˇ"]
+    @Published var discussionDietTranslation = ["nutritous","to reduce"]
     
-    @Published var patternsBPMF = ["ㄩˇㄑㄧˊㄅㄨˋㄖㄨˊ","ㄍㄟˇㄨㄛˇ","ㄋㄧㄥˋㄩㄢˋ","ㄔㄨㄥ ㄒㄧㄣ ","ㄙㄨㄟˊㄓㄜ˙","ㄔㄨˊㄈㄟ "]
-    @Published var patternsTranslation = ["Rather than...\nBetter to","Strengthen\nthe\nmperative","Would you\nrather...","Re-","As ()\n Happens,...","Unless..."]
+    @Published var discussionWorkingOutBPMF = ["ㄐㄧㄢˋㄕㄣ "]
+    @Published var discussionWorkingOutTranslation = ["to keep fit"]
+
+    @Published var discussionWeatherBPMF = ["ㄊㄧㄢ ㄑㄧˋ","ㄖㄜˋ","ㄌㄥˇ","ㄕ ","ㄍㄢ "]
+    @Published var discussionWeatherTranslation = ["weather","hot","cold","humid","dry"]
     
-    @Published var personalCharacteristicBPMF = ["ㄊㄧㄢ ㄓㄣ ","ㄌㄜˋㄍㄨㄢ ","ㄅㄟ ㄍㄨㄢ ","ㄏㄠˇㄧˋ","ㄜˋㄧˋ","ㄗˋㄌㄧㄢˋ","ㄊㄧˇㄊㄧㄝ ","ㄧㄝˋㄇㄠ ㄗ˙","ㄅㄠˇㄕㄡˇ","ㄞˋㄒㄧㄢˋ","ㄎㄜˇㄎㄠˋ","ㄏㄠˇㄒㄧㄤ ㄔㄨˇ","ㄩㄥˇㄑㄧˋ","ㄉㄨˊㄌㄧˋ","ㄌㄧˇㄓˋ","ㄧㄡˋㄓˋ","ㄊㄧㄠ ㄕˊ","ㄑㄧㄢˊㄌㄧˋ"]
-    @Published var personalCharacteristicTranslation = ["Innocent","Optimistic","Pessimistic","Kindness","Ill Intention","Narcissistic","Considerate","Night Owl","Conservative","To Enjoy\nShowing Off","Dependable\nReliable","Easygoing","Courage","Independent","Rational","Naive","Picky\nEater","Potential"]
+    @Published var discussionMedicineBPMF = ["ㄧ ㄕㄥ ","ㄎㄢˋㄅㄧㄥˋ","ㄕㄥ ㄅㄧㄥˋ","ㄎㄜˊㄙㄡˋ","ㄅㄧㄥˋㄖㄣˊ","ㄓㄨㄥ ㄧ ","ㄓㄣ ㄐㄧㄡˇ"]
+    @Published var discussionMedicineTranslation = ["doctor","visit a\ndoctor","to get sick","to cough","patient","chinese\nmedicine","acupuncture"]
     
-    @Published var personalCharacteristicBPMF2 = ["ㄌㄠˇㄍㄨˇㄉㄨㄥˇ","ㄊㄠˋㄌㄨˋ","ㄗˋㄙ ","ㄎㄞ ㄈㄤˋ","ㄐㄧㄠ ㄠˋ","ㄧㄡ ㄇㄛˋ","ㄕㄣ ㄈㄣ˙ㄖㄣˋㄊㄨㄥˊ","ㄌㄢˇㄍㄨㄟˇ","ㄏㄨㄣˊㄉㄢˋ","ㄌㄧˋㄔㄤˇ","ㄌㄧㄥˊㄏㄨㄛˊ"]
-    @Published var personalCharacteristicTranslation2 = ["Old-Fashioned","Routine","Selfish","Open\nMinded","Pride","Humorous","Personal\nIdentity","Lazy Ass","Bastard","Perspective","Flexible\n(Thinking)"]
+    @Published var discussionBodyConditionBPMF = ["ㄐㄧㄣˋㄕˋ","ㄕ ㄇㄧㄢˊ"]
+    @Published var discussionBodyConditionTranslation = ["nearsightedness","insomnia"]
     
-    @Published var physicalDescriptionBPMF = ["ㄓㄞˇ","ㄊㄜˋㄉㄧㄢˇ","ㄨㄞ ","ㄅㄧㄢˇ","ㄎㄨㄢ ","ㄓㄞˇ"]
-    @Published var physicalDescriptionTranslation = ["Narrow","Characteristic","Slanted","Flat","Wide","Narrow"]
+    @Published var discussionSeasonalBPMF = ["ㄔㄨㄣ ㄊㄧㄢ ","ㄒㄧㄚˋㄊㄧㄢ ","ㄑㄧㄡ ㄊㄧㄢ ","ㄉㄨㄥ ㄊㄧㄢ "]
+    @Published var discussionSeasonalTranslation = ["spring","summer","autumn","winter"]
     
-    @Published var placeNamesBPMF = ["ㄌㄚ ㄙ ㄨㄟˊㄐㄧㄚ ㄙ ","ㄋㄟˋㄏㄨㄚˊㄉㄚˊ","ㄌㄟˊㄋㄨㄛˋ","ㄒㄧ ㄅㄢ ㄧㄚˊ","ㄉㄜˊㄍㄨㄛˊ","ㄐㄧㄚ ㄋㄚˊㄉㄚˋ","ㄇㄛˋㄒㄧ ㄍㄜ ","ㄋㄢˊㄇㄟˇ","ㄡ ㄓㄡ ","ㄜˊㄌㄨㄛˊㄙ ","ㄠˋㄓㄡ ","ㄒㄧㄣ ㄐㄧㄚ ㄆㄛ ","ㄇㄚˇㄌㄞˊㄒㄧ ㄧㄚˋ","ㄩㄝˋㄋㄢˊ","ㄖˋㄅㄣˇ","ㄋㄢˊㄐㄧˊㄓㄡ ","ㄧㄚˋㄓㄡ ","ㄈㄟ ㄓㄡ "]
-    @Published var placeNamesTranslation = ["Las Vegas","Nevada","Reno","Spain","Germany","Canada","Mexico","South\nAmerica","Europe","Russia","Australia","Singapore","Malaysia","Vietnam","Japan","Antarctica","Asia","Africa"]
+    @Published var discussionCompetitionBPMF = ["ㄅㄧˇㄙㄞˋ","ㄉㄨㄟˋㄕㄡˇ"]
+    @Published var discussionCompetitionTranslation = ["competition","opponent\ncompetitor"]
     
-    @Published var relationshipsBPMF = ["ㄔㄨ ㄌㄧㄢˋ","ㄉㄨㄟˋㄒㄧㄤˋ","ㄕㄡˇㄕㄨˋ","ㄊㄨㄥˊㄐㄩ ","ㄈㄣ ㄐㄩ ","ㄇㄟˊㄒㄧˋ","ㄧㄣˇㄙ ","ㄔㄠˇㄐㄧㄚˋ","ㄑㄧㄣ ㄞˋㄉㄜ","ㄑㄧㄣ ㄐㄧㄣˋ","ㄕㄨˊ","ㄔㄨㄥˇㄏㄨㄞˋ","ㄓㄣ ㄓㄨㄥ ","ㄐㄩˋㄐㄩㄝˊ","ㄓㄣ ㄒㄧ ","ㄒㄧㄤˋㄞˋ","ㄓㄡ ㄋㄧㄢˊ","ㄑㄧㄥˊㄌㄩˇ","ㄑㄧㄥˊㄖㄣˊ","ㄔㄥˊㄓㄤˇ","ㄑㄧㄤˇㄆㄛˋ"]
-    @Published var relationshipsTranslation = ["First Love","Significant\nOther","To Secretly\nProtect","To Live\nTogether","To Live\nSeparate","To Have\nNo Chance","Privacy","To Argue","Dear","To be close to","To be\nfamiliar\nwith","To Spoil","To Treasure","To Reject","To Value\nTo Cherish","Loving","Anniversary","Lovers\nSweethearts","Lover\nSweetheart","To Grow","To Force\n(High Level)"]
+    @Published var discussionHometownBPMF = ["ㄐㄧㄚ ㄒㄧㄤ ","ㄒㄩˋㄐㄧㄡˋ","ㄌㄧㄡˊㄌㄧㄢˋ"]
+    @Published var discussionHometownTranslation = ["hometown","to reminisce\n(with someone)","to be reluctant\nto leave"]
     
-    @Published var relationshipsBPMF2 = ["ㄑㄧㄥˊㄖㄣˊ","ㄍㄠˋㄅㄞˊ","ㄏㄨㄞˊㄩㄣˋ","ㄔㄨㄥ ㄊㄨ ","ㄕㄨˊ","ㄍㄨㄢˇㄑㄧㄥˊ","ㄩㄝ ㄏㄨㄟˋ"]
-    @Published var relationshipsTranslation2 = ["Sweetheart\nLover","To Confess\n(Love)","To Be\nPregnant","Conflicts","To be\nfamiliar","Affection\n(between two)","Date\n(Romantic)"]
+    @Published var discussionMarriageBPMF = ["ㄏㄨㄣ ㄌㄧˇ","ㄐㄧㄝˊㄏㄨㄣ ","ㄌㄧˊㄏㄨㄣ ","ㄏㄨㄞˊㄩㄣˋ"]
+    @Published var discussionMarriageTranslation = ["wedding\nceremony","to get married","to get\na divorce","to be\npregnant"]
     
-    @Published var remarksBPMF = ["ㄅㄨˋㄙㄨㄢˋ","ㄒㄧㄤˋㄏㄨㄚˋ","ㄈㄟˋㄏㄨㄚˋ","ㄈㄢˇㄓㄥˋ","ㄅㄧˋㄗㄨㄟˇ","ㄗㄣˇㄇㄜ˙ㄕㄨㄛ ","ㄌㄧㄥˋㄧ ㄈㄤ ㄇㄧㄢˋ"]
-    @Published var remarksTranslation = ["Doesn't\nCount","Reasonable?","No Way!","Anyway","Shut up\n(rude)","How so?","On the\nOther Hand"]
+    @Published var discussionMoviesShowsBPMF = ["ㄉㄧㄢˋㄕˋㄐㄩˋ","ㄓㄨˇㄐㄩㄝˊ","ㄍㄢˇㄖㄣˊ"]
+    @Published var discussionMoviesShowsTranslation = ["tv drama","protagonist","touching"]
     
-    @Published var restaurantsBPMF = ["ㄈㄨˊㄨˋ","ㄉㄚˇㄅㄠ ","ㄔ ㄉㄠˋㄅㄠˇ"]
-    @Published var restaurantsTranslation = ["Service","Bag\nLeftovers","Buffet"]
+    /*
+     This is a list of vocabulary
+     */
     
-    @Published var sayingsBPMF = ["ㄧㄥˋㄓㄜ˙ㄊㄡˊㄆㄧˊ","ㄧ ㄌㄨˋㄕㄨㄣˋㄈㄥ ","ㄓㄥ ㄧㄢˇㄕㄨㄛ ㄒㄧㄚ ㄏㄨㄚˋ","ㄖㄜˋㄌㄧㄢˇㄊㄧㄝ ㄌㄥˇㄆㄧˋㄍㄨ˙","ㄊㄨㄛ ㄎㄨˋㄗ˙ㄈㄤˋㄆㄧˋ","ㄨㄣˊㄉㄢˋ","ㄏㄨㄛˊㄍㄞ ","ㄧ ㄧㄢˊㄨㄟˊㄉㄧㄥˋ","ㄦˊㄧㄢˊ","ㄧ ㄈㄣ ㄍㄥ ㄩㄣˊㄧ ㄈㄣ ㄕㄡ ㄏㄨㄛˋ","ㄇㄨˊㄌㄧㄥˊㄌㄧㄤˇㄎㄜˇ","ㄨㄟˊㄓˇ","ㄧ ㄇㄛˊㄧ ㄧㄤˋ","ㄗ ㄗ ㄅㄨˋㄐㄩㄢˋ","ㄩˋㄩˋㄍㄨㄚˇㄏㄨㄢ ","ㄘㄢˇㄐㄩㄝˊㄖㄣˊㄏㄨㄢˊ","ㄓㄠˋㄐㄧㄡˋ","ㄌㄠˇㄕˊㄕㄨㄛ ","ㄌㄞˊㄉㄜ˙ㄐㄧˊ","ㄧㄠˋㄅㄨˋㄕˋ","ㄦˇㄖㄨˊㄇㄨˋㄖㄢˇ"]
-    @Published var sayingsTranslation = ["To Force\nOneself","Have a\nGood Trip","To obviously\nlie","To show \nfeelings and\nbe dejected","To make\nthings too\ncomplicated","To be\ndone for","Serves\nyou right","It's settled\nthen","With regard\nto ...","You get\nwhat you\nput in","Ambiguous","Up until","Exactly the\nsame","Tirelessly","Be in\nthe dumps","Tragic\nBeyond\nCompare","Just as\nUsual","Honestly...","There's\nstill\ntime","If it were\nnot for","Imperceptibly\nInfluenced\n(Young)"]
+    @Published var listMeasureWordsBPMF = ["ㄧㄤˋ","ㄐㄧˊ","ㄊㄧㄠˊ","ㄨㄟˋ","ㄇㄧㄢˋ","ㄊㄞˊ","ㄐㄧㄢˋ","ㄓㄤ ","ㄑㄩㄢ ","ㄎㄨㄞˋ","ㄎㄜ ","ㄎㄜ ","ㄊㄤˊ","ㄎㄨㄢˇ","ㄊㄠˋ","ㄆㄧㄢˋ"]
+    @Published var listMeasureWordsTranslation = ["kinds","episodes","long & thins","seats","flat\nsurfaces","vehicles\nmachines","clothes","flats","loops\nlaps","money","plants\ntrees","round","classes","types of\nproducts","sets","pieces"]
+
+    @Published var listTimeWordsBPMF = ["ㄕㄡˇㄒㄧㄢ ","ㄧ ㄉㄢˋ","ㄧ ㄅㄟˋㄗ˙","ㄨㄟˊㄓˇ","ㄇㄨˋㄑㄧㄢ ","ㄨㄟˋㄌㄞˊ","ㄗㄨㄥˇㄧㄡˇ","ㄗㄨㄥˇㄧㄡˇ","ㄊㄨㄥ ㄒㄧㄠ ","ㄧ ㄓㄣ ㄗ˙","ㄔㄤˊㄑㄧ ","ㄧ ㄕㄨㄣˋ","ㄅㄢˋㄧㄝˋ","ㄌㄧㄥˊㄔㄣˊ"]
+    @Published var listTimeWordsTranslation = ["first of all","once...","all one's life","up to; until","at the\npresent","in the future","inevitably\nthere\nwill be","all night","a while","for a\nlong time","in a flash","midnight","late\nmidnight"]
     
-    @Published var schoolBPMF = ["ㄐㄧㄠˋㄕㄡˋ","ㄒㄩㄝˊㄑㄧˊ"]
-    @Published var schoolTranslation = ["Professor","Semester"]
+    @Published var listAdverbBPMF = ["ㄅㄨˋㄍㄢˇ","ㄔㄨㄥ ㄈㄣˋ","ㄧ ㄉㄨㄟ ","ㄅㄨˋㄉㄨㄢˋ","ㄇㄢˇ","ㄍㄜˋㄓㄨㄥˇ","ㄐㄧ ㄏㄨ ","ㄅㄞˊ","ㄨㄟˊㄧ ","ㄑㄧˊㄓㄨㄥ ","ㄉㄤ ㄓㄨㄥ ","ㄗㄨㄥˇㄕˋ","ㄌㄠˇㄕ˙","ㄐㄩㄝˊㄉㄨㄟˋ","ㄕㄠ ㄨㄟ ","ㄍㄤ ㄏㄠˇ","ㄅㄧㄥˋㄅㄨˋ","ㄖㄣˋㄏㄜˊ"]
+    @Published var listAdverbTranslation = ["not dare to","as much as\npossible","a bunch","not stopping","quite","every kind","almost","in vain","only(sole)","among them","among them\n(location)","always","always\n(negative)","absolutely","slightly","just about time","not at all","any"]
     
-    @Published var shoppingBPMF = ["ㄓㄜˊ","ㄧㄡ ㄏㄨㄟˋ","ㄉㄧㄥˋㄉㄢ "]
-    @Published var shoppingTranslation = ["Discount\n(Percentage)","Discount","To Order"]
+    @Published var listAdjectivesBPMF = ["ㄓㄥˋㄇㄧㄢˋ","ㄈㄨˋㄇㄧㄢˋ","ㄊㄜˋㄕㄨ ","ㄆㄨˇㄅㄧㄢˋ","ㄨㄢˊㄇㄟˇ","ㄗㄠ ㄍㄠ ","ㄓㄣ ㄓㄥˋ","ambiguous\nblurry"]
+    @Published var listAdjecitivesTranslation = ["positive","negative","special\nuncommon","common\nwidespread","perfect","worse","real;true","ㄇㄛˊㄏㄨ˙"]
     
-    @Published var specificMovementBPMF = ["ㄉㄨㄥˋㄧㄠˊ","ㄑㄧㄝ ","ㄒㄧ ","ㄊㄨˇ","ㄍㄨㄟˋ","ㄆㄧㄥˊㄅㄢˇ","ㄔㄚ ㄉㄨㄟˋ","ㄑㄧㄠˋ","ㄐㄩˇㄕㄡˇ","ㄔㄚ ","ㄕㄢ ㄔㄨˊ","ㄗㄞˋㄖㄣˊ","ㄎㄡˋ","ㄙㄨㄛˇ","ㄒㄧˋ","ㄅㄤˇ","ㄉㄧㄥ ㄓㄨˋ","ㄧㄣˇㄘㄤˊ","ㄊㄠˊㄆㄠˇ","ㄌㄞˋㄔㄨㄤˊ"]
-    @Published var specificMovementTranslation = ["To Shake","To Slice/Cut","Breathe In","Breathe Out","To Kneel","To Plank","Cut in Line","To Stick Up","To Raise\nHand","To Stick In","To Delete","To Carry Passengers","To Button\nUp","To Lock","To Fasten","To Tie","To breathe\ndown\nsmbdy's\nback","To Hide","Run Away","To Lazy Around in Bed"]
+    @Published var listMaterialsBPMF = ["ㄅㄛ ㄌㄧˊ"]
+    @Published var listMaterialsTranslation = ["glass"]
     
-    @Published var specificMovementBPMF2 = ["ㄔㄠˇㄒㄧㄥˇ","ㄧㄤˇ","ㄊㄧㄥˊㄌㄧㄡˊ","ㄅㄚˊ","ㄐㄧˋㄈㄤˋ","ㄐㄧㄚ ㄓˊ","ㄍㄨㄚˋ","ㄅㄚˇㄇㄟˋ","ㄇㄧㄢˇㄑㄧㄤˇ","ㄕㄤˋㄔㄨㄢˊ","ㄙ ","ㄐㄧㄝˋ","ㄌㄧㄡˇ","ㄒㄧㄢ ","ㄊㄧㄠˊㄎㄢˇ","ㄓㄨˋㄧˋ","ㄈㄨ ","ㄈㄤˋㄍㄜ ㄗ˙","ㄐㄧㄥˇㄍㄠˋ","ㄍㄨㄣˇ","ㄍㄨㄚˋ"]
-    @Published var specificMovementTranslation2 = ["Wake smbdy.\nw/ Noise","To Face\nUpward","To stay\ntemporarily","To pull out","Leave smth\nwith sb.","To Reacharge\nMoney\n(On card)","Hang up\na phone","To get\na girl","Force sb.\nto do\nsmth.","To Upload\nTo Post","To Tear","To Give Up\nAbstinate","To Twist","To Lift","To Tease","To pay\nattention to","To Apply\nTo Spread","Stand\nsmbd. up","To Warn","To Roll\n(things)","To hang\n(things)"]
+    @Published var listElectronicsBPMF = ["ㄐㄧㄢˋㄆㄢˊ","ㄏㄨㄚˊㄕㄨˇ"]
+    @Published var listElectronicsTranslation = ["keyboard","mouse"]
     
-    @Published var specificMovementBPMF3 = ["ㄊㄡ ㄎㄢˋ","ㄍㄨㄚ ","ㄌㄧㄤˊ","ㄊㄡ ","ㄙㄠˇ","ㄏㄨㄟ ㄕㄡˇ","ㄉㄨㄣ ","ㄎㄢˇ","ㄈㄤˋㄍㄜ ㄗ","ㄔㄞ ㄎㄞ ","ㄐㄧˇ","ㄧㄠˇ","ㄐㄧㄠˊ","ㄧㄢˋ","ㄉㄧㄠ ","ㄏㄢˊ","ㄊㄨㄣ ","ㄎㄣˇ","ㄌㄨㄢˋㄆㄠˇ","ㄒㄧㄡ ㄐㄧㄢˇ"]
-    @Published var specificMovementTranslation3 = ["Steal a\nGlance","To Shave","To Measure","To Steal","To Scan","To Wave","To Squat","To Chop","Stand smbdy\nup","To Take Apart","To Squeeze","To Bite","To Chew","To Swallow","To Hold\nWith Mouth","To Hold\nIn Mouth","Swallow w/o\nChewing","To Nibble","To Run\nAround","To Trim"]
+    @Published var listPhysicalDescriptionBPMF = ["ㄓㄞˇ","ㄎㄨㄢ ","ㄨㄞ ","ㄅㄧㄢˇ","ㄖㄡˊㄖㄨㄣˋ","ㄒㄩ ㄖㄨㄛˋ",]
+    @Published var listPhysicalDescriptionTranslation = ["narrow","wide","slanted","flat","soft & smooth","weak"]
     
-    @Published var specificMovementBPMF4 = ["ㄊㄧㄢˇ","ㄏㄨㄟˊㄔㄨㄥ ","ㄉㄨㄟˋㄐㄧㄤˇ","ㄐㄧˇ","ㄧㄚ ","ㄓㄚˋ","ㄙㄞ ㄔㄜ "]
-    @Published var specificMovementTranslation4 = ["To Lick","Refill\n(Teabag)","To Check\nLottery","Squeeze\n(Fingers)","Squeeze\n(Two Hands)","Press\n(Juice)","Held Up\nIn Traffic"]
+    @Published var listAlcoholBPMF = ["ㄨㄟ ㄕˋㄐㄧˋ","ㄈㄨˊㄊㄜˋㄐㄧㄚ ","ㄆㄨˊㄊㄠ˙ㄐㄧㄡˇ","ㄌㄢˊㄈㄨˇㄐㄧㄡˇ","ㄆㄧˊㄐㄧㄡˇ",]
+    @Published var listAlcoholTranslation = ["whiskey","vodka","wine","rum","beer",]
     
-    @Published var technologyBPMF = ["ㄔㄨㄥ ㄉㄧㄢˋㄑㄧˋ","ㄔㄨㄥ ㄉㄧㄢˋㄅㄠˇ","ㄉㄧㄢˋㄩㄢˊㄒㄧㄢˋ","ㄍㄨㄢ ㄎㄞ ","ㄐㄧㄢˋㄆㄢˊ","ㄏㄨㄚˊㄕㄨˇ","ㄔㄚ ㄊㄡˊ"]
-    @Published var technologyTranslation = ["Charger","Portable\nCharger","Power\nCable","Switch","Keyboard","Mouse","Plug"]
+    @Published var listNaturalDisasterBPMF = ["ㄊㄞˊㄈㄥ ","ㄉㄧˋㄓㄣˋ"]
+    @Published var listNaturalDisasterTranslation = ["typhoon","earthquake"]
     
-    @Published var timeWordsBPMF = ["ㄕㄡˇㄒㄧㄢ ","ㄧ ㄉㄢˋ","ㄧ ㄅㄟˋㄗ˙","ㄇㄨˋㄑㄧㄢ ","ㄨㄟˊㄓˇ","ㄗㄨㄥˇㄧㄡˇ","ㄊㄨㄥ ㄒㄧㄠ ","ㄘˇ","ㄧ ㄓㄣ ㄗ˙","ㄔㄤˊㄑㄧ ","ㄅㄢˋㄧㄝˋ","ㄌㄧㄥˊㄔㄣˊ"]
-    @Published var timeWordsTranslation = ["First of All","Once...","All one's life","At the\npresent","Up to; Until","Inevitably\nthere\nwill be","All Night","Here and Now","A While","For a\nlong time","Midnight","Late\nMidnight"]
+    @Published var listAnimalsBPMF = ["ㄋㄧㄡˇ","ㄓㄨ ","ㄐㄧ ","ㄩˊ","ㄔㄨㄥˊㄗ˙","ㄉㄚˋㄒㄧㄥ ㄒㄧㄥ˙","ㄧㄚ ㄗ˙"]
+    @Published var listAnimalsTranslation = ["cow","pig","chicken","fish","insects","gorilla","duck"]
     
-    @Published var travelBPMF = ["ㄌㄩˇㄍㄨㄢ ","ㄏㄨˋㄓㄠˋ","ㄍㄨㄛˊㄐㄧˋㄐㄧㄚˋㄓㄠˋ","ㄏㄤˊㄒㄧㄤˋ","ㄊㄨㄟ ㄐㄧㄢˋ","ㄉㄠˇㄧㄡˊ","ㄍㄨㄛˊㄨㄞˋ","ㄅㄧˋㄋㄢˋ","ㄑㄧㄢ ㄓㄥˋ","ㄇㄥˊㄧㄡˇ","ㄧˊㄇㄧㄣˊ"]
-    @Published var travelTranslation = ["Hotel","Passport","International\nDriver's\nLicense","Direction\n(ship/plane)","To Recommend","Tour Guide","Abroad","To Take\nRefuge","Visa","Allied\nCountry","To Immigrate"]
+    @Published var listExteriorBodyPartsBPMF = ["ㄓㄥ ㄊㄧˇ","ㄜˊㄊㄡˊ","ㄇㄟˊㄇㄠˊ","ㄐㄧㄝˊㄇㄠˊ","ㄌㄧㄢˇㄐㄧㄚˊ","ㄔㄨㄣˊ","ㄒㄧㄚˋㄅㄚ˙","ㄅㄛˊㄗ˙","ㄅㄟˋ","ㄐㄧㄢ ㄅㄤˇ","ㄒㄩㄥ ㄎㄡˇ","ㄕㄡˇㄅㄧˋ","ㄕㄡˇㄓㄡˇ","ㄕㄡˇㄨㄢˋ","ㄕㄡˇㄓˇㄐㄧㄚ˙","ㄊㄨㄟˇ","ㄉㄚˋㄊㄨㄟˇ","ㄒㄧㄠˇㄊㄨㄟˇ","ㄐㄧㄠˇㄏㄨㄞˊ","ㄐㄧㄠˇ","ㄐㄧㄠˇㄐㄧㄢ ","ㄐㄧㄠˇㄅㄟˋ"]
+    @Published var listExteriorBodyPartsTranslation = ["limbs","forehead","eyebrows","eyelash","cheeks","lip","chin","neck","back","shoulder","chest","arms\n(w/ hands)","elbow","wrist","fingernail","leg","thigh","lower leg","ankle","feet","tip of toe","top of foot"]
     
-    @Published var vegetableBPMF = ["ㄒㄧㄤ ㄍㄨ ","ㄅㄛ ㄘㄞˋ","ㄕㄨㄟˋㄌㄧㄢˊ","ㄈㄢ ㄑㄧㄝˊ","ㄧㄤˊㄘㄨㄥ ","ㄒㄧㄤ ㄘㄞˋ"]
-    @Published var vegetableTranslation = ["Mushroom","Spinach","Snowflake\nStem","Tomato","Onion","Corriander"]
+    @Published var listInteriorBodyPartsBPMF = ["ㄒㄧㄝˇ","ㄍㄨˇㄊㄡ˙"]
+    @Published var listInteriorBodyPartsTranslation = ["blood","bone"]
     
-    @Published var wearablesBPMF = ["ㄨㄞˋㄊㄠˋ","ㄨㄚ ㄗ˙","ㄒㄧㄤˋㄌㄧㄢˋ","ㄕㄡˇㄌㄧㄢˋ","ㄒㄩㄝ ㄗ˙","ㄊㄨㄛ ㄒㄧㄝˊ","ㄍㄠ ㄍㄣ ㄒㄧㄝˊ","ㄔㄤˊㄒㄧㄡˋ","ㄉㄨㄢˇㄒㄧㄡˋ"]
-    @Published var wearablesTranslation = ["Jacket","Socks","Necklace","Bracelet","Boots","Slippers","High\nHeels","Long Sleeves","Short Sleeves"]
+    @Published var listEmotionsBPMF = ["ㄑㄧㄥˊㄒㄩˋ","ㄍㄠ ㄒㄧㄥˋ","ㄋㄢˊㄍㄨㄛˋ","ㄍㄢˇㄐㄧ ","ㄕㄥ ㄑㄧˋ","ㄎㄨㄣˋㄏㄨㄛˋ","ㄕㄨ ㄈㄨ","ㄍㄨ ㄉㄢ ","ㄖㄜˋㄒㄧㄣ ","ㄕㄨㄤˇ","ㄉㄨˇㄌㄢˋ","ㄒㄧㄣ ㄊㄥˊ","ㄋㄢˊㄕㄡˋ","ㄇㄠˊㄉㄨㄣˋ","ㄖㄨㄢˇㄌㄢˋ"]
+    @Published var listEmotionsTranslation = ["emotions","happy","sad","grateful","angry","confused","comfortable","lonely","enthusiastic","to feel\ngood","ticked off","To feel\nsorry","uneasy","conflicted","lacking drive"]
     
-    @Published var officeWorkBPMF = ["ㄓㄨˇㄍㄨㄢˇ","ㄗㄜˊㄖㄣˋ","ㄖㄣˋㄨ˙","ㄑㄧˊㄒㄧㄢˋ","ㄔㄚˊㄎㄢˋ","ㄈㄨˋㄐㄧㄢˋ","ㄐㄧㄣˋㄉㄨˋ","ㄏㄨㄟˊㄎㄨㄟˋ","ㄢ ㄆㄞˊ","ㄎㄜˋㄏㄨˋ","ㄧㄡ ㄉㄧㄢˇ","ㄑㄩㄝ ㄉㄧㄢˇ"]
-    @Published var officeWorkTranslation = ["Supervisor","Responsibility","Task","Deadline","To Examine","E-Mail\nAttachment","Progress","Feedback","To Arrange\n(Matters)","Client","Advantage","Disadvantage"]
+    @Published var listPersonalityTraitsBPMF = ["ㄊㄧㄢ ㄓㄣ ","ㄌㄜˋㄍㄨㄢ ","ㄅㄟ ㄍㄨㄢ ","ㄎㄞ ㄈㄤˋ","ㄧㄡ ㄇㄛˋ","ㄌㄠˇㄍㄨˇㄉㄨㄥˇ","ㄗˋㄙ ","ㄗˋㄌㄧㄢˋ","ㄊㄧˇㄊㄧㄝ ","ㄧㄝˋㄇㄠ ㄗ˙","ㄅㄠˇㄕㄡˇ","ㄞˋㄒㄧㄢˋ","ㄎㄜˇㄎㄠˋ","ㄏㄠˇㄒㄧㄤ ㄔㄨˇ","ㄉㄨˊㄌㄧˋ","ㄌㄧˇㄓˋ","ㄧㄡˋㄓˋ","ㄌㄧㄥˊㄏㄨㄛˊ","ㄔㄨ ㄒㄧㄣ "]
+    @Published var listPersonalityTraitsTranslation = ["innocent","optimistic","pessimistic","open\nminded","humorous","old-fashioned","selfish","narcissistic","considerate","night owl","conservative","to enjoy\nshowing off","dependable\nreliable","easygoing\neasy to get along","independent","rational","naive","flexible","careless"]
     
-    @Published var workBPMF = ["ㄈㄥ ㄒㄧㄢˇ","ㄍㄨㄥ ㄔㄚ ","ㄗㄨㄟˋㄒㄧㄠˇㄏㄨㄚˋ","ㄗㄨㄟˋㄉㄚˋㄏㄨㄚˋ","ㄉㄧㄢˋㄧㄚ ","ㄉㄧㄢˋㄌㄧㄡˊ","ㄓㄨˋㄙㄨˋ","ㄗㄨˇㄓㄨㄤ ","ㄅㄧㄢˋㄒㄧㄥˊ","ㄕㄥ ㄔㄤˇ","ㄕㄡˇㄕㄨˋ","ㄊㄨˊㄘㄥˊ"]
-    @Published var workTranslation = ["Risk","Tolerance","To Minimize","To Maximize","Voltage","Current","Injection\nMold","Assemble","Deformed","To\nManufacture","Surgery","Coating"]
+    @Published var listPersonalCharacteristicsBPMF = ["ㄏㄠˇㄧˋ","ㄜˋㄧˋ","ㄩㄥˇㄑㄧˋ","ㄑㄧㄢˊㄌㄧˋ"]
+    @Published var listPersonalCharacteristicsTranslation = ["kindness","ill intention","courage","potential"]
     
-    @Published var workBPMF2 = ["ㄐㄧㄥ ㄧㄥˊ","ㄓ ㄕˋ","ㄩˋㄉㄧㄥˋ","ㄒㄧㄡ ㄍㄞˇ","ㄗㄠˇㄅㄢ ","ㄨㄢˇㄅㄢ ","ㄧㄝˋㄅㄢ ","ㄅㄨˋㄇㄣˊ","ㄙ ㄒㄧㄚˋ","ㄊㄧㄠˇㄓㄢˋ","ㄗ ㄍㄜˊ","ㄅㄠˇㄓㄥˋ","ㄩㄢˊㄍㄨㄥ ","ㄧㄢˋㄕㄡ ","ㄩˋㄓ ","ㄕㄥˋㄖㄣˋ"]
-    @Published var workTranslation2 = ["To Manage\n(Run)","Knowledge","To Schedule","To Revise","Morning\nShift","Night\nShift","Late Night\nShift","Department","In Private","Challenge","Qualifications","Guarantee","Employee","To Check &\nAccept","Pay in\nadvance","To be\ncompetent"]
+    @Published var listHouseholdKitchenItemsBPMF = ["ㄎㄨㄞˋㄗ˙","ㄔㄚ ㄗ˙","ㄊㄤ ㄔˊ","ㄆㄢˊㄗ˙","ㄉㄠ ㄗ˙","ㄒㄧ ㄍㄨㄢˇ","ㄓˇㄐㄧㄣ ","ㄌㄨˊㄗ˙"]
+    @Published var listHouseholdKitchenItemsTranslation = ["chopstick","fork","soup spoon","plate","knife","straw","napkin","stove"]
     
-    @Published var workBPMF3 = ["ㄑㄧㄥˇㄐㄧㄠˋ","ㄓˋㄌㄧㄤˋ","ㄍㄥ ㄒㄧㄣ ","ㄊㄧˊㄍㄨㄥ ","ㄍㄨㄟ ㄍㄜˊ","ㄖㄣˊㄩㄢˊ","ㄍㄨㄟˋㄊㄞˊ","ㄖㄨㄢˇㄊㄧˇ","ㄌㄧˊㄑㄧㄥ ","ㄊㄧㄠˊㄐㄧㄢˋ","ㄊㄧˊㄐㄧㄠ ","ㄈㄣ ㄒㄧ ","ㄒㄧㄥˊㄕˋ","ㄍㄡˋㄗㄠˋ","ㄓㄨㄢˋㄑㄧㄢˊ","ㄐㄧㄢˇㄔㄚˊ","ㄎㄜˇㄋㄥˊㄒㄧㄥˋ","ㄓㄤˇㄒㄧㄤˋ","ㄐㄧㄚˇㄕㄜˋ","ㄔㄨ ㄅㄨˋ","ㄍㄨ ㄐㄧㄚˋ","ㄐㄧㄚ ㄒㄧㄣ "]
-    @Published var workTranslation3 = ["To ask for\nguidance","Quality","To Update","To Provide","Specifications","Personnel","Front Desk","Software","To Clarify\n(Facts)","Condition or\nRequirement","To Submit\n(Reports)","Analysis","Outer\nAppearance","Composition","To Earn\nMoney","To Inspect","Probability\nPossibility","Appearance","To Assume","Initial\nPreliminary","Estimation","To Raise\nSalary"]
+    @Published var listHouseholdBedroomItemsBPMF = ["ㄓㄣˇㄊㄡ˙","ㄊㄢˇㄗ˙","ㄇㄧㄢˋㄇㄛˊ","ㄔㄡ ㄊㄧ˙","ㄐㄧㄥˋㄗ˙","ㄧㄣ ㄒㄧㄤ ","ㄉㄧˋㄊㄢˇ","ㄈㄥ ㄕㄢˋ","ㄒㄧㄤ ㄕㄨㄟˇ","ㄌㄢˊㄗ˙"]
+    @Published var listHouseholdBedroomItemsTranslation = ["pillow","blanket","facial mask","drawer","mirror","speakers","carpet\nrug","electric\nfan","perfume","basket"]
     
-    @Published var workBPMF4 = ["ㄊㄨㄥ ㄓ ","ㄍㄨㄢˇㄗ","ㄅㄠˇㄓㄨㄤ ","ㄧㄢˋㄓㄥˋ","ㄔㄤˇㄕㄤ ","ㄓㄜˊ","ㄋㄧㄡˇ","ㄑㄧˋㄧㄢˇㄉㄧㄥ ","ㄏㄨㄚ ㄙ ","ㄍㄞˋㄓㄤ ","ㄍㄨㄢˇㄌㄧˇㄅㄨˋㄇㄣˊ","ㄒㄧㄠ ㄕㄡˋㄅㄨˋ","ㄖㄣˊㄕˋㄅㄨˋ","ㄧㄢˊㄈㄚ ㄅㄨˋ","ㄈㄨˋㄎㄨㄢˇ","ㄨㄟˊㄓㄨˇ","ㄨㄟˊㄈㄨˇ","ㄆㄟˋㄏㄜˊ","ㄔㄨ ㄔㄞ ","ㄍㄨㄟ ㄏㄨㄚˋ"]
-    @Published var workTranslation4 = ["To Notify","Tube\nPipe","Packaging","Validation","Supplier\nManufacturer\nProducer","To Bend","To Twist","Ｒivet","Washer","To Sign Off","Administrative\nDepartment","Sales\nMarketing\nDepartment","HR\nDepartment","R&D\nDepartment","Payment\nTo Pay Money","Give Priority\nTo","Give Secondary\nTo","To Coordinate\nWith","To Go Away\nFor Business","Plan\n(How to do smth)"]
+    @Published var listHouseholdBathroomItemsBPMF = ["ㄧㄚˊㄍㄠ ","ㄈㄟ ㄗㄠˋ","ㄇㄠˊㄐㄧㄣ ","ㄕㄨ ㄗ˙","ㄔㄨˊㄕ ㄐㄧ "]
+    @Published var listHouseholdBathroomItemsTranslation = ["toothpaste","soap","towel","comb","dehumidifier"]
     
-    @Published var workBPMF5 = ["ㄨㄞˋㄆㄞˋ","ㄍㄣ ㄐㄧㄣˋ","ㄊㄨㄟˋㄒㄧㄡ ","ㄓˋㄉㄨˋ","ㄎㄨㄤˋㄎㄨㄤˋ","ㄋㄧㄢˊㄐㄧㄚˋ","ㄔㄥˊㄒㄩˋ","ㄙㄢˋㄏㄨㄟˋ","ㄒㄧㄠˋㄌㄩˋ","ㄐㄧㄢ ㄉㄨ ","ㄓˋㄔㄥˊ","ㄒㄧㄤˋㄇㄨˋ","ㄕㄜˋㄊㄨㄢˊ","ㄌㄩˋ","ㄉㄨㄟˋㄧㄡˇ","ㄔㄨ ㄒㄧˊ","ㄑㄩㄝ ㄒㄧˊ","ㄍㄨㄟ ㄏㄨㄚˋ","ㄕˊㄒㄧˊ","ㄊㄜˋㄒㄧㄥˊ"]
-    @Published var workTranslation5 = ["To send to\nanother\nplace","To Follow\nUp","To Retire","System","To Frame\n(box around)","Annual\nLeave","Procedure","Meeting\nEnd","Efficiency","To Supervise","Manufacturing\nProcess","Item","Club","Rate","Team Member","To Be\nPresent","To Be\nAbsent","To Schedule\n(On timeline)","Internship","Specific\nProperty"]
+    @Published var listMedicineBPMF = ["ㄓˇㄊㄨㄥˋㄧㄠˋ","ㄅㄧㄥ ㄈㄨ "]
+    @Published var listMedicineTranslation = ["painkiller","ice packs"]
     
-    @Published var workBPMF6 = ["ㄓˋㄔㄥˊ","ㄉㄧㄢˇㄏㄢˋ","ㄧˊㄐㄧ ","ㄅㄠ ㄓㄨㄤ ","ㄇㄠˇ","ㄌㄟˊㄏㄢˋ","ㄒㄧ ㄏㄢˋ","ㄏㄨㄥ ㄍㄢ ","ㄕㄨˋㄌㄧㄤˋ","ㄌㄧㄥˊㄐㄧㄢˋ","ㄧㄚ ㄓㄚˋ"]
-    @Published var workTranslation6 = ["Manufacturing\nProcess","Spot Welding","To Relocation\nEquipment","Packaging","Crimp","Laser Weld","Soldering","Oven Baking","Number\n(Of things)","Parts\nComponents","Exploit\nWorking"]
+    @Published var listFruitBPMF = ["ㄆㄧㄥˊㄍㄨㄛˇ","ㄔㄥˊㄗ˙","ㄘㄠˇㄇㄟˊ","ㄇㄤˊㄍㄨㄛˇ","ㄧㄥ ㄊㄠˊ","ㄌㄢˊㄇㄟˊ","ㄒㄧ ㄍㄨㄚ ","ㄈㄢ ㄑㄧㄝˊ","ㄆㄨˊㄊㄠˊ","ㄌㄧㄡˊㄌㄧㄢˊ","ㄩˋㄏㄜˊㄅㄠ "]
+    @Published var listFruitTranslation = ["apple","orange","strawberry","mango","cherry","blueberry","watermelon","tomato","grape","durian","lychee"]
+    
+    @Published var listSeafoodBPMF = ["ㄍㄨㄟ ㄩˊ","ㄨㄟˇㄩˊ","ㄓㄤ ㄩˊ","ㄒㄧㄚ ㄗ˙","ㄩˊㄨㄢˊ"]
+    @Published var listSeafoodTranslation = ["salmon","tuna","octopus","shrimp","fish\nball"]
+    
+    @Published var listNutsBPMF = ["ㄏㄨㄚ ㄕㄥ "]
+    @Published var listNutsTranslation = ["Peanut"]
+    
+    @Published var listVegetableBPMF = ["ㄒㄧㄤ ㄍㄨ ","ㄅㄛ ㄘㄞˋ","ㄕㄨㄟˋㄌㄧㄢˊ","ㄈㄢ ㄑㄧㄝˊ","ㄧㄤˊㄘㄨㄥ ","ㄒㄧㄤ ㄘㄞˋ"]
+    @Published var listVegetableTranslation = ["mushroom","spinach","snowflake\nstem","tomato","onion","corriander"]
+    
+    @Published var listDessertBPMF = ["ㄒㄧㄢ ㄘㄠˇ","ㄒㄧㄥˋㄖㄣˊ","ㄨㄟˋㄘㄥ ","ㄅㄨˋㄌㄤˇㄋㄧˊ","ㄖㄨˇㄌㄨㄛˋㄉㄢˋㄍㄠ "]
+    @Published var listDessertTranslation = ["grass jelly","almond","miso","brownie","cheese cake"]
+    
+    @Published var listClothesBPMF = ["ㄒㄧ ㄓㄨㄤ ","ㄨㄞˋㄊㄠˋ","ㄨㄚ ㄗ˙","ㄒㄩㄝ ㄗ˙","ㄊㄨㄛ ㄒㄧㄝˊ","ㄍㄠ ㄍㄣ ㄒㄧㄝˊ","ㄔㄤˊㄒㄧㄡˋ","ㄉㄨㄢˇㄒㄧㄡˋ","ㄓˋㄍㄢˇ"]
+    @Published var listClothesTranslation =  ["western\nsuit","jacket","socks","boots","slippers","high\nheels","long sleeves","short sleeves","texture"]
+    
+    @Published var listOccupationBPMF = ["ㄐㄧㄥˇㄔㄚ ","ㄒㄧㄠ ㄈㄤˊㄩㄢˊ","ㄕㄡˋㄧ ","ㄐㄩㄣ ㄉㄨㄟˋ","ㄕㄥ ㄧˋ","ㄧㄢˊㄐㄧㄡ ㄕㄥ ","ㄩㄥˋㄖㄣˊ"]
+    @Published var listOccupationTranslation = ["police","firefighter","vet.","military","business","graduate\nstudent","servant\nmaid"]
+    
+    @Published var listFamilyBPMF = ["ㄦˊㄊㄨㄥˊ","ㄓˊㄗ˙","ㄓˊㄋㄩˇ","ㄒㄧㄠˋㄕㄨㄣˋ","ㄌㄠˇㄆㄛˊ","ㄌㄠˇㄍㄨㄥ ","ㄚ ㄍㄨㄥ ","ㄚ ㄇㄚˊ","ㄨㄞˋㄕㄥ ㄋㄩˇ","ㄨㄞˋㄕㄥ ","ㄅㄧㄠˇ","ㄊㄤˊ"]
+    @Published var listFamilyTranslation = ["children\n(young)","nephew\n(brother's)","niece\n(brother's)","filial","wife","husband","grandpa","grandma","niece\n(sister's)","nephew\n(brother's)","cousin\n(mom's side)","cousin\n(dad's side)"]
+    
+    @Published var listAccessoriesBPMF = ["necklace","bracelet"]
+    @Published var listAccessoriesTranslation = ["ㄒㄧㄤˋㄌㄧㄢˋ","ㄕㄡˇㄌㄧㄢˋ"]
+    
+    @Published var listContinentsBPMF = ["ㄋㄢˊㄇㄟˇ","ㄇㄟˇㄓㄡ ","ㄡ ㄓㄡ ","ㄋㄢˊㄐㄧˊㄓㄡ ","ㄧㄚˋㄓㄡ ","ㄈㄟ ㄓㄡ ","ㄠˋㄓㄡ "]
+    @Published var listContinentsTranslation = ["south\namerica","americas","europe","antarctica","asia","africa","australia"]
+    
+    @Published var listCountriesBPMF = ["ㄒㄧ ㄅㄢ ㄧㄚˊ","ㄉㄜˊㄍㄨㄛˊ","ㄐㄧㄚ ㄋㄚˊㄉㄚˋ","ㄇㄛˋㄒㄧ ㄍㄜ ","ㄜˊㄌㄨㄛˊㄙ ","ㄒㄧㄣ ㄐㄧㄚ ㄆㄛ ","ㄇㄚˇㄌㄞˊㄒㄧ ㄧㄚˋ","ㄩㄝˋㄋㄢˊ","ㄖˋㄅㄣˇ"]
+    @Published var listCountriesTranslation = ["Spain","Germany","Canada","Mexico","Russia","Singapore","Malaysia","Vietnam","Japan"]
+    
+    @Published var listUSStatesBPMF = ["ㄋㄟˋㄏㄨㄚˊㄉㄚˊ"]
+    @Published var listUSStatesTranslation = ["Nevada",]
+    
+    @Published var listUSCitiesBPMF = ["ㄌㄟˊㄋㄨㄛˋ","ㄌㄚ ㄙ ㄨㄟˊㄐㄧㄚ ㄙ "]
+    @Published var listUSCitiesTranslation = ["Reno","Las Vegas"]
+    
+    @Published var listChengYuBPMF = ["ㄧㄥˋㄓㄜ˙ㄊㄡˊㄆㄧˊ","ㄦˇㄖㄨˊㄇㄨˋㄖㄢˇ"]
+    @Published var listChengYuTranslation = ["to force\noneself","to be influence\nand don't\nnotice"]
+    
+    @Published var listSayingsBPMF = ["ㄖㄜˋㄌㄧㄢˇㄊㄧㄝ ㄌㄥˇㄆㄧˋㄍㄨ˙","ㄊㄨㄛ ㄎㄨˋㄗ˙ㄈㄤˋㄆㄧˋ","ㄨㄣˊㄉㄢˋ","ㄧ ㄈㄣ ㄍㄥ ㄩㄣˊㄧ ㄈㄣ ㄕㄡ ㄏㄨㄛˋ","ㄧ ㄧㄢˊㄨㄟˊㄉㄧㄥˋ","ㄧ ㄇㄛˊㄧ ㄧㄤˋ"]
+    @Published var listSayingsTranslation = ["to show \nfeelings and\nbe dejected","to make\nthings too\ncomplicated","to be done for","you reap what\nyou sow","it's settled\nthen","exactly the\nsame"]
+    
+    @Published var grammarAddEmotionBPMF = ["ㄉㄠˋㄉㄧˇ","ㄍㄟˇㄨㄛˇ"]
+    @Published var grammarAddEmotionTranslation = ["to add emphasis\non questions\n(negative)","strengthen\nthe\nimperative"]
+    
+    @Published var grammarSentenceConnectionsBPMF = ["ㄩˇㄑㄧˊㄅㄨˋㄖㄨˊ","ㄋㄧㄥˋㄩㄢˋ","ㄓˇㄧㄡˇㄘㄞˊ","ㄓˇㄧㄠˋㄐㄧㄡˋ"]
+    @Published var grammarSentenceConnectionsTranslation = ["rather than...\nbetter to","would you\nrather...","only if\n(situation) happens...\n(situation) will\nhappen","as long as\n(situation) happens\n(situation) should\nhappen"]
+    
+    @Published var grammarSmallDetailsBPMF = ["ㄔㄨㄥ ㄒㄧㄣ"]
+    @Published var grammarSmallDetailsTranslation = ["re-(verb)"]
+   
+    
 }
 
 struct Vocabulary: View {
@@ -253,8 +397,10 @@ struct Vocabulary: View {
     @ObservedObject var vocabularyList = VocabularyList()
     @State var vocabularyTranslation = [""]
     @State var vocabularyBPMF = [""]
-    
-    let previewText = "Preview "
+    @State var topic = "when you are..."
+    let topics = ["basics","when you are...","specific scenarios","discussion topics"]
+
+    let previewText = "preview "
     @State var statePreviewText = ""
     
     let screenWidth = UIScreen.main.bounds.size.width
@@ -264,495 +410,156 @@ struct Vocabulary: View {
     
     var body: some View {
         VStack{
+            Picker("Style", selection: $topic) {
+                ForEach(topics, id: \.self) {
+                    Text($0)
+                    .padding()
+                    .font(.custom("papyrus",size: 30))
+                }
+            }
+            .pickerStyle(WheelPickerStyle())
+            .frame(width: screenWidth, height: 100)
+            
+            
+            // If the picker is scenarios
             Group{
                 ScrollView{
                     
-                    VStack{
-                        Button("Activities"){
-                            vocabularyTranslation = self.vocabularyList.activitiesTranslation
-                            vocabularyBPMF = self.vocabularyList.activitiesBPMF
-                            statePreviewText = previewText + "Activities"
-                        }.padding(.bottom,5)
-                        
-                        Button("Alcohol"){
-                            vocabularyTranslation = self.vocabularyList.alcoholTranslation
-                            vocabularyBPMF = self.vocabularyList.alcoholBPMF
-                            statePreviewText = previewText + "Alcohol"
-                        }.padding(.bottom,5)
-                        
-                        Button("Animals"){
-                            vocabularyTranslation = self.vocabularyList.animalsTranslation
-                            vocabularyBPMF = self.vocabularyList.animalsBPMF
-                            statePreviewText = previewText + "Animals"
-                        }.padding(.bottom,5)
-                        
-                        Button("Body Related I"){
-                            vocabularyTranslation = self.vocabularyList.bodyRelatedTranslation
-                            vocabularyBPMF = self.vocabularyList.bodyRelatedBPMF
-                            statePreviewText = previewText + "Body Related I"
-                        }.padding(.bottom,5)
-                        
-                        Button("Body Related II"){
-                            vocabularyTranslation = self.vocabularyList.bodyRelatedTranslation2
-                            vocabularyBPMF = self.vocabularyList.bodyRelatedBPMF2
-                            statePreviewText = previewText + "Body Related II"
-                        }.padding(.bottom,5)
-                        
-                        Button("Breakfast"){
-                            vocabularyTranslation = self.vocabularyList.breakfastTranslation
-                            vocabularyBPMF = self.vocabularyList.breakfastBPMF
-                            statePreviewText = previewText + "Breakfast"
-                        }.padding(.bottom,5)
-                        
-                        Button("Conversation I"){
-                            vocabularyTranslation = self.vocabularyList.conversationTranslation
-                            vocabularyBPMF = self.vocabularyList.conversationBPMF
-                            statePreviewText = previewText + "Conversation I"
-                        }.padding(.bottom,5)
-                        
-                        Button("Conversation II"){
-                            vocabularyTranslation = self.vocabularyList.conversationTranslation2
-                            vocabularyBPMF = self.vocabularyList.conversationBPMF2
-                            statePreviewText = previewText + "Conversation II"
-                        }.padding(.bottom,5)
-                    }
-                    VStack{
-                        
-                        Button("Covid19"){
-                            vocabularyTranslation = self.vocabularyList.covid19Translation
-                            vocabularyBPMF = self.vocabularyList.covid19BPMF
-                            statePreviewText = previewText + "Covid19"
-                        }.padding(.bottom,5)
-                        
-                        Button("Cleaning"){
-                            vocabularyTranslation = self.vocabularyList.cleaningTranslation
-                            vocabularyBPMF = self.vocabularyList.cleaningBPMF
-                            statePreviewText = previewText + "Cleaning"
-                        }.padding(.bottom,5)
-                    }
-                    VStack{
-                        Button("Driving"){
-                            vocabularyTranslation = self.vocabularyList.drivingTranslation
-                            vocabularyBPMF = self.vocabularyList.drivingBPMF
-                            statePreviewText = previewText + "Driving"
-                        }.padding(.bottom,5)
-                        
-                        Button("Emotions I"){
-                            vocabularyTranslation = self.vocabularyList.emotionTranslation
-                            vocabularyBPMF = self.vocabularyList.emotionBPMF
-                            statePreviewText = previewText + "Emotions I"
-                        }.padding(.bottom,5)
-                        
-                        Button("Emotions II"){
-                            vocabularyTranslation = self.vocabularyList.emotionTranslation2
-                            vocabularyBPMF = self.vocabularyList.emotionBPMF2
-                            statePreviewText = previewText + "Emotions II"
-                        }.padding(.bottom,5)
-                        
-                        Button("Emotions III"){
-                            vocabularyTranslation = self.vocabularyList.emotionTranslation3
-                            vocabularyBPMF = self.vocabularyList.emotionBPMF3
-                            statePreviewText = previewText + "Emotions III"
-                        }.padding(.bottom,5)
-                        
-                        Button("Exercise"){
-                            vocabularyTranslation = self.vocabularyList.exerciseTranslation
-                            vocabularyBPMF = self.vocabularyList.exerciseBPMF
-                            statePreviewText = previewText + "Exercise"
-                        }.padding(.bottom,5)
-                        
-                        Button("Family"){
-                            vocabularyTranslation = self.vocabularyList.familyTranslation
-                            vocabularyBPMF = self.vocabularyList.familyBPMF
-                            statePreviewText = previewText + "Family"
-                        }.padding(.bottom,5)
-                        
-                        Button("Finance"){
-                            vocabularyTranslation = self.vocabularyList.financeTranslation
-                            vocabularyBPMF = self.vocabularyList.financeBPMF
-                            statePreviewText = previewText + "Finance"
-                        }.padding(.bottom,5)
-                        
+                    if(topic == "basics"){
                         VStack{
-                            Button("Food"){
-                                vocabularyTranslation = self.vocabularyList.foodTranslation
-                                vocabularyBPMF = self.vocabularyList.foodBPMF
-                                statePreviewText = previewText + "Food"
-                            }.padding(.bottom,5)
-                            
-                            Button("Food Related"){
-                                vocabularyTranslation = self.vocabularyList.foodRelatedTranslation
-                                vocabularyBPMF = self.vocabularyList.foodRelatedBPMF
-                                statePreviewText = previewText + "Food Related"
-                            }.padding(.bottom,5)
+                            VStack{
+                                Button("frequently used words"){
+                                    vocabularyBPMF = self.vocabularyList.basicsChineseBPMF
+                                    vocabularyTranslation = self.vocabularyList.basicsChineseTranslation
+                                    statePreviewText = previewText + "frequently used words"
+                                }.padding()
+                                Button("numbers"){
+                                    vocabularyBPMF = self.vocabularyList.basicsNumbersBPMF
+                                    vocabularyTranslation = self.vocabularyList.basicsNumbersTranslation
+                                    statePreviewText = previewText + "numbers"
+                                }.padding()
+                                Button("introduction"){
+                                    vocabularyBPMF = self.vocabularyList.basicsIntroducingYourselfBPMF
+                                    vocabularyTranslation = self.vocabularyList.basicsIntroducingYourselfTranslation
+                                    statePreviewText = previewText + "introduction"
+                                }.padding()
+                            }
                         }
-                        
-                        Button("Fruit"){
-                            vocabularyTranslation = self.vocabularyList.fruitTranslation
-                            vocabularyBPMF = self.vocabularyList.fruitBPMF
-                            statePreviewText = previewText + "Fruit"
-                        }.padding(.bottom,5)
-                        
-                        Button("Games"){
-                            vocabularyTranslation = self.vocabularyList.gamesTranslation
-                            vocabularyBPMF = self.vocabularyList.gamesBPMF
-                            statePreviewText = previewText + "Games"
-                        }.padding(.bottom,5)
-                        
                     }
-                    VStack{
-                        Button("General Adverbs I"){
-                            vocabularyTranslation = self.vocabularyList.generalAdverbsTranslation
-                            vocabularyBPMF = self.vocabularyList.generalAdverbsBPMF
-                            statePreviewText = previewText + "General Adverbs I"
-                        }.padding(.bottom,5)
-                        
-                        Button("General Adverbs II"){
-                            vocabularyTranslation = self.vocabularyList.generalAdverbsTranslation2
-                            vocabularyBPMF = self.vocabularyList.generalAdverbsBPMF2
-                            statePreviewText = previewText + "General Adverbs II"
-                        }.padding(.bottom,5)
-                        
-                        Button("General Adjectives I"){
-                            vocabularyTranslation = self.vocabularyList.generalAdjectivesTranslation
-                            vocabularyBPMF = self.vocabularyList.generalAdjectivesBPMF
-                            statePreviewText = previewText + "General Adjectives I"
-                        }.padding(.bottom,5)
-                        
-                        Button("General Adjectives II"){
-                            vocabularyTranslation = self.vocabularyList.generalAdjectivesTranslation2
-                            vocabularyBPMF = self.vocabularyList.generalAdjectivesBPMF2
-                            statePreviewText = previewText + "General Adjectives II"
-                        }.padding(.bottom,5)
-                        
-                        Button("General Adjectives III"){
-                            vocabularyTranslation = self.vocabularyList.generalAdjectivesTranslation3
-                            vocabularyBPMF = self.vocabularyList.generalAdjectivesBPMF3
-                            statePreviewText = previewText + "General Adjectives III"
-                        }.padding(.bottom,5)
-                        
-                        Button("General Nouns I"){
-                            vocabularyTranslation = self.vocabularyList.generalNounsTranslation
-                            vocabularyBPMF = self.vocabularyList.generalNounsBPMF
-                            statePreviewText = previewText + "General Nouns I"
-                        }.padding(.bottom,5)
-                        
+                    if(topic == "when you are..."){
                         VStack{
-                            Button("General Nouns II"){
-                                vocabularyTranslation = self.vocabularyList.generalNounsTranslation2
-                                vocabularyBPMF = self.vocabularyList.generalNounsBPMF2
-                                statePreviewText = previewText + "General Nouns II"
-                            }.padding(.bottom,5)
-                            
-                            Button("General Nouns III"){
-                                vocabularyTranslation = self.vocabularyList.generalNounsTranslation3
-                                vocabularyBPMF = self.vocabularyList.generalNounsBPMF3
-                                statePreviewText = previewText + "General Nouns III"
-                            }.padding(.bottom,5)
-                            
-                            Button("General Verbs I"){
-                                vocabularyTranslation = self.vocabularyList.generalVerbsTranslation
-                                vocabularyBPMF = self.vocabularyList.generalVerbsBPMF
-                                statePreviewText = previewText + "General Verbs I"
-                            }.padding(.bottom,5)
-                            
-                            Button("General Verbs II"){
-                                vocabularyTranslation = self.vocabularyList.generalVerbsTranslation2
-                                vocabularyBPMF = self.vocabularyList.generalVerbsBPMF2
-                                statePreviewText = previewText + "General Verbs II"
-                            }.padding(.bottom,5)
-                            
-                            Button("General Verbs III"){
-                                vocabularyTranslation = self.vocabularyList.generalVerbsTranslation3
-                                vocabularyBPMF = self.vocabularyList.generalVerbsBPMF3
-                                statePreviewText = previewText + "General Verbs III"
-                            }.padding(.bottom,5)
-                            
-                            Button("General Verbs IV"){
-                                vocabularyTranslation = self.vocabularyList.generalVerbsTranslation4
-                                vocabularyBPMF = self.vocabularyList.generalVerbsBPMF4
-                                statePreviewText = previewText + "General Verbs IV"
-                            }.padding(.bottom,5)
+                            VStack{
+                                Button("asked why learn chinese?"){
+                                    vocabularyBPMF = self.vocabularyList.topicLanguageLearningBPMF
+                                    vocabularyTranslation = self.vocabularyList.topicLanguageLearningTranslation
+                                    statePreviewText = previewText + "asked why learn chinese?"
+                                }.padding()
+                                
+                                Button("shopping"){
+                                    vocabularyBPMF = self.vocabularyList.topicShoppingBPMF
+                                    vocabularyTranslation = self.vocabularyList.topicShoppingTranslation
+                                    statePreviewText = previewText + "when shopping"
+                                }.padding()
+                                
+                               
+                            }
+                            VStack{
+                                Button("drinking"){
+                                    vocabularyBPMF = self.vocabularyList.topicDrinkingBPMF
+                                    vocabularyTranslation = self.vocabularyList.topicDrinkingTranslation
+                                    statePreviewText = previewText + "when drinking"
+                                }.padding()
+                                Button("language exchanging"){
+                                    vocabularyBPMF = self.vocabularyList.topicLanguageExchangeBPMF
+                                    vocabularyTranslation = self.vocabularyList.topicLanguageExchangeTranslation
+                                    statePreviewText = previewText + "when language exchanging"
+                                }.padding()
+                                Button("working in an office"){
+                                    vocabularyBPMF = self.vocabularyList.topicOfficeJobBPMF
+                                    vocabularyTranslation = self.vocabularyList.topicOfficeJobTranslation
+                                    statePreviewText = previewText + "when working in an office"
+                                }.padding()
+                                Button("complaining about work"){
+                                    vocabularyBPMF = self.vocabularyList.topicComplainingWorkBPMF
+                                    vocabularyTranslation = self.vocabularyList.topicComplainingWorkTranslation
+                                    statePreviewText = previewText + "\ncomlaining about work"
+                                }.padding()
+                                Button("complaining about relationships"){
+                                    vocabularyBPMF = self.vocabularyList.topicComplainingRelationshipBPMF
+                                    vocabularyTranslation = self.vocabularyList.topicComplainingRelationshipTranslation
+                                    statePreviewText = previewText + "\ncomplaining about relationships"
+                                }.padding()
+                            }
+                            VStack{
+                                
+                            }
                         }
-
-
-                    }
-                    VStack{
-                        Button("Health"){
-                            vocabularyTranslation = self.vocabularyList.healthTranslation
-                            vocabularyBPMF = self.vocabularyList.healthBPMF
-                            statePreviewText = previewText + "Health"
-                        }.padding(.bottom,5)
-                        
-                        Button("Horror"){
-                            vocabularyTranslation = self.vocabularyList.horrorTranslation
-                            vocabularyBPMF = self.vocabularyList.horrorBPMF
-                            statePreviewText = previewText + "Horror"
-                        }.padding(.bottom,5)
-                    
-                        Button("Household"){
-                            vocabularyTranslation = self.vocabularyList.householdTranslation
-                            vocabularyBPMF = self.vocabularyList.householdBPMF
-                            statePreviewText = previewText + "Household"
-                        }.padding(.bottom,5)
-                        
-                        Button("Infrastructure"){
-                            vocabularyTranslation = self.vocabularyList.infrastructureTranslation
-                            vocabularyBPMF = self.vocabularyList.infrastructureBPMF
-                            statePreviewText = previewText + "Infrastructure"
-                        }.padding(.bottom,5)
-                        
-                        Button("Language"){
-                            vocabularyTranslation = self.vocabularyList.languageTranslation
-                            vocabularyBPMF = self.vocabularyList.languageBPMF
-                            statePreviewText = previewText + "Language"
-                        }.padding(.bottom,5)
-                        
-                        Button("Location"){
-                            vocabularyTranslation = self.vocabularyList.locationTranslation
-                            vocabularyBPMF = self.vocabularyList.locationBPMF
-                            statePreviewText = previewText + "Location"
-                        }.padding(.bottom,5)
-                        
-                        Button("Machines"){
-                            vocabularyTranslation = self.vocabularyList.machinesTranslation
-                            vocabularyBPMF = self.vocabularyList.machinesBPMF
-                            statePreviewText = previewText + "Machines"
-                        }.padding(.bottom,5)
-                        
-                        Button("Measure Words"){
-                            vocabularyTranslation = self.vocabularyList.measureWordsTranslation
-                            vocabularyBPMF = self.vocabularyList.measureWordsBPMF
-                            statePreviewText = previewText + "Measure Words"
-                        }.padding(.bottom,5)
-                        
-                        Button("Media"){
-                            vocabularyTranslation = self.vocabularyList.mediaTranslation
-                            vocabularyBPMF = self.vocabularyList.mediaBPMF
-                            statePreviewText = previewText + "Media"
-                        }.padding(.bottom,5)
-                    }
-                    VStack{
-                            Button("Mental Verbs"){
-                                vocabularyTranslation = self.vocabularyList.mentalVerbsTranslation
-                                vocabularyBPMF = self.vocabularyList.mentalVerbsBPMF
-                                statePreviewText = previewText + "Mental Verbs"
-                            }.padding(.bottom,5)
-                        
-                            Button("Dessert"){
-                                vocabularyTranslation = self.vocabularyList.dessertTranslation
-                                vocabularyBPMF = self.vocabularyList.dessertBPMF
-                                statePreviewText = previewText + "Dessert"
-                            }.padding(.bottom,5)
-                        
-                            
-                            Button("Nature"){
-                                vocabularyTranslation = self.vocabularyList.natureTranslation
-                                vocabularyBPMF = self.vocabularyList.natureBPMF
-                                statePreviewText = previewText + "Nature"
-                            }.padding(.bottom,5)
-                        
-                        Button("Office Work"){
-                            vocabularyTranslation = self.vocabularyList.officeWorkTranslation
-                            vocabularyBPMF = self.vocabularyList.officeWorkBPMF
-                            statePreviewText = previewText + "Office Work"
-                        }.padding(.bottom,5)
-                        }
-                        
-                    VStack{
-                        Button("Patterns"){
-                            vocabularyTranslation = self.vocabularyList.patternsTranslation
-                            vocabularyBPMF = self.vocabularyList.patternsBPMF
-                            statePreviewText = previewText + "Patterns"
-                        }.padding(.bottom,5)
-                        
-                        Button("Personal Characteristics I"){
-                            vocabularyTranslation = self.vocabularyList.personalCharacteristicTranslation
-                            vocabularyBPMF = self.vocabularyList.personalCharacteristicBPMF
-                            statePreviewText = previewText + "Personal Characteristics I"
-                        }.padding(.bottom,5)
-                        
-                        Button("Personal Characteristics II"){
-                            vocabularyTranslation = self.vocabularyList.personalCharacteristicTranslation2
-                            vocabularyBPMF = self.vocabularyList.personalCharacteristicBPMF2
-                            statePreviewText = previewText + "Personal Characteristics II"
-                        }.padding(.bottom,5)
-                        
-                        Button("Physical Description"){
-                            vocabularyTranslation = self.vocabularyList.physicalDescriptionTranslation
-                            vocabularyBPMF = self.vocabularyList.physicalDescriptionBPMF
-                            statePreviewText = previewText + "Physical Description"
-                        }.padding(.bottom,5)
-                        
-                        Button("Place Names"){
-                            vocabularyTranslation = self.vocabularyList.placeNamesTranslation
-                            vocabularyBPMF = self.vocabularyList.placeNamesBPMF
-                            statePreviewText = previewText + "Place Names"
-                        }.padding(.bottom,5)
-                        
-                    }
-                    VStack{
-                        
-                        Button("Occupation"){
-                            vocabularyTranslation = self.vocabularyList.occupationTranslation
-                            vocabularyBPMF = self.vocabularyList.occupationBPMF
-                            statePreviewText = previewText + "Occupation"
-                        }.padding(.bottom,5)
-                        
-                        Button("Relationships"){
-                            vocabularyTranslation = self.vocabularyList.relationshipsTranslation
-                            vocabularyBPMF = self.vocabularyList.relationshipsBPMF
-                            statePreviewText = previewText + "Relationships"
-                        }.padding(.bottom,5)
-                        
-                        Button("Remarks"){
-                            vocabularyTranslation = self.vocabularyList.remarksTranslation
-                            vocabularyBPMF = self.vocabularyList.remarksBPMF
-                            statePreviewText = previewText + "Remarks"
-                        }.padding(.bottom,5)
-                        
-                        Button("Restaurants"){
-                            vocabularyTranslation = self.vocabularyList.restaurantsTranslation
-                            vocabularyBPMF = self.vocabularyList.restaurantsBPMF
-                            statePreviewText = previewText + "Restaurants"
-                        }.padding(.bottom,5)
-                        
-                        Button("Sayings"){
-                            vocabularyTranslation = self.vocabularyList.sayingsTranslation
-                            vocabularyBPMF = self.vocabularyList.sayingsBPMF
-                            statePreviewText = previewText + "Sayings"
-                        }.padding(.bottom,5)
-                        
-                        Button("School"){
-                            vocabularyTranslation = self.vocabularyList.schoolTranslation
-                            vocabularyBPMF = self.vocabularyList.schoolBPMF
-                            statePreviewText = previewText + "School"
-                        }.padding(.bottom,5)
-                        
-                        Button("Shopping"){
-                            vocabularyTranslation = self.vocabularyList.shoppingTranslation
-                            vocabularyBPMF = self.vocabularyList.shoppingBPMF
-                            statePreviewText = previewText + "Shopping"
-                        }.padding(.bottom,5)
-                            
+                        .padding()
                     }
                     
-                    VStack{
-                        Button("Specific Movements I"){
-                            vocabularyTranslation = self.vocabularyList.specificMovementTranslation
-                            vocabularyBPMF = self.vocabularyList.specificMovementBPMF
-                            statePreviewText = previewText + "Specific Movements I"
-                        }.padding(.bottom,5)
-                        
-                        Button("Specific Movements II"){
-                            vocabularyTranslation = self.vocabularyList.specificMovementTranslation2
-                            vocabularyBPMF = self.vocabularyList.specificMovementBPMF2
-                            statePreviewText = previewText + "Specific Movements II"
-                        }.padding(.bottom,5)
-                        
-                        Button("Specific Movements III"){
-                            vocabularyTranslation = self.vocabularyList.specificMovementTranslation3
-                            vocabularyBPMF = self.vocabularyList.specificMovementBPMF3
-                            statePreviewText = previewText + "Specific Movements III"
-                        }.padding(.bottom,5)
-                        
-                        Button("Specific Movements IV"){
-                            vocabularyTranslation = self.vocabularyList.specificMovementTranslation4
-                            vocabularyBPMF = self.vocabularyList.specificMovementBPMF4
-                            statePreviewText = previewText + "Specific Movements IV"
-                        }.padding(.bottom,5)
-                        
-                        Button("Technology"){
-                            vocabularyTranslation = self.vocabularyList.technologyTranslation
-                            vocabularyBPMF = self.vocabularyList.technologyBPMF
-                            statePreviewText = previewText + "Technology"
-                        }.padding(.bottom,5)
-                        
-                        Button("Time Words"){
-                            vocabularyTranslation = self.vocabularyList.timeWordsTranslation
-                            vocabularyBPMF = self.vocabularyList.timeWordsBPMF
-                            statePreviewText = previewText + "Time Words"
-                        }.padding(.bottom,5)
-                        
-                        Button("Travel"){
-                            vocabularyTranslation = self.vocabularyList.travelTranslation
-                            vocabularyBPMF = self.vocabularyList.travelBPMF
-                            statePreviewText = previewText + "Travel"
-                        }.padding(.bottom,5)
-                        
-                        Button("Vegetables"){
-                            vocabularyTranslation = self.vocabularyList.vegetableTranslation
-                            vocabularyBPMF = self.vocabularyList.vegetableBPMF
-                            statePreviewText = previewText + "Vegetables"
-                        }.padding(.bottom,5)
-                        
-                        Button("Wearables"){
-                            vocabularyTranslation = self.vocabularyList.wearablesTranslation
-                            vocabularyBPMF = self.vocabularyList.wearablesBPMF
-                            statePreviewText = previewText + "Wearables"
-                        }.padding(.bottom,5)
-                        
+                    if(topic == "specific scenarios"){
+                        VStack{
+                            VStack{
+                                
+                                Button("running out of battery"){
+                                    vocabularyBPMF = self.vocabularyList.scenarioRunningOutOfBatteryBPMF
+                                    vocabularyTranslation = self.vocabularyList.scenarioRunningOutofBatteryTranslation
+                                    statePreviewText = previewText + "\nrunning out of battery"
+                                }.padding()
+                            }
+                        }
+                        .padding()
                     }
-                
-                        
-                    VStack{
-                        Button("Work I"){
-                            vocabularyTranslation = self.vocabularyList.workTranslation
-                            vocabularyBPMF = self.vocabularyList.workBPMF
-                            statePreviewText = previewText + "Work I"
-                        }.padding(.bottom,5)
-                        
-                        Button("Work II"){
-                            vocabularyTranslation = self.vocabularyList.workTranslation2
-                            vocabularyBPMF = self.vocabularyList.workBPMF2
-                            statePreviewText = previewText + "Work II"
-                        }.padding(.bottom,5)
-                        
-                        Button("Work III"){
-                            vocabularyTranslation = self.vocabularyList.workTranslation3
-                            vocabularyBPMF = self.vocabularyList.workBPMF3
-                            statePreviewText = previewText + "Work III"
-                        }.padding(.bottom,5)
-                        
-                        Button("Work IV"){
-                            vocabularyTranslation = self.vocabularyList.workTranslation4
-                            vocabularyBPMF = self.vocabularyList.workBPMF4
-                            statePreviewText = previewText + "Work IV"
-                        }.padding(.bottom,5)
-                        
-                        Button("Work V"){
-                            vocabularyTranslation = self.vocabularyList.workTranslation5
-                            vocabularyBPMF = self.vocabularyList.workBPMF5
-                            statePreviewText = previewText + "Work V"
-                        }.padding(.bottom,5)
-                        
-                        Button("Work VI"){
-                            vocabularyTranslation = self.vocabularyList.workTranslation6
-                            vocabularyBPMF = self.vocabularyList.workBPMF6
-                            statePreviewText = previewText + "Work VI"
-                        }.padding(.bottom,5)
-                        
-                        
-                        
+                    
+                    if(topic == "discussion topics"){
+                        VStack{
+                            VStack{
+                                Button("what to do"){
+                                    vocabularyBPMF = self.vocabularyList.discussionWhatToDoBPMF
+                                    vocabularyTranslation = self.vocabularyList.discussionWhatToDoTranslation
+                                    statePreviewText = previewText + "\ndiscussing what to do"
+                                }.padding()
+                                Button("what to eat"){
+                                    vocabularyBPMF = self.vocabularyList.discussionWhatToEatBPMF
+                                    vocabularyTranslation = self.vocabularyList.discussionWhatToEatTranslation
+                                    statePreviewText = previewText + "\ndiscussing what to eat"
+                                }.padding()
+                                Button("public transportation"){
+                                    vocabularyBPMF = self.vocabularyList.discussionPublicTransportationBPMF
+                                    vocabularyTranslation = self.vocabularyList.discussionPublicTransportationTranslation
+                                    statePreviewText = previewText + "\ndiscussing public transportation"
+                                }.padding()
+                                
+                                Button("covid19"){
+                                    vocabularyBPMF = self.vocabularyList.discussionCovid19BPMF
+                                    vocabularyTranslation = self.vocabularyList.discussionCovid19Translation
+                                    statePreviewText = previewText + "\ndiscussing covid19"
+                                }.padding()
+                            }
+                        }
+                        .padding()
                     }
                 }
-                .font(.custom("Chalkboard SE",size: 26))
-                .frame(minWidth:200, maxWidth: 250)
+                .font(.custom("papyrus",size: 26))
+                .frame(minWidth:200, maxWidth: screenWidth)
                 .multilineTextAlignment(.leading)
                 .padding(10)
                 .frame(alignment: .leading)
                 .foregroundColor(.black)
+                .frame(width:screenWidth,height:screenHeight*0.60)
             }
 
-                NavigationLink(destination: ContentPreview(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF, pronunciationTextMode: self.$pronunciationTextMode,pronunciationVoiceMode: self.$pronunciationVoiceMode, voiceSelection:self.$voiceSelection, timerValue: self.$timerValue,testModeSelection: self.$testModeSelection)){
-                Text(statePreviewText)
-                }
-                .frame(width: screenWidth, height: 40, alignment: .center)
-                //.navigationBarHidden(true)
-                //.navigationBarTitle("")
-                .foregroundColor(PreviewStartColor)
-                .font(.system(size: 20, weight: .heavy))
-                .padding()
+            NavigationLink(destination: ContentPreview(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF, pronunciationTextMode: self.$pronunciationTextMode,pronunciationVoiceMode: self.$pronunciationVoiceMode, voiceSelection:self.$voiceSelection, timerValue: self.$timerValue,testModeSelection: self.$testModeSelection)){
+            Text(statePreviewText)
+            }
+            .frame(width: screenWidth, height: 100, alignment: .center)
+            .multilineTextAlignment(.center)
+            //.navigationBarHidden(true)
+            //.navigationBarTitle("")
+            .foregroundColor(PreviewStartColor)
+            .font(.custom("papyrus",size: 26))
+            .padding(10)
+            Spacer()
     
             
         }

@@ -56,73 +56,77 @@ struct ContentView: View {
         return UIScreen.main.bounds.height
     }
     
-    let textBPMFSize = CGFloat(25)
+    let textBPMFSize = CGFloat(60)
     
     var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
 
     var body: some View {
         NavigationView {
 
-                    VStack {
-                        VStack{
-                            HStack{
+            VStack {
+               
+                    HStack{
 
-                                Text("Bo ㄅ").font(.custom("Chalkboard SE", size: textBPMFSize))
-                                Spacer()
-                                Text("Po ㄆ").font(.custom("Chalkboard SE", size: textBPMFSize))
-                                Spacer()
-                                Spacer()
-                                Spacer()
-                            }.padding(10)
-                            
-                            HStack{
-                                Spacer()
-                                Text("Mo ㄇ").font(.custom("Chalkboard SE", size: textBPMFSize))
-                                Spacer()
-                                Text("Fo ㄈ").font(.custom("Chalkboard SE", size: textBPMFSize))
-                                Spacer()
-                            }
-                        }
-                        .foregroundColor(teal)
-                        .frame(minWidth:0,maxWidth:screenWidth)
-                        .padding(30)
-                        HStack{
-                            Spacer()
-                            Spacer()
-                            Text("Studio")
-                                .font(.custom("Chalkboard SE", size: 90))
-                                .foregroundColor(teal)
-                                .padding(30)
-                        }
-                        
-                        NavigationLink(destination: Settings( testModeSelection: self.$testMode.Zhuyin)) {
-                            Text("Learn Zhuyin Characters")
-                                .frame(minWidth: 0, maxWidth: 300)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(teal)
-                                .cornerRadius(40)
-                        }
-                        NavigationLink(destination: Settings(testModeSelection: self.$testMode.PinyintoZhuyin)){
-                            Text("Learn Pinyin-to-Zhuyin")
-                                .frame(minWidth: 0, maxWidth: 300)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(teal)
-                                .cornerRadius(40)
-                        }
-                        NavigationLink(destination: Settings(testModeSelection: self.$testMode.Vocabulary)){
-                            Text("Learn Vocabulary")
-                                .frame(minWidth: 0, maxWidth: 300)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(teal)
-                                .cornerRadius(40)
-                            
-                        }
+                        Text("Bo ㄅ").font(.custom("Signpainter", size: textBPMFSize))
                         Spacer()
+                        Text("Po ㄆ").font(.custom("Signpainter", size: textBPMFSize))
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                    }.padding(10)
+                    
+                    HStack{
+                        Spacer()
+                        Spacer()
+                        Text("Mo ㄇ").font(.custom("Signpainter", size: textBPMFSize))
+                        Spacer()
+                        Text("Fo ㄈ").font(.custom("Signpainter", size: textBPMFSize))
+                        Spacer()
+                    }.padding(10)
+                
+                
+                    HStack{
+                        Spacer()
+                        Spacer()
+                        Text("Studio")
+                            .font(.custom("Chalkboard SE", size: 100))
+                            .foregroundColor(teal)
+                            .padding()
+                    
+                    }
+                    
+                    NavigationLink(destination: Settings( testModeSelection: self.$testMode.Zhuyin)) {
+                        Text("Learn Zhuyin Characters")
+                            .frame(minWidth: 0, maxWidth: 300)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(teal)
+                            .cornerRadius(40)
+                    }
+                    NavigationLink(destination: Settings(testModeSelection: self.$testMode.PinyintoZhuyin)){
+                        Text("Learn Pinyin-to-Zhuyin")
+                            .frame(minWidth: 0, maxWidth: 300)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(teal)
+                            .cornerRadius(40)
+                    }
+                    NavigationLink(destination: Settings(testModeSelection: self.$testMode.Vocabulary)){
+                        Text("Learn Vocabulary")
+                            .frame(minWidth: 0, maxWidth: 300)
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(teal)
+                            .cornerRadius(40)
                         
-                    }.font(.custom("Chalkboard SE", size: 20))
+                    }
+                    Spacer()
+                
+                }
+            .font(.custom("Chalkboard SE", size: 20))
+            .foregroundColor(teal)
+            .frame(minWidth:0,maxWidth:screenWidth)
+            .padding()
         }
     }
 }
