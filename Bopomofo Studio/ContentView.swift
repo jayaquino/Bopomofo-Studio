@@ -89,7 +89,7 @@ struct ContentView: View {
                         Spacer()
                         Spacer()
                         Text("Studio")
-                            .font(.custom("Chalkboard SE", size: 100))
+                            .font(.custom("copperplate", size: 80))
                             .foregroundColor(teal)
                             .padding()
                     
@@ -123,7 +123,7 @@ struct ContentView: View {
                     Spacer()
                 
                 }
-            .font(.custom("Chalkboard SE", size: 20))
+            .font(.custom("copperplate", size: 20))
             .foregroundColor(teal)
             .frame(minWidth:0,maxWidth:screenWidth)
             .padding()

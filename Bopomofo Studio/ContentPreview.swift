@@ -38,7 +38,7 @@ struct ContentPreview: View {
                             ForEach(contentOne, id: \.self){symbol in
                                 Text(symbol)
                                     .padding(2)
-                                    .font(.custom("Chalkboard SE", size: 18))
+                                    .font(.custom("chalkboard se", size: 18))
                                     .font(.system(size: 18, weight: .thin))
                             }
                             .frame(minHeight:75)
@@ -50,7 +50,7 @@ struct ContentPreview: View {
                             ForEach(contentTwo, id: \.self){symbol in
                                 Text(symbol)
                                     .padding(2)
-                                    .font(.custom("Chalkboard SE",size: 20))
+                                    .font(.custom("chalkboard se",size: 20))
                                     .font(.system(size: 20, weight: .black))
                             }
                             .frame(minHeight:75)
@@ -93,6 +93,7 @@ struct ContentPreview: View {
                             .frame(minWidth: 0, maxWidth: 300)
                     }
                 }
+                Spacer()
             }
         }
     }
