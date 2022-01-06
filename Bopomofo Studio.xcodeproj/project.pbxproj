@@ -94,6 +94,7 @@
 		52C479AF26AB9BDC00E3540F /* ContentPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479AE26AB9BDC00E3540F /* ContentPreview.swift */; };
 		52C479B126AC8DFE00E3540F /* Vocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479B026AC8DFE00E3540F /* Vocabulary.swift */; };
 		52C479B326B3906200E3540F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479B226B3906200E3540F /* Test.swift */; };
+		52D1A9732784676D00C0D14E /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D1A9722784676D00C0D14E /* Flashcard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +208,7 @@
 		52C479AE26AB9BDC00E3540F /* ContentPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreview.swift; sourceTree = "<group>"; };
 		52C479B026AC8DFE00E3540F /* Vocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vocabulary.swift; sourceTree = "<group>"; };
 		52C479B226B3906200E3540F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		52D1A9722784676D00C0D14E /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,9 +263,10 @@
 				5237C17726A5CB3E00C7BC56 /* ContentView.swift */,
 				5237C1A026A5CC0800C7BC56 /* Zhuyin.swift */,
 				52C479AC26AB886900E3540F /* Settings.swift */,
-				52C479AE26AB9BDC00E3540F /* ContentPreview.swift */,
 				52C479B026AC8DFE00E3540F /* Vocabulary.swift */,
+				52C479AE26AB9BDC00E3540F /* ContentPreview.swift */,
 				52C479B226B3906200E3540F /* Test.swift */,
+				52D1A9722784676D00C0D14E /* Flashcard.swift */,
 				522D4F3026D1805500578A82 /* Images.xcassets */,
 				5237C17E26A5CB4000C7BC56 /* Info.plist */,
 				525344252753606200C439AC /* Male BPMF */,
@@ -604,6 +607,7 @@
 			files = (
 				52C479AF26AB9BDC00E3540F /* ContentPreview.swift in Sources */,
 				5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */,
+				52D1A9732784676D00C0D14E /* Flashcard.swift in Sources */,
 				52C479B126AC8DFE00E3540F /* Vocabulary.swift in Sources */,
 				5237C1A126A5CC0800C7BC56 /* Zhuyin.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,

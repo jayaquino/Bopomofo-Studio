@@ -18,6 +18,9 @@ struct ContentPreview: View {
     @Binding var timerValue: Double
     @Binding var testModeSelection: String
 
+    @State var testType = "Bopomofo"
+    let testTypes = ["Bopomofo","Flashcards"]
+    
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
@@ -61,13 +64,33 @@ struct ContentPreview: View {
                         
                     }
                 if(testModeSelection == "Vocabulary"){
-                    NavigationLink(destination: Test(contentOne: self.$contentOne, contentTwo: self.$contentTwo, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
-                    Text("Start Test")
+                    Picker("Style", selection: $testType) {
+                        ForEach(testTypes, id: \.self) {
+                            Text($0)
+                            .padding()
+                            .font(.custom("copperplate",size: 30))
+                        }
                     }
-                    .foregroundColor(PreviewStartColor)
-                    .padding(10)
-                    .font(.system(size: 30, weight: .heavy))
-                    //.disabled(self.vocabularyTranslation == [""])
+                    .pickerStyle(InlinePickerStyle())
+                    .frame(width: screenWidth, height: 100)
+                    .padding()
+                    if testType == "Bopomofo"{
+                        NavigationLink(destination: Test(contentOne: self.$contentOne, contentTwo: self.$contentTwo, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
+                        Text("Start Test")
+                        }
+                        .foregroundColor(teal)
+                        .padding(10)
+                        .font(.system(size: 30, weight: .heavy))
+                    }
+                    if testType == "Flashcards"{
+                        NavigationLink(destination: Flashcard(contentOne: self.$contentOne, contentTwo: self.$contentTwo, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
+                        Text("Start Test")
+                        }
+                        .foregroundColor(teal)
+                        .padding(10)
+                        .font(.system(size: 30, weight: .heavy))
+                    }
+                    
                 }
                 else if (testModeSelection == "Zhuyin"){
                     NavigationLink(destination: Zhuyin(pronunciationTextMode: self.$pronunciationTextMode,pronunciationVoiceMode:self.$pronunciationVoiceMode, voiceSelection:self.$voiceSelection, timerValue: self.$timerValue,testModeSelection:self.$testModeSelection)){
@@ -75,7 +98,7 @@ struct ContentPreview: View {
                             .frame(width: 200, height: 30, alignment: .center)
                             //.navigationBarHidden(true)
                             //.navigationBarTitle("")
-                            .foregroundColor(PreviewStartColor)
+                            .foregroundColor(teal)
                             .font(.system(size: 30, weight: .heavy))
                             .padding()
                             .frame(minWidth: 0, maxWidth: 300)
@@ -87,7 +110,7 @@ struct ContentPreview: View {
                             .frame(width: 200, height: 30, alignment: .center)
                             //.navigationBarHidden(true)
                             //.navigationBarTitle("")
-                            .foregroundColor(PreviewStartColor)
+                            .foregroundColor(teal)
                             .font(.system(size: 30, weight: .heavy))
                             .padding()
                             .frame(minWidth: 0, maxWidth: 300)

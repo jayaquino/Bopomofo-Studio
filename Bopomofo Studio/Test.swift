@@ -77,7 +77,7 @@ struct Test: View {
                         .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                         .frame(maxWidth: UIScreen.main.bounds.width)
                         .font(.custom("copperplate", size: 25))
-                        .foregroundColor(.blue)
+                        .foregroundColor(teal)
                         .frame(minHeight: 200)
                         .frame(maxHeight: 250)
                         .onAppear(perform: {
@@ -248,6 +248,7 @@ struct Test: View {
                         .padding()
                         .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                         .font(.custom("copperplate", size: 17))
+                        .foregroundColor(teal)
                         
                         Spacer()
                         
@@ -264,6 +265,7 @@ struct Test: View {
                         .padding()
                         .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                         .font(.custom("copperplate", size: 17))
+                        .foregroundColor(teal)
                         
                         Spacer()
                       

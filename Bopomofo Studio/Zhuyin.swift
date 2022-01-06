@@ -132,6 +132,8 @@ struct Zhuyin: View {
     @State var femaleSoundBPMF = ""
     @State var maleSoundBPMF = ""
     
+    var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
+    
     // Functions
     func generateNewSymbol() {
         
@@ -229,7 +231,7 @@ struct Zhuyin: View {
                             .padding()
                             .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                             .font(.system(size:100))
-                            .foregroundColor(.black)
+                            .foregroundColor(teal)
                             .frame(minHeight: 200)
                             .onAppear{let randomNumber = Int.random(in: 0...zhuyinSymbols.count-1)
                                 randomSymbol = zhuyinSymbols[randomNumber]

@@ -433,6 +433,7 @@ struct Vocabulary: View {
     let screenHeight = UIScreen.main.bounds.size.height
     
     var PreviewStartColor = Color(red: 255 / 255, green: 153 / 255, blue: 51 / 255)
+    var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
     
     var body: some View {
         VStack{
@@ -443,7 +444,7 @@ struct Vocabulary: View {
                     .font(.custom("copperplate",size: 30))
                 }
             }
-            .pickerStyle(WheelPickerStyle())
+            .pickerStyle(InlinePickerStyle())
             .frame(width: screenWidth, height: 100)
             .padding()
             
@@ -1272,10 +1273,11 @@ struct Vocabulary: View {
             .multilineTextAlignment(.center)
             //.navigationBarHidden(true)
             //.navigationBarTitle("")
-            .foregroundColor(PreviewStartColor)
+            .foregroundColor(teal)
             .font(.custom("copperplate",size: 26))
-            .padding(10)
+            .padding()
             Spacer()
+            
     
             
         }

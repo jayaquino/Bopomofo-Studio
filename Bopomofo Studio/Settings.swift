@@ -74,11 +74,16 @@ struct Settings: View {
     @State var voiceSelection = "Female"
     
     var PreviewStartColor = Color(red: 255 / 255, green: 153 / 255, blue: 51 / 255)
+    var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
     
     let voices = ["Female","Male"]
 
+    let screenWidth = UIScreen.main.bounds.size.width
+    let screenHeight = UIScreen.main.bounds.size.height
+    
     var body: some View {
         VStack{
+            
             Toggle("Pronunciation Text Assistance", isOn: self.$modeSettings.pronunciationTextMode)
                 .padding()
             if testModeSelection == "Zhuyin" || testModeSelection == "PinyintoZhuyin"{
@@ -113,7 +118,7 @@ struct Settings: View {
                 NavigationLink(destination: ContentPreview(contentOne: self.$contents.zhuyin, contentTwo: self.$contents.pronunciation, pronunciationTextMode: self.$modeSettings.pronunciationTextMode, pronunciationVoiceMode: self.$modeSettings.pronunciationVoiceMode, voiceSelection: self.$voiceSelection ,timerValue: self.$timerValue, testModeSelection:self.$testModeSelection)){
                     Text("Preview")
                         .frame(width: 200, height: 30, alignment: .center)
-                        .foregroundColor(PreviewStartColor)
+                        .foregroundColor(teal)
                         .font(.system(size: 30, weight: .heavy))
                         .padding()
                         .frame(minWidth: 0, maxWidth: 300)
@@ -128,7 +133,7 @@ struct Settings: View {
                 NavigationLink(destination: ContentPreview(contentOne: self.$contents.pinyinzhuyin, contentTwo: self.$contents.pronunciation,pronunciationTextMode: self.$modeSettings.pronunciationTextMode, pronunciationVoiceMode: self.$modeSettings.pronunciationVoiceMode, voiceSelection: self.$voiceSelection, timerValue: self.$timerValue, testModeSelection:self.$testModeSelection)){
                     Text("Preview")
                         .frame(width: 200, height: 30, alignment: .center)
-                        .foregroundColor(PreviewStartColor)
+                        .foregroundColor(teal)
                         .font(.system(size: 30, weight: .heavy))
                         .padding()
                         .frame(minWidth: 0, maxWidth: 300)
@@ -140,15 +145,16 @@ struct Settings: View {
                     .padding()
                 
                 Spacer()
+                
                 NavigationLink(destination: Vocabulary(pronunciationTextMode: self.$modeSettings.pronunciationTextMode,pronunciationVoiceMode: self.$modeSettings.pronunciationVoiceMode,voiceSelection: self.$voiceSelection, timerValue:self.$timerValue,testModeSelection:self.$testModeSelection)){
                     Text("Start")
                         .frame(width: 200, height: 30, alignment: .center)
-                        .foregroundColor(PreviewStartColor)
+                        .foregroundColor(teal)
                         .font(.system(size: 30, weight: .heavy))
                         .padding()
                         .frame(minWidth: 0, maxWidth: 300)
                         //.background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black]), startPoint: .leading, endPoint: .trailing))
-                     
+                    
                 }
             }
         }
