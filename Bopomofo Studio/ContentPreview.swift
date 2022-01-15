@@ -18,6 +18,11 @@ struct ContentPreview: View {
     @Binding var timerValue: Double
     @Binding var testModeSelection: String
 
+    @State var contentOneTestValues : [String]
+    @State var contentTwoTestValues : [String]
+    @State var contentOneIndex : Range<Int>
+    @State var contentOneValue : Array<Int>
+    
     @State var testType = "Bopomofo"
     let testTypes = ["Bopomofo","Flashcards"]
     
@@ -30,6 +35,22 @@ struct ContentPreview: View {
     
     var PreviewStartColor = Color(red: 255 / 255, green: 153 / 255, blue: 51 / 255)
     var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
+    
+    init(contentOne: Binding<[String]>,contentTwo: Binding<[String]>,pronunciationTextMode: Binding<Bool>,pronunciationVoiceMode:Binding<Bool>,voiceSelection:Binding<String>,timerValue: Binding<Double>,testModeSelection:Binding<String>){
+        _contentOne = contentOne
+        _contentOneTestValues = State(initialValue: contentOne.wrappedValue)
+        _contentOneIndex = State(initialValue: 0..<contentOne.count)
+        _contentOneValue = State(initialValue: Array(repeating: 0, count:contentOne.count))
+        _contentTwo = contentTwo
+        _contentTwoTestValues = State(initialValue: contentTwo.wrappedValue)
+        _pronunciationTextMode = pronunciationTextMode
+        _pronunciationVoiceMode = pronunciationVoiceMode
+        _voiceSelection = voiceSelection
+        _timerValue = timerValue
+        _testModeSelection = testModeSelection
+    }
+    
+    var counter = 0
     
     var body: some View {
         HStack{
@@ -44,8 +65,8 @@ struct ContentPreview: View {
                                     .font(.custom("chalkboard se", size: 18))
                                     .font(.system(size: 18, weight: .thin))
                             }
-                            .frame(minHeight:75)
-                            .frame(minWidth: 100)
+                            .frame(minHeight:100)
+                            .frame(minWidth: screenWidth/2)
                             .multilineTextAlignment(.center)
                         }
                         
@@ -56,13 +77,53 @@ struct ContentPreview: View {
                                     .font(.custom("chalkboard se",size: 20))
                                     .font(.system(size: 20, weight: .black))
                             }
-                            .frame(minHeight:75)
-                            .frame(minWidth: 150)
+                            .frame(minHeight:100)
+                            .frame(minWidth: screenWidth/3)
                             .multilineTextAlignment(.center)
                            
                         }
+                        if(testModeSelection == "Vocabulary"){
+                            VStack{
+                                ForEach(contentOneIndex, id: \.self){symbol in
+                                    ZStack{
+                                        
+                                        if contentOneValue[symbol] == 0 {
+                                            Image("Checked")
+                                                .resizable()
+                                                .frame(width: 20, height: 20)
+                                                .aspectRatio(contentMode: .fit)
+                                        }
+                                        else if contentOneValue[symbol] == 1 {
+                                            Image("Unchecked")
+                                                .resizable()
+                                                .frame(width: 20, height: 20)
+                                                .aspectRatio(contentMode: .fit)
+                                        }
+                                        Button(" ") {
+                                            if contentOneValue[symbol] == 0 {
+                                                contentOneValue[symbol] = 1
+                                                if let location = contentOneTestValues.firstIndex(of:contentOne[symbol]){
+                                                    contentOneTestValues.remove(at: location)
+                                                    contentTwoTestValues.remove(at: location)
+                                                }
+                                            }
+                                            else if contentOneValue[symbol] == 1 {
+                                                contentOneValue[symbol] = 0
+                                                contentOneTestValues.append(contentOne[symbol])
+                                                contentTwoTestValues.append(contentTwo[symbol])
+                                            }
+                                        }.frame(width: 20, height: 20)
+                                    }
+                                }
+                                .frame(minHeight:100)
+                                .frame(minWidth: screenWidth/10,alignment:.leading)
+                                .multilineTextAlignment(.center)
+                                
+                            }
+                        }
                         
                     }
+                
                 if(testModeSelection == "Vocabulary"){
                     Picker("Style", selection: $testType) {
                         ForEach(testTypes, id: \.self) {
@@ -71,11 +132,11 @@ struct ContentPreview: View {
                             .font(.custom("copperplate",size: 30))
                         }
                     }
-                    .pickerStyle(InlinePickerStyle())
+                    .pickerStyle(SegmentedPickerStyle())
                     .frame(width: screenWidth, height: 100)
                     .padding()
                     if testType == "Bopomofo"{
-                        NavigationLink(destination: Test(contentOne: self.$contentOne, contentTwo: self.$contentTwo, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
+                        NavigationLink(destination: Test(contentOne: self.$contentOneTestValues, contentTwo: self.$contentTwoTestValues, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
                         Text("Start Test")
                         }
                         .foregroundColor(teal)
@@ -83,7 +144,7 @@ struct ContentPreview: View {
                         .font(.system(size: 30, weight: .heavy))
                     }
                     if testType == "Flashcards"{
-                        NavigationLink(destination: Flashcard(contentOne: self.$contentOne, contentTwo: self.$contentTwo, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
+                        NavigationLink(destination: Flashcard(contentOne: self.$contentOneTestValues, contentTwo: self.$contentTwoTestValues, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
                         Text("Start Test")
                         }
                         .foregroundColor(teal)

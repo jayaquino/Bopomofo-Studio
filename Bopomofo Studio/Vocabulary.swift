@@ -14,17 +14,21 @@ class VocabularyList: ObservableObject{
     
     /*Basics section
      */
-    @Published var basicsChineseBPMF = ["ㄨㄛˇ","ㄊㄚ ","ㄨㄛˇㄇㄣ˙","ㄊㄚ ㄇㄣ˙","ㄕㄟˊ","ㄕㄣˊㄇㄜ˙","ㄋㄚˇㄌㄧˇ","ㄕㄣˊㄇㄜ˙ㄕˊㄏㄡˋ","ㄨㄟˋㄕㄣˊㄇㄜ˙","ㄑㄩˋ","ㄌㄞˊ","ㄕㄨㄛ ","ㄒㄧㄤˇ","ㄐㄩㄝˊㄉㄜ˙","ㄔ ","ㄏㄜ ","ㄏㄢˋ","ㄖㄢˊㄏㄡˋ","ㄊㄞˋ","ㄌㄧˋㄏㄞˋ","ㄕㄥ ㄉㄧㄠˋ"]
-    @Published var basicsChineseTranslation = ["i/me","he/she/it","we/us","they/them","who","what","where","when","why","to go","to come","to talk","to want","to feel\n(opinion)","to eat","to drink","and\n(only nouns)","and\n(connecting sentences)","too\n(adj)","impressive","tones"]
+    @Published var basicsChineseBPMF = ["ㄨㄛˇ","ㄊㄚ ","ㄨㄛˇㄇㄣ˙","ㄊㄚ ㄇㄣ˙","ㄕㄟˊ","ㄕㄣˊㄇㄜ˙","ㄋㄚˇㄌㄧˇ","ㄕㄣˊㄇㄜ˙ㄕˊㄏㄡˋ","ㄨㄟˋㄕㄣˊㄇㄜ˙","ㄑㄩˋ","ㄌㄞˊ","ㄕㄨㄛ ","ㄒㄧㄤˇ","ㄐㄩㄝˊㄉㄜ˙","ㄔ ","ㄏㄜ ","ㄒㄧˇㄏㄨㄢ ","ㄏㄢˋ","ㄖㄢˊㄏㄡˋ","ㄊㄞˋ","ㄌㄧˋㄏㄞˋ","ㄕㄥ ㄉㄧㄠˋ"]
+    @Published var basicsChineseTranslation = ["i/me","he/she/it","we/us","they/them","who","what","where","when","why","to go","to come","to talk","to want","to feel\n(opinion)","to eat","to drink","to like","and\n(only nouns)","and\n(connecting sentences)","too\n(adj)","impressive","tones"]
     
     @Published var basicsNumbersBPMF = ["ㄌㄧㄥˊ","ㄧ ","ㄦˋ","ㄙㄢ ","ㄙˋ","ㄨˇ","ㄌㄧㄡˋ","ㄑㄧ ","ㄅㄚ ","ㄐㄧㄡˇ","ㄕˊ","ㄅㄞˇ","ㄑㄧㄢ ","ㄨㄢˋ","ㄈㄨˋ"]
     @Published var basicsNumbersTranslation = ["0","1","2","3","4","5","6","7","8","9","10s place","100s place","1000s place","10000s place","negative"]
     
     @Published var basicsIntroducingYourselfBPMF = ["ㄨㄛˇㄕˋ","ㄇㄧㄥˊㄗ˙","ㄐㄧㄠˋ","ㄔㄨㄛˋㄏㄠˋ"]
-    @Published var basicsIntroducingYourselfTranslation = ["i am","name","to be called\n(a name)","nickname"]
+    @Published var basicsIntroducingYourselfTranslation = ["i am...","name","to be called\n(a name)","nickname"]
     
     @Published var basicsSayingHelloBPMF = ["ㄋㄧˇㄏㄠˇ","ㄏㄟ ","ㄏㄞ "]
     @Published var basicsSayingHelloTranslation = ["hello\n(formal/first time)","hey","hi"]
+    
+    
+    @Published var basicsThingsBPMF = ["ㄕˊㄐㄧㄢ ","ㄕㄡˇㄐㄧ ","ㄖㄣˊ","ㄘㄜˋㄙㄨㄛˇ","ㄒㄧˇㄕㄡˇㄐㄧㄢ ","ㄍㄨㄥ ㄗㄨㄛˋ","ㄨㄣˋㄊㄧˊ","ㄧˋㄙ˙","ㄐㄧㄚ ","ㄒㄩㄝˊㄒㄧㄠˋ","ㄆㄥˊㄧㄡ˙","ㄅㄨˋㄈㄣˋ"]
+    @Published var basicsThingsTranslation = ["time","cellphone","people","bathroom\n(w/o shower)","washroom","work","problem","meaning","home","school","friend","part\n(i.e. that part)"]
     
     @Published var basicsInterjectionsBPMF = ["ㄣ˙","ㄏㄚˊ","ㄟˊ"]
     @Published var basicsInterjectionsTranslation = ["show you're\npaying attention\nin conversations","what did\nyou say?","huh? something\nis wrong"]
@@ -32,9 +36,8 @@ class VocabularyList: ObservableObject{
     @Published var basicsOpinionsBPMF = ["ㄅㄨˋㄏㄠˇ","ㄅㄨˊㄊㄞˋㄏㄠˇ","ㄏㄞˊㄏㄠˇ","ㄅㄨˊㄘㄨㄛˋ","ㄏㄣˇㄏㄠˇ","ㄔㄠ ㄏㄠˇ","ㄌㄢˋ","ㄆㄞˊ","ㄅㄞˇㄈㄣ ㄓ ","ㄆㄚ "]
     @Published var basicsOpinionTranslation = ["not good(0%)","not that\ngreat(30%)","ok(50%)","not bad\n(70%)","great(90%)","very good(100%)","crappy","to rank","percent\n(out of 100)","percent"]
     
-    @Published var basicsPersonalFavoritesBPMF = ["ㄧㄠˋㄎㄢˋ","ㄓㄥˇㄌㄧˇ","ㄐㄧㄝˋㄧˋ","ㄍㄨˇㄍㄨˇ","ㄋㄥˊㄍㄡˋ","ㄙㄨㄢˋㄕˋ","ㄌㄧˊㄅㄨ˙ㄎㄞ ","ㄐㄧㄝˊㄕㄥˇ","ㄙㄢ ㄈㄣ ㄓㄨㄥ ㄖㄜˋㄉㄨˋ","ㄅㄨˊㄧㄠˋㄌㄧㄢˇ","ㄌㄠˇㄕˋㄕㄨㄛ ","ㄨㄛˇㄕˋㄕㄨㄛ ","ㄅㄧㄠ ㄓㄨㄣˇ","ㄧㄢˊㄙㄨˋ","ㄍㄠˇㄉㄧㄥˋ","ㄅㄧˇㄉㄜ˙ㄕㄤˋ","ㄕㄜˇㄉㄨˋㄉㄜˊ"]
-    @Published var basicsPersonalFavoritesTranslation = ["it depends on...","to organize","to mind\n(smth)","bulging\n(like full stomach)","capable of","to regard as\nbe considered as","inseparable from\ncan't live without","to save\ncut down on","short bursts of\nenthusiasm","shameless","honestly...","What I mean is...","standard\n(level)","serious\n(heavy;solemn)","get it done","can compare with","reluctant to part\n(pity feeling)"]
-    
+    @Published var basicsPersonalFavoritesBPMF = ["ㄧㄠˋㄎㄢˋ","ㄓㄥˇㄌㄧˇ","ㄐㄧㄝˋㄧˋ","ㄍㄨˇㄍㄨˇ","ㄋㄥˊㄍㄡˋ","ㄙㄨㄢˋㄕˋ","ㄌㄧˊㄅㄨ˙ㄎㄞ ","ㄐㄧㄝˊㄕㄥˇ","ㄙㄢ ㄈㄣ ㄓㄨㄥ ㄖㄜˋㄉㄨˋ","ㄅㄨˊㄧㄠˋㄌㄧㄢˇ","ㄌㄠˇㄕˋㄕㄨㄛ ","ㄨㄛˇㄕˋㄕㄨㄛ ","ㄅㄧㄠ ㄓㄨㄣˇ","ㄧㄢˊㄙㄨˋ","ㄍㄠˇㄉㄧㄥˋ","ㄅㄧˇㄉㄜ˙ㄕㄤˋ","ㄕㄜˇㄉㄨˋㄉㄜˊ","ㄨㄟˋㄩˊ"]
+    @Published var basicsPersonalFavoritesTranslation = ["it depends on...","to organize","to mind\n(smth)","bulging\n(like full stomach)","capable of","to regard as\nbe considered as","inseparable from\ncan't live without","to save\ncut down on","short bursts of\nenthusiasm","shameless","honestly...","What I mean is...","standard\n(level)","serious\n(heavy;solemn)","get it done","can compare with","reluctant to part\n(pity feeling)","to be located at"]
     
     // This section is about popular topics
     
@@ -47,8 +50,8 @@ class VocabularyList: ObservableObject{
     @Published var topicDirectionsBPMF = ["ㄕㄤˋ","ㄒㄧㄚˋ","ㄗㄨㄛˇ","ㄧㄡˋ","ㄧ ㄓˊ","ㄇㄚˇㄌㄨˋ","ㄍㄨㄛˋ","ㄅㄧㄢ ","ㄅㄨˋ"]
     @Published var topicDirectionsTranslation = ["up","down","left","right","straight","street","to cross\n(street)","side","relative\nlocation"]
     
-    @Published var topicAskingForHelpBPMF = ["ㄅㄤ ","","ㄖㄣˊㄑㄧㄥˊ"]
-    @Published var topicAskingForHelpTranslation = ["to help","to bother\nsomeone","favor"]
+    @Published var topicAskingForHelpBPMF = ["ㄅㄤ ","ㄉㄚˇㄖㄠˇ","ㄖㄣˊㄑㄧㄥˊ","ㄕㄢˋㄔㄤˊ"]
+    @Published var topicAskingForHelpTranslation = ["to help","to bother\nsomeone","favor","to not be\ngood at"]
 
     @Published var topicShoppingBPMF = ["ㄏㄨㄢ ㄧㄥˊㄍㄨㄤ ㄌㄧㄣˊ","ㄏㄨㄟˋㄩㄢˊ","ㄩㄥˋ","ㄎㄚˇ","ㄌㄧㄥˊㄑㄧㄢˊ","ㄕㄡ ㄋㄧˇ","ㄈㄚ ㄆㄧㄠˋ","ㄧㄣˋㄔㄨ ","ㄗㄞˋㄐㄩˋ","ㄓㄜˊ","ㄧㄡ ㄏㄨㄟˋ","ㄉㄧㄥˋㄉㄢ ","ㄐㄧㄚˋㄓˊ","ㄓˊㄉㄜ˙","ㄊㄧㄠ "]
     @Published var topicShoppingTranslation = ["welcome","membership","to use","card","pocket change","received x$\n(cashier will say)","receipt","to print out","electronically\nstore receipt","discount\n(percentage)","discount","to order","value\nworth","to be\nworth it","to pick"]
@@ -65,23 +68,23 @@ class VocabularyList: ObservableObject{
     @Published var topicDrivingOnRoadBPMF = ["ㄔㄜ ㄎㄨˋ","ㄉㄤˇ","ㄕㄡˇㄆㄞˊ","ㄓㄨㄢˇㄨㄢ ","ㄌㄨㄣˊㄗ˙","ㄔㄜ ㄉㄥ ","ㄢ ㄑㄩㄢˊㄉㄞˋ","ㄉㄠˋㄉㄤˇ","ㄘㄞˇ","ㄋㄧㄡˇ","ㄧㄡˊㄇㄣˊ","ㄗˋㄆㄞˊ","ㄔㄜ ㄉㄠˋ","ㄊㄧㄥˊㄔㄜ ㄨㄟˋ","ㄙㄞ ㄔㄜ ","ㄑㄧˇㄉㄨㄥˋ","ㄗㄞˋㄖㄣˊ","ㄐㄧㄝ ","ㄕㄨㄣˋㄌㄨˋ","ㄒㄧ ㄏㄨㄛˇ","ㄨㄢ "]
     @Published var topicDrivingOnRoadTranslation = ["garage","gear","manual\ntransmission","corner;turn","wheel","headlights","seat belt","reverse\ngear","to step on","to twist","throttle","automatic\ntransmission","traffic\nlane","parking\nspace","held up\nin traffic","to turn on\n(machine)","to carry\npassengers","to pick\nsmbdy up","on the way","engine to die","curvy"]
     
-    @Published var topicApologizingBPMF = ["ㄉㄨㄟˋㄅㄨˋㄑㄧˇ","ㄅㄨˋㄏㄠˇㄧˋㄙ˙","ㄉㄠˋㄑㄧㄢˋ","ㄘㄨㄛˋ","ㄘㄨㄛˋㄨˋ","ㄇㄠˋㄈㄢˋ","ㄔㄥˊㄒㄧㄣ "]
-    @Published var topicApologizingTranslation = ["sorry","sorry (casual)\nexcuse me","make an apology","wrong doing\nfault","mistake","to offend","sincerity"]
+    @Published var topicApologizingBPMF = ["ㄉㄨㄟˋㄅㄨˋㄑㄧˇ","ㄅㄨˋㄏㄠˇㄧˋㄙ˙","ㄉㄠˋㄑㄧㄢˋ","ㄘㄨㄛˋ","ㄘㄨㄛˋㄨˋ","ㄇㄠˋㄈㄢˋ","ㄔㄥˊㄒㄧㄣ ","ㄊㄨㄛ ㄌㄟˇ"]
+    @Published var topicApologizingTranslation = ["sorry","sorry (casual)\nexcuse me","make an apology","wrong doing\nfault","mistake","to offend","sincerity","to be a\nburden on"]
 
     @Published var topicComplainingBPMF = ["ㄅㄠˋㄩㄢˋ","ㄈㄚ ㄒㄧㄝˋ","ㄅㄚ ㄍㄨㄚˋ","ㄌㄢˇㄍㄨㄟˇ","ㄕㄥˋㄖㄣˋ","ㄋㄧˋ","ㄧㄚ ㄓㄚˋ","ㄔㄨㄥˊㄈㄨˋ"]
-    @Published var topicComplainingTranslation = ["to complain","to vent","to gossip","lazy ass","to be\ncompetent","tired\nof smth.","exploit\nworking","to repeat"]
+    @Published var topicComplainingTranslation = ["to complain","to vent","to gossip","lazy butt","to be\ncompetent","tired\nof smth.","exploit\nworking","to repeat"]
     
     @Published var topicArguingBPMF = ["ㄔㄠˇㄐㄧㄚˋ","ㄅㄧˋㄇㄧㄢˇ","ㄉㄚˇㄉㄨㄢˋ","ㄐㄩˋㄐㄩㄝˊ","ㄔㄨㄥ ㄊㄨ ","ㄐㄧㄚˇㄕㄜˋ","ㄌㄧˋㄔㄤˇ","ㄐㄧㄠ ㄠˋ","ㄅㄨˋㄌㄧˇ","ㄇㄚˋ","ㄧㄣˇㄙ ","ㄏㄨㄞˊㄧˊ","ㄗㄞˋㄏㄨ˙","ㄗㄞˋㄧˋ","ㄐㄧㄝˋㄧˋ","ㄑㄧˋㄓㄚˋ","ㄢ ㄨㄟˋ","ㄇㄠˋㄈㄢˋ","ㄐㄩˋㄌㄧˊ","ㄈㄥ ㄎㄨㄤˊ","ㄓㄢˋㄆㄧㄢˊㄧ˙","ㄓㄠˇㄔㄨ "]
     @Published var topicArguingTranslation = ["to argue","to avoid","to interrupt","to reject","conflicts","to assume","perspective","pride","ignore","to scold","secrets","to doubt","to care\n(about people)","to care\n(about things)","to mind","to burst\nwith rage","to comfort","to offend","distant\n(emotionally)","crazy","take\nadvantage of","to find out\nfrom someone"]
     
-    @Published var topicExplainingYourPerspectiveBPMF = ["ㄓㄨㄥˋㄉㄧㄢˇ","ㄑㄧㄤˊㄉㄧㄠˋ","ㄧˋㄐㄧㄢˋ","ㄨˋㄐㄧㄝˇ","ㄓㄨˋㄧˋ","ㄎㄨㄥˇㄆㄚˋ","ㄨˊㄙㄨㄛˇㄨㄟˋ","ㄗㄨㄛˋㄈㄚˇ","ㄉㄞˋㄅㄧㄠˇ","ㄈㄣ ㄅㄧㄢˋ","ㄏㄨㄞˊㄧˊ","ㄈㄚ ㄕˋ","ㄕㄨㄛ ㄈㄨˊ"]
-    @Published var topicExplainingYourPerspectiveTranslation = ["main point","to emphasize","subjective view","to misunderstand","to pay\nattention","to be afraid\nthat","indifferent","way of doing\nsmth","to represent","to distinguish\nto differentiate","to doubt\nto suspect","to swear;promise","to persuade\nto convince"]
+    @Published var topicExplainingYourPerspectiveBPMF = ["ㄓㄨㄥˋㄉㄧㄢˇ","ㄑㄧㄤˊㄉㄧㄠˋ","ㄧˋㄐㄧㄢˋ","ㄨˋㄐㄧㄝˇ","ㄓㄨˋㄧˋ","ㄎㄨㄥˇㄆㄚˋ","ㄨˊㄙㄨㄛˇㄨㄟˋ","ㄗㄨㄛˋㄈㄚˇ","ㄉㄞˋㄅㄧㄠˇ","ㄈㄣ ㄅㄧㄢˋ","ㄏㄨㄞˊㄧˊ","ㄈㄚ ㄕˋ","ㄕㄨㄟˋ ㄈㄨˊ","ㄎㄞ ㄉㄠˇ"]
+    @Published var topicExplainingYourPerspectiveTranslation = ["main point","to emphasize","subjective view","to misunderstand","to pay\nattention","to be afraid\nthat","indifferent","way of doing\nsmth","to represent","to distinguish\nto differentiate","to doubt\nto suspect","to swear;promise","to persuade\nto convince","help smbdy. see\nwhat's correct"]
     
-    @Published var topicObsceneWordsBPMF = ["ㄗㄤ ㄏㄨㄚˋ","ㄍㄠˇ","ㄒㄧㄚˋㄌㄧㄡˊㄏㄨㄚˋ","ㄈㄟˋㄏㄨㄚˋ","ㄍㄢˋ","ㄎㄠˋ"]
-    @Published var topicObsceneWordsTranslation = ["obscene\nwords","to do (bad)","dirty\nwords","bullshit","fuck","shit\ndamn"]
+    @Published var topicChineseNewYearBPMF = ["ㄔㄨㄣ ㄐㄧㄝˊ","ㄍㄨㄛˋㄋㄧㄢˊ","ㄋㄧㄢˊㄧㄝˋㄈㄢˋ","ㄊㄨㄢˊㄩㄢˊ","ㄔㄨˊㄒㄧ ","ㄔㄨㄣ ㄌㄧㄢˊ","ㄇㄣˊㄌㄧㄢˊ","ㄊㄧㄝ ","ㄏㄨㄟˊㄋㄧㄤˊㄐㄧㄚ ","ㄉㄚˋㄙㄠˇㄔㄨˊ","ㄅㄞˋㄋㄧㄢˊ","ㄨㄢˋㄕˋㄖㄨˊㄧˋ","ㄍㄨㄥ ㄒㄧˇㄈㄚ ㄘㄞˊ","ㄉㄚˋㄐㄧˊㄉㄚˋㄌㄧˋ","ㄋㄧㄢˊㄋㄧㄢˊㄧㄡˇㄩˊ","ㄅㄨˋㄅㄨˋㄍㄠ ㄕㄥ ","ㄅㄢˋㄕㄡˇㄌㄧˇ","ㄧㄚ ㄙㄨㄟˋㄑㄧㄢˊ","ㄕㄡˇㄙㄨㄟˋ","ㄈㄤˋㄅㄧㄢ ㄆㄠˋ","ㄨㄟˊㄌㄨˊ","ㄅㄞˋㄈㄤˇ","ㄔㄨ ㄒㄧ ","ㄗㄡˇㄔㄨㄣ ","ㄕˊㄦˋㄕㄥ ㄒㄧㄠˋ","ㄈㄢˇㄍㄨㄛ˙ㄌㄞ˙","ㄑㄧㄣ ㄑㄧ ","ㄑㄩㄢ ㄐㄧㄚ "]
+    @Published var topicChineseNewYearTranslation = ["lunar new year","to celebrate\nnew year","new year's\neve dinner","to reunite\n(family members)","new year's eve","new year couplets","door couplet","to stick/paste","to visit parents\n(married woman)","thorough cleanup","wish smbdy\nhappy new year","'may everything go\nyour way'","'congratulations;\nwish you health'","'great luck;great profit'","'have abundance\nevery year'","'rise in the ranks'","gift given\n(when visiting)","new year's eve\nmoney","to stay up to\nwait new years","to set off\nfirecrackers","family to gather\nin new years\n(old saying)","to pay someone\na visit","first day of\nlunar month","walking around in\nthird day of\nnew year","chinese zodiac","to turn over\nturn to opposite\ndirection","relatives","entire family"]
     
-    @Published var topicRemarksReactionsBPMF = ["ㄓㄣ ㄐㄧㄚˇㄉㄜ˙","ㄅㄨˋㄙㄨㄢˋ","ㄕㄚˇㄧㄢˇ","ㄒㄧㄤ ㄏㄨㄚˋㄇㄚ","ㄕ ㄗㄨㄥ ","ㄈㄢˇㄓㄥˋ","","ㄌㄧㄥˋㄧ ㄈㄤ ㄇㄧㄢˋ","ㄗㄣˇㄇㄜ˙ㄕㄨㄛ ","ㄅㄧˋㄗㄨㄟˇ","ㄧ ㄌㄨˋㄕㄨㄣˋㄈㄥ ","ㄏㄨㄛˊㄍㄞ "]
-    @Published var topicRemarksReactionsTranslation = ["really?!","it doesn't count","unbelievable","is that\nreasonable?","anyway,...","where did\nhe/she go?\nhe/she disappeared","on the other hand,...","how so?","shut up","have a\ngood trip!","serves you right"]
+    @Published var topicRemarksReactionsBPMF = ["ㄓㄣ ㄐㄧㄚˇㄉㄜ˙","ㄅㄨˋㄙㄨㄢˋ","ㄕㄚˇㄧㄢˇ","ㄒㄧㄤ ㄏㄨㄚˋㄇㄚ","ㄈㄢˇㄓㄥˋ","ㄕ ㄗㄨㄥ ","ㄌㄧㄥˋㄧ ㄈㄤ ㄇㄧㄢˋ","ㄗㄣˇㄇㄜ˙ㄕㄨㄛ ","ㄅㄧˋㄗㄨㄟˇ","ㄧ ㄌㄨˋㄕㄨㄣˋㄈㄥ ","ㄏㄨㄛˊㄍㄞ ","ㄈㄟˋㄏㄨㄚˋ"]
+    @Published var topicRemarksReactionsTranslation = ["really?!","it doesn't count","unbelievable","is that\nreasonable?","anyway,...","where did he/\nshe go?","on the\nother hand,...","how so?","shut up","have a\ngood trip!","serves you right","no kidding!"]
     
     
     
@@ -105,14 +108,14 @@ class VocabularyList: ObservableObject{
     @Published var scenarioDrinkingBPMF = ["ㄐㄧㄡˇㄅㄚ ","ㄐㄧㄡˇㄌㄧㄤˋ","ㄕㄥ ㄆㄧˊㄐㄧㄡˇ","ㄐㄩ ㄐㄧㄡˇㄨ "]
     @Published var scenarioDrinkingTranslation = ["bar","tolerance","draft beer","izakaya"]
     
-    @Published var scenarioWearingClothesBPMF = ["ㄧ ㄈㄨˊ","ㄔㄨㄢ ","ㄉㄞˋ","ㄓㄞ ","ㄎㄡˋ","ㄒㄧˋ","ㄆㄧˊㄉㄞˋ","ㄧㄢˇㄐㄧㄥˋ","ㄦˇㄏㄨㄢˊ","ㄒㄧㄤˋㄌㄧㄢˋ","ㄕㄡˇㄌㄧㄢˋ","ㄕㄡˇㄅㄧㄠˇ","ㄉㄚ ㄆㄟˋ","ㄐㄩㄢ "]
-    @Published var scenarioWearingClothesTranslation = ["clothes","to wear(clothes)","to wear\n(accessories)","to take off\n(accessories)","to button\nup","to fasten\n(belt)","belt","glasses","earring","necklace","bracelet","wrist watch","to match\n(clothes)","to donate"]
+    @Published var scenarioWearingClothesBPMF = ["ㄧ ㄈㄨˊ","ㄔㄨㄢ ","ㄉㄞˋ","ㄓㄞ ","ㄎㄡˋ","ㄒㄧˋ","ㄆㄧˊㄉㄞˋ","ㄧㄢˇㄐㄧㄥˋ","ㄦˇㄏㄨㄢˊ","ㄒㄧㄤˋㄌㄧㄢˋ","ㄕㄡˇㄌㄧㄢˋ","ㄕㄡˇㄅㄧㄠˇ","ㄉㄚ ㄆㄟˋ","ㄐㄩㄢ ","ㄍㄠ ㄐㄧˊ"]
+    @Published var scenarioWearingClothesTranslation = ["clothes","to wear(clothes)","to wear\n(accessories)","to take off\n(accessories)","to button\nup","to fasten\n(belt)","belt","glasses","earring","necklace","bracelet","wrist watch","to match\n(clothes)","to donate","fancy;\nhigh quality"]
     
     @Published var scenarioFocusedBPMF = ["ㄓㄨㄢ ㄒㄧㄣ ","ㄈㄣ ㄒㄧㄣ ","ㄉㄚˇㄖㄠˇ","ㄐㄧㄢˋㄔˊ","ㄇㄚˊ"]
     @Published var scenarioFocusedTranslation = ["to concentrate","distracted","to disturb","to persevere","to feel numb\n(e.g. legs)"]
     
-    @Published var scenarioCookingBPMF = ["ㄑㄧㄝ ","ㄏㄨㄥ ㄅㄟˋ","ㄓㄥ ","ㄔㄠˇ","ㄐㄧㄢ ","ㄐㄧㄤˋ","ㄓㄚˋ","ㄐㄧˇ","ㄊㄧㄢˇ"]
-    @Published var scenarioCookingTranslation = ["to slice/cut","to bake","steamed","scrambled","pan fried","sauce","to press\n(juice)","to squeeze\n(w/ fingers)","to lick"]
+    @Published var scenarioCookingBPMF = ["ㄑㄧㄝ ","ㄏㄨㄥ ㄅㄟˋ","ㄓㄥ ","ㄔㄠˇ","ㄐㄧㄢ ","ㄐㄧㄤˋ","ㄓㄚˋ","ㄐㄧˇ","ㄊㄧㄢˇ","ㄙㄨㄟˋㄉㄧㄠˋ"]
+    @Published var scenarioCookingTranslation = ["to slice/cut","to bake","steamed","scrambled","pan fried","sauce","to press\n(juice)","to squeeze\n(w/ fingers)","to lick","to drop and\nsmash"]
     
     @Published var scenarioHaircutBPMF = ["ㄐㄧㄢˇ","ㄉㄨㄢˋ","ㄐㄧㄢˇㄘㄥˊ"]
     @Published var scenarioHaircutTranslation = ["to cut","short","fade"]
@@ -141,8 +144,8 @@ class VocabularyList: ObservableObject{
     @Published var scenarioHouseholdChoresBPMF = ["ㄙㄠˋ","ㄒㄧˇ","ㄇㄛˇㄅㄨˋ","ㄋㄧˊㄊㄨˇ","ㄍㄨㄚˋ","ㄒㄧ ㄔㄣˊㄑㄧˋ","ㄒㄧ ㄉㄧˋ"]
     @Published var scenarioHouseholdChoresTranslation = ["to broom","to wash","cleaning\nrag","dirt","to hang\n(things)","vacuum","to vacuum\nthe floor"]
 
-    @Published var scenarioBeachBPMF = ["ㄕㄚ ㄊㄢ ","ㄕㄞˋ","ㄊㄞˋㄧㄤˊ"]
-    @Published var scenarioBeachTranslation = ["beach","to bathe\n(in sun)","sun"]
+    @Published var scenarioBeachBPMF = ["ㄕㄚ ㄊㄢ ","ㄕㄞˋ","ㄊㄞˋㄧㄤˊ","ㄧㄡˊㄩㄥˇ"]
+    @Published var scenarioBeachTranslation = ["beach","to bathe\n(in sun)","sun","to swim"]
     
     @Published var scenarioYogaBPMF = ["ㄩˊㄐㄧㄚ ","ㄒㄧㄚˋㄑㄩㄢˇㄕˋ","ㄅㄟˋㄆㄧㄥˊ","ㄓㄨㄥ ㄒㄧㄣ ","ㄎㄡˇㄑㄧˋ","ㄒㄧ ","ㄊㄨˇ","ㄆㄧㄥˊㄅㄢˇ"]
     @Published var scenarioYogaTranslation = ["yoga","downward\ndog","flat back","central\npoint\nof weight","breathe","breathe in","breathe out","to plank"]
@@ -159,25 +162,11 @@ class VocabularyList: ObservableObject{
     @Published var scenarioNatureBPMF = ["ㄉㄧˋㄑㄧㄡˊ","ㄉㄚˋㄗˋㄖㄢˊ","ㄌㄨˋㄊㄧㄢ ","ㄖˋㄔㄨ ","ㄖˋㄌㄨㄛˋ","ㄕㄨˋ","ㄕˊㄊㄡ˙","ㄍㄨㄤ ㄒㄧㄢˋ","ㄌㄨˋㄕㄨㄟ˙","ㄙㄣ ㄌㄧㄣˊ","ㄏㄨㄟˇ"]
     @Published var scenarioNatureTranslation = ["earth","nature","outdoors","sunrise","sunset","trees","rocks","natural\nlighting","dew","forest","to destroy"]
     
-    @Published var scenarioImmigrantBPMF = ["ㄕㄣ ㄈㄣˋㄖㄣˋㄊㄨㄥˊ","ㄧˊㄇㄧㄣˊ","ㄍㄨㄟ ㄕㄨˇㄍㄢˇ","ㄈㄨˋㄉㄢ ","ㄎㄜˋㄈㄨˊ","ㄍㄨㄛˊㄇㄧㄣˊ","ㄆㄧㄢˋㄐㄧㄢˋ","ㄎㄜˋㄅㄢˇㄧㄣˋㄒㄧㄤˋ","ㄔㄨㄥ ㄐㄧ ","ㄏㄨㄣˋㄒㄩㄝˋ"]
-    @Published var scenarioImmigrantTranslation = ["personal\nidentity","to immigrate","sense of\nbelonging","to bear a\nburden","to endure\n(hardships)","citizens","prejudice","stereotype","impact\neffect","half blood"]
-    
-    @Published var scenarioWorkingInManufacturingDesignBPMF = ["ㄍㄨㄟ ㄍㄜˊ","ㄈㄥ ㄒㄧㄢˇ","ㄍㄨㄥ ㄔㄚ ","ㄗㄨㄟˋㄒㄧㄠˇㄏㄨㄚˋ","ㄗㄨㄟˋㄉㄚˋㄏㄨㄚˋ","ㄊㄜˋㄒㄧㄥˊ","ㄒㄧㄥˊㄕˋ","ㄅㄧㄢˋㄒㄧㄥˊ","ㄖㄨㄢˇㄊㄧˇ","ㄉㄧㄢˋㄧㄚ ","ㄉㄧㄢˋㄌㄧㄡˊ","ㄆㄧㄥˊㄐㄩㄣ ","ㄐㄩˋㄊㄧˇ","ㄐㄧˊㄒㄧㄢˋ"]
-    @Published var scenarioWorkingInManufacturingDesignTranslation = ["specifications","risk","tolerance","to minimize","to maximize","specific\nproperty","outer\nappearance","to deform","software","voltage","current","average","specific or\nconcrete","limit"]
-    
-    @Published var scenarioWorkingInManufacturingProcessBPMF = ["ㄍㄨㄥ ㄔㄤˇ","ㄓˋㄔㄥˊ","ㄕㄥ ㄔㄤˇ","ㄓˋㄌㄧㄤˋ","ㄧㄢˋㄓㄥˋ","ㄧˊㄐㄧ ","ㄅㄠ ㄓㄨㄤ ","ㄇㄠˇ","ㄉㄧㄢˇㄏㄢˋ","ㄌㄟˊㄏㄢˋ","ㄒㄧ ㄏㄢˋ","ㄏㄨㄥ ㄍㄢ ","ㄕㄨˋㄌㄧㄤˋ","ㄓㄨˋㄙㄨˋ","ㄗㄨˇㄓㄨㄤ ","ㄓㄜˊ"]
-    @Published var scenarioWorkingInManufacturingProcessTranslation = ["factory","manufacturing\nprocess","to\nmanufacture","quality","validation","to relocate\nequipment","packaging","crimp","spot welding","laser weld","soldering","oven baking","number\n(of things)","injection\nmold","assemble","to bend"]
-    
-    @Published var scenarioWorkingInManufacturingMaterialsBPMF = ["ㄔㄤˇㄕㄤ ","ㄔㄨ ㄅㄨˋ","ㄍㄨ ㄐㄧㄚˋ","ㄌㄧㄥˊㄐㄧㄢˋ","ㄊㄨˊㄘㄥˊ","ㄍㄨㄢˇㄗ˙","ㄉㄧㄢˋㄉㄠ "]
-    @Published var scenarioWorkingInManufacturingMaterialsTranslation = ["supplier\nmanufacturer\nproducer","preliminary","estimation","parts\ncomponents","coating","tube\npipe","electrode"]
+    @Published var scenarioImmigrantBPMF = ["ㄕㄣ ㄈㄣˋㄖㄣˋㄊㄨㄥˊ","ㄧˊㄇㄧㄣˊ","ㄍㄨㄟ ㄕㄨˇㄍㄢˇ","ㄈㄨˋㄉㄢ ","ㄎㄜˋㄈㄨˊ","ㄍㄨㄛˊㄇㄧㄣˊ","ㄆㄧㄢˋㄐㄧㄢˋ","ㄎㄜˋㄅㄢˇㄧㄣˋㄒㄧㄤˋ","ㄔㄨㄥ ㄐㄧ ","ㄏㄨㄣˋㄒㄩㄝˋ","ㄍㄨㄛˊㄐㄧˊ","ㄓㄨㄥˇㄗㄨˊ"]
+    @Published var scenarioImmigrantTranslation = ["personal\nidentity","to immigrate","sense of\nbelonging","to bear a\nburden","to endure\n(hardships)","citizens","prejudice","stereotype","impact\neffect","half blood","nationality","ethnic group"]
     
     @Published var scenarioWorkingInManufacturingProjectManagementBPMF = ["ㄖㄣˋㄨˋ","ㄒㄧㄥˊㄕˋㄌㄧˋ","ㄧㄠ ㄑㄧㄡˊ","ㄓㄨㄥˋㄧㄠˋㄒㄧㄥˋ","ㄊㄨㄥ ㄓ ","ㄆㄧㄥˊㄒㄧㄥˊ","ㄑㄧㄢˊㄊㄧˊ","ㄍㄨㄟ ㄏㄨㄚˋ","ㄎㄜˇㄋㄥˊㄒㄧㄥˋ","ㄊㄧㄠˊㄐㄧㄢˋ","ㄔㄥˊㄒㄩˋ","ㄈㄣ ㄒㄧ ","ㄒㄧㄠˋㄌㄩˋ","ㄎㄨㄤˋㄎㄨㄤˋ","ㄐㄧㄢˇㄔㄚˊ","ㄍㄥ ㄒㄧㄣ ","ㄒㄧㄡ ㄍㄞˇ","ㄔㄨ ㄅㄨˋ","ㄍㄨ ㄐㄧㄚˋ","ㄈㄨˋㄎㄨㄢˇ","ㄔㄨ ㄔㄞ ","ㄨㄟˊㄓㄨˇ","ㄨㄟˊㄈㄨˇ","ㄍㄨㄢˇㄌㄧˇㄅㄨˋㄇㄣˊ","ㄒㄧㄠ ㄕㄡˋㄅㄨˋ","ㄖㄣˊㄕˋㄅㄨˋ","ㄧㄢˊㄈㄚ ㄅㄨˋ"]
     @Published var scenarioWorkingInManufacturingProjectManagementTranslation = ["tasks","planner\nschedule","requests","significance\nimportance","to notify","simultaneous","prerequisite","to schedule\n(on timeline)","probability\npossibility","requirement","procedure","analysis","efficiency","to frame","to inspect","to update","to revise","initial\npreliminary","estimation","payment","to go away\nfor business","to give\npriority to","to give\nsecondary to","administrative\ndepartment","sales\nmarketing\ndepartment","hr\ndepartment","r&d\ndepartment"]
-    
-    
-    
-    
-    
     
     // This section is about possible discussion topics that happen in everyday life
     
@@ -205,11 +194,11 @@ class VocabularyList: ObservableObject{
     @Published var discussionLifeGoalsBPMF = ["ㄐㄧㄝ ㄉㄨㄢˋ","ㄇㄥˋㄒㄧㄤˇ","ㄓㄨㄟ ㄑㄧㄡˊ","ㄕˊㄒㄧㄢˋ","ㄕˋㄏㄠˋ","ㄩㄣˋㄑㄧˋ","ㄒㄧㄥˋㄩㄣˋ","ㄌㄧˇㄧㄡˊ","ㄩㄢˊㄧㄣ ","ㄧㄠˋㄎㄢˋ","ㄓㄨˇㄧ˙","ㄔㄥˊㄅㄞˋ","ㄒㄧㄢˋㄓˋ","ㄕㄤˋㄐㄧㄣˋㄒㄧㄣ ","ㄩㄢˋㄨㄤˋ","ㄓㄤˋㄞˋ","ㄕˋㄊㄨˊ","ㄒㄧㄤˋㄕㄤˋ","ㄓㄥˋㄇㄧㄥˊ","ㄔㄥˊㄨㄟˊ","ㄒㄧㄤˇㄒㄧㄤˋ","ㄕㄣ ㄈㄣ˙"]
     @Published var discussionLifeGoalsTranslation = ["stage\nphase","dreams\ngoals","ambitions","to come true\nto realize","hobby\n(want to be\ngood)","luck\n(noun)","luck\n(adj)","excuse\n(to not do\nsmth)","reason","depends on","idea","success and\nfailures","restrictions","desire to\ndo better","wish","obstacles","try to do\n(smth)","to advance\nhigher","to prove","to become\n(end state)","to imagine","status\n(of a person)"]
     
-    @Published var discussionCultureBPMF = ["ㄨㄣˊㄏㄨㄚˋ","ㄨㄣˊㄏㄨㄚˋㄔㄨㄥ ㄐㄧ ","ㄇㄧˊㄒㄧㄣˋ","ㄉㄨㄥ ㄈㄤ ","ㄒㄧ ㄈㄤ ","ㄈㄚ ㄓㄢˇ"]
-    @Published var discussionCultureTranslation = ["culture","culture shock","superstition","eastern","western","to develop"]
+    @Published var discussionCultureBPMF = ["ㄨㄣˊㄏㄨㄚˋ","ㄨㄣˊㄏㄨㄚˋㄔㄨㄥ ㄐㄧ ","ㄇㄧˊㄒㄧㄣˋ","ㄉㄨㄥ ㄈㄤ ","ㄒㄧ ㄈㄤ ","ㄈㄚ ㄓㄢˇ","ㄓㄨㄥˇㄗㄨˊ"]
+    @Published var discussionCultureTranslation = ["culture","culture shock","superstition","eastern","western","to develop","ethic group"]
     
-    @Published var discussionTravellingBPMF = ["ㄅㄢ ㄐㄧ ","ㄌㄩˇㄍㄨㄢ ","ㄏㄨˋㄓㄠˋ","ㄍㄨㄛˊㄐㄧˋㄐㄧㄚˋㄓㄠˋ","ㄏㄤˊㄒㄧㄤˋ","ㄊㄨㄟ ㄐㄧㄢˋ","ㄉㄠˇㄧㄡˊ","ㄍㄨㄛˊㄨㄞˋ","ㄑㄧㄢ ㄓㄥˋ","ㄇㄥˊㄧㄡˇ","ㄇㄢˋㄧㄡ ㄧㄡ ","ㄅㄧˋㄧㄠˋ","ㄉㄠˇㄧㄡˊ"]
-    @Published var discussionTravellingTranslation = ["flight","hotel","passport","international\ndriver's\nlicense","direction\n(ship/plane)","to recommend","tour guide","abroad","visa","allied\ncountry","unhurried\nleisurely","necessary","tour guide"]
+    @Published var discussionTravellingBPMF = ["ㄅㄢ ㄐㄧ ","ㄌㄩˇㄍㄨㄢ ","ㄏㄨˋㄓㄠˋ","ㄍㄨㄛˊㄐㄧˋㄐㄧㄚˋㄓㄠˋ","ㄏㄤˊㄒㄧㄤˋ","ㄊㄨㄟ ㄐㄧㄢˋ","ㄉㄠˇㄧㄡˊ","ㄍㄨㄛˊㄨㄞˋ","ㄑㄧㄢ ㄓㄥˋ","ㄇㄥˊㄧㄡˇ","ㄇㄢˋㄧㄡ ㄧㄡ ","ㄅㄧˋㄧㄠˋ","ㄉㄠˇㄧㄡˊ","ㄐㄩ ㄌㄧㄡˊㄓㄥˋ"]
+    @Published var discussionTravellingTranslation = ["flight","hotel","passport","international\ndriver's\nlicense","direction\n(ship/plane)","to recommend","tour guide","abroad","visa","allied\ncountry","unhurried\nleisurely","necessary","tour guide","Alien Resident Card\n(Taiwan)"]
     
     @Published var discussionWorkBPMF = ["ㄋㄧㄢˊㄐㄧㄚˋ","ㄍㄣ ㄐㄧㄣˋ","ㄨㄞˋㄆㄞˋ","ㄊㄨㄟˋㄒㄧㄡ ","ㄒㄧㄣ ㄎㄨˇ","ㄉㄨˋㄐㄧㄚˋ","ㄌㄧㄥˇㄌㄨˋㄖㄣˊ"]
     @Published var discussionWorkTranslation = ["annual\nleave","to follow\nup","to send to\nanother\nplace","to retire","tough\n(work/life)","spend one's\nbreak","guide\nleader\nmentor"]
@@ -220,8 +209,8 @@ class VocabularyList: ObservableObject{
     @Published var discussionMoviesShowsBPMF = ["ㄎㄢˋ","ㄓㄨㄟ ㄐㄩˋ","ㄉㄧㄢˋㄧㄥˇ","ㄉㄧㄢˋㄕˋㄐㄩˋ","ㄓㄨˇㄐㄩㄝˊ","ㄍㄢˇㄖㄣˊ","ㄓㄨㄟ ㄒㄧㄣ ","ㄇㄧㄥˊㄒㄧㄥˊ"]
     @Published var discussionMoviesShowsTranslation = ["to watch","to binge","movie","tv drama","protagonist","touching","to stan","celebrity"]
     
-    @Published var discussionSchoolBPMF = ["ㄐㄧㄠ ","ㄐㄧㄠ ㄕㄨ ","ㄐㄧㄠˋㄕㄡˋ","ㄒㄩㄝˊㄑㄧˊ","ㄕㄨㄛˋㄕˋ","ㄕˊㄒㄧˊ","ㄉㄚˋㄒㄩㄝˊ","ㄍㄠ ㄓㄨㄥ ","ㄍㄨㄛˊㄓㄨㄥ ","ㄎㄜ ㄒㄩㄝˊ","ㄎㄜ ㄐㄧˋ","ㄒㄩㄝˊㄨㄟˋ","ㄧㄢˊㄐㄧㄡ ㄙㄨㄛˇ","ㄅㄛˊㄕˋ","ㄒㄧˋ","ㄑㄧˇㄧㄝˋㄍㄨㄢˇㄌㄧˇ"]
-    @Published var discussionSchoolTranslation = ["to teach","to teach\n(in school)","professor","semester","master's degree","internship","university","highschool","middle school","science","technology","academic degree","graduate school","doctorate's","department\n(college)","business management"]
+    @Published var discussionSchoolBPMF = ["ㄐㄧㄠ ","ㄐㄧㄠ ㄕㄨ ","ㄐㄧㄠˋㄕㄡˋ","ㄒㄩㄝˊㄑㄧˊ","ㄕㄨㄛˋㄕˋ","ㄕˊㄒㄧˊ","ㄋㄧㄢˊㄐㄧˊ","ㄉㄚˋㄒㄩㄝˊ","ㄍㄠ ㄓㄨㄥ ","ㄍㄨㄛˊㄓㄨㄥ ","ㄎㄜ ㄒㄩㄝˊ","ㄎㄜ ㄐㄧˋ","ㄒㄩㄝˊㄨㄟˋ","ㄧㄢˊㄐㄧㄡ ㄙㄨㄛˇ","ㄅㄛˊㄕˋ","ㄒㄧˋ","ㄑㄧˇㄧㄝˋㄍㄨㄢˇㄌㄧˇ"]
+    @Published var discussionSchoolTranslation = ["to teach","to teach\n(in school)","professor","semester","master's degree","internship","grade\n(school)","university","highschool","middle school","science","technology","academic degree","graduate school","doctorate's","department\n(college)","business management"]
     
     @Published var discussionLivingSituationBPMF = ["ㄍㄨㄥ ㄩˋ","ㄎㄨㄥ ㄐㄧㄢˋ","ㄉㄨˊㄉㄨㄥˋ","ㄐㄧㄝ ㄈㄤ˙","ㄍㄠ ㄌㄡˊ","ㄐㄧㄢˋㄓㄨˋ","ㄕ ㄍㄨㄥ ","ㄔㄨㄢˊㄔㄥˊ"]
     @Published var discussionLivingSituationTranslation = ["apartment","space","single family\nhouse","neighborhood","highrise","buildings","carrying out\nconstruction","impart &\ninherit"]
@@ -229,14 +218,14 @@ class VocabularyList: ObservableObject{
     @Published var discussionHometownBPMF = ["ㄐㄧㄚ ㄒㄧㄤ ","ㄒㄩˋㄐㄧㄡˋ","ㄌㄧㄡˊㄌㄧㄢˋ"]
     @Published var discussionHometownTranslation = ["hometown","to reminisce\n(with someone)","to be reluctant\nto leave"]
     
-    @Published var discussionBodyConditionBPMF = ["ㄕㄡˋㄕㄤ ","ㄧ ㄕㄥ ","ㄎㄢˋㄅㄧㄥˋ","ㄕㄥ ㄅㄧㄥˋ","ㄎㄜˊㄙㄡˋ","ㄅㄧㄥˋㄖㄣˊ","ㄓㄨㄥ ㄧ ","ㄓㄣ ㄐㄧㄡˇ","ㄐㄧㄣˋㄕˋ","ㄕ ㄇㄧㄢˊ","ㄑㄧˋㄔㄨㄢˇ","ㄐㄧㄢˇㄘㄜˋ"]
-    @Published var discussionBodyConditionTranslation = ["to be hurt","doctor","visit a\ndoctor","to get sick","to cough","patient","chinese\nmedicine","acupuncture","nearsightedness","insomnia","asthma","examination\n(check for smth)"]
+    @Published var discussionBodyConditionBPMF = ["ㄕㄡˋㄕㄤ ","ㄧ ㄕㄥ ","ㄎㄢˋㄅㄧㄥˋ","ㄕㄥ ㄅㄧㄥˋ","ㄎㄜˊㄙㄡˋ","ㄅㄧㄥˋㄖㄣˊ","ㄓㄨㄥ ㄧ ","ㄓㄣ ㄐㄧㄡˇ","ㄐㄧㄣˋㄕˋ","ㄕ ㄇㄧㄢˊ","ㄑㄧˋㄔㄨㄢˇ","ㄐㄧㄢˇㄘㄜˋ","ㄋㄧㄢˊㄐㄧˋ"]
+    @Published var discussionBodyConditionTranslation = ["to be hurt","doctor","visit a\ndoctor","to get sick","to cough","patient","chinese\nmedicine","acupuncture","nearsightedness","insomnia","asthma","examination\n(check for smth)","age"]
     
     @Published var discussionDietBPMF = ["ㄧㄥˊㄧㄤˇ","ㄐㄧㄢˇㄕㄠˇ","ㄊㄢˋㄕㄨㄟˇㄏㄨㄚˋㄏㄜˊㄨˋ","ㄐㄧㄢˇㄈㄟˊ","ㄆㄤˋ","ㄕㄡˋ","ㄨㄟˊㄊㄚ ㄇㄧㄥˋ"]
     @Published var discussionDietTranslation = ["nutritous","to reduce","carbohydrates","to reduce\nweight","fat","skinny","vitamin"]
     
-    @Published var discussionWorkingOutBPMF = ["ㄐㄧㄢˋㄕㄣ ","ㄆㄠˇㄅㄨˋ","ㄧㄡˊㄩㄥˇ","ㄓㄨㄥˋㄒㄩㄣˋ","ㄐㄧㄢˋㄕㄣ ㄈㄤˊ"]
-    @Published var discussionWorkingOutTranslation = ["to keep fit","to run","to swim","weight\ntraining","gym"]
+    @Published var discussionWorkingOutBPMF = ["ㄐㄧㄢˋㄕㄣ ","ㄆㄠˇㄅㄨˋ","ㄧㄡˊㄩㄥˇ","ㄓㄨㄥˋㄒㄩㄣˋ","ㄐㄧㄢˋㄕㄣ ㄈㄤˊ","ㄐㄧㄢˇㄈㄟˊ"]
+    @Published var discussionWorkingOutTranslation = ["to keep fit","to run","to swim","weight\ntraining","gym","to lose weight"]
     
     @Published var discussionSportsAndCompetitionBPMF = ["ㄉㄚˇㄌㄢˊㄑㄧㄡˊ","ㄉㄚˇㄅㄤˋㄑㄧㄡˊ","ㄊㄧ ㄗㄨˊㄑㄧㄡˊ","ㄅㄧˇㄙㄞˋ","ㄉㄨㄟˋㄕㄡˇ"]
     @Published var discussionSportsAndCompetitionTranslation = ["basketball","baseball","soccer","competition","opponent\ncompetitor"]
@@ -251,7 +240,7 @@ class VocabularyList: ObservableObject{
     @Published var discussionThePastTranslation = ["time period","to go over\nold days","that time","memory","to host\n(someone)"]
     
     @Published var discussionGovernmentBPMF = ["ㄓㄥˋㄓˋ","ㄗㄨㄥˇㄊㄨㄥˇ","ㄕㄜˋㄏㄨㄟˋ","ㄈㄚˇㄩㄢˋ","ㄈㄚˇㄌㄩˋ","ㄈㄢˋㄍㄨㄟ ","ㄊㄨㄥ ㄖㄨㄥˊ","ㄖㄣˊㄑㄩㄢˊ","ㄒㄩㄢˇㄐㄩˇ","ㄐㄧㄥ ㄐㄧˋ","ㄇㄠˋㄧˋ"]
-    @Published var discussionGovernmentTranslation = ["government","president","society","politics","court","law","to break\nthe rules","to bend\nthe rules","human rights","election","economy","trade;commerce"]
+    @Published var discussionGovernmentTranslation = ["government","president","society","court","law","to break\nthe rules","to bend\nthe rules","human rights","election","economy","trade;commerce"]
     
     @Published var discussionAccidentsBPMF = ["ㄔㄜ ㄏㄨㄛˋ","ㄨㄟ ㄒㄧㄢˇ","ㄒㄧㄢˋㄔㄤˇ","ㄓㄥˋㄖㄣˊ"]
     @Published var discussionAccidentsTranslation = ["accident","dangerous","on site","witness"]
@@ -274,10 +263,11 @@ class VocabularyList: ObservableObject{
     @Published var discussionAstrologicalSignsBPMF = ["ㄒㄧㄥˋㄗㄨㄛˋ"]
     @Published var discussionAstrologicalSignsTranslation = ["astrological sign"]
  
+    @Published var discussionChineseZodiacBPMF = ["ㄕㄡˇㄩˊ","ㄕˊㄦˋㄕㄥ ㄒㄧㄠˋ"]
+    @Published var discussionChineseZodiacTranslation = ["to be part of\nto belong to","chinese zodiac"]
     
-    /*
-     This is a list of vocabulary
-     */
+    
+    //This is a list of vocabulary
     
     @Published var listColorsBPMF = ["ㄑㄧㄢˇ","ㄕㄣ ","ㄏㄟ ㄙㄜˋ","ㄅㄞˊㄙㄜˋ","ㄏㄨㄟ ㄙㄜˋ","ㄏㄨㄥˊㄙㄜˋ","ㄌㄢˊㄙㄜˋ","ㄌㄩˋㄙㄜˋ","ㄏㄨㄤˊㄙㄜˋ","ㄐㄩˊㄙㄜˋ","ㄈㄣ ㄏㄨㄥˊㄙㄜˋ","ㄘㄨㄥ ㄙㄜˋ"]
     @Published var listColorsTranslation = ["light\n(color)","deep\n(color)","black","white","grey","red","blue","green","yellow","orange","pink","brown"]
@@ -291,7 +281,7 @@ class VocabularyList: ObservableObject{
     @Published var listEmotionsBPMF = ["ㄑㄧㄥˊㄒㄩˋ","ㄍㄠ ㄒㄧㄥˋ","ㄋㄢˊㄍㄨㄛˋ","ㄍㄢˇㄐㄧ ","ㄕㄥ ㄑㄧˋ","ㄎㄨㄣˋㄏㄨㄛˋ","ㄕㄨ ㄈㄨ","ㄍㄨ ㄉㄢ ","ㄖㄜˋㄒㄧㄣ ","ㄕㄨㄤˇ","ㄉㄨˇㄌㄢˋ","ㄒㄧㄣ ㄊㄥˊ","ㄋㄢˊㄕㄡˋ","ㄇㄠˊㄉㄨㄣˋ","ㄖㄨㄢˇㄌㄢˋ","ㄒㄧㄢˋㄇㄨˋ","ㄐㄧˊㄉㄨˋ"]
     @Published var listEmotionsTranslation = ["emotions","happy","sad","grateful","angry","confused","comfortable","lonely","enthusiastic","to feel\ngood","ticked off","To feel\nsorry","uneasy","conflicted","lacking drive","envy","jealous\n(bad way)"]
     
-    @Published var listPersonalityTraitsBPMF = ["ㄋㄟˋㄒㄧㄤˋ","ㄨㄞˋㄕㄤˋ","ㄊㄧㄢ ㄓㄣ ","ㄌㄜˋㄍㄨㄢ ","ㄅㄟ ㄍㄨㄢ ","ㄎㄞ ㄈㄤˋ","ㄧㄡ ㄇㄛˋ","ㄌㄠˇㄍㄨˇㄉㄨㄥˇ","ㄗˋㄙ ","ㄗˋㄌㄧㄢˋ","ㄊㄧˇㄊㄧㄝ ","ㄧㄝˋㄇㄠ ㄗ˙","ㄅㄠˇㄕㄡˇ","ㄞˋㄒㄧㄢˋ","ㄎㄜˇㄎㄠˋ","ㄏㄠˇㄒㄧㄤ ㄔㄨˇ","ㄉㄨˊㄌㄧˋ","ㄌㄧˇㄓˋ","ㄧㄡˋㄓˋ","ㄌㄧㄥˊㄏㄨㄛˊ","ㄧㄡˇㄕㄢˋ"]
+    @Published var listPersonalityTraitsBPMF = ["ㄋㄟˋㄒㄧㄤˋ","ㄨㄞˋㄒㄧㄤˋ","ㄊㄧㄢ ㄓㄣ ","ㄌㄜˋㄍㄨㄢ ","ㄅㄟ ㄍㄨㄢ ","ㄎㄞ ㄈㄤˋ","ㄧㄡ ㄇㄛˋ","ㄌㄠˇㄍㄨˇㄉㄨㄥˇ","ㄗˋㄙ ","ㄗˋㄌㄧㄢˋ","ㄊㄧˇㄊㄧㄝ ","ㄧㄝˋㄇㄠ ㄗ˙","ㄅㄠˇㄕㄡˇ","ㄞˋㄒㄧㄢˋ","ㄎㄜˇㄎㄠˋ","ㄏㄠˇㄒㄧㄤ ㄔㄨˇ","ㄉㄨˊㄌㄧˋ","ㄌㄧˇㄓˋ","ㄧㄡˋㄓˋ","ㄌㄧㄥˊㄏㄨㄛˊ","ㄧㄡˇㄕㄢˋ"]
     @Published var listPersonalityTraitsTranslation = ["introvert","extrovert","innocent","optimistic","pessimistic","open\nminded","humorous","old-fashioned","selfish","narcissistic","considerate","night owl","conservative","to enjoy\nshowing off","dependable\nreliable","easygoing\neasy to get along","independent","rational","naive","flexible","hospitable"]
     
     @Published var listHouseholdKitchenItemsBPMF = ["ㄎㄨㄞˋㄗ˙","ㄔㄚ ㄗ˙","ㄊㄤ ㄔˊ","ㄆㄢˊㄗ˙","ㄉㄠ ㄗ˙","ㄒㄧ ㄍㄨㄢˇ","ㄓˇㄐㄧㄣ ","ㄌㄨˊㄗ˙","ㄅㄧㄥ ㄒㄧㄤ "]
@@ -300,17 +290,17 @@ class VocabularyList: ObservableObject{
     @Published var listHouseholdBedroomItemsBPMF = ["ㄓㄣˇㄊㄡ˙","ㄊㄢˇㄗ˙","ㄔㄨㄤˊ","ㄔㄡ ㄊㄧ˙","ㄐㄧㄥˋㄗ˙","ㄧㄣ ㄒㄧㄤ ","ㄉㄧˋㄊㄢˇ","ㄈㄥ ㄕㄢˋ","ㄒㄧㄤ ㄕㄨㄟˇ","ㄌㄢˊㄗ˙","ㄏㄨㄚˋㄓㄨㄤ ㄆㄧㄣˇ","ㄇㄧㄢˋㄇㄛˊ","ㄎㄨㄥ ㄐㄧㄢˋ"]
     @Published var listHouseholdBedroomItemsTranslation = ["pillow","blanket","bed","drawer","mirror","speakers","carpet\nrug","electric\nfan","perfume","basket","makeup","facial mask","space"]
     
-    @Published var listHouseholdBathroomItemsBPMF = ["ㄧㄚˊㄍㄠ ","ㄈㄟ ㄗㄠˋ","ㄇㄠˊㄐㄧㄣ ","ㄕㄨ ㄗ˙","ㄔㄨˊㄕ ㄐㄧ "]
-    @Published var listHouseholdBathroomItemsTranslation = ["toothpaste","soap","towel","comb","dehumidifier"]
+    @Published var listHouseholdBathroomItemsBPMF = ["ㄘㄜˋㄙㄨㄛˇ","ㄨㄟˋㄩˋ","ㄧㄚˊㄍㄠ ","ㄈㄟ ㄗㄠˋ","ㄇㄠˊㄐㄧㄣ ","ㄕㄨ ㄗ˙","ㄔㄨˊㄕ ㄐㄧ "]
+    @Published var listHouseholdBathroomItemsTranslation = ["bathroom\n(w/o shower)","bathroom\n(w/ shower)","toothpaste","soap","towel","comb","dehumidifier"]
     
-    @Published var listMeasureWordsBPMF = ["ㄧㄤˋ","ㄐㄧˊ","ㄊㄧㄠˊ","ㄨㄟˋ","ㄇㄧㄢˋ","ㄊㄞˊ","ㄐㄧㄢˋ","ㄓㄤ ","ㄑㄩㄢ ","ㄎㄨㄞˋ","ㄎㄜ ","ㄎㄜ ","ㄊㄤˊ","ㄎㄨㄢˇ","ㄊㄠˋ","ㄆㄧㄢˋ","ㄔㄥˊ","ㄎㄜˋ","ㄘㄥˊ"]
-    @Published var listMeasureWordsTranslation = ["kinds","episodes","long & thins","seats","flat\nsurfaces","vehicles\nmachines","clothes","flats","loops\nlaps","money","plants\ntrees","round","classes","types of\nproducts","sets","pieces","steak\ndone-ness\n(1-10,3=rare)","grams","floors"]
+    @Published var listMeasureWordsBPMF = ["ㄌㄧㄤˋㄘˊ","ㄧㄤˋ","ㄐㄧˊ","ㄊㄧㄠˊ","ㄨㄟˋ","ㄇㄧㄢˋ","ㄊㄞˊ","ㄐㄧㄢˋ","ㄓㄤ ","ㄑㄩㄢ ","ㄎㄨㄞˋ","ㄎㄜ ","ㄎㄜ ","ㄊㄤˊ","ㄎㄨㄢˇ","ㄊㄠˋ","ㄆㄧㄢˋ","ㄔㄥˊ","ㄎㄜˋ","ㄘㄥˊ"]
+    @Published var listMeasureWordsTranslation = ["measure word","kinds","episodes","long & thins","seats","flat\nsurfaces","vehicles\nmachines","clothes","flats","loops\nlaps","money","plants\ntrees","round","classes","types of\nproducts","sets","pieces","steak\ndone-ness\n(1-10,3=rare)","grams","floors"]
     
     @Published var listAdverbBPMF = ["ㄇㄚˇㄕㄤˋ","ㄌㄧˋㄎㄜˋ","ㄅㄨˋㄍㄢˇ","ㄐㄧˇㄓㄜ˙","ㄔㄨㄥ ㄈㄣˋ","ㄧ ㄉㄨㄟ ","ㄅㄨˋㄉㄨㄢˋ","ㄇㄢˇ","ㄍㄜˋㄓㄨㄥˇ","ㄐㄧ ㄏㄨ ","ㄅㄞˊ","ㄨㄟˊㄧ ","ㄑㄧˊㄓㄨㄥ ","ㄉㄤ ㄓㄨㄥ ","ㄗㄨㄥˇㄕˋ","ㄌㄠˇㄕ˙","ㄐㄩㄝˊㄉㄨㄟˋ","ㄕㄠ ㄨㄟ ","ㄍㄤ ㄏㄠˇ","ㄅㄧㄥˋㄅㄨˋ","ㄖㄣˋㄏㄜˊ","ㄊㄡ ㄊㄡ ","ㄕㄨㄣˋㄅㄧㄢˋ","ㄕㄨㄣˋㄌㄧˋ"]
     @Published var listAdverbTranslation = ["immediately","faster than\nimmediately","not dare to","hurriedly","as much as\npossible","a bunch","not stopping","quite","every kind","almost","in vain","only(sole)","among them","among them\n(location)","always","always\n(negative)","absolutely","slightly","just about time","not at all","any","sneakily","without making\nextra effort","smoothly"]
     
-    @Published var listAdjectivesBPMF = ["ㄓㄥˋㄇㄧㄢˋ","ㄈㄨˋㄇㄧㄢˋ","ㄊㄜˋㄕㄨ ","ㄆㄨˇㄅㄧㄢˋ","ㄨㄢˊㄇㄟˇ","ㄗㄠ ㄍㄠ ","ㄓㄣ ㄓㄥˋ","ㄇㄛˊㄏㄨ˙","ㄍㄜˋㄖㄣˊ","ㄅㄟ ㄅㄧˇ","ㄒㄧㄥˋㄩㄣˋ","ㄕˋㄉㄨˋ"]
-    @Published var listAdjectivesTranslation = ["positive","negative","special\nuncommon","common\nwidespread","perfect","worse","real;true","ambiguous\nblurry","personal(things)","morally wrong","lucky","appropriate\nmoderate\nnot to little/much"]
+    @Published var listAdjectivesBPMF = ["ㄓㄥˋㄇㄧㄢˋ","ㄈㄨˋㄇㄧㄢˋ","ㄊㄜˋㄕㄨ ","ㄆㄨˇㄅㄧㄢˋ","ㄨㄢˊㄇㄟˇ","ㄗㄠ ㄍㄠ ","ㄓㄣ ㄓㄥˋ","ㄇㄛˊㄏㄨ˙","ㄍㄜˋㄖㄣˊ","ㄅㄟ ㄅㄧˇ","ㄒㄧㄥˋㄩㄣˋ","ㄕˋㄉㄨˋ","ㄐㄧㄢˇㄉㄨㄢˇ"]
+    @Published var listAdjectivesTranslation = ["positive","negative","special\nuncommon","common\nwidespread","perfect","worse","real;true","ambiguous\nblurry","personal(things)","morally wrong","lucky","appropriate\nmoderate\nnot to little/much","brief\nnot long"]
     
     @Published var listMaterialsBPMF = ["ㄅㄛ ㄌㄧˊ","ㄊㄨㄥˊ","ㄇㄨˋ","ㄙㄨˋㄐㄧㄠ ","ㄐㄧㄣ ","ㄧㄣˊ"]
     @Published var listMaterialsTranslation = ["glass","copper","wood","plastic","gold","silver"]
@@ -327,14 +317,14 @@ class VocabularyList: ObservableObject{
     @Published var listAlcoholBPMF = ["ㄨㄟ ㄕˋㄐㄧˋ","ㄈㄨˊㄊㄜˋㄐㄧㄚ ","ㄆㄨˊㄊㄠ˙ㄐㄧㄡˇ","ㄌㄢˊㄈㄨˇㄐㄧㄡˇ","ㄆㄧˊㄐㄧㄡˇ",]
     @Published var listAlcoholTranslation = ["whiskey","vodka","wine","rum","beer",]
     
-    @Published var listNaturalDisasterBPMF = ["ㄊㄞˊㄈㄥ ","ㄉㄧˋㄓㄣˋ"]
-    @Published var listNaturalDisasterTranslation = ["typhoon","earthquake"]
+    @Published var listNaturalDisasterBPMF = ["ㄊㄞˊㄈㄥ ","ㄉㄧˋㄓㄣˋ","ㄏㄨㄛˇㄗㄞ "]
+    @Published var listNaturalDisasterTranslation = ["typhoon","earthquake","fire"]
     
     @Published var listAnimalsBPMF = ["ㄋㄧㄡˇ","ㄓㄨ ","ㄧㄤˊ","ㄐㄧ ","ㄩˊ","ㄧㄚ ㄗ˙","ㄔㄨㄥˊㄗ˙","ㄉㄚˋㄒㄧㄥ ㄒㄧㄥ˙","ㄏㄞˇㄅㄠˋ","ㄌㄩˊ"]
     @Published var listAnimalsTranslation = ["cow","pig","lamb","chicken","fish","duck","insects","gorilla","seal","donkey"]
     
-    @Published var listLocationsBPMF = ["ㄉㄠˋㄔㄨˇ","ㄕˋㄓㄨㄥ ㄒㄧㄣ ","ㄒㄧㄤ ㄒㄧㄚˋ","ㄒㄧㄤ ㄘㄨㄣ ","ㄒㄧㄠˇㄓㄣˋ"]
-    @Published var listLocationsTranslation = ["everywhere","downtown","countryside","village","lively town\nin a quiet\nplace"]
+    @Published var listLocationsBPMF = ["ㄉㄠˋㄔㄨˇ","ㄕˋㄓㄨㄥ ㄒㄧㄣ ","ㄒㄧㄤ ㄒㄧㄚˋ","ㄒㄧㄤ ㄘㄨㄣ ","ㄒㄧㄠˇㄓㄣˋ","ㄕㄚ ㄇㄛˋ"]
+    @Published var listLocationsTranslation = ["everywhere","downtown","countryside","village","lively town\nin a quiet\nplace","desert"]
     
     @Published var listExteriorBodyPartsBPMF = ["ㄕㄣ ㄊㄧˇ","ㄓㄥ ㄊㄧˇ","ㄜˊㄊㄡˊ","ㄇㄟˊㄇㄠˊ","ㄐㄧㄝˊㄇㄠˊ","ㄌㄧㄢˇㄐㄧㄚˊ","ㄔㄨㄣˊ","ㄒㄧㄚˋㄅㄚ˙","ㄅㄛˊㄗ˙","ㄅㄟˋ","ㄐㄧㄢ ㄅㄤˇ","ㄒㄩㄥ ㄎㄡˇ","ㄕㄡˇㄅㄧˋ","ㄕㄡˇㄓㄡˇ","ㄕㄡˇㄨㄢˋ","ㄕㄡˇㄓˇㄐㄧㄚ˙","ㄊㄨㄟˇ","ㄉㄚˋㄊㄨㄟˇ","ㄒㄧㄠˇㄊㄨㄟˇ","ㄐㄧㄠˇㄏㄨㄞˊ","ㄐㄧㄠˇ","ㄐㄧㄠˇㄐㄧㄢ ","ㄐㄧㄠˇㄅㄟˋ","ㄌㄨㄛˇㄊㄧˇ","ㄈㄨ ㄙㄜˋ","ㄊㄡˊㄆㄧˊ"]
     @Published var listExteriorBodyPartsTranslation = ["body","limbs","forehead","eyebrows","eyelash","cheeks","lip","chin","neck","back","shoulder","chest","arms\n(w/ hands)","elbow","wrist","fingernail","leg","thigh","lower leg","ankle","feet","tip of toe","top of foot","nakedness","skin color","scalp"]
@@ -345,14 +335,14 @@ class VocabularyList: ObservableObject{
     @Published var listPersonalCharacteristicsBPMF = ["ㄏㄠˇㄧˋ","ㄜˋㄧˋ","ㄩㄥˇㄑㄧˋ","ㄑㄧㄢˊㄌㄧˋ"]
     @Published var listPersonalCharacteristicsTranslation = ["kindness","ill intention","courage","potential"]
     
-    @Published var listMedicineBPMF = ["ㄓˇㄊㄨㄥˋㄧㄠˋ","ㄅㄧㄥ ㄈㄨ "]
-    @Published var listMedicineTranslation = ["painkiller","ice packs"]
+    @Published var listMedicineBPMF = ["ㄓˇㄊㄨㄥˋㄧㄠˋ","ㄩㄣ ㄔㄜ ㄧㄠˋ","ㄩㄣ ㄐㄧ ㄧㄠˋ","ㄩㄣ ㄔㄨㄢˊㄧㄠˋ","ㄅㄧㄥ ㄈㄨ "]
+    @Published var listMedicineTranslation = ["painkiller","motion sickness\nmedicine (car)","motion sickness\nmedicine (plane)","motion sickness\nmedicine (boat)","ice packs"]
     
     @Published var listFruitBPMF = ["ㄆㄧㄥˊㄍㄨㄛˇ","ㄔㄥˊㄗ˙","ㄘㄠˇㄇㄟˊ","ㄇㄤˊㄍㄨㄛˇ","ㄧㄥ ㄊㄠˊ","ㄌㄢˊㄇㄟˊ","ㄒㄧ ㄍㄨㄚ ","ㄈㄢ ㄑㄧㄝˊ","ㄆㄨˊㄊㄠˊ","ㄌㄧㄡˊㄌㄧㄢˊ","ㄩˋㄏㄜˊㄅㄠ "]
     @Published var listFruitTranslation = ["apple","orange","strawberry","mango","cherry","blueberry","watermelon","tomato","grape","durian","lychee"]
     
-    @Published var listFoodBPMF = ["ㄕˊㄨˋ","ㄓㄨˇㄕˊ"]
-    @Published var listFoodTranslation = ["food","staple food"]
+    @Published var listFoodBPMF = ["ㄕˊㄨˋ","ㄓㄨˇㄕˊ","ㄑㄧㄢ ㄘㄥˊㄇㄧㄢˋ"]
+    @Published var listFoodTranslation = ["food","staple food","lasagna"]
     
     @Published var listSeafoodBPMF = ["ㄍㄨㄟ ㄩˊ","ㄨㄟˇㄩˊ","ㄓㄤ ㄩˊ","ㄒㄧㄚ ㄗ˙","ㄩˊㄨㄢˊ"]
     @Published var listSeafoodTranslation = ["salmon","tuna","octopus","shrimp","fish\nball"]
@@ -360,8 +350,8 @@ class VocabularyList: ObservableObject{
     @Published var listVegetableBPMF = ["ㄒㄧㄤ ㄍㄨ ","ㄅㄛ ㄘㄞˋ","ㄕㄨㄟˋㄌㄧㄢˊ","ㄈㄢ ㄑㄧㄝˊ","ㄧㄤˊㄘㄨㄥ ","ㄒㄧㄤ ㄘㄞˋ"]
     @Published var listVegetableTranslation = ["mushroom","spinach","snowflake\nstem","tomato","onion","corriander"]
     
-    @Published var listDessertBPMF = ["ㄒㄧㄢ ㄘㄠˇ","ㄒㄧㄥˋㄖㄣˊ","ㄨㄟˋㄘㄥ ","ㄅㄨˋㄌㄤˇㄋㄧˊ","ㄖㄨˇㄌㄨㄛˋㄉㄢˋㄍㄠ ","ㄇㄚˇㄈㄣ "]
-    @Published var listDessertTranslation = ["grass jelly","almond","miso","brownie","cheese cake","muffin"]
+    @Published var listDessertBPMF = ["ㄒㄧㄢ ㄘㄠˇ","ㄒㄧㄥˋㄖㄣˊ","ㄨㄟˋㄘㄥ ","ㄅㄨˋㄌㄤˇㄋㄧˊ","ㄖㄨˇㄌㄨㄛˋㄉㄢˋㄍㄠ ","ㄇㄚˇㄈㄣ ","ㄉㄡˋㄏㄨㄚ "]
+    @Published var listDessertTranslation = ["grass jelly","almond","miso","brownie","cheese cake","muffin","silk tofu"]
     
     @Published var listNutsBPMF = ["ㄏㄨㄚ ㄕㄥ ","ㄓ ㄇㄚ˙"]
     @Published var listNutsTranslation = ["Peanut","Sesame"]
@@ -372,8 +362,9 @@ class VocabularyList: ObservableObject{
     @Published var listFamilyBPMF = ["ㄦˊㄊㄨㄥˊ","ㄓˊㄗ˙","ㄓˊㄋㄩˇ","ㄒㄧㄠˋㄕㄨㄣˋ","ㄌㄠˇㄆㄛˊ","ㄌㄠˇㄍㄨㄥ ","ㄚ ㄍㄨㄥ ","ㄚ ㄇㄚˊ","ㄨㄞˋㄕㄥ ㄋㄩˇ","ㄨㄞˋㄕㄥ ","ㄅㄧㄠˇ","ㄊㄤˊ"]
     @Published var listFamilyTranslation = ["children\n(young)","nephew\n(brother's)","niece\n(brother's)","filial","wife","husband","grandpa","grandma","niece\n(sister's)","nephew\n(brother's)","cousin\n(mom's side)","cousin\n(dad's side)"]
     
+    @Published var listHolidaysBPMF = ["ㄐㄧㄝˊㄖˋ","ㄉㄨㄢ ㄨˇㄐㄧㄝˊ","ㄓㄨㄥ ㄩㄢˊㄐㄧㄝˊ","ㄐㄧˊㄒㄧㄤˊㄏㄨㄚˋ"]
+    @Published var listHolidaysTranslation = ["holiday","dragon boat","ghost festival","sayings during\nspecial times"]
 
-    
     @Published var listContinentsBPMF = ["ㄋㄢˊㄇㄟˇ","ㄇㄟˇㄓㄡ ","ㄡ ㄓㄡ ","ㄋㄢˊㄐㄧˊㄓㄡ ","ㄧㄚˋㄓㄡ ","ㄈㄟ ㄓㄡ ","ㄠˋㄓㄡ "]
     @Published var listContinentsTranslation = ["south\namerica","americas","europe","antarctica","asia","africa","australia"]
     
@@ -392,10 +383,10 @@ class VocabularyList: ObservableObject{
     @Published var listSayingsBPMF = ["ㄖㄜˋㄌㄧㄢˇㄊㄧㄝ ㄌㄥˇㄆㄧˋㄍㄨ˙","ㄊㄨㄛ ㄎㄨˋㄗ˙ㄈㄤˋㄆㄧˋ","ㄨㄣˊㄉㄢˋ","ㄧ ㄈㄣ ㄍㄥ ㄩㄣˊㄧ ㄈㄣ ㄕㄡ ㄏㄨㄛˋ","ㄧ ㄧㄢˊㄨㄟˊㄉㄧㄥˋ","ㄧ ㄇㄛˊㄧ ㄧㄤˋ","ㄅㄨˋㄍㄢˇㄒㄧㄤˋㄒㄧㄣ "]
     @Published var listSayingsTranslation = ["to show \nfeelings and\nbe dejected","to make\nthings too\ncomplicated","to be done for","you reap what\nyou sow","it's settled\nthen","exactly the\nsame","i can't\nbelieve..."]
     
-    @Published var grammarAddEmotionBPMF = ["ㄉㄠˋㄉㄧˇ","ㄍㄟˇㄨㄛˇ"]
+    @Published var grammarAddEmotionBPMF = ["ㄉㄠˋㄉㄧˇ","ㄍㄟˇㄨㄛˇ","ㄌㄧㄢˊ"]
     @Published var grammarAddEmotionTranslation = ["to add emphasis\non questions\n(negative)","strengthen\nthe\nimperative","even...\n(good or bad)"]
     
-    @Published var grammarTimeWordsBPMF = ["ㄕㄡˇㄒㄧㄢ ","ㄓㄥˋㄧㄠˋ","ㄘㄥˊㄐㄧㄥ ","ㄧ ㄉㄢˋ","ㄧ ㄅㄟˋㄗ˙","ㄨㄟˊㄓˇ","ㄇㄨˋㄑㄧㄢ ","ㄨㄟˋㄌㄞˊ","ㄐㄧㄤ ㄌㄞˊ","ㄗㄨㄥˇㄧㄡˇ","ㄗㄨㄥˇㄧㄡˇ","ㄊㄨㄥ ㄒㄧㄠ ","ㄧ ㄓㄣ ㄗ˙","ㄔㄤˊㄑㄧ ","ㄧ ㄕㄨㄣˋ","ㄅㄢˋㄧㄝˋ","ㄌㄧㄥˊㄔㄣˊ"]
+    @Published var grammarTimeWordsBPMF = ["ㄕㄡˇㄒㄧㄢ ","ㄓㄥˋㄧㄠˋ","ㄘㄥˊㄐㄧㄥ ","ㄧ ㄉㄢˋ","ㄧ ㄅㄟˋㄗ˙","ㄨㄟˊㄓˇ","ㄇㄨˋㄑㄧㄢ ","ㄨㄟˋㄌㄞˊ","ㄐㄧㄤ ㄌㄞˊ","ㄗㄨㄥˇㄧㄡˇ","ㄊㄨㄥ ㄒㄧㄠ ","ㄧ ㄓㄣ ㄗ˙","ㄔㄤˊㄑㄧ ","ㄧ ㄕㄨㄣˋ","ㄅㄢˋㄧㄝˋ","ㄌㄧㄥˊㄔㄣˊ"]
     @Published var grammarTimeWordsTranslation = ["first of all","just about to","to use to\nonce existed","once...happens","all one's life","up to; until","at the\npresent","in the future","in the near future","inevitably\nthere\nwill be","all night","a while","for a\nlong time","in a flash","midnight","late\nmidnight"]
     
     @Published var grammarSentenceConnectionsBPMF = ["ㄩˇㄑㄧˊㄅㄨˋㄖㄨˊ","ㄋㄧㄥˋㄩㄢˋ","ㄓˇㄧㄡˇㄘㄞˊ","ㄓˇㄧㄠˋㄐㄧㄡˋ","ㄊㄡˋㄍㄨㄛˋ","ㄕㄨㄛ ㄉㄠˋ"]
@@ -403,9 +394,6 @@ class VocabularyList: ObservableObject{
     
     @Published var grammarResultComplimentsBPMF = ["ㄗㄨㄛˇㄧㄡˋ","ㄧˇㄕㄤˋ","ㄉㄠˋ","ㄐㄧㄢˋ","ㄉㄨㄥˇ","ㄍㄨㄛˋ","ㄏㄠˇ","ㄨㄢˊ","ㄍㄨㄤ ","ㄘㄨㄛˋ","ㄍㄢˇㄐㄧㄥ ","ㄗㄡˇ","ㄉㄧㄠˋ","ㄉㄠˇ","ㄏㄨㄟˋ"]
     @Published var grammarResultComplimentsTranslation = ["approximately\na number","more than\na number","result obtained\nfrom an action","result obtained\nfrom an action\n(only senses)","understood\n(only senses)","experienced","done well\nand finished","finished","subject is\nall gone","mistaken","subject is cleaned","subject went away","subject is gone","subject fell","subject is mastered"]
-    
-    @Published var grammarSmallDetailsBPMF = ["ㄔㄨㄥ ㄒㄧㄣ"]
-    @Published var grammarSmallDetailsTranslation = ["re-(verb)"]
     
 
     
@@ -445,7 +433,7 @@ struct Vocabulary: View {
                 }
             }
             .pickerStyle(InlinePickerStyle())
-            .frame(width: screenWidth, height: 100)
+            .frame(width: screenWidth, height: screenHeight/5)
             .padding()
             
             
@@ -478,6 +466,12 @@ struct Vocabulary: View {
                                     vocabularyBPMF = self.vocabularyList.basicsSayingHelloBPMF
                                     vocabularyTranslation = self.vocabularyList.basicsSayingHelloTranslation
                                     statePreviewText = previewText + "saying hello"
+                                }.padding()
+                                
+                                Button("things"){
+                                    vocabularyBPMF = self.vocabularyList.basicsThingsBPMF
+                                    vocabularyTranslation = self.vocabularyList.basicsThingsTranslation
+                                    statePreviewText = previewText + "introduction"
                                 }.padding()
                                 
                                 Button("interjections"){
@@ -547,7 +541,7 @@ struct Vocabulary: View {
                                 
                                 Button("driving"){
                                     vocabularyBPMF = self.vocabularyList.topicDrivingOnRoadBPMF
-                                    vocabularyTranslation = self.vocabularyList.topicDrivingOnRoadBPMF
+                                    vocabularyTranslation = self.vocabularyList.topicDrivingOnRoadTranslation
                                     statePreviewText = previewText + "driving"
                                 }.padding()
                             }
@@ -575,11 +569,11 @@ struct Vocabulary: View {
                                     vocabularyTranslation = self.vocabularyList.topicExplainingYourPerspectiveTranslation
                                     statePreviewText = previewText + "explaining"
                                 }.padding()
-                                
-                                Button("obscene words"){
-                                    vocabularyBPMF = self.vocabularyList.topicObsceneWordsBPMF
-                                    vocabularyTranslation = self.vocabularyList.topicObsceneWordsTranslation
-                                    statePreviewText = previewText + "obscene words"
+
+                                Button("in chinese new year"){
+                                    vocabularyBPMF = self.vocabularyList.topicChineseNewYearBPMF
+                                    vocabularyTranslation = self.vocabularyList.topicChineseNewYearTranslation
+                                    statePreviewText = previewText + "chinese new year"
                                 }.padding()
                                 
                                 Button("remarks & reactions"){
@@ -756,27 +750,7 @@ struct Vocabulary: View {
                                     vocabularyTranslation = self.vocabularyList.scenarioImmigrantTranslation
                                     statePreviewText = previewText + "being an immigrant"
                                 }.padding()
-                                
-                                /*
-                                Button("manufacturing design"){
-                                    vocabularyBPMF = self.vocabularyList.scenarioWorkingInManufacturingDesignBPMF
-                                    vocabularyTranslation = self.vocabularyList.scenarioWorkingInManufacturingDesignTranslation
-                                    statePreviewText = previewText + "manufacturing design"
-                                }.padding()
-                                
-                                Button("manufacturing processes"){
-                                    vocabularyBPMF = self.vocabularyList.scenarioWorkingInManufacturingProcessBPMF
-                                    vocabularyTranslation = self.vocabularyList.scenarioWorkingInManufacturingProcessTranslation
-                                    statePreviewText = previewText + "manufacturing processes"
-                                }.padding()
-                                
-                                Button("manufacturing materials"){
-                                    vocabularyBPMF = self.vocabularyList.scenarioWorkingInManufacturingMaterialsBPMF
-                                    vocabularyTranslation = self.vocabularyList.scenarioWorkingInManufacturingMaterialsTranslation
-                                    statePreviewText = previewText + "manufacturing materials"
-                                }.padding()
-                                
-                                */
+
                                 Button("project management"){
                                     vocabularyBPMF = self.vocabularyList.scenarioWorkingInManufacturingProjectManagementBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioWorkingInManufacturingProjectManagementTranslation
@@ -839,7 +813,7 @@ struct Vocabulary: View {
                                     statePreviewText = previewText + "life goals"
                                 }.padding()
                                 
-                                Button("cultre"){
+                                Button("culture"){
                                     vocabularyBPMF = self.vocabularyList.discussionCultureBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionCultureTranslation
                                     statePreviewText = previewText + "culture"
@@ -980,6 +954,19 @@ struct Vocabulary: View {
                                     statePreviewText = previewText + "investments"
                                 }.padding()
                                 
+                            }
+                            VStack{
+                                Button("astrological sign"){
+                                    vocabularyBPMF = self.vocabularyList.discussionAstrologicalSignsBPMF
+                                    vocabularyTranslation = self.vocabularyList.discussionAstrologicalSignsTranslation
+                                    statePreviewText = previewText + "astrological sign"
+                                }.padding()
+                                
+                                Button("chinese zodiac"){
+                                    vocabularyBPMF = self.vocabularyList.discussionChineseZodiacBPMF
+                                    vocabularyTranslation = self.vocabularyList.discussionChineseZodiacTranslation
+                                    statePreviewText = previewText + "chinese zodiac"
+                                }.padding()
                             }
                         }
                         .padding()
@@ -1246,35 +1233,29 @@ struct Vocabulary: View {
                                     vocabularyTranslation = self.vocabularyList.grammarResultComplimentsTranslation
                                     statePreviewText = previewText + "result compliments"
                                 }.padding()
-                                
-                                Button("small details"){
-                                    vocabularyBPMF = self.vocabularyList.grammarSmallDetailsBPMF
-                                    vocabularyTranslation = self.vocabularyList.grammarSmallDetailsTranslation
-                                    statePreviewText = previewText + "small details"
-                                }.padding()
                             }
                         }
                         .padding()
                     }
                 }
                 .font(.custom("copperplate",size: 26))
-                .frame(minWidth:200, maxWidth: screenWidth)
+                .frame(minWidth:screenWidth)
                 .multilineTextAlignment(.leading)
                 .padding(10)
                 .frame(alignment: .leading)
                 .foregroundColor(.black)
-                .frame(width:screenWidth,height:screenHeight*0.60)
+                .frame(width:screenWidth,height:screenHeight/5*2)
             }
 
             NavigationLink(destination: ContentPreview(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF, pronunciationTextMode: self.$pronunciationTextMode,pronunciationVoiceMode: self.$pronunciationVoiceMode, voiceSelection:self.$voiceSelection, timerValue: self.$timerValue,testModeSelection: self.$testModeSelection)){
             Text(statePreviewText)
             }
-            .frame(width: screenWidth, height: 100, alignment: .center)
+            .frame(width: screenWidth, height: screenHeight/5, alignment: .center)
             .multilineTextAlignment(.center)
             //.navigationBarHidden(true)
             //.navigationBarTitle("")
             .foregroundColor(teal)
-            .font(.custom("copperplate",size: 26))
+            .font(.system(size: 30, weight: .heavy))
             .padding()
             Spacer()
             

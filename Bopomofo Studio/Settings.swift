@@ -78,8 +78,12 @@ struct Settings: View {
     
     let voices = ["Female","Male"]
 
-    let screenWidth = UIScreen.main.bounds.size.width
-    let screenHeight = UIScreen.main.bounds.size.height
+    public var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    public var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
     
     var body: some View {
         VStack{
@@ -156,7 +160,9 @@ struct Settings: View {
                         //.background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black]), startPoint: .leading, endPoint: .trailing))
                     
                 }
+                
             }
+            Spacer()
         }
     }
 }

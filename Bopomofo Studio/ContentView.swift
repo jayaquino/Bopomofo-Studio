@@ -22,14 +22,6 @@ class SoundManager{
     
     static let instance = SoundManager()
     var player: AVAudioPlayer?
-    enum SoundOption:String{
-        case ding
-        case bonk
-        case eng; case F_ㄅ; case F_ㄆ
-        case F_ㄇ; case F_ㄉ; case F_ㄊ
-        case F_ㄋ; case F_ㄌ
-        
-    }
     
     func playSound(sound: String){
         
@@ -92,7 +84,6 @@ struct ContentView: View {
                             .font(.custom("copperplate", size: 80))
                             .foregroundColor(teal)
                             .padding()
-                    
                     }
                     
                     NavigationLink(destination: Settings( testModeSelection: self.$testMode.Zhuyin)) {

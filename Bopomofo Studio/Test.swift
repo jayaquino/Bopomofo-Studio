@@ -286,35 +286,37 @@ struct Test: View {
                         VStack{
                             Text("Score: " + String(self.score))
                             Spacer()
-                            HStack{
-                                VStack{
-                                    Text("Word").bold()
-                                    ForEach(wrongWords, id: \.self){symbol in
-                                        Text(symbol)
-                                            .padding(2)
-                                            .font(.system(size: 9))
-                                            .frame(minHeight:25)
-                                            
+                            ScrollView{
+                                HStack{
+                                    VStack{
+                                        Text("Word").bold()
+                                        ForEach(wrongWords, id: \.self){symbol in
+                                            Text(symbol)
+                                                .padding(2)
+                                                .font(.system(size: 9))
+                                                .frame(minHeight:25)
+                                                
+                                        }
                                     }
-                                }
-                                VStack{
-                                    Text("Incorrect").bold()
-                                    ForEach(wrongKey, id: \.self){symbol in
-                                        Text(symbol)
-                                            .padding(2)
-                                            .font(.system(size: 9))
-                                            .frame(minHeight:25)
-                                           
+                                    VStack{
+                                        Text("Incorrect").bold()
+                                        ForEach(wrongKey, id: \.self){symbol in
+                                            Text(symbol)
+                                                .padding(2)
+                                                .font(.system(size: 9))
+                                                .frame(minHeight:25)
+                                               
+                                        }
                                     }
-                                }
-                                VStack{
-                                    Text("Correct").bold()
-                                    ForEach(correctKey, id: \.self){symbol in
-                                        Text(symbol)
-                                            .padding(2)
-                                            .font(.system(size: 9))
-                                            .frame(minHeight:25)
-                                          
+                                    VStack{
+                                        Text("Correct").bold()
+                                        ForEach(correctKey, id: \.self){symbol in
+                                            Text(symbol)
+                                                .padding(2)
+                                                .font(.system(size: 9))
+                                                .frame(minHeight:25)
+                                              
+                                        }
                                     }
                                 }
                             }
