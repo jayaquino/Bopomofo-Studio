@@ -53,8 +53,8 @@ class VocabularyList: ObservableObject{
     @Published var topicAskingForHelpBPMF = ["ㄅㄤ ","ㄉㄚˇㄖㄠˇ","ㄖㄣˊㄑㄧㄥˊ","ㄕㄢˋㄔㄤˊ"]
     @Published var topicAskingForHelpTranslation = ["to help","to bother\nsomeone","favor","to not be\ngood at"]
 
-    @Published var topicShoppingBPMF = ["ㄏㄨㄢ ㄧㄥˊㄍㄨㄤ ㄌㄧㄣˊ","ㄏㄨㄟˋㄩㄢˊ","ㄩㄥˋ","ㄎㄚˇ","ㄌㄧㄥˊㄑㄧㄢˊ","ㄕㄡ ㄋㄧˇ","ㄈㄚ ㄆㄧㄠˋ","ㄧㄣˋㄔㄨ ","ㄗㄞˋㄐㄩˋ","ㄓㄜˊ","ㄧㄡ ㄏㄨㄟˋ","ㄉㄧㄥˋㄉㄢ ","ㄐㄧㄚˋㄓˊ","ㄓˊㄉㄜ˙","ㄊㄧㄠ "]
-    @Published var topicShoppingTranslation = ["welcome","membership","to use","card","pocket change","received x$\n(cashier will say)","receipt","to print out","electronically\nstore receipt","discount\n(percentage)","discount","to order","value\nworth","to be\nworth it","to pick"]
+    @Published var topicShoppingBPMF = ["ㄏㄨㄢ ㄧㄥˊㄍㄨㄤ ㄌㄧㄣˊ","ㄏㄨㄟˋㄩㄢˊ","ㄩㄥˋ","ㄎㄚˇ","ㄌㄧㄥˊㄑㄧㄢˊ","ㄕㄡ ㄋㄧˇ","ㄈㄚ ㄆㄧㄠˋ","ㄧㄣˋㄔㄨ ","ㄗㄞˋㄐㄩˋ","ㄓㄜˊ","ㄧㄡ ㄏㄨㄟˋ","ㄉㄧㄥˋㄉㄢ ","ㄐㄧㄚˋㄓˊ","ㄓˊㄉㄜ˙","ㄊㄧㄠ ","ㄧㄥˊㄧㄝˋ"]
+    @Published var topicShoppingTranslation = ["welcome","membership","to use","card","pocket change","received x$\n(cashier will say)","receipt","to print out","electronically\nstore receipt","discount\n(percentage)","discount","to order","value\nworth","to be\nworth it","to pick","to be open\nfor business"]
     
     @Published var topicMRTBPMF = ["ㄐㄧㄝˊㄩㄣˋ","ㄉㄧㄢˋㄈㄨˊㄊㄧ ","ㄉㄧㄢˋㄊㄧ ","ㄧㄡ ㄧㄡˊㄎㄚˇ","ㄐㄧㄚ ㄓˊ","ㄆㄚˊㄉㄨㄟˋ","ㄔㄚ ㄉㄨㄟˋ","ㄇㄛˋㄅㄢ ㄔㄜ ","ㄌㄨˋㄨㄤˇ"]
     @Published var topicMRTTranslation = ["mass rapid\ntransit","escalator","elevator","MRT card","to recharge\n(money)","to get\nin line","to cut\nin line","last chance\n(e.g. last train)","road network"]
@@ -102,6 +102,9 @@ class VocabularyList: ObservableObject{
     @Published var scenarioRestaurantBPMF = ["ㄩㄥˋㄘㄢ ","ㄐㄧㄝˊㄓㄤˋ","ㄋㄟˋㄩㄥˋ","ㄨㄞˋㄉㄞˋ","ㄊㄨㄟ ㄐㄧㄢˋ","ㄉㄚˇㄅㄠ ","ㄉㄧㄥˋㄨㄟˋ","ㄈㄨˊㄨˋ","ㄏㄨㄟˊㄔㄨㄥ ","ㄎㄣˇ","ㄐㄧㄠˊ","ㄗㄠˇ","ㄇㄢˇㄧˋ","ㄌㄧㄡˊㄟˋ"]
     @Published var scenarioRestaurantTranslation = ["to have a meal","to settle\nthe bill","eat in","take out","to make\na reservation","recommendation","bag\nleftovers","service","to refill\n(tea bag)","to nibble","to chew","to bite","satisfied","leave room\n(stomach)"]
     
+    @Published var scenarioConveyorSushiBPMF = ["ㄍㄨㄟ ㄩˊ","ㄨㄟˇㄩˊ","ㄕㄡˇㄐㄩㄢˇ","ㄨㄟˋㄘㄥ ㄊㄤ ","ㄆㄢˊ"]
+    @Published var scenarioConveyorSushiTranslation = ["salmon","tuna","hand roll","miso soup","a plate"]
+    
     @Published var scenarioOnThePhoneBPMF = ["ㄨㄟˊ","ㄒㄩㄣˋㄏㄠˋ","ㄉㄚˇㄉㄧㄢˋㄏㄨㄚˋ"]
     @Published var scenarioOnThePhoneTranslation = ["hello~","reception\n signal","give a\nphone call"]
     
@@ -132,8 +135,8 @@ class VocabularyList: ObservableObject{
     @Published var scenarioInTheSlumpsBPMF = ["ㄐㄧㄥ ㄕㄣ ","ㄒㄧㄣ ㄑㄧㄥˊ","ㄎㄨ ","ㄌㄧㄡˊㄧㄢˇㄌㄟˋ"]
     @Published var scenarioInTheSlumpsTranslation = ["energy","state of mind\n(mood)","to cry","to shed tears"]
     
-    @Published var scenarioTechnologyBPMF = ["ㄉㄧㄢˋㄋㄠˇ","ㄨㄤˇㄓㄢˋ","ㄉㄚˇㄗˋ","ㄕㄢ ㄔㄨˊ","ㄆㄧㄥˊㄐㄧㄚˋ","ㄒㄧㄡ ㄌㄧˇ","ㄍㄨㄥ ㄋㄥˊ","ㄉㄞˋㄐㄧ ","ㄉㄧㄢˋㄔˊ","ㄔㄥˊㄕˋ","ㄖㄨㄢˇㄊㄧˇ"]
-    @Published var scenarioTechnologyTranslation = ["computer","website","to type","to delete","reviews","to repair","features\nfunctionality","sleep(mode)","battery","program","software"]
+    @Published var scenarioTechnologyBPMF = ["ㄉㄧㄢˋㄋㄠˇ","ㄨㄤˇㄓㄢˋ","ㄉㄚˇㄗˋ","ㄕㄢ ㄔㄨˊ","ㄆㄧㄥˊㄐㄧㄚˋ","ㄒㄧㄡ ㄌㄧˇ","ㄍㄨㄥ ㄋㄥˊ","ㄉㄞˋㄐㄧ ","ㄉㄧㄢˋㄔˊ","ㄔㄥˊㄕˋ","ㄖㄨㄢˇㄊㄧˇ","ㄗㄢˋㄊㄧㄥˊ","ㄏㄨㄚˋㄓˋ"]
+    @Published var scenarioTechnologyTranslation = ["computer","website","to type","to delete","reviews","to repair","features\nfunctionality","sleep(mode)","battery","program","software","to pause","picture/video\nquality"]
     
     @Published var scenarioThrowingTrashBPMF = ["ㄌㄜˋㄙㄜˋ","ㄉㄧㄡ ","ㄏㄨㄟˊㄕㄡ ","ㄌㄜˋㄙㄜˋㄔㄜ "]
     @Published var scenarioThrowingTrashTranslation = ["trash","to throw","to recycle","trash truck"]
@@ -176,8 +179,8 @@ class VocabularyList: ObservableObject{
     @Published var discussionWhatToDoBPMF = ["ㄑㄧ ㄉㄞˋ","ㄉㄚˇㄈㄚ ","ㄐㄩˋㄏㄨㄟˋ","ㄓㄨㄣˇㄕˊ","ㄌㄨˋㄧㄥˊ","ㄅㄠˋㄇㄧㄥˊ","ㄑㄩˇㄒㄧㄠ ","ㄕㄨㄚˇㄈㄟˋ","ㄑㄧㄥˋㄓㄨˋ","ㄆㄚˊㄕㄢ ","ㄌㄧㄡ ㄅㄧㄥ ","ㄌㄞˋㄔㄨㄤˊ","ㄨㄣ ㄑㄩㄢˊ"]
     @Published var discussionWhatToDoTranslation = ["to look\nforward to","to kill\ntime","get-together","to be punctual","to be lazy in bed","to sign up","to cancel","to chill\npass time idly","to celebrate","to go hiking","camping","ice skate","hotsprings"]
     
-    @Published var discussionWhatToEatBPMF = ["ㄨㄞˋㄙㄨㄥˋ","ㄊㄧㄠ ㄕˊ","ㄔ ㄉㄠˋㄅㄠˇ","ㄕㄡˋㄙ ","ㄏㄞˇㄒㄧㄢ ","ㄏㄨㄛˇㄍㄨㄛ ","ㄎㄠˇㄖㄡˋ","ㄕˋ"]
-    @Published var discussionWhatToEatTranslation = ["delivery","picky\neater","buffet","sushi","seafood","hotpot","barbecue","something-style\n(e.g. thai-style)"]
+    @Published var discussionWhatToEatBPMF = ["ㄨㄞˋㄙㄨㄥˋ","ㄊㄧㄠ ㄕˊ","ㄔ ㄉㄠˋㄅㄠˇ","ㄕㄡˋㄙ ","ㄏㄞˇㄒㄧㄢ ","ㄏㄨㄛˇㄍㄨㄛ ","ㄎㄠˇㄖㄡˋ","ㄕˋ","ㄈㄟˊ"]
+    @Published var discussionWhatToEatTranslation = ["delivery","picky\neater","buffet","sushi","seafood","hotpot","barbecue","something-style\n(e.g. thai-style)","fatty(food)"]
 
     @Published var discussionWhereToGoBPMF = ["ㄉㄧˋㄈㄤ ","ㄆㄧㄥˊㄐㄧㄚˋ"]
     @Published var discussionWhereToGoTranslation = ["place","reviews\ncomments"]
@@ -218,17 +221,17 @@ class VocabularyList: ObservableObject{
     @Published var discussionHometownBPMF = ["ㄐㄧㄚ ㄒㄧㄤ ","ㄒㄩˋㄐㄧㄡˋ","ㄌㄧㄡˊㄌㄧㄢˋ"]
     @Published var discussionHometownTranslation = ["hometown","to reminisce\n(with someone)","to be reluctant\nto leave"]
     
-    @Published var discussionBodyConditionBPMF = ["ㄕㄡˋㄕㄤ ","ㄧ ㄕㄥ ","ㄎㄢˋㄅㄧㄥˋ","ㄕㄥ ㄅㄧㄥˋ","ㄎㄜˊㄙㄡˋ","ㄅㄧㄥˋㄖㄣˊ","ㄓㄨㄥ ㄧ ","ㄓㄣ ㄐㄧㄡˇ","ㄐㄧㄣˋㄕˋ","ㄕ ㄇㄧㄢˊ","ㄑㄧˋㄔㄨㄢˇ","ㄐㄧㄢˇㄘㄜˋ","ㄋㄧㄢˊㄐㄧˋ"]
-    @Published var discussionBodyConditionTranslation = ["to be hurt","doctor","visit a\ndoctor","to get sick","to cough","patient","chinese\nmedicine","acupuncture","nearsightedness","insomnia","asthma","examination\n(check for smth)","age"]
+    @Published var discussionBodyConditionBPMF = ["ㄕㄡˋㄕㄤ ","ㄧ ㄕㄥ ","ㄎㄢˋㄅㄧㄥˋ","ㄕㄥ ㄅㄧㄥˋ","ㄎㄜˊㄙㄡˋ","ㄅㄧㄥˋㄖㄣˊ","ㄓㄨㄥ ㄧ ","ㄓㄣ ㄐㄧㄡˇ","ㄐㄧㄣˋㄕˋ","ㄕ ㄇㄧㄢˊ","ㄑㄧˋㄔㄨㄢˇ","ㄐㄧㄢˇㄘㄜˋ","ㄋㄧㄢˊㄐㄧˋ","ㄘㄜˋ","ㄇㄚˊ"]
+    @Published var discussionBodyConditionTranslation = ["to be hurt","doctor","visit a\ndoctor","to get sick","to cough","patient","chinese\nmedicine","acupuncture","nearsightedness","insomnia","asthma","examination\n(check for smth)","age","thorny feeling\n(leg)","leg falling\nasleep"]
     
-    @Published var discussionDietBPMF = ["ㄧㄥˊㄧㄤˇ","ㄐㄧㄢˇㄕㄠˇ","ㄊㄢˋㄕㄨㄟˇㄏㄨㄚˋㄏㄜˊㄨˋ","ㄐㄧㄢˇㄈㄟˊ","ㄆㄤˋ","ㄕㄡˋ","ㄨㄟˊㄊㄚ ㄇㄧㄥˋ"]
-    @Published var discussionDietTranslation = ["nutritous","to reduce","carbohydrates","to reduce\nweight","fat","skinny","vitamin"]
+    @Published var discussionDietBPMF = ["ㄧㄣˇㄕˊ","ㄧㄥˊㄧㄤˇ","ㄐㄧㄢˇㄕㄠˇ","ㄊㄢˋㄕㄨㄟˇㄏㄨㄚˋㄏㄜˊㄨˋ","ㄐㄧㄢˇㄈㄟˊ","ㄆㄤˋ","ㄕㄡˋ","ㄨㄟˊㄊㄚ ㄇㄧㄥˋ"]
+    @Published var discussionDietTranslation = ["diet","nutritous","to reduce","carbohydrates","to reduce\nweight","fat","skinny","vitamin"]
     
     @Published var discussionWorkingOutBPMF = ["ㄐㄧㄢˋㄕㄣ ","ㄆㄠˇㄅㄨˋ","ㄧㄡˊㄩㄥˇ","ㄓㄨㄥˋㄒㄩㄣˋ","ㄐㄧㄢˋㄕㄣ ㄈㄤˊ","ㄐㄧㄢˇㄈㄟˊ"]
     @Published var discussionWorkingOutTranslation = ["to keep fit","to run","to swim","weight\ntraining","gym","to lose weight"]
     
-    @Published var discussionSportsAndCompetitionBPMF = ["ㄉㄚˇㄌㄢˊㄑㄧㄡˊ","ㄉㄚˇㄅㄤˋㄑㄧㄡˊ","ㄊㄧ ㄗㄨˊㄑㄧㄡˊ","ㄅㄧˇㄙㄞˋ","ㄉㄨㄟˋㄕㄡˇ"]
-    @Published var discussionSportsAndCompetitionTranslation = ["basketball","baseball","soccer","competition","opponent\ncompetitor"]
+    @Published var discussionSportsAndCompetitionBPMF = ["ㄉㄚˇㄌㄢˊㄑㄧㄡˊ","ㄉㄚˇㄅㄤˋㄑㄧㄡˊ","ㄊㄧ ㄗㄨˊㄑㄧㄡˊ","ㄍㄠ ㄦˇㄈㄨ ㄑㄧㄡˊ","ㄅㄧˇㄙㄞˋ","ㄉㄨㄟˋㄕㄡˇ"]
+    @Published var discussionSportsAndCompetitionTranslation = ["basketball","baseball","soccer","golf","competition","opponent\ncompetitor"]
     
     @Published var discussionSocialMediaBPMF = ["ㄍㄨㄢ ㄓㄨˋ","ㄉㄧㄢˇㄗㄢˋ","ㄆㄧㄣˊㄉㄠˋ","ㄉㄧㄥˋㄩㄝˋ","ㄈㄥ ㄙㄨㄛˇ","ㄕㄤˋㄔㄨㄢˊ","ㄉㄨㄥˋㄊㄞˋ","ㄊㄧㄠˋ","ㄊㄨㄥ ㄓ ","ㄕˋㄒㄩㄣˋ","ㄉㄧㄠˋㄔㄚˊ","ㄧㄣˇㄘㄤˊ"]
     @Published var discussionSocialMediaTranslation = ["to follow","to like","channel","subscribe","to block","to upload\nto post","stories","to miss\n(notification)","notification","video chat","to survey\npoll","to hide"]
@@ -281,8 +284,8 @@ class VocabularyList: ObservableObject{
     @Published var listEmotionsBPMF = ["ㄑㄧㄥˊㄒㄩˋ","ㄍㄠ ㄒㄧㄥˋ","ㄋㄢˊㄍㄨㄛˋ","ㄍㄢˇㄐㄧ ","ㄕㄥ ㄑㄧˋ","ㄎㄨㄣˋㄏㄨㄛˋ","ㄕㄨ ㄈㄨ","ㄍㄨ ㄉㄢ ","ㄖㄜˋㄒㄧㄣ ","ㄕㄨㄤˇ","ㄉㄨˇㄌㄢˋ","ㄒㄧㄣ ㄊㄥˊ","ㄋㄢˊㄕㄡˋ","ㄇㄠˊㄉㄨㄣˋ","ㄖㄨㄢˇㄌㄢˋ","ㄒㄧㄢˋㄇㄨˋ","ㄐㄧˊㄉㄨˋ"]
     @Published var listEmotionsTranslation = ["emotions","happy","sad","grateful","angry","confused","comfortable","lonely","enthusiastic","to feel\ngood","ticked off","To feel\nsorry","uneasy","conflicted","lacking drive","envy","jealous\n(bad way)"]
     
-    @Published var listPersonalityTraitsBPMF = ["ㄋㄟˋㄒㄧㄤˋ","ㄨㄞˋㄒㄧㄤˋ","ㄊㄧㄢ ㄓㄣ ","ㄌㄜˋㄍㄨㄢ ","ㄅㄟ ㄍㄨㄢ ","ㄎㄞ ㄈㄤˋ","ㄧㄡ ㄇㄛˋ","ㄌㄠˇㄍㄨˇㄉㄨㄥˇ","ㄗˋㄙ ","ㄗˋㄌㄧㄢˋ","ㄊㄧˇㄊㄧㄝ ","ㄧㄝˋㄇㄠ ㄗ˙","ㄅㄠˇㄕㄡˇ","ㄞˋㄒㄧㄢˋ","ㄎㄜˇㄎㄠˋ","ㄏㄠˇㄒㄧㄤ ㄔㄨˇ","ㄉㄨˊㄌㄧˋ","ㄌㄧˇㄓˋ","ㄧㄡˋㄓˋ","ㄌㄧㄥˊㄏㄨㄛˊ","ㄧㄡˇㄕㄢˋ"]
-    @Published var listPersonalityTraitsTranslation = ["introvert","extrovert","innocent","optimistic","pessimistic","open\nminded","humorous","old-fashioned","selfish","narcissistic","considerate","night owl","conservative","to enjoy\nshowing off","dependable\nreliable","easygoing\neasy to get along","independent","rational","naive","flexible","hospitable"]
+    @Published var listPersonalityTraitsBPMF = ["ㄋㄟˋㄒㄧㄤˋ","ㄨㄞˋㄒㄧㄤˋ","ㄊㄧㄢ ㄓㄣ ","ㄌㄜˋㄍㄨㄢ ","ㄅㄟ ㄍㄨㄢ ","ㄎㄞ ㄈㄤˋ","ㄧㄡ ㄇㄛˋ","ㄌㄠˇㄍㄨˇㄉㄨㄥˇ","ㄗˋㄙ ","ㄗˋㄌㄧㄢˋ","ㄊㄧˇㄊㄧㄝ ","ㄧㄝˋㄇㄠ ㄗ˙","ㄅㄠˇㄕㄡˇ","ㄞˋㄒㄧㄢˋ","ㄎㄜˇㄎㄠˋ","ㄏㄠˇㄒㄧㄤ ㄔㄨˇ","ㄉㄨˊㄌㄧˋ","ㄌㄧˇㄓˋ","ㄧㄡˋㄓˋ","ㄌㄧㄥˊㄏㄨㄛˊ","ㄧㄡˇㄕㄢˋ","ㄊㄧㄝ ㄒㄧㄣ ","ㄉㄧ ㄉㄧㄠˋ","ㄍㄠ ㄉㄧㄠˋ"]
+    @Published var listPersonalityTraitsTranslation = ["introvert","extrovert","innocent","optimistic","pessimistic","open\nminded","humorous","old-fashioned","selfish","narcissistic","considerate","night owl","conservative","to enjoy\nshowing off","dependable\nreliable","easygoing\neasy to get along","independent","rational","naive","flexible","hospitable","thoughtful","low-key","high-key"]
     
     @Published var listHouseholdKitchenItemsBPMF = ["ㄎㄨㄞˋㄗ˙","ㄔㄚ ㄗ˙","ㄊㄤ ㄔˊ","ㄆㄢˊㄗ˙","ㄉㄠ ㄗ˙","ㄒㄧ ㄍㄨㄢˇ","ㄓˇㄐㄧㄣ ","ㄌㄨˊㄗ˙","ㄅㄧㄥ ㄒㄧㄤ "]
     @Published var listHouseholdKitchenItemsTranslation = ["chopstick","fork","soup spoon","plate","knife","straw","napkin","stove","fridge"]
@@ -320,17 +323,17 @@ class VocabularyList: ObservableObject{
     @Published var listNaturalDisasterBPMF = ["ㄊㄞˊㄈㄥ ","ㄉㄧˋㄓㄣˋ","ㄏㄨㄛˇㄗㄞ "]
     @Published var listNaturalDisasterTranslation = ["typhoon","earthquake","fire"]
     
-    @Published var listAnimalsBPMF = ["ㄋㄧㄡˇ","ㄓㄨ ","ㄧㄤˊ","ㄐㄧ ","ㄩˊ","ㄧㄚ ㄗ˙","ㄔㄨㄥˊㄗ˙","ㄉㄚˋㄒㄧㄥ ㄒㄧㄥ˙","ㄏㄞˇㄅㄠˋ","ㄌㄩˊ"]
-    @Published var listAnimalsTranslation = ["cow","pig","lamb","chicken","fish","duck","insects","gorilla","seal","donkey"]
+    @Published var listAnimalsBPMF = ["ㄋㄧㄡˇ","ㄓㄨ ","ㄧㄤˊ","ㄐㄧ ","ㄩˊ","ㄧㄚ ㄗ˙","ㄔㄨㄥˊㄗ˙","ㄉㄚˋㄒㄧㄥ ㄒㄧㄥ˙","ㄏㄞˇㄅㄠˋ","ㄌㄩˊ","ㄌㄧㄝˋㄍㄡˇ"]
+    @Published var listAnimalsTranslation = ["cow","pig","lamb","chicken","fish","duck","insects","gorilla","seal","donkey","hyena"]
     
     @Published var listLocationsBPMF = ["ㄉㄠˋㄔㄨˇ","ㄕˋㄓㄨㄥ ㄒㄧㄣ ","ㄒㄧㄤ ㄒㄧㄚˋ","ㄒㄧㄤ ㄘㄨㄣ ","ㄒㄧㄠˇㄓㄣˋ","ㄕㄚ ㄇㄛˋ"]
     @Published var listLocationsTranslation = ["everywhere","downtown","countryside","village","lively town\nin a quiet\nplace","desert"]
     
-    @Published var listExteriorBodyPartsBPMF = ["ㄕㄣ ㄊㄧˇ","ㄓㄥ ㄊㄧˇ","ㄜˊㄊㄡˊ","ㄇㄟˊㄇㄠˊ","ㄐㄧㄝˊㄇㄠˊ","ㄌㄧㄢˇㄐㄧㄚˊ","ㄔㄨㄣˊ","ㄒㄧㄚˋㄅㄚ˙","ㄅㄛˊㄗ˙","ㄅㄟˋ","ㄐㄧㄢ ㄅㄤˇ","ㄒㄩㄥ ㄎㄡˇ","ㄕㄡˇㄅㄧˋ","ㄕㄡˇㄓㄡˇ","ㄕㄡˇㄨㄢˋ","ㄕㄡˇㄓˇㄐㄧㄚ˙","ㄊㄨㄟˇ","ㄉㄚˋㄊㄨㄟˇ","ㄒㄧㄠˇㄊㄨㄟˇ","ㄐㄧㄠˇㄏㄨㄞˊ","ㄐㄧㄠˇ","ㄐㄧㄠˇㄐㄧㄢ ","ㄐㄧㄠˇㄅㄟˋ","ㄌㄨㄛˇㄊㄧˇ","ㄈㄨ ㄙㄜˋ","ㄊㄡˊㄆㄧˊ"]
-    @Published var listExteriorBodyPartsTranslation = ["body","limbs","forehead","eyebrows","eyelash","cheeks","lip","chin","neck","back","shoulder","chest","arms\n(w/ hands)","elbow","wrist","fingernail","leg","thigh","lower leg","ankle","feet","tip of toe","top of foot","nakedness","skin color","scalp"]
+    @Published var listExteriorBodyPartsBPMF = ["ㄕㄣ ㄊㄧˇ","ㄓㄥ ㄊㄧˇ","ㄜˊㄊㄡˊ","ㄇㄟˊㄇㄠˊ","ㄐㄧㄝˊㄇㄠˊ","ㄌㄧㄢˇㄐㄧㄚˊ","ㄔㄨㄣˊ","ㄒㄧㄚˋㄅㄚ˙","ㄅㄛˊㄗ˙","ㄅㄟˋ","ㄐㄧㄢ ㄅㄤˇ","ㄒㄩㄥ ㄎㄡˇ","ㄕㄡˇㄅㄧˋ","ㄕㄡˇㄓㄡˇ","ㄕㄡˇㄨㄢˋ","ㄕㄡˇㄓˇㄐㄧㄚ˙","ㄊㄨㄟˇ","ㄉㄚˋㄊㄨㄟˇ","ㄒㄧㄠˇㄊㄨㄟˇ","ㄐㄧㄠˇㄏㄨㄞˊ","ㄐㄧㄠˇ","ㄐㄧㄠˇㄐㄧㄢ ","ㄐㄧㄠˇㄅㄟˋ","ㄌㄨㄛˇㄊㄧˇ","ㄈㄨ ㄙㄜˋ","ㄊㄡˊㄆㄧˊ","ㄨㄟˇㄅㄚ˙"]
+    @Published var listExteriorBodyPartsTranslation = ["body","limbs","forehead","eyebrows","eyelash","cheeks","lip","chin","neck","back","shoulder","chest","arms\n(w/ hands)","elbow","wrist","fingernail","leg","thigh","lower leg","ankle","feet","tip of toe","top of foot","nakedness","skin color","scalp","tail"]
     
-    @Published var listInteriorBodyPartsBPMF = ["ㄒㄧㄝˇ","ㄍㄨˇㄊㄡ˙","ㄊㄨㄛˋㄧㄝˋ","ㄐㄧ ㄖㄡˋ","ㄦˋㄊㄡˊㄐㄧ "]
-    @Published var listInteriorBodyPartsTranslation = ["blood","bone","saliva\nspit","muscle","biceps"]
+    @Published var listInteriorBodyPartsBPMF = ["ㄒㄧㄝˇ","ㄍㄨˇㄊㄡ˙","ㄊㄨㄛˋㄧㄝˋ","ㄐㄧ ㄖㄡˋ","ㄦˋㄊㄡˊㄐㄧ ","ㄅㄧˊㄍㄡˋ"]
+    @Published var listInteriorBodyPartsTranslation = ["blood","bone","saliva\nspit","muscle","biceps","boogers"]
     
     @Published var listPersonalCharacteristicsBPMF = ["ㄏㄠˇㄧˋ","ㄜˋㄧˋ","ㄩㄥˇㄑㄧˋ","ㄑㄧㄢˊㄌㄧˋ"]
     @Published var listPersonalCharacteristicsTranslation = ["kindness","ill intention","courage","potential"]
@@ -354,7 +357,7 @@ class VocabularyList: ObservableObject{
     @Published var listDessertTranslation = ["grass jelly","almond","miso","brownie","cheese cake","muffin","silk tofu"]
     
     @Published var listNutsBPMF = ["ㄏㄨㄚ ㄕㄥ ","ㄓ ㄇㄚ˙"]
-    @Published var listNutsTranslation = ["Peanut","Sesame"]
+    @Published var listNutsTranslation = ["peanut","sesame"]
 
     @Published var listOccupationBPMF = ["ㄐㄧㄥˇㄔㄚ ","ㄒㄧㄠ ㄈㄤˊㄩㄢˊ","ㄕㄡˋㄧ ","ㄐㄩㄣ ㄉㄨㄟˋ","ㄕㄥ ㄧˋ","ㄧㄢˊㄐㄧㄡ ㄕㄥ ","ㄩㄥˋㄖㄣˊ","ㄧㄢˊㄐㄧㄡ ㄕㄥ ","ㄐㄧㄠˋㄕ ","ㄓㄨㄥˋㄊㄧㄢˊㄖㄣˊ"]
     @Published var listOccupationTranslation = ["police","firefighter","vet.","military","business","graduate\nstudent","servant\nmaid","postgrad\nstudent","instructor\nteacher","farmer"]
@@ -372,10 +375,10 @@ class VocabularyList: ObservableObject{
     @Published var listCountriesTranslation = ["spain","germany","canada","mexico","russia","singapore","malaysia","vietnam","japan"]
     
     @Published var listUSStatesBPMF = ["ㄋㄟˋㄏㄨㄚˊㄉㄚˊ","ㄐㄧㄚ ㄓㄡ "]
-    @Published var listUSStatesTranslation = ["Nevada","California"]
+    @Published var listUSStatesTranslation = ["nevada","california"]
     
     @Published var listUSCitiesBPMF = ["ㄌㄟˊㄋㄨㄛˋ","ㄌㄚ ㄙ ㄨㄟˊㄐㄧㄚ ㄙ "]
-    @Published var listUSCitiesTranslation = ["Reno","Las Vegas"]
+    @Published var listUSCitiesTranslation = ["reno","las vegas"]
     
     @Published var listChengYuBPMF = ["ㄧㄥˋㄓㄜ˙ㄊㄡˊㄆㄧˊ","ㄦˇㄖㄨˊㄇㄨˋㄖㄢˇ","ㄅㄧㄣ ㄓˋㄖㄨˊㄍㄨㄟ ","ㄏㄨㄚˋㄕㄜˊㄊㄧㄢ ㄗㄨˊ"]
     @Published var listChengYuTranslation = ["to force\noneself","to be influence\nand don't\nnotice","home away\nfrom home","ruin the effect\nby doing too much"]
@@ -415,7 +418,7 @@ struct Vocabulary: View {
     let topics = ["basics","when you are...","specific scenarios","discussion topics","lists","grammar"]
 
     let previewText = "preview "
-    @State var statePreviewText = ""
+    @State var previewID = ""
     
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
@@ -447,43 +450,43 @@ struct Vocabulary: View {
                                 Button("frequent words"){
                                     vocabularyBPMF = self.vocabularyList.basicsChineseBPMF
                                     vocabularyTranslation = self.vocabularyList.basicsChineseTranslation
-                                    statePreviewText = previewText + "frequently used words"
+                                    previewID = previewText + "frequently used words"
                                 }.padding()
                                 
                                 Button("numbers"){
                                     vocabularyBPMF = self.vocabularyList.basicsNumbersBPMF
                                     vocabularyTranslation = self.vocabularyList.basicsNumbersTranslation
-                                    statePreviewText = previewText + "numbers"
+                                    previewID = previewText + "numbers"
                                 }.padding()
                                 
                                 Button("introduction"){
                                     vocabularyBPMF = self.vocabularyList.basicsIntroducingYourselfBPMF
                                     vocabularyTranslation = self.vocabularyList.basicsIntroducingYourselfTranslation
-                                    statePreviewText = previewText + "introduction"
+                                    previewID = previewText + "introduction"
                                 }.padding()
                                 
                                 Button("saying hello"){
                                     vocabularyBPMF = self.vocabularyList.basicsSayingHelloBPMF
                                     vocabularyTranslation = self.vocabularyList.basicsSayingHelloTranslation
-                                    statePreviewText = previewText + "saying hello"
+                                    previewID = previewText + "saying hello"
                                 }.padding()
                                 
                                 Button("things"){
                                     vocabularyBPMF = self.vocabularyList.basicsThingsBPMF
                                     vocabularyTranslation = self.vocabularyList.basicsThingsTranslation
-                                    statePreviewText = previewText + "introduction"
+                                    previewID = previewText + "introduction"
                                 }.padding()
                                 
                                 Button("interjections"){
                                     vocabularyBPMF = self.vocabularyList.basicsInterjectionsBPMF
                                     vocabularyTranslation = self.vocabularyList.basicsInterjectionsTranslation
-                                    statePreviewText = previewText + "interjections"
+                                    previewID = previewText + "interjections"
                                 }.padding()
                                 
                                 Button("opinions"){
                                     vocabularyBPMF = self.vocabularyList.basicsOpinionsBPMF
                                     vocabularyTranslation = self.vocabularyList.basicsOpinionTranslation
-                                    statePreviewText = previewText + "opinions"
+                                    previewID = previewText + "opinions"
                                 }.padding()
                             }
                         }
@@ -494,92 +497,92 @@ struct Vocabulary: View {
                                 Button("learning languages"){
                                     vocabularyBPMF = self.vocabularyList.topicLanguageLearningBPMF
                                     vocabularyTranslation = self.vocabularyList.topicLanguageLearningTranslation
-                                    statePreviewText = previewText + "learning languages"
+                                    previewID = previewText + "learning languages"
                                 }.padding()
                                 
                                 Button("language exchanging"){
                                     vocabularyBPMF = self.vocabularyList.topicLanguageExchangeBPMF
                                     vocabularyTranslation = self.vocabularyList.topicLanguageExchangeTranslation
-                                    statePreviewText = previewText + "language exchanging"
+                                    previewID = previewText + "language exchanging"
                                 }.padding()
                                 
                                 Button("needing directions"){
                                     vocabularyBPMF = self.vocabularyList.topicDirectionsBPMF
                                     vocabularyTranslation = self.vocabularyList.topicDirectionsTranslation
-                                    statePreviewText = previewText + "needing directions"
+                                    previewID = previewText + "needing directions"
                                 }.padding()
                                 
                                 Button("asking for help"){
                                     vocabularyBPMF = self.vocabularyList.topicAskingForHelpBPMF
                                     vocabularyTranslation = self.vocabularyList.topicAskingForHelpTranslation
-                                    statePreviewText = previewText + "asking for help"
+                                    previewID = previewText + "asking for help"
                                 }.padding()
                                 
                                 Button("shopping"){
                                     vocabularyBPMF = self.vocabularyList.topicShoppingBPMF
                                     vocabularyTranslation = self.vocabularyList.topicShoppingTranslation
-                                    statePreviewText = previewText + "shopping"
+                                    previewID = previewText + "shopping"
                                 }.padding()
                                 
                                 Button("taking MRT"){
                                     vocabularyBPMF = self.vocabularyList.topicMRTBPMF
                                     vocabularyTranslation = self.vocabularyList.topicMRTTranslation
-                                    statePreviewText = previewText + "MRT"
+                                    previewID = previewText + "MRT"
                                 }.padding()
                                 
                                 Button("at work"){
                                     vocabularyBPMF = self.vocabularyList.topicWorkingBPMF
                                     vocabularyTranslation = self.vocabularyList.topicWorkingTranslation
-                                    statePreviewText = previewText + "working"
+                                    previewID = previewText + "working"
                                 }.padding()
                                 
                                 Button("at a office job"){
                                     vocabularyBPMF = self.vocabularyList.topicOfficeJobBPMF
                                     vocabularyTranslation = self.vocabularyList.topicOfficeJobTranslation
-                                    statePreviewText = previewText + "office job"
+                                    previewID = previewText + "office job"
                                 }.padding()
                                 
                                 Button("driving"){
                                     vocabularyBPMF = self.vocabularyList.topicDrivingOnRoadBPMF
                                     vocabularyTranslation = self.vocabularyList.topicDrivingOnRoadTranslation
-                                    statePreviewText = previewText + "driving"
+                                    previewID = previewText + "driving"
                                 }.padding()
                             }
                             VStack{
                                 Button("apologizing"){
                                     vocabularyBPMF = self.vocabularyList.topicApologizingBPMF
                                     vocabularyTranslation = self.vocabularyList.topicApologizingTranslation
-                                    statePreviewText = previewText + "apologizing"
+                                    previewID = previewText + "apologizing"
                                 }.padding()
                                 
                                 Button("complaining"){
                                     vocabularyBPMF = self.vocabularyList.topicComplainingBPMF
                                     vocabularyTranslation = self.vocabularyList.topicComplainingTranslation
-                                    statePreviewText = previewText + "complaining"
+                                    previewID = previewText + "complaining"
                                 }.padding()
                                 
                                 Button("arguing"){
                                     vocabularyBPMF = self.vocabularyList.topicArguingBPMF
                                     vocabularyTranslation = self.vocabularyList.topicArguingTranslation
-                                    statePreviewText = previewText + "arguing"
+                                    previewID = previewText + "arguing"
                                 }.padding()
                                 
                                 Button("explaining your perspective"){
                                     vocabularyBPMF = self.vocabularyList.topicExplainingYourPerspectiveBPMF
                                     vocabularyTranslation = self.vocabularyList.topicExplainingYourPerspectiveTranslation
-                                    statePreviewText = previewText + "explaining"
+                                    previewID = previewText + "explaining"
                                 }.padding()
 
                                 Button("in chinese new year"){
                                     vocabularyBPMF = self.vocabularyList.topicChineseNewYearBPMF
                                     vocabularyTranslation = self.vocabularyList.topicChineseNewYearTranslation
-                                    statePreviewText = previewText + "chinese new year"
+                                    previewID = previewText + "chinese new year"
                                 }.padding()
                                 
                                 Button("remarks & reactions"){
                                     vocabularyBPMF = self.vocabularyList.topicRemarksReactionsBPMF
                                     vocabularyTranslation = self.vocabularyList.topicRemarksReactionsTranslation
-                                    statePreviewText = previewText + "remarks & reactions"
+                                    previewID = previewText + "remarks & reactions"
                                 }.padding()
                                
                             }
@@ -597,164 +600,169 @@ struct Vocabulary: View {
                                 Button("running out of battery"){
                                     vocabularyBPMF = self.vocabularyList.scenarioRunningOutOfBatteryBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioRunningOutofBatteryTranslation
-                                    statePreviewText = previewText + "\nrunning out of battery"
+                                    previewID = previewText + "\nrunning out of battery"
                                 }.padding()
                                 
                                 Button("ordering drinks"){
                                     vocabularyBPMF = self.vocabularyList.scenarioOrderingDrinksBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioOrderingDrinksTranslation
-                                    statePreviewText = previewText + "ordering drinks"
+                                    previewID = previewText + "ordering drinks"
                                 }.padding()
                                 
                                 Button("getting gas"){
                                     vocabularyBPMF = self.vocabularyList.scenarioGettingGasBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioGettingGasTranslation
-                                    statePreviewText = previewText + "getting gas"
+                                    previewID = previewText + "getting gas"
                                 }.padding()
                                 
                                 Button("at restaurants"){
                                     vocabularyBPMF = self.vocabularyList.scenarioRestaurantBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioRestaurantTranslation
-                                    statePreviewText = previewText + "at restaurants"
+                                    previewID = previewText + "at restaurants"
+                                }.padding()
+                                
+                                Button("conveyor sushi"){
+                                    vocabularyBPMF = self.vocabularyList.scenarioConveyorSushiBPMF
+                                    vocabularyTranslation = self.vocabularyList.scenarioConveyorSushiTranslation
+                                    previewID = previewText + "conveyor sushi"
                                 }.padding()
                                 
                                 Button("on the phone"){
                                     vocabularyBPMF = self.vocabularyList.scenarioOnThePhoneBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioOnThePhoneTranslation
-                                    statePreviewText = previewText + "on the phone"
+                                    previewID = previewText + "on the phone"
                                 }.padding()
                                 
                                 Button("drinking"){
                                     vocabularyBPMF = self.vocabularyList.scenarioDrinkingBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioDrinkingTranslation
-                                    statePreviewText = previewText + "drinking"
+                                    previewID = previewText + "drinking"
                                 }.padding()
                                 
                                 Button("wearing clothes"){
                                     vocabularyBPMF = self.vocabularyList.scenarioWearingClothesBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioWearingClothesTranslation
-                                    statePreviewText = previewText + "wearing clothes"
+                                    previewID = previewText + "wearing clothes"
                                 }.padding()
                                 
                                 Button("focused"){
                                     vocabularyBPMF = self.vocabularyList.scenarioFocusedBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioFocusedTranslation
-                                    statePreviewText = previewText + "focused"
+                                    previewID = previewText + "focused"
                                 }.padding()
                                 
                                 Button("cooking"){
                                     vocabularyBPMF = self.vocabularyList.scenarioCookingBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioCookingTranslation
-                                    statePreviewText = previewText + "cooking"
+                                    previewID = previewText + "cooking"
                                 }.padding()
                                 
-                                Button("haircut"){
-                                    vocabularyBPMF = self.vocabularyList.scenarioHaircutBPMF
-                                    vocabularyTranslation = self.vocabularyList.scenarioHaircutTranslation
-                                    statePreviewText = previewText + "haircut"
-                                }.padding()
                             }
                             
                             VStack{
+                                Button("haircut"){
+                                    vocabularyBPMF = self.vocabularyList.scenarioHaircutBPMF
+                                    vocabularyTranslation = self.vocabularyList.scenarioHaircutTranslation
+                                    previewID = previewText + "haircut"
+                                }.padding()
+                                
                                 Button("facing challenges"){
                                     vocabularyBPMF = self.vocabularyList.scenarioFacingChallengesBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioFacingChallengesTranslation
-                                    statePreviewText = previewText + "facing challenges"
+                                    previewID = previewText + "facing challenges"
                                 }.padding()
                                 
                                 Button("did something dumb"){
                                     vocabularyBPMF = self.vocabularyList.scenarioDidSomethingDumbBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioDidSomethingDumbTranslation
-                                    statePreviewText = previewText + "dummy"
+                                    previewID = previewText + "dummy"
                                 }.padding()
 
                                 Button("interview"){
                                     vocabularyBPMF = self.vocabularyList.scenarioInterviewBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioInterviewTranslation
-                                    statePreviewText = previewText + "interview"
+                                    previewID = previewText + "interview"
                                 }.padding()
                                 
                                 Button("in the slumps"){
                                     vocabularyBPMF = self.vocabularyList.scenarioInTheSlumpsBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioInTheSlumpsTranslation
-                                    statePreviewText = previewText + "in the slumps"
+                                    previewID = previewText + "in the slumps"
                                 }.padding()
                                 
                                 Button("using technology"){
                                     vocabularyBPMF = self.vocabularyList.scenarioTechnologyBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioTechnologyTranslation
-                                    statePreviewText = previewText + "using the computer"
+                                    previewID = previewText + "using the computer"
                                 }.padding()
                                 
                                 Button("throwing trash"){
                                     vocabularyBPMF = self.vocabularyList.scenarioThrowingTrashBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioThrowingTrashTranslation
-                                    statePreviewText = previewText + "throwing trash"
+                                    previewID = previewText + "throwing trash"
                                 }.padding()
                                 
                                 Button("being single"){
                                     vocabularyBPMF = self.vocabularyList.scenarioBeingSingleBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioBeingSingleTranslation
-                                    statePreviewText = previewText + "being single"
+                                    previewID = previewText + "being single"
                                 }.padding()
                                 
                                 Button("household chores"){
                                     vocabularyBPMF = self.vocabularyList.scenarioHouseholdChoresBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioHouseholdChoresTranslation
-                                    statePreviewText = previewText + "household chores"
+                                    previewID = previewText + "household chores"
                                 }.padding()
                                 
                                 Button("at the beach"){
                                     vocabularyBPMF = self.vocabularyList.scenarioBeachBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioBeachTranslation
-                                    statePreviewText = previewText + "at the beach"
+                                    previewID = previewText + "at the beach"
                                 }.padding()
-                                
-                                Button("doing yoga"){
-                                    vocabularyBPMF = self.vocabularyList.scenarioYogaBPMF
-                                    vocabularyTranslation = self.vocabularyList.scenarioYogaTranslation
-                                    statePreviewText = previewText + "doing yoga"
-                                }.padding()
-                                
-                            
                             }
                             
                             VStack{
+              
+                                Button("doing yoga"){
+                                    vocabularyBPMF = self.vocabularyList.scenarioYogaBPMF
+                                    vocabularyTranslation = self.vocabularyList.scenarioYogaTranslation
+                                    previewID = previewText + "doing yoga"
+                                }.padding()
                                 
                                 Button("handling a camera"){
                                     vocabularyBPMF = self.vocabularyList.scenarioHandlingCameraBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioHandlingCameraTranslation
-                                    statePreviewText = previewText + "handling a camera"
+                                    previewID = previewText + "handling a camera"
                                 }.padding()
                                 
                                 Button("getting packages"){
                                     vocabularyBPMF = self.vocabularyList.scenarioPackageDeliveryBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioPackageDeliveryTranslation
-                                    statePreviewText = previewText + "getting packages"
+                                    previewID = previewText + "getting packages"
                                 }.padding()
                                 
                                 Button("at a salon"){
                                     vocabularyBPMF = self.vocabularyList.scenarioSalonBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioSalonTranslation
-                                    statePreviewText = previewText + "at a salon"
+                                    previewID = previewText + "at a salon"
                                 }.padding()
                                 
                                 Button("outside in nature"){
                                     vocabularyBPMF = self.vocabularyList.scenarioNatureBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioNatureTranslation
-                                    statePreviewText = previewText + "outside in nature"
+                                    previewID = previewText + "outside in nature"
                                 }.padding()
                                 
                                 Button("being an immigrant"){
                                     vocabularyBPMF = self.vocabularyList.scenarioImmigrantBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioImmigrantTranslation
-                                    statePreviewText = previewText + "being an immigrant"
+                                    previewID = previewText + "being an immigrant"
                                 }.padding()
 
                                 Button("project management"){
                                     vocabularyBPMF = self.vocabularyList.scenarioWorkingInManufacturingProjectManagementBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioWorkingInManufacturingProjectManagementTranslation
-                                    statePreviewText = previewText + "project management"
+                                    previewID = previewText + "project management"
                                 }.padding()
                             }
                         }
@@ -768,61 +776,61 @@ struct Vocabulary: View {
                                 Button("general discussion words"){
                                     vocabularyBPMF = self.vocabularyList.discussionGeneralBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionGeneralTranslation
-                                    statePreviewText = previewText + "general words"
+                                    previewID = previewText + "general words"
                                 }.padding()
                                 
                                 Button("what to do"){
                                     vocabularyBPMF = self.vocabularyList.discussionWhatToDoBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionWhatToDoTranslation
-                                    statePreviewText = previewText + "\ndiscussing what to do"
+                                    previewID = previewText + "\ndiscussing what to do"
                                 }.padding()
                                 
                                 Button("what to eat"){
                                     vocabularyBPMF = self.vocabularyList.discussionWhatToEatBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionWhatToEatTranslation
-                                    statePreviewText = previewText + "\ndiscussing what to eat"
+                                    previewID = previewText + "\ndiscussing what to eat"
                                 }.padding()
                                 
                                 Button("where to go"){
                                     vocabularyBPMF = self.vocabularyList.discussionWhereToGoBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionWhereToGoTranslation
-                                    statePreviewText = previewText + "where to go"
+                                    previewID = previewText + "where to go"
                                 }.padding()
                                 
                                 Button("relationships"){
                                     vocabularyBPMF = self.vocabularyList.discussionRelationshipsBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionRelationshipsTranslation
-                                    statePreviewText = previewText + "relationships"
+                                    previewID = previewText + "relationships"
                                 }.padding()
                                 
                                 Button("public transportation"){
                                     vocabularyBPMF = self.vocabularyList.discussionPublicTransportationBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionPublicTransportationTranslation
-                                    statePreviewText = previewText + "\ndiscussing public transportation"
+                                    previewID = previewText + "\ndiscussing public transportation"
                                 }.padding()
                                 
                                 Button("covid19"){
                                     vocabularyBPMF = self.vocabularyList.discussionCovid19BPMF
                                     vocabularyTranslation = self.vocabularyList.discussionCovid19Translation
-                                    statePreviewText = previewText + "\ndiscussing covid19"
+                                    previewID = previewText + "\ndiscussing covid19"
                                 }.padding()
                                 
                                 Button("life goals"){
                                     vocabularyBPMF = self.vocabularyList.discussionLifeGoalsBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionLifeGoalsTranslation
-                                    statePreviewText = previewText + "life goals"
+                                    previewID = previewText + "life goals"
                                 }.padding()
                                 
                                 Button("culture"){
                                     vocabularyBPMF = self.vocabularyList.discussionCultureBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionCultureTranslation
-                                    statePreviewText = previewText + "culture"
+                                    previewID = previewText + "culture"
                                 }.padding()
                                 
                                 Button("travelling"){
                                     vocabularyBPMF = self.vocabularyList.discussionTravellingBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionTravellingTranslation
-                                    statePreviewText = previewText + "travelling"
+                                    previewID = previewText + "travelling"
                                 }.padding()
                                 
                               
@@ -833,61 +841,61 @@ struct Vocabulary: View {
                                 Button("work"){
                                     vocabularyBPMF = self.vocabularyList.discussionWorkBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionWorkTranslation
-                                    statePreviewText = previewText + "work"
+                                    previewID = previewText + "work"
                                 }.padding()
                                 
                                 Button("weather"){
                                     vocabularyBPMF = self.vocabularyList.discussionWeatherBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionWeatherTranslation
-                                    statePreviewText = previewText + "weather"
+                                    previewID = previewText + "weather"
                                 }.padding()
                                 
                                 Button("movies"){
                                     vocabularyBPMF = self.vocabularyList.discussionMoviesShowsBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionMoviesShowsTranslation
-                                    statePreviewText = previewText + "movies"
+                                    previewID = previewText + "movies"
                                 }.padding()
                                 
                                 Button("school"){
                                     vocabularyBPMF = self.vocabularyList.discussionSchoolBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionSchoolTranslation
-                                    statePreviewText = previewText + "school"
+                                    previewID = previewText + "school"
                                 }.padding()
                                 
                                 Button("living situation"){
                                     vocabularyBPMF = self.vocabularyList.discussionLivingSituationBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionLivingSituationTranslation
-                                    statePreviewText = previewText + "living situation"
+                                    previewID = previewText + "living situation"
                                 }.padding()
                                 
                                 Button("hometown"){
                                     vocabularyBPMF = self.vocabularyList.discussionHometownBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionHometownTranslation
-                                    statePreviewText = previewText + "hometown"
+                                    previewID = previewText + "hometown"
                                 }.padding()
                                 
                                 Button("body condition"){
                                     vocabularyBPMF = self.vocabularyList.discussionBodyConditionBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionBodyConditionTranslation
-                                    statePreviewText = previewText + "body condition"
+                                    previewID = previewText + "body condition"
                                 }.padding()
                                 
                                 Button("diet"){
                                     vocabularyBPMF = self.vocabularyList.discussionDietBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionDietTranslation
-                                    statePreviewText = previewText + "diet"
+                                    previewID = previewText + "diet"
                                 }.padding()
                                 
                                 Button("working out"){
                                     vocabularyBPMF = self.vocabularyList.discussionWorkingOutBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionWorkingOutTranslation
-                                    statePreviewText = previewText + ""
+                                    previewID = previewText + ""
                                 }.padding()
                                 
                                 Button("sports & competition"){
                                     vocabularyBPMF = self.vocabularyList.discussionSportsAndCompetitionBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionSportsAndCompetitionTranslation
-                                    statePreviewText = previewText + "sports & competition"
+                                    previewID = previewText + "sports & competition"
                                 }.padding()
                                 
                             }
@@ -897,61 +905,61 @@ struct Vocabulary: View {
                                 Button("social media"){
                                     vocabularyBPMF = self.vocabularyList.discussionSocialMediaBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionSocialMediaTranslation
-                                    statePreviewText = previewText + "social media"
+                                    previewID = previewText + "social media"
                                 }.padding()
                                 
                                 Button("ambience"){
                                     vocabularyBPMF = self.vocabularyList.discussionAmbienceBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionAmbienceTranslation
-                                    statePreviewText = previewText + "ambience"
+                                    previewID = previewText + "ambience"
                                 }.padding()
                                 
                                 Button("the past"){
                                     vocabularyBPMF = self.vocabularyList.discussionThePastBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionThePastTranslation
-                                    statePreviewText = previewText + "the past"
+                                    previewID = previewText + "the past"
                                 }.padding()
                                 
                                 Button("government"){
                                     vocabularyBPMF = self.vocabularyList.discussionGovernmentBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionGovernmentTranslation
-                                    statePreviewText = previewText + "government"
+                                    previewID = previewText + "government"
                                 }.padding()
                                 
                                 Button("accidents"){
                                     vocabularyBPMF = self.vocabularyList.discussionAccidentsBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionAccidentsTranslation
-                                    statePreviewText = previewText + "accidents"
+                                    previewID = previewText + "accidents"
                                 }.padding()
                                 
                                 Button("dreams"){
                                     vocabularyBPMF = self.vocabularyList.discussionDreamsBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionDreamsTranslation
-                                    statePreviewText = previewText + "dreams"
+                                    previewID = previewText + "dreams"
                                 }.padding()
                                 
                                 Button("marriage"){
                                     vocabularyBPMF = self.vocabularyList.discussionMarriageBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionMarriageTranslation
-                                    statePreviewText = previewText + "marriage"
+                                    previewID = previewText + "marriage"
                                 }.padding()
                                 
                                 Button("kids"){
                                     vocabularyBPMF = self.vocabularyList.discussionKidsBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionKidsTranslation
-                                    statePreviewText = previewText + "kids"
+                                    previewID = previewText + "kids"
                                 }.padding()
                                 
                                 Button("finance"){
                                     vocabularyBPMF = self.vocabularyList.discussionFinanceBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionFinanceTranslation
-                                    statePreviewText = previewText + "finance"
+                                    previewID = previewText + "finance"
                                 }.padding()
                                 
                                 Button("investments"){
                                     vocabularyBPMF = self.vocabularyList.discussionInvestmentsBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionInvestmentsTranslation
-                                    statePreviewText = previewText + "investments"
+                                    previewID = previewText + "investments"
                                 }.padding()
                                 
                             }
@@ -959,13 +967,13 @@ struct Vocabulary: View {
                                 Button("astrological sign"){
                                     vocabularyBPMF = self.vocabularyList.discussionAstrologicalSignsBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionAstrologicalSignsTranslation
-                                    statePreviewText = previewText + "astrological sign"
+                                    previewID = previewText + "astrological sign"
                                 }.padding()
                                 
                                 Button("chinese zodiac"){
                                     vocabularyBPMF = self.vocabularyList.discussionChineseZodiacBPMF
                                     vocabularyTranslation = self.vocabularyList.discussionChineseZodiacTranslation
-                                    statePreviewText = previewText + "chinese zodiac"
+                                    previewID = previewText + "chinese zodiac"
                                 }.padding()
                             }
                         }
@@ -978,55 +986,55 @@ struct Vocabulary: View {
                                 Button("colors"){
                                     vocabularyBPMF = self.vocabularyList.listColorsBPMF
                                     vocabularyTranslation = self.vocabularyList.listColorsTranslation
-                                    statePreviewText = previewText + "colors"
+                                    previewID = previewText + "colors"
                                 }.padding()
                                 
                                 Button("clothing"){
                                     vocabularyBPMF = self.vocabularyList.listClothingBPMF
                                     vocabularyTranslation = self.vocabularyList.listClothingTranslation
-                                    statePreviewText = previewText + "clothing"
+                                    previewID = previewText + "clothing"
                                 }.padding()
                                 
                                 Button("accessories"){
                                     vocabularyBPMF = self.vocabularyList.listAccessoriesBPMF
                                     vocabularyTranslation = self.vocabularyList.listAccessoriesTranslation
-                                    statePreviewText = previewText + "accessories"
+                                    previewID = previewText + "accessories"
                                 }.padding()
                                 
                                 Button("emotions"){
                                     vocabularyBPMF = self.vocabularyList.listEmotionsBPMF
                                     vocabularyTranslation = self.vocabularyList.listEmotionsTranslation
-                                    statePreviewText = previewText + "emotions"
+                                    previewID = previewText + "emotions"
                                 }.padding()
                                 
                                 Button("personality traits"){
                                     vocabularyBPMF = self.vocabularyList.listPersonalityTraitsBPMF
                                     vocabularyTranslation = self.vocabularyList.listPersonalityTraitsTranslation
-                                    statePreviewText = previewText + "personality traits"
+                                    previewID = previewText + "personality traits"
                                 }.padding()
                                 
                                 Button("kitchen items"){
                                     vocabularyBPMF = self.vocabularyList.listHouseholdKitchenItemsBPMF
                                     vocabularyTranslation = self.vocabularyList.listHouseholdKitchenItemsTranslation
-                                    statePreviewText = previewText + "kitchen items"
+                                    previewID = previewText + "kitchen items"
                                 }.padding()
                                 
                                 Button("bedroom items"){
                                     vocabularyBPMF = self.vocabularyList.listHouseholdBedroomItemsBPMF
                                     vocabularyTranslation = self.vocabularyList.listHouseholdBedroomItemsTranslation
-                                    statePreviewText = previewText + "bedroom items"
+                                    previewID = previewText + "bedroom items"
                                 }.padding()
                                 
                                 Button("bathroom items"){
                                     vocabularyBPMF = self.vocabularyList.listHouseholdBathroomItemsBPMF
                                     vocabularyTranslation = self.vocabularyList.listHouseholdBathroomItemsTranslation
-                                    statePreviewText = previewText + "bathroom items"
+                                    previewID = previewText + "bathroom items"
                                 }.padding()
                                 
                                 Button("measure words"){
                                     vocabularyBPMF = self.vocabularyList.listMeasureWordsBPMF
                                     vocabularyTranslation = self.vocabularyList.listMeasureWordsTranslation
-                                    statePreviewText = previewText + "measure words"
+                                    previewID = previewText + "measure words"
                                 }.padding()
                                 
                             }
@@ -1036,61 +1044,61 @@ struct Vocabulary: View {
                                 Button("general adverbs"){
                                     vocabularyBPMF = self.vocabularyList.listAdverbBPMF
                                     vocabularyTranslation = self.vocabularyList.listAdverbTranslation
-                                    statePreviewText = previewText + "general adverbs"
+                                    previewID = previewText + "general adverbs"
                                 }.padding()
                                 
                                 Button("general adjectives"){
                                     vocabularyBPMF = self.vocabularyList.listAdjectivesBPMF
                                     vocabularyTranslation = self.vocabularyList.listAdjectivesTranslation
-                                    statePreviewText = previewText + "general adverbs"
+                                    previewID = previewText + "general adverbs"
                                 }.padding()
                                 
                                 Button("materials"){
                                     vocabularyBPMF = self.vocabularyList.listMaterialsBPMF
                                     vocabularyTranslation = self.vocabularyList.listMaterialsTranslation
-                                    statePreviewText = previewText + "materials"
+                                    previewID = previewText + "materials"
                                 }.padding()
                                 
                                 Button("electronics"){
                                     vocabularyBPMF = self.vocabularyList.listElectronicsBPMF
                                     vocabularyTranslation = self.vocabularyList.listElectronicsTranslation
-                                    statePreviewText = previewText + "electronics"
+                                    previewID = previewText + "electronics"
                                 }.padding()
                                 
                                 Button("physical descriptions"){
                                     vocabularyBPMF = self.vocabularyList.listPhysicalDescriptionBPMF
                                     vocabularyTranslation = self.vocabularyList.listPhysicalDescriptionTranslation
-                                    statePreviewText = previewText + "physical descriptions"
+                                    previewID = previewText + "physical descriptions"
                                 }.padding()
                                 
                                 Button("seasons"){
                                     vocabularyBPMF = self.vocabularyList.listSeasonsBPMF
                                     vocabularyTranslation = self.vocabularyList.listSeasonsTranslation
-                                    statePreviewText = previewText + "seasons"
+                                    previewID = previewText + "seasons"
                                 }.padding()
                                 
                                 Button("alcohol"){
                                     vocabularyBPMF = self.vocabularyList.listAlcoholBPMF
                                     vocabularyTranslation = self.vocabularyList.listAlcoholTranslation
-                                    statePreviewText = previewText + "alcohol"
+                                    previewID = previewText + "alcohol"
                                 }.padding()
                                 
                                 Button("natural disasters"){
                                     vocabularyBPMF = self.vocabularyList.listNaturalDisasterBPMF
                                     vocabularyTranslation = self.vocabularyList.listNaturalDisasterTranslation
-                                    statePreviewText = previewText + "natural disasters"
+                                    previewID = previewText + "natural disasters"
                                 }.padding()
                                 
                                 Button("animals"){
                                     vocabularyBPMF = self.vocabularyList.listAnimalsBPMF
                                     vocabularyTranslation = self.vocabularyList.listAnimalsTranslation
-                                    statePreviewText = previewText + "animals"
+                                    previewID = previewText + "animals"
                                 }.padding()
                                 
                                 Button("locations"){
                                     vocabularyBPMF = self.vocabularyList.listLocationsBPMF
                                     vocabularyTranslation = self.vocabularyList.listLocationsTranslation
-                                    statePreviewText = previewText + "locations"
+                                    previewID = previewText + "locations"
                                 }.padding()
                             }
                             
@@ -1099,61 +1107,61 @@ struct Vocabulary: View {
                                 Button("exterior body parts"){
                                     vocabularyBPMF = self.vocabularyList.listExteriorBodyPartsBPMF
                                     vocabularyTranslation = self.vocabularyList.listExteriorBodyPartsTranslation
-                                    statePreviewText = previewText + "exterior body parts"
+                                    previewID = previewText + "exterior body parts"
                                 }.padding()
                                 
                                 Button("interior body parts"){
                                     vocabularyBPMF = self.vocabularyList.listInteriorBodyPartsBPMF
                                     vocabularyTranslation = self.vocabularyList.listInteriorBodyPartsTranslation
-                                    statePreviewText = previewText + "interior body parts"
+                                    previewID = previewText + "interior body parts"
                                 }.padding()
                                 
                                 Button("personal characteristics"){
                                     vocabularyBPMF = self.vocabularyList.listPersonalCharacteristicsBPMF
                                     vocabularyTranslation = self.vocabularyList.listPersonalCharacteristicsTranslation
-                                    statePreviewText = previewText + "personal characteristics"
+                                    previewID = previewText + "personal characteristics"
                                 }.padding()
                                 
                                 Button("fruits"){
                                     vocabularyBPMF = self.vocabularyList.listFruitBPMF
                                     vocabularyTranslation = self.vocabularyList.listFruitTranslation
-                                    statePreviewText = previewText + "fruits"
+                                    previewID = previewText + "fruits"
                                 }.padding()
                                 
                                 Button("vegetables"){
                                     vocabularyBPMF = self.vocabularyList.listVegetableBPMF
                                     vocabularyTranslation = self.vocabularyList.listVegetableTranslation
-                                    statePreviewText = previewText + "vegetables"
+                                    previewID = previewText + "vegetables"
                                 }.padding()
                                 
                                 Button("food"){
                                     vocabularyBPMF = self.vocabularyList.listFoodBPMF
                                     vocabularyTranslation = self.vocabularyList.listFoodTranslation
-                                    statePreviewText = previewText + "seafood"
+                                    previewID = previewText + "seafood"
                                 }.padding()
                                 
                                 Button("seafood"){
                                     vocabularyBPMF = self.vocabularyList.listSeafoodBPMF
                                     vocabularyTranslation = self.vocabularyList.listSeafoodTranslation
-                                    statePreviewText = previewText + "seafood"
+                                    previewID = previewText + "seafood"
                                 }.padding()
                                 
                                 Button("desserts"){
                                     vocabularyBPMF = self.vocabularyList.listDessertBPMF
                                     vocabularyTranslation = self.vocabularyList.listDessertTranslation
-                                    statePreviewText = previewText + "desserts"
+                                    previewID = previewText + "desserts"
                                 }.padding()
                                 
                                 Button("nuts"){
                                     vocabularyBPMF = self.vocabularyList.listNutsBPMF
                                     vocabularyTranslation = self.vocabularyList.listNutsTranslation
-                                    statePreviewText = previewText + "nuts"
+                                    previewID = previewText + "nuts"
                                 }.padding()
                                 
                                 Button("occupations"){
                                     vocabularyBPMF = self.vocabularyList.listOccupationBPMF
                                     vocabularyTranslation = self.vocabularyList.listOccupationTranslation
-                                    statePreviewText = previewText + "occupations"
+                                    previewID = previewText + "occupations"
                                 }.padding()
                             
                             }
@@ -1163,43 +1171,43 @@ struct Vocabulary: View {
                                 Button("family"){
                                     vocabularyBPMF = self.vocabularyList.listFamilyBPMF
                                     vocabularyTranslation = self.vocabularyList.listFamilyTranslation
-                                    statePreviewText = previewText + "family"
+                                    previewID = previewText + "family"
                                 }.padding()
                                 
                                 Button("continents"){
                                     vocabularyBPMF = self.vocabularyList.listContinentsBPMF
                                     vocabularyTranslation = self.vocabularyList.listContinentsTranslation
-                                    statePreviewText = previewText + "continents"
+                                    previewID = previewText + "continents"
                                 }.padding()
                                 
                                 Button("countries"){
                                     vocabularyBPMF = self.vocabularyList.listCountriesBPMF
                                     vocabularyTranslation = self.vocabularyList.listCountriesTranslation
-                                    statePreviewText = previewText + "countries"
+                                    previewID = previewText + "countries"
                                 }.padding()
                                 
                                 Button("us states"){
                                     vocabularyBPMF = self.vocabularyList.listUSStatesBPMF
                                     vocabularyTranslation = self.vocabularyList.listUSStatesTranslation
-                                    statePreviewText = previewText + "us states"
+                                    previewID = previewText + "us states"
                                 }.padding()
                                 
                                 Button("us cities"){
                                     vocabularyBPMF = self.vocabularyList.listUSCitiesBPMF
                                     vocabularyTranslation = self.vocabularyList.listUSCitiesTranslation
-                                    statePreviewText = previewText + "us cities"
+                                    previewID = previewText + "us cities"
                                 }.padding()
                                 
                                 Button("chengyu"){
                                     vocabularyBPMF = self.vocabularyList.listChengYuBPMF
                                     vocabularyTranslation = self.vocabularyList.listChengYuTranslation
-                                    statePreviewText = previewText + "chengyu"
+                                    previewID = previewText + "chengyu"
                                 }.padding()
                                 
                                 Button("sayings"){
                                     vocabularyBPMF = self.vocabularyList.listSayingsBPMF
                                     vocabularyTranslation = self.vocabularyList.listSayingsTranslation
-                                    statePreviewText = previewText + "sayings"
+                                    previewID = previewText + "sayings"
                                 }.padding()
                             }
                         }
@@ -1213,25 +1221,25 @@ struct Vocabulary: View {
                                 Button("add emotion"){
                                     vocabularyBPMF = self.vocabularyList.grammarAddEmotionBPMF
                                     vocabularyTranslation = self.vocabularyList.grammarAddEmotionTranslation
-                                    statePreviewText = previewText + "add emotion"
+                                    previewID = previewText + "add emotion"
                                 }.padding()
                                 
                                 Button("time words"){
                                     vocabularyBPMF = self.vocabularyList.grammarTimeWordsBPMF
                                     vocabularyTranslation = self.vocabularyList.grammarTimeWordsTranslation
-                                    statePreviewText = previewText + "time words"
+                                    previewID = previewText + "time words"
                                 }.padding()
                                 
                                 Button("sentence connections"){
                                     vocabularyBPMF = self.vocabularyList.grammarSentenceConnectionsBPMF
                                     vocabularyTranslation = self.vocabularyList.grammarSentenceConnectionsTranslation
-                                    statePreviewText = previewText + "sentence connections"
+                                    previewID = previewText + "sentence connections"
                                 }.padding()
                                 
                                 Button("result compliments"){
                                     vocabularyBPMF = self.vocabularyList.grammarResultComplimentsBPMF
                                     vocabularyTranslation = self.vocabularyList.grammarResultComplimentsTranslation
-                                    statePreviewText = previewText + "result compliments"
+                                    previewID = previewText + "result compliments"
                                 }.padding()
                             }
                         }
@@ -1244,24 +1252,23 @@ struct Vocabulary: View {
                 .padding(10)
                 .frame(alignment: .leading)
                 .foregroundColor(.black)
-                .frame(width:screenWidth,height:screenHeight/5*2)
+                .frame(width:screenWidth,height:screenHeight/5*2.5)
             }
 
-            NavigationLink(destination: ContentPreview(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF, pronunciationTextMode: self.$pronunciationTextMode,pronunciationVoiceMode: self.$pronunciationVoiceMode, voiceSelection:self.$voiceSelection, timerValue: self.$timerValue,testModeSelection: self.$testModeSelection)){
-            Text(statePreviewText)
+            NavigationLink(destination: ContentPreview(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF,previewID: self.$previewID, pronunciationTextMode: self.$pronunciationTextMode,pronunciationVoiceMode: self.$pronunciationVoiceMode, voiceSelection:self.$voiceSelection, timerValue: self.$timerValue,testModeSelection: self.$testModeSelection)){
+            Text(previewID)
             }
-            .frame(width: screenWidth, height: screenHeight/5, alignment: .center)
+            .frame(width: screenWidth, height: screenHeight/5, alignment: .top)
             .multilineTextAlignment(.center)
             //.navigationBarHidden(true)
             //.navigationBarTitle("")
             .foregroundColor(teal)
             .font(.system(size: 30, weight: .heavy))
-            .padding()
-            Spacer()
+            .padding(5)
             
     
             
-        }
+        }.frame(maxHeight: screenHeight)
     }
 }
 

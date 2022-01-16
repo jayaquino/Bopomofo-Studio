@@ -134,6 +134,7 @@ struct Zhuyin: View {
     
     var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
     
+    
     // Functions
     func generateNewSymbol() {
         
@@ -176,6 +177,7 @@ struct Zhuyin: View {
         }
     }
     
+    
     func onLoad() {
         if !didAppear {
             let randomNumber = Int.random(in: 0...zhuyinSymbols.count-1)
@@ -216,13 +218,27 @@ struct Zhuyin: View {
    
     @State var didAppear = false
     
+    public var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    public var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
+        
     var body: some View {
         
         ZStack{
             
             VStack(alignment: .center) {
+    
+                if testModeSelection == "Zhuyin"{
+                    Text("High Score: " + String(UserDefaults.standard.integer(forKey: "highscore-zhuyin"))).padding()
+                }
+                else if testModeSelection == "PinyintoZhuyin" {
+                    Text("High Score: " + String(UserDefaults.standard.integer(forKey: "highscore-pinyintozhuyin"))).padding()
+                }
                 
-                Text("Score: " + String(self.score)).padding(10)
+                Text("Score: " + String(self.score)).padding()
 
                 ZStack{
                     VStack{
@@ -253,8 +269,7 @@ struct Zhuyin: View {
                                 .opacity(0.5)
                         }
                     }
-                    .frame(minHeight: 200)
-                    .frame(maxHeight: 250)
+                    .frame(minHeight: screenHeight/3)
                 }
                 Spacer()
                 HStack{
@@ -265,183 +280,185 @@ struct Zhuyin: View {
                                         }
                         }
                 }
-                HStack{
+                VStack{
                     HStack{
-                        Button("ㄅ") {
-                            checkSymbols(a:"ㄅ",b:randomSymbol)
+                        HStack{
+                            Button("ㄅ") {
+                                checkSymbols(a:"ㄅ",b:randomSymbol)
+                                generateNewSymbol()
+                            }.padding(6)
+                            Button("ㄉ") {
+                                checkSymbols(a:"ㄉ",b:randomSymbol)
+                                generateNewSymbol()
+                            }.padding(6)
+                            Button("ˇ") {
+                                checkSymbols(a:"ˇ",b:randomSymbol)
+                                generateNewSymbol()
+                            }.padding(6)
+                            Button("ˋ") {
+                                checkSymbols(a:"ˋ",b:randomSymbol)
+                                generateNewSymbol()
+                            }.padding(6)
+                            Button("ㄓ") {
+                                checkSymbols(a:"ㄓ",b:randomSymbol)
+                                generateNewSymbol()
+                            }.padding(6)
+                            Button("ˊ") {
+                                checkSymbols(a:"ˊ",b:randomSymbol)
+                                generateNewSymbol()
+                            }.padding(6)
+                            Button("˙") {
+                                checkSymbols(a:"˙",b:randomSymbol)
+                                generateNewSymbol()
+                            }.padding(6)
+                            Button("ㄚ") {
+                                checkSymbols(a:"ㄚ",b:randomSymbol)
+                                generateNewSymbol()
+                            }.padding(6)
+                            Button("ㄞ") {
+                                checkSymbols(a:"ㄞ",b:randomSymbol)
+                                generateNewSymbol()
+                            }.padding(6)
+                            Button("ㄢ") {
+                                checkSymbols(a:"ㄢ",b:randomSymbol)
+                                generateNewSymbol()
+                            }.padding(6)
+                        }
+                        Button("ㄦ") {
+                            checkSymbols(a:"ㄦ",b:randomSymbol)
                             generateNewSymbol()
                         }.padding(6)
-                        Button("ㄉ") {
-                            checkSymbols(a:"ㄉ",b:randomSymbol)
+                        
+                    }
+                    HStack{
+                        Button("ㄆ") {
+                            checkSymbols(a:"ㄆ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(5)
+                        Button("ㄊ") {
+                            checkSymbols(a:"ㄊ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(5)
+                        Button("ㄍ") {
+                            checkSymbols(a:"ㄍ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(5)
+                        Button("ㄐ") {
+                            checkSymbols(a:"ㄐ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(5)
+                        Button("ㄔ") {
+                            checkSymbols(a:"ㄔ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(5)
+                        Button("ㄗ") {
+                            checkSymbols(a:"ㄗ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(5)
+                        Button("ㄧ") {
+                            checkSymbols(a:"ㄧ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(5)
+                        Button("ㄛ") {
+                            checkSymbols(a:"ㄛ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(5)
+                        Button("ㄟ") {
+                            checkSymbols(a:"ㄟ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(5)
+                        Button("ㄣ") {
+                            checkSymbols(a:"ㄣ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(5)
+                    }
+                    HStack{
+                        Button("ㄇ") {
+                            checkSymbols(a:"ㄇ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(4)
+                        Button("ㄋ") {
+                            checkSymbols(a:"ㄋ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(4)
+                        Button("ㄎ") {
+                            checkSymbols(a:"ㄎ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(4)
+                        Button("ㄑ") {
+                            checkSymbols(a:"ㄑ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(4)
+                        Button("ㄕ") {
+                            checkSymbols(a:"ㄕ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(4)
+                        Button("ㄘ") {
+                            checkSymbols(a:"ㄘ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(4)
+                        Button("ㄨ") {
+                            checkSymbols(a:"ㄨ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(4)
+                        Button("ㄜ") {
+                            checkSymbols(a:"ㄜ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(4)
+                        Button("ㄠ") {
+                            checkSymbols(a:"ㄠ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(4)
+                        Button("ㄤ") {
+                            checkSymbols(a:"ㄤ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(4)
+                    }
+                    HStack{
+                        Button("ㄈ") {
+                            checkSymbols(a:"ㄈ",b:randomSymbol)
                             generateNewSymbol()
                         }.padding(6)
-                        Button("ˇ") {
-                            checkSymbols(a:"ˇ",b:randomSymbol)
+                        Button("ㄌ") {
+                            checkSymbols(a:"ㄌ",b:randomSymbol)
                             generateNewSymbol()
                         }.padding(6)
-                        Button("ˋ") {
-                            checkSymbols(a:"ˋ",b:randomSymbol)
+                        Button("ㄏ") {
+                            checkSymbols(a:"ㄏ",b:randomSymbol)
                             generateNewSymbol()
                         }.padding(6)
-                        Button("ㄓ") {
-                            checkSymbols(a:"ㄓ",b:randomSymbol)
+                        Button("ㄒ") {
+                            checkSymbols(a:"ㄒ",b:randomSymbol)
                             generateNewSymbol()
                         }.padding(6)
-                        Button("ˊ") {
-                            checkSymbols(a:"ˊ",b:randomSymbol)
+                        Button("ㄖ") {
+                            checkSymbols(a:"ㄖ",b:randomSymbol)
                             generateNewSymbol()
                         }.padding(6)
-                        Button("˙") {
-                            checkSymbols(a:"˙",b:randomSymbol)
+                        Button("ㄙ") {
+                            checkSymbols(a:"ㄙ",b:randomSymbol)
                             generateNewSymbol()
                         }.padding(6)
-                        Button("ㄚ") {
-                            checkSymbols(a:"ㄚ",b:randomSymbol)
+                        Button("ㄩ") {
+                            checkSymbols(a:"ㄩ",b:randomSymbol)
                             generateNewSymbol()
                         }.padding(6)
-                        Button("ㄞ") {
-                            checkSymbols(a:"ㄞ",b:randomSymbol)
+                        Button("ㄝ") {
+                            checkSymbols(a:"ㄝ",b:randomSymbol)
                             generateNewSymbol()
                         }.padding(6)
-                        Button("ㄢ") {
-                            checkSymbols(a:"ㄢ",b:randomSymbol)
+                        Button("ㄡ") {
+                            checkSymbols(a:"ㄡ",b:randomSymbol)
+                            generateNewSymbol()
+                        }.padding(6)
+                        Button("ㄥ") {
+                            checkSymbols(a:"ㄥ",b:randomSymbol)
                             generateNewSymbol()
                         }.padding(6)
                     }
-                    Button("ㄦ") {
-                        checkSymbols(a:"ㄦ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(6)
-                    
-                }
-                HStack{
-                    Button("ㄆ") {
-                        checkSymbols(a:"ㄆ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(5)
-                    Button("ㄊ") {
-                        checkSymbols(a:"ㄊ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(5)
-                    Button("ㄍ") {
-                        checkSymbols(a:"ㄍ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(5)
-                    Button("ㄐ") {
-                        checkSymbols(a:"ㄐ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(5)
-                    Button("ㄔ") {
-                        checkSymbols(a:"ㄔ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(5)
-                    Button("ㄗ") {
-                        checkSymbols(a:"ㄗ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(5)
-                    Button("ㄧ") {
-                        checkSymbols(a:"ㄧ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(5)
-                    Button("ㄛ") {
-                        checkSymbols(a:"ㄛ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(5)
-                    Button("ㄟ") {
-                        checkSymbols(a:"ㄟ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(5)
-                    Button("ㄣ") {
-                        checkSymbols(a:"ㄣ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(5)
-                }
-                HStack{
-                    Button("ㄇ") {
-                        checkSymbols(a:"ㄇ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(4)
-                    Button("ㄋ") {
-                        checkSymbols(a:"ㄋ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(4)
-                    Button("ㄎ") {
-                        checkSymbols(a:"ㄎ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(4)
-                    Button("ㄑ") {
-                        checkSymbols(a:"ㄑ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(4)
-                    Button("ㄕ") {
-                        checkSymbols(a:"ㄕ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(4)
-                    Button("ㄘ") {
-                        checkSymbols(a:"ㄘ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(4)
-                    Button("ㄨ") {
-                        checkSymbols(a:"ㄨ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(4)
-                    Button("ㄜ") {
-                        checkSymbols(a:"ㄜ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(4)
-                    Button("ㄠ") {
-                        checkSymbols(a:"ㄠ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(4)
-                    Button("ㄤ") {
-                        checkSymbols(a:"ㄤ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(4)
-                }
-                HStack{
-                    Button("ㄈ") {
-                        checkSymbols(a:"ㄈ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(6)
-                    Button("ㄌ") {
-                        checkSymbols(a:"ㄌ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(6)
-                    Button("ㄏ") {
-                        checkSymbols(a:"ㄏ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(6)
-                    Button("ㄒ") {
-                        checkSymbols(a:"ㄒ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(6)
-                    Button("ㄖ") {
-                        checkSymbols(a:"ㄖ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(6)
-                    Button("ㄙ") {
-                        checkSymbols(a:"ㄙ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(6)
-                    Button("ㄩ") {
-                        checkSymbols(a:"ㄩ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(6)
-                    Button("ㄝ") {
-                        checkSymbols(a:"ㄝ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(6)
-                    Button("ㄡ") {
-                        checkSymbols(a:"ㄡ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(6)
-                    Button("ㄥ") {
-                        checkSymbols(a:"ㄥ",b:randomSymbol)
-                        generateNewSymbol()
-                    }.padding(6)
-                }
-                Spacer()
-            }.foregroundColor(.black)
+                }.foregroundColor(.black).frame(minHeight: screenHeight/3)
+            }
+            Spacer()
             
             VStack{
                 if timerSetValue == 0 {
@@ -450,12 +467,22 @@ struct Zhuyin: View {
                                     .opacity(0.4)
                                     .edgesIgnoringSafeArea(.all)
                         Button("Return") {
-                            
+                            if testModeSelection == "Zhuyin"{
+                                if score > UserDefaults.standard.integer(forKey: "highscore-zhuyin"){
+                                    UserDefaults.standard.set(score, forKey: "highscore-zhuyin")
+                                }
+                            }
+                            else if testModeSelection == "PinyintoZhuyin"{
+                                if score > UserDefaults.standard.integer(forKey: "highscore-pinyinzhuyin"){
+                                    UserDefaults.standard.set(score, forKey: "highscore-pinyintozhuyin")
+                                }
+                            }
                             self.presentationMode.wrappedValue.dismiss()
                         }
                         .foregroundColor(.white)
                         .font(.system(size:70))
                     }
+
                 }
             }
         }

@@ -17,6 +17,7 @@ struct ContentPreview: View {
     @Binding var voiceSelection: String
     @Binding var timerValue: Double
     @Binding var testModeSelection: String
+    @Binding var previewID: String
 
     @State var contentOneTestValues : [String]
     @State var contentTwoTestValues : [String]
@@ -36,13 +37,14 @@ struct ContentPreview: View {
     var PreviewStartColor = Color(red: 255 / 255, green: 153 / 255, blue: 51 / 255)
     var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
     
-    init(contentOne: Binding<[String]>,contentTwo: Binding<[String]>,pronunciationTextMode: Binding<Bool>,pronunciationVoiceMode:Binding<Bool>,voiceSelection:Binding<String>,timerValue: Binding<Double>,testModeSelection:Binding<String>){
+    init(contentOne: Binding<[String]>,contentTwo: Binding<[String]>,previewID:Binding<String>,pronunciationTextMode: Binding<Bool>,pronunciationVoiceMode:Binding<Bool>,voiceSelection:Binding<String>,timerValue: Binding<Double>,testModeSelection:Binding<String>){
         _contentOne = contentOne
         _contentOneTestValues = State(initialValue: contentOne.wrappedValue)
         _contentOneIndex = State(initialValue: 0..<contentOne.count)
         _contentOneValue = State(initialValue: Array(repeating: 0, count:contentOne.count))
         _contentTwo = contentTwo
         _contentTwoTestValues = State(initialValue: contentTwo.wrappedValue)
+        _previewID = previewID
         _pronunciationTextMode = pronunciationTextMode
         _pronunciationVoiceMode = pronunciationVoiceMode
         _voiceSelection = voiceSelection
@@ -136,7 +138,7 @@ struct ContentPreview: View {
                     .frame(width: screenWidth, height: 100)
                     .padding()
                     if testType == "Bopomofo"{
-                        NavigationLink(destination: Test(contentOne: self.$contentOneTestValues, contentTwo: self.$contentTwoTestValues, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
+                        NavigationLink(destination: Test(contentOne: self.$contentOneTestValues, contentTwo: self.$contentTwoTestValues, previewID:self.$previewID, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
                         Text("Start Test")
                         }
                         .foregroundColor(teal)
@@ -192,8 +194,9 @@ struct ContentPreview_Previews: PreviewProvider {
     @State static var voiceSelection = ""
     @State static var timerValue = 1.1
     @State static var testModeSelection = ""
+    @State static var previewID = ""
 
     static var previews: some View {
-        ContentPreview(contentOne:$contentOne, contentTwo:$contentTwo, pronunciationTextMode:$pronunciationTextMode,pronunciationVoiceMode:$pronunciationVoiceMode, voiceSelection:$voiceSelection,timerValue:$timerValue, testModeSelection: $testModeSelection)
+        ContentPreview(contentOne:$contentOne, contentTwo:$contentTwo, previewID:$previewID, pronunciationTextMode:$pronunciationTextMode,pronunciationVoiceMode:$pronunciationVoiceMode, voiceSelection:$voiceSelection,timerValue:$timerValue, testModeSelection: $testModeSelection)
     }
 }

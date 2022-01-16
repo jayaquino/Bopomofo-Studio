@@ -12,6 +12,7 @@ struct Test: View {
     
     @Binding var contentOne: [String]
     @Binding var contentTwo: [String]
+    @Binding var previewID: String
     @Binding var pronunciationTextMode: Bool
     @Binding var timerValue: Double
     @State var timerSetValue = 0.0
@@ -32,9 +33,10 @@ struct Test: View {
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     let randomNumber = 0
     
-    init(contentOne: Binding<[String]>,contentTwo: Binding<[String]>,pronunciationTextMode: Binding<Bool>,timerValue: Binding<Double>){
+    init(contentOne: Binding<[String]>,contentTwo: Binding<[String]>,previewID:Binding<String>,pronunciationTextMode: Binding<Bool>,timerValue: Binding<Double>){
         _contentOne = contentOne
         _contentTwo = contentTwo
+        _previewID = previewID
         _pronunciationTextMode = pronunciationTextMode
         _timerValue = timerValue
         _timerSetValue = State(initialValue: timerValue.wrappedValue)
@@ -59,11 +61,18 @@ struct Test: View {
         }
     }
   
+    public var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    public var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
     
     var body: some View {
     
         ZStack{
             VStack(alignment: .center) {
+                Text("High Score: " + String(UserDefaults.standard.integer(forKey: previewID))).padding()
                 Text("Score: " + String(self.score))
                     .navigationBarBackButtonHidden(true)
                 if pronunciationTextMode == true{
@@ -78,8 +87,7 @@ struct Test: View {
                         .frame(maxWidth: UIScreen.main.bounds.width)
                         .font(.custom("copperplate", size: 25))
                         .foregroundColor(teal)
-                        .frame(minHeight: 200)
-                        .frame(maxHeight: 250)
+                        .frame(minHeight: screenHeight/4)
                         .onAppear(perform: {
                             generateNewSymbol()
                         })
@@ -88,159 +96,160 @@ struct Test: View {
                         
                         
                 }
-                Text("Input: \(userInput)")
-                    .padding(10)
-                HStack{
-                    
+                
+                VStack{
+                    Text("Input: \(userInput)")
                     Text("Time Remaining: \(timerSetValue, specifier: "%.0f")")
-                        .padding(10)
+        
                         .onReceive(timer) { _ in
                                     if timerSetValue > 0  {
                                         timerSetValue -= 1
                                     }
                         }
-                }
-                HStack{
                     HStack{
-                        Button("ㄅ") {
-                            self.userInput.append("ㄅ")
+                        HStack{
+                            Button("ㄅ") {
+                                self.userInput.append("ㄅ")
+                            }.padding(6)
+                            Button("ㄉ") {
+                                self.userInput.append("ㄉ")
+                            }.padding(6)
+                            Button("ˇ") {
+                                self.userInput.append("ˇ")
+                            }.padding(6)
+                            Button("ˋ") {
+                                self.userInput.append("ˋ")
+                            }.padding(6)
+                            Button("ㄓ") {
+                                self.userInput.append("ㄓ")
+                            }.padding(6)
+                            Button("ˊ") {
+                                self.userInput.append("ˊ")
+                            }.padding(6)
+                            Button("˙") {
+                                self.userInput.append("˙")
+                            }.padding(6)
+                            Button("ㄚ") {
+                                self.userInput.append("ㄚ")
+                            }.padding(6)
+                            Button("ㄞ") {
+                                self.userInput.append("ㄞ")
+                            }.padding(6)
+                            Button("ㄢ") {
+                                self.userInput.append("ㄢ")
+                            }.padding(6)
+                        }
+                        Button("ㄦ") {
+                            self.userInput.append("ㄦ")
                         }.padding(6)
-                        Button("ㄉ") {
-                            self.userInput.append("ㄉ")
+                        
+                    }.foregroundColor(.black)
+                    HStack{
+                        Button("ㄆ") {
+                            self.userInput.append("ㄆ")
+                        }.padding(5)
+                        Button("ㄊ") {
+                            self.userInput.append("ㄊ")
+                        }.padding(5)
+                        Button("ㄍ") {
+                            self.userInput.append("ㄍ")
+                        }.padding(5)
+                        Button("ㄐ") {
+                            self.userInput.append("ㄐ")
+                        }.padding(5)
+                        Button("ㄔ") {
+                            self.userInput.append("ㄔ")
+                        }.padding(5)
+                        Button("ㄗ") {
+                            self.userInput.append("ㄗ")
+                        }.padding(5)
+                        Button("ㄧ") {
+                            self.userInput.append("ㄧ")
+                        }.padding(5)
+                        Button("ㄛ") {
+                            self.userInput.append("ㄛ")
+                        }.padding(5)
+                        Button("ㄟ") {
+                            self.userInput.append("ㄟ")
+                        }.padding(5)
+                        Button("ㄣ") {
+                            self.userInput.append("ㄣ")
+                        }.padding(5)
+                    }.foregroundColor(.black)
+                    HStack{
+                        Button("ㄇ") {
+                            self.userInput.append("ㄇ")
+                        }.padding(4)
+                        Button("ㄋ") {
+                            self.userInput.append("ㄋ")
+                        }.padding(4)
+                        Button("ㄎ") {
+                            self.userInput.append("ㄎ")
+                        }.padding(4)
+                        Button("ㄑ") {
+                            self.userInput.append("ㄑ")
+                        }.padding(4)
+                        Button("ㄕ") {
+                            self.userInput.append("ㄕ")
+                        }.padding(4)
+                        Button("ㄘ") {
+                            self.userInput.append("ㄘ")
+                        }.padding(4)
+                        Button("ㄨ") {
+                            self.userInput.append("ㄨ")
+                        }.padding(4)
+                        Button("ㄜ") {
+                            self.userInput.append("ㄜ")
+                        }.padding(4)
+                        Button("ㄠ") {
+                            self.userInput.append("ㄠ")
+                        }.padding(4)
+                        Button("ㄤ") {
+                            self.userInput.append("ㄤ")
+                        }.padding(4)
+                    }.foregroundColor(.black)
+                    HStack{
+                        Button("ㄈ") {
+                            self.userInput.append("ㄈ")
                         }.padding(6)
-                        Button("ˇ") {
-                            self.userInput.append("ˇ")
+                        Button("ㄌ") {
+                            self.userInput.append("ㄌ")
                         }.padding(6)
-                        Button("ˋ") {
-                            self.userInput.append("ˋ")
+                        Button("ㄏ") {
+                            self.userInput.append("ㄏ")
                         }.padding(6)
-                        Button("ㄓ") {
-                            self.userInput.append("ㄓ")
+                        Button("ㄒ") {
+                            self.userInput.append("ㄒ")
                         }.padding(6)
-                        Button("ˊ") {
-                            self.userInput.append("ˊ")
+                        Button("ㄖ") {
+                            self.userInput.append("ㄖ")
                         }.padding(6)
-                        Button("˙") {
-                            self.userInput.append("˙")
+                        Button("ㄙ") {
+                            self.userInput.append("ㄙ")
                         }.padding(6)
-                        Button("ㄚ") {
-                            self.userInput.append("ㄚ")
+                        Button("ㄩ") {
+                            self.userInput.append("ㄩ")
                         }.padding(6)
-                        Button("ㄞ") {
-                            self.userInput.append("ㄞ")
+                        Button("ㄝ") {
+                            self.userInput.append("ㄝ")
                         }.padding(6)
-                        Button("ㄢ") {
-                            self.userInput.append("ㄢ")
+                        Button("ㄡ") {
+                            self.userInput.append("ㄡ")
                         }.padding(6)
-                    }
-                    Button("ㄦ") {
-                        self.userInput.append("ㄦ")
-                    }.padding(6)
-                    
-                }.foregroundColor(.black)
+                        Button("ㄥ") {
+                            self.userInput.append("ㄥ")
+                        }.padding(6)
+                    }.foregroundColor(.black)
+                }.frame(minHeight: screenHeight/4)
+                
                 HStack{
-                    Button("ㄆ") {
-                        self.userInput.append("ㄆ")
-                    }.padding(5)
-                    Button("ㄊ") {
-                        self.userInput.append("ㄊ")
-                    }.padding(5)
-                    Button("ㄍ") {
-                        self.userInput.append("ㄍ")
-                    }.padding(5)
-                    Button("ㄐ") {
-                        self.userInput.append("ㄐ")
-                    }.padding(5)
-                    Button("ㄔ") {
-                        self.userInput.append("ㄔ")
-                    }.padding(5)
-                    Button("ㄗ") {
-                        self.userInput.append("ㄗ")
-                    }.padding(5)
-                    Button("ㄧ") {
-                        self.userInput.append("ㄧ")
-                    }.padding(5)
-                    Button("ㄛ") {
-                        self.userInput.append("ㄛ")
-                    }.padding(5)
-                    Button("ㄟ") {
-                        self.userInput.append("ㄟ")
-                    }.padding(5)
-                    Button("ㄣ") {
-                        self.userInput.append("ㄣ")
-                    }.padding(5)
-                }.foregroundColor(.black)
-                HStack{
-                    Button("ㄇ") {
-                        self.userInput.append("ㄇ")
-                    }.padding(4)
-                    Button("ㄋ") {
-                        self.userInput.append("ㄋ")
-                    }.padding(4)
-                    Button("ㄎ") {
-                        self.userInput.append("ㄎ")
-                    }.padding(4)
-                    Button("ㄑ") {
-                        self.userInput.append("ㄑ")
-                    }.padding(4)
-                    Button("ㄕ") {
-                        self.userInput.append("ㄕ")
-                    }.padding(4)
-                    Button("ㄘ") {
-                        self.userInput.append("ㄘ")
-                    }.padding(4)
-                    Button("ㄨ") {
-                        self.userInput.append("ㄨ")
-                    }.padding(4)
-                    Button("ㄜ") {
-                        self.userInput.append("ㄜ")
-                    }.padding(4)
-                    Button("ㄠ") {
-                        self.userInput.append("ㄠ")
-                    }.padding(4)
-                    Button("ㄤ") {
-                        self.userInput.append("ㄤ")
-                    }.padding(4)
-                }.foregroundColor(.black)
-                HStack{
-                    Button("ㄈ") {
-                        self.userInput.append("ㄈ")
-                    }.padding(6)
-                    Button("ㄌ") {
-                        self.userInput.append("ㄌ")
-                    }.padding(6)
-                    Button("ㄏ") {
-                        self.userInput.append("ㄏ")
-                    }.padding(6)
-                    Button("ㄒ") {
-                        self.userInput.append("ㄒ")
-                    }.padding(6)
-                    Button("ㄖ") {
-                        self.userInput.append("ㄖ")
-                    }.padding(6)
-                    Button("ㄙ") {
-                        self.userInput.append("ㄙ")
-                    }.padding(6)
-                    Button("ㄩ") {
-                        self.userInput.append("ㄩ")
-                    }.padding(6)
-                    Button("ㄝ") {
-                        self.userInput.append("ㄝ")
-                    }.padding(6)
-                    Button("ㄡ") {
-                        self.userInput.append("ㄡ")
-                    }.padding(6)
-                    Button("ㄥ") {
-                        self.userInput.append("ㄥ")
-                    }.padding(6)
-                }.foregroundColor(.black)
-                VStack{
                     Button("一") {
                         self.userInput.append(" ")
                     }.foregroundColor(.black)
+                }
+                VStack{
+                    
                     HStack(alignment:.center){
-                        
-                        Spacer()
                         
                         Button("Delete") {
                             userInput = String(userInput.dropLast())
@@ -266,17 +275,13 @@ struct Test: View {
                         .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                         .font(.custom("copperplate", size: 17))
                         .foregroundColor(teal)
-                        
-                        Spacer()
                       
                     }
                     .font(/*@START_MENU_TOKEN@*/.headline/*@END_MENU_TOKEN@*/)
                     .padding()
                 }
-                   
-                
-                
-            }
+
+            }.frame(maxHeight: screenHeight)
             
             VStack{
                 if timerSetValue == 0 {
@@ -322,6 +327,9 @@ struct Test: View {
                             }
                             Spacer()
                             Button("Review") {
+                                if score > UserDefaults.standard.integer(forKey: previewID){
+                                    UserDefaults.standard.set(score, forKey: previewID)
+                                }
                                 self.presentationMode.wrappedValue.dismiss()
                             }
                             .font(.system(size:70))
@@ -340,8 +348,9 @@ struct Test_Previews: PreviewProvider {
     @State static var contentTwo = [""]
     @State static var pronunciationTextMode = true
     @State static var timerValue = 1.1
+    @State static var previewID = ""
     
     static var previews: some View {
-        Test(contentOne: $contentOne,contentTwo: $contentTwo, pronunciationTextMode: $pronunciationTextMode, timerValue:$timerValue)
+        Test(contentOne: $contentOne,contentTwo: $contentTwo, previewID:$previewID, pronunciationTextMode: $pronunciationTextMode, timerValue:$timerValue)
     }
 }
