@@ -488,6 +488,13 @@ struct Vocabulary: View {
                                     vocabularyTranslation = self.vocabularyList.basicsOpinionTranslation
                                     previewID = previewText + "opinions"
                                 }.padding()
+                                
+                                Button("personal favorites"){
+                                    vocabularyBPMF = self.vocabularyList.basicsPersonalFavoritesBPMF
+                                    vocabularyTranslation = self.vocabularyList.basicsPersonalFavoritesTranslation
+                                    previewID = previewText + "personal favorites"
+                                }.padding()
+                                
                             }
                         }
                     }
@@ -1050,7 +1057,7 @@ struct Vocabulary: View {
                                 Button("general adjectives"){
                                     vocabularyBPMF = self.vocabularyList.listAdjectivesBPMF
                                     vocabularyTranslation = self.vocabularyList.listAdjectivesTranslation
-                                    previewID = previewText + "general adverbs"
+                                    previewID = previewText + "general adjectives"
                                 }.padding()
                                 
                                 Button("materials"){

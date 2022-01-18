@@ -137,21 +137,23 @@ struct ContentPreview: View {
                     .pickerStyle(SegmentedPickerStyle())
                     .frame(width: screenWidth, height: 100)
                     .padding()
-                    if testType == "Bopomofo"{
-                        NavigationLink(destination: Test(contentOne: self.$contentOneTestValues, contentTwo: self.$contentTwoTestValues, previewID:self.$previewID, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
-                        Text("Start Test")
+                    if contentOneTestValues.count >= 1 {
+                        if testType == "Bopomofo"{
+                            NavigationLink(destination: Test(contentOne: self.$contentOneTestValues, contentTwo: self.$contentTwoTestValues, previewID:self.$previewID, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
+                            Text("Start Test")
+                            }
+                            .foregroundColor(teal)
+                            .padding(10)
+                            .font(.system(size: 30, weight: .heavy))
                         }
-                        .foregroundColor(teal)
-                        .padding(10)
-                        .font(.system(size: 30, weight: .heavy))
-                    }
-                    if testType == "Flashcards"{
-                        NavigationLink(destination: Flashcard(contentOne: self.$contentOneTestValues, contentTwo: self.$contentTwoTestValues, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
-                        Text("Start Test")
+                        if testType == "Flashcards"{
+                            NavigationLink(destination: Flashcard(contentOne: self.$contentOneTestValues, contentTwo: self.$contentTwoTestValues, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
+                            Text("Start Test")
+                            }
+                            .foregroundColor(teal)
+                            .padding(10)
+                            .font(.system(size: 30, weight: .heavy))
                         }
-                        .foregroundColor(teal)
-                        .padding(10)
-                        .font(.system(size: 30, weight: .heavy))
                     }
                     
                 }
