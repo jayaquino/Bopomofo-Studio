@@ -52,7 +52,7 @@ class VocabularyList: ObservableObject{
     
     @Published var topicAskingForHelpBPMF = ["ㄅㄤ ","ㄉㄚˇㄖㄠˇ","ㄖㄣˊㄑㄧㄥˊ","ㄕㄢˋㄔㄤˊ"]
     @Published var topicAskingForHelpTranslation = ["to help","to bother\nsomeone","favor","to not be\ngood at"]
-
+    
     @Published var topicShoppingBPMF = ["ㄏㄨㄢ ㄧㄥˊㄍㄨㄤ ㄌㄧㄣˊ","ㄏㄨㄟˋㄩㄢˊ","ㄩㄥˋ","ㄎㄚˇ","ㄌㄧㄥˊㄑㄧㄢˊ","ㄕㄡ ㄋㄧˇ","ㄈㄚ ㄆㄧㄠˋ","ㄧㄣˋㄔㄨ ","ㄗㄞˋㄐㄩˋ","ㄓㄜˊ","ㄧㄡ ㄏㄨㄟˋ","ㄉㄧㄥˋㄉㄢ ","ㄐㄧㄚˋㄓˊ","ㄓˊㄉㄜ˙","ㄊㄧㄠ ","ㄧㄥˊㄧㄝˋ"]
     @Published var topicShoppingTranslation = ["welcome","membership","to use","card","pocket change","received x$\n(cashier will say)","receipt","to print out","electronically\nstore receipt","discount\n(percentage)","discount","to order","value\nworth","to be\nworth it","to pick","to be open\nfor business"]
     
@@ -70,7 +70,7 @@ class VocabularyList: ObservableObject{
     
     @Published var topicApologizingBPMF = ["ㄉㄨㄟˋㄅㄨˋㄑㄧˇ","ㄅㄨˋㄏㄠˇㄧˋㄙ˙","ㄉㄠˋㄑㄧㄢˋ","ㄘㄨㄛˋ","ㄘㄨㄛˋㄨˋ","ㄇㄠˋㄈㄢˋ","ㄔㄥˊㄒㄧㄣ ","ㄊㄨㄛ ㄌㄟˇ"]
     @Published var topicApologizingTranslation = ["sorry","sorry (casual)\nexcuse me","make an apology","wrong doing\nfault","mistake","to offend","sincerity","to be a\nburden on"]
-
+    
     @Published var topicComplainingBPMF = ["ㄅㄠˋㄩㄢˋ","ㄈㄚ ㄒㄧㄝˋ","ㄅㄚ ㄍㄨㄚˋ","ㄌㄢˇㄍㄨㄟˇ","ㄕㄥˋㄖㄣˋ","ㄋㄧˋ","ㄧㄚ ㄓㄚˋ","ㄔㄨㄥˊㄈㄨˋ"]
     @Published var topicComplainingTranslation = ["to complain","to vent","to gossip","lazy butt","to be\ncompetent","tired\nof smth.","exploit\nworking","to repeat"]
     
@@ -146,7 +146,7 @@ class VocabularyList: ObservableObject{
     
     @Published var scenarioHouseholdChoresBPMF = ["ㄙㄠˋ","ㄒㄧˇ","ㄇㄛˇㄅㄨˋ","ㄋㄧˊㄊㄨˇ","ㄍㄨㄚˋ","ㄒㄧ ㄔㄣˊㄑㄧˋ","ㄒㄧ ㄉㄧˋ"]
     @Published var scenarioHouseholdChoresTranslation = ["to broom","to wash","cleaning\nrag","dirt","to hang\n(things)","vacuum","to vacuum\nthe floor"]
-
+    
     @Published var scenarioBeachBPMF = ["ㄕㄚ ㄊㄢ ","ㄕㄞˋ","ㄊㄞˋㄧㄤˊ","ㄧㄡˊㄩㄥˇ"]
     @Published var scenarioBeachTranslation = ["beach","to bathe\n(in sun)","sun","to swim"]
     
@@ -181,7 +181,7 @@ class VocabularyList: ObservableObject{
     
     @Published var discussionWhatToEatBPMF = ["ㄨㄞˋㄙㄨㄥˋ","ㄊㄧㄠ ㄕˊ","ㄔ ㄉㄠˋㄅㄠˇ","ㄕㄡˋㄙ ","ㄏㄞˇㄒㄧㄢ ","ㄏㄨㄛˇㄍㄨㄛ ","ㄎㄠˇㄖㄡˋ","ㄕˋ","ㄈㄟˊ"]
     @Published var discussionWhatToEatTranslation = ["delivery","picky\neater","buffet","sushi","seafood","hotpot","barbecue","something-style\n(e.g. thai-style)","fatty(food)"]
-
+    
     @Published var discussionWhereToGoBPMF = ["ㄉㄧˋㄈㄤ ","ㄆㄧㄥˊㄐㄧㄚˋ"]
     @Published var discussionWhereToGoTranslation = ["place","reviews\ncomments"]
     
@@ -262,10 +262,10 @@ class VocabularyList: ObservableObject{
     
     @Published var discussionInvestmentsBPMF = ["ㄌㄧˋㄖㄨㄣˋ","ㄍㄨˇㄆㄧㄠˋ"]
     @Published var discussionInvestmentsTranslation = ["profit","stocks"]
- 
+    
     @Published var discussionAstrologicalSignsBPMF = ["ㄒㄧㄥˋㄗㄨㄛˋ"]
     @Published var discussionAstrologicalSignsTranslation = ["astrological sign"]
- 
+    
     @Published var discussionChineseZodiacBPMF = ["ㄕㄡˇㄩˊ","ㄕˊㄦˋㄕㄥ ㄒㄧㄠˋ"]
     @Published var discussionChineseZodiacTranslation = ["to be part of\nto belong to","chinese zodiac"]
     
@@ -358,7 +358,7 @@ class VocabularyList: ObservableObject{
     
     @Published var listNutsBPMF = ["ㄏㄨㄚ ㄕㄥ ","ㄓ ㄇㄚ˙"]
     @Published var listNutsTranslation = ["peanut","sesame"]
-
+    
     @Published var listOccupationBPMF = ["ㄐㄧㄥˇㄔㄚ ","ㄒㄧㄠ ㄈㄤˊㄩㄢˊ","ㄕㄡˋㄧ ","ㄐㄩㄣ ㄉㄨㄟˋ","ㄕㄥ ㄧˋ","ㄧㄢˊㄐㄧㄡ ㄕㄥ ","ㄩㄥˋㄖㄣˊ","ㄧㄢˊㄐㄧㄡ ㄕㄥ ","ㄐㄧㄠˋㄕ ","ㄓㄨㄥˋㄊㄧㄢˊㄖㄣˊ"]
     @Published var listOccupationTranslation = ["police","firefighter","vet.","military","business","graduate\nstudent","servant\nmaid","postgrad\nstudent","instructor\nteacher","farmer"]
     
@@ -367,7 +367,7 @@ class VocabularyList: ObservableObject{
     
     @Published var listHolidaysBPMF = ["ㄐㄧㄝˊㄖˋ","ㄉㄨㄢ ㄨˇㄐㄧㄝˊ","ㄓㄨㄥ ㄩㄢˊㄐㄧㄝˊ","ㄐㄧˊㄒㄧㄤˊㄏㄨㄚˋ"]
     @Published var listHolidaysTranslation = ["holiday","dragon boat","ghost festival","sayings during\nspecial times"]
-
+    
     @Published var listContinentsBPMF = ["ㄋㄢˊㄇㄟˇ","ㄇㄟˇㄓㄡ ","ㄡ ㄓㄡ ","ㄋㄢˊㄐㄧˊㄓㄡ ","ㄧㄚˋㄓㄡ ","ㄈㄟ ㄓㄡ ","ㄠˋㄓㄡ "]
     @Published var listContinentsTranslation = ["south\namerica","americas","europe","antarctica","asia","africa","australia"]
     
@@ -398,7 +398,7 @@ class VocabularyList: ObservableObject{
     @Published var grammarResultComplimentsBPMF = ["ㄗㄨㄛˇㄧㄡˋ","ㄧˇㄕㄤˋ","ㄉㄠˋ","ㄐㄧㄢˋ","ㄉㄨㄥˇ","ㄍㄨㄛˋ","ㄏㄠˇ","ㄨㄢˊ","ㄍㄨㄤ ","ㄘㄨㄛˋ","ㄍㄢˇㄐㄧㄥ ","ㄗㄡˇ","ㄉㄧㄠˋ","ㄉㄠˇ","ㄏㄨㄟˋ"]
     @Published var grammarResultComplimentsTranslation = ["approximately\na number","more than\na number","result obtained\nfrom an action","result obtained\nfrom an action\n(only senses)","understood\n(only senses)","experienced","done well\nand finished","finished","subject is\nall gone","mistaken","subject is cleaned","subject went away","subject is gone","subject fell","subject is mastered"]
     
-
+    
     
 }
 
@@ -410,37 +410,47 @@ struct Vocabulary: View {
     @Binding var voiceSelection : String
     @Binding var timerValue: Double
     @Binding var testModeSelection: String
+    @Binding var testType: String
     
     @ObservedObject var vocabularyList = VocabularyList()
     @State var vocabularyTranslation = [""]
     @State var vocabularyBPMF = [""]
     @State var topic = "basics"
     let topics = ["basics","when you are...","specific scenarios","discussion topics","lists","grammar"]
-
+    
     let previewText = "preview "
     @State var previewID = ""
     
-    let screenWidth = UIScreen.main.bounds.size.width
-    let screenHeight = UIScreen.main.bounds.size.height
+    public var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    public var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
     
     var PreviewStartColor = Color(red: 255 / 255, green: 153 / 255, blue: 51 / 255)
     var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
     
     var body: some View {
         VStack{
-            Picker("Style", selection: $topic) {
-                ForEach(topics, id: \.self) {
-                    Text($0)
-                    .padding()
-                    .font(.custom("copperplate",size: 30))
+            VStack{
+                Text("Topic Selection")
+                    .multilineTextAlignment(.center)
+                    .font(.custom("copperplate",size: 25))
+                Picker("Style", selection: $topic) {
+                    ForEach(topics, id: \.self) {
+                        Text($0)
+                            .padding()
+                            .font(.custom("copperplate",size: 20))
+                    }
                 }
-            }
-            .pickerStyle(InlinePickerStyle())
-            .frame(width: screenWidth, height: screenHeight/5)
-            .padding()
+                .pickerStyle(InlinePickerStyle())
+                .padding()
+                .frame(maxWidth: screenWidth/2,maxHeight:screenHeight/5)
+            }.frame(maxWidth:screenWidth)
             
             
-            // If the picker is scenarios
+            // If the picker is basic
             Group{
                 ScrollView{
                     
@@ -579,7 +589,7 @@ struct Vocabulary: View {
                                     vocabularyTranslation = self.vocabularyList.topicExplainingYourPerspectiveTranslation
                                     previewID = previewText + "explaining"
                                 }.padding()
-
+                                
                                 Button("in chinese new year"){
                                     vocabularyBPMF = self.vocabularyList.topicChineseNewYearBPMF
                                     vocabularyTranslation = self.vocabularyList.topicChineseNewYearTranslation
@@ -591,7 +601,7 @@ struct Vocabulary: View {
                                     vocabularyTranslation = self.vocabularyList.topicRemarksReactionsTranslation
                                     previewID = previewText + "remarks & reactions"
                                 }.padding()
-                               
+                                
                             }
                             VStack{
                                 
@@ -684,7 +694,7 @@ struct Vocabulary: View {
                                     vocabularyTranslation = self.vocabularyList.scenarioDidSomethingDumbTranslation
                                     previewID = previewText + "dummy"
                                 }.padding()
-
+                                
                                 Button("interview"){
                                     vocabularyBPMF = self.vocabularyList.scenarioInterviewBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioInterviewTranslation
@@ -729,7 +739,7 @@ struct Vocabulary: View {
                             }
                             
                             VStack{
-              
+                                
                                 Button("doing yoga"){
                                     vocabularyBPMF = self.vocabularyList.scenarioYogaBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioYogaTranslation
@@ -765,7 +775,7 @@ struct Vocabulary: View {
                                     vocabularyTranslation = self.vocabularyList.scenarioImmigrantTranslation
                                     previewID = previewText + "being an immigrant"
                                 }.padding()
-
+                                
                                 Button("project management"){
                                     vocabularyBPMF = self.vocabularyList.scenarioWorkingInManufacturingProjectManagementBPMF
                                     vocabularyTranslation = self.vocabularyList.scenarioWorkingInManufacturingProjectManagementTranslation
@@ -840,7 +850,7 @@ struct Vocabulary: View {
                                     previewID = previewText + "travelling"
                                 }.padding()
                                 
-                              
+                                
                             }
                             
                             VStack{
@@ -1170,7 +1180,7 @@ struct Vocabulary: View {
                                     vocabularyTranslation = self.vocabularyList.listOccupationTranslation
                                     previewID = previewText + "occupations"
                                 }.padding()
-                            
+                                
                             }
                             
                             VStack{
@@ -1259,21 +1269,20 @@ struct Vocabulary: View {
                 .padding(10)
                 .frame(alignment: .leading)
                 .foregroundColor(.black)
-                .frame(width:screenWidth,height:screenHeight/5*2.5)
             }
-
-            NavigationLink(destination: ContentPreview(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF,previewID: self.$previewID, pronunciationTextMode: self.$pronunciationTextMode,pronunciationVoiceMode: self.$pronunciationVoiceMode, voiceSelection:self.$voiceSelection, timerValue: self.$timerValue,testModeSelection: self.$testModeSelection)){
-            Text(previewID)
+            
+            NavigationLink(destination: ContentPreview(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF,previewID: self.$previewID, pronunciationTextMode: self.$pronunciationTextMode,pronunciationVoiceMode: self.$pronunciationVoiceMode, voiceSelection:self.$voiceSelection, timerValue: self.$timerValue,testModeSelection: self.$testModeSelection,testType:self.$testType)){
+                Text(previewID)
             }
-            .frame(width: screenWidth, height: screenHeight/5, alignment: .top)
+            .frame(width: screenWidth, height: screenHeight/10, alignment: .top)
             .multilineTextAlignment(.center)
             //.navigationBarHidden(true)
             //.navigationBarTitle("")
             .foregroundColor(teal)
-            .font(.system(size: 30, weight: .heavy))
+            .font(.custom("copperplate",size:30))
             .padding(5)
             
-    
+            
             
         }.frame(maxHeight: screenHeight)
     }
@@ -1285,7 +1294,9 @@ struct Vocabulary_Previews: PreviewProvider {
     @State static var voiceSelection = ""
     @State static var timerValue = 1.1
     @State static var testModeSelection = ""
+    @State static var testType = ""
+    
     static var previews: some View {
-        Vocabulary(pronunciationTextMode:$pronunciationTextMode,pronunciationVoiceMode:$pronunciationVoiceMode, voiceSelection:$voiceSelection, timerValue:$timerValue,testModeSelection: $testModeSelection)
+        Vocabulary(pronunciationTextMode:$pronunciationTextMode,pronunciationVoiceMode:$pronunciationVoiceMode, voiceSelection:$voiceSelection, timerValue:$timerValue,testModeSelection: $testModeSelection,testType: $testType)
     }
 }

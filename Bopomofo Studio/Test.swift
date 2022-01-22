@@ -27,9 +27,9 @@ struct Test: View {
     @State var correctKey : Array<String> = []
     
     var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
-   
+    
     // Timer
-   
+    
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     let randomNumber = 0
     
@@ -41,7 +41,7 @@ struct Test: View {
         _timerValue = timerValue
         _timerSetValue = State(initialValue: timerValue.wrappedValue)
     }
-   
+    
     // Functions
     func generateNewSymbol() {
         if timerValue > 0 {
@@ -60,7 +60,7 @@ struct Test: View {
             SoundManager.instance.playSound(sound: "bonk")
         }
     }
-  
+    
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
@@ -69,12 +69,20 @@ struct Test: View {
     }
     
     var body: some View {
-    
+        
         ZStack{
             VStack(alignment: .center) {
-                Text("High Score: " + String(UserDefaults.standard.integer(forKey: previewID))).padding()
-                Text("Score: " + String(self.score))
-                    .navigationBarBackButtonHidden(true)
+                HStack{
+                    
+                    Text("Score: " + String(self.score))
+                        .frame(minWidth: screenWidth*8/10/2,alignment:.leading)
+                    
+                    Text("High Score: " + String(UserDefaults.standard.integer(forKey: previewID+String(timerValue))))
+                        .padding()
+                        .frame(minWidth: screenWidth*8/10/2,alignment:.trailing)
+                    
+                }
+                .frame(minWidth: screenWidth*8/10)
                 if pronunciationTextMode == true{
                     Text(randomKey)
                         .padding()
@@ -93,18 +101,17 @@ struct Test: View {
                         })
                         .multilineTextAlignment(.center)
                         .animation(.easeIn)
-                        
-                        
+                    
+                    
                 }
                 
                 VStack{
                     Text("Input: \(userInput)")
                     Text("Time Remaining: \(timerSetValue, specifier: "%.0f")")
-        
                         .onReceive(timer) { _ in
-                                    if timerSetValue > 0  {
-                                        timerSetValue -= 1
-                                    }
+                            if timerSetValue > 0  {
+                                timerSetValue -= 1
+                            }
                         }
                     HStack{
                         HStack{
@@ -250,7 +257,7 @@ struct Test: View {
                 VStack{
                     
                     HStack(alignment:.center){
-                        
+                        Spacer()
                         Button("Delete") {
                             userInput = String(userInput.dropLast())
                         }
@@ -275,19 +282,23 @@ struct Test: View {
                         .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
                         .font(.custom("copperplate", size: 17))
                         .foregroundColor(teal)
-                      
+                        
+                        Spacer()
+                        
                     }
                     .font(/*@START_MENU_TOKEN@*/.headline/*@END_MENU_TOKEN@*/)
                     .padding()
+                    Spacer()
                 }
-
+                Spacer()
+                
             }.frame(maxHeight: screenHeight)
             
             VStack{
                 if timerSetValue == 0 {
                     ZStack{
                         Color.gray
-                                    .edgesIgnoringSafeArea(.all)
+                            .edgesIgnoringSafeArea(.all)
                         VStack{
                             Text("Score: " + String(self.score))
                             Spacer()
@@ -300,7 +311,7 @@ struct Test: View {
                                                 .padding(2)
                                                 .font(.system(size: 9))
                                                 .frame(minHeight:25)
-                                                
+                                            
                                         }
                                     }
                                     VStack{
@@ -310,7 +321,7 @@ struct Test: View {
                                                 .padding(2)
                                                 .font(.system(size: 9))
                                                 .frame(minHeight:25)
-                                               
+                                            
                                         }
                                     }
                                     VStack{
@@ -320,7 +331,7 @@ struct Test: View {
                                                 .padding(2)
                                                 .font(.system(size: 9))
                                                 .frame(minHeight:25)
-                                              
+                                            
                                         }
                                     }
                                 }
@@ -328,7 +339,7 @@ struct Test: View {
                             Spacer()
                             Button("Review") {
                                 if score > UserDefaults.standard.integer(forKey: previewID){
-                                    UserDefaults.standard.set(score, forKey: previewID)
+                                    UserDefaults.standard.set(score, forKey: previewID+String(timerValue))
                                 }
                                 self.presentationMode.wrappedValue.dismiss()
                             }

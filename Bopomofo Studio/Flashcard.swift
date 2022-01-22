@@ -63,7 +63,7 @@ struct Flashcard: View {
                         .frame(width: screenWidth, height: screenHeight/5)
                         .font(.custom("chalkboard se",size: 90))
                         .foregroundColor(teal)
-        
+                    
                 }
                 if flipper == "1" {
                     Text(randomKey)
@@ -73,7 +73,7 @@ struct Flashcard: View {
                         .foregroundColor(teal)
                 }
                 Text("")
-                    .frame(width: screenWidth, height: 2)
+                    .frame(width: screenWidth*9/10, height: 2)
                     .background(teal)
                     .padding()
                     .shadow(radius: 2)
@@ -95,21 +95,20 @@ struct Flashcard: View {
                     else {generateNewSymbol()}
                     flipper = "0"
                 }
-
+                
             }
-                .padding()
-                .frame(width: screenWidth, height: screenHeight/5)
-                .onAppear(perform: generateNewSymbol)
-                .font(.custom("copperplate",size: 90))
-                .foregroundColor(.white)
-                .background(teal)
-                .cornerRadius(screenHeight)
-                .shadow(radius: 20)
+            .frame(width: screenWidth*9/10, height: screenHeight/5)
+            .onAppear(perform: generateNewSymbol)
+            .font(.custom("copperplate",size: 90))
+            .foregroundColor(.white)
+            .background(teal)
+            .cornerRadius(screenHeight)
+            .shadow(radius: 20)
             Spacer()
-              
-                
-                
-                
+            
+            
+            
+            
         }
         
     }
