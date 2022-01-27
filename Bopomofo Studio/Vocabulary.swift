@@ -397,9 +397,6 @@ class VocabularyList: ObservableObject{
     
     @Published var grammarResultComplimentsBPMF = ["ㄗㄨㄛˇㄧㄡˋ","ㄧˇㄕㄤˋ","ㄉㄠˋ","ㄐㄧㄢˋ","ㄉㄨㄥˇ","ㄍㄨㄛˋ","ㄏㄠˇ","ㄨㄢˊ","ㄍㄨㄤ ","ㄘㄨㄛˋ","ㄍㄢˇㄐㄧㄥ ","ㄗㄡˇ","ㄉㄧㄠˋ","ㄉㄠˇ","ㄏㄨㄟˋ"]
     @Published var grammarResultComplimentsTranslation = ["approximately\na number","more than\na number","result obtained\nfrom an action","result obtained\nfrom an action\n(only senses)","understood\n(only senses)","experienced","done well\nand finished","finished","subject is\nall gone","mistaken","subject is cleaned","subject went away","subject is gone","subject fell","subject is mastered"]
-    
-    
-    
 }
 
 struct Vocabulary: View {
@@ -427,8 +424,7 @@ struct Vocabulary: View {
     public var screenHeight: CGFloat {
         return UIScreen.main.bounds.height
     }
-    
-    var PreviewStartColor = Color(red: 255 / 255, green: 153 / 255, blue: 51 / 255)
+
     var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
     
     var body: some View {
@@ -446,7 +442,7 @@ struct Vocabulary: View {
                 }
                 .pickerStyle(InlinePickerStyle())
                 .padding()
-                .frame(maxWidth: screenWidth/2,maxHeight:screenHeight/5)
+                .frame(minWidth: screenWidth,maxHeight:screenHeight/5)
             }.frame(maxWidth:screenWidth)
             
             
@@ -601,9 +597,6 @@ struct Vocabulary: View {
                                     vocabularyTranslation = self.vocabularyList.topicRemarksReactionsTranslation
                                     previewID = previewText + "remarks & reactions"
                                 }.padding()
-                                
-                            }
-                            VStack{
                                 
                             }
                         }
@@ -1271,13 +1264,11 @@ struct Vocabulary: View {
                 .foregroundColor(.black)
             }
             
-            NavigationLink(destination: ContentPreview(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF,previewID: self.$previewID, pronunciationTextMode: self.$pronunciationTextMode,pronunciationVoiceMode: self.$pronunciationVoiceMode, voiceSelection:self.$voiceSelection, timerValue: self.$timerValue,testModeSelection: self.$testModeSelection,testType:self.$testType)){
+            NavigationLink(destination: ContentPreviewVocabulary(contentOne: self.$vocabularyTranslation, contentTwo: self.$vocabularyBPMF,previewID: self.$previewID, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue,testType:self.$testType)){
                 Text(previewID)
             }
-            .frame(width: screenWidth, height: screenHeight/10, alignment: .top)
+            .frame(width: screenWidth*9/10, height: screenHeight/10, alignment: .center)
             .multilineTextAlignment(.center)
-            //.navigationBarHidden(true)
-            //.navigationBarTitle("")
             .foregroundColor(teal)
             .font(.custom("copperplate",size:30))
             .padding(5)

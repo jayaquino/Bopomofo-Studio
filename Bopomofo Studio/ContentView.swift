@@ -5,8 +5,6 @@
 //  Created by Nelson Aquino Jr  on 7/19/21.
 //
 
-////.background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black]), startPoint: .leading, endPoint: .trailing))
-
 import SwiftUI
 import AVKit
 

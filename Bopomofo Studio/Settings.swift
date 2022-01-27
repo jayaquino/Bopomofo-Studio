@@ -10,8 +10,6 @@ import SwiftUI
 class ModeSettings: ObservableObject{
     @Published var pronunciationTextMode = true
     @Published var pronunciationVoiceMode = false
-    @Published var zhuyinPreviewID = "zhuyin"
-    @Published var pinyintozhuyinPreviewID = "pinyintozhuyin"
 }
 
 class Contents: ObservableObject{
@@ -124,7 +122,7 @@ struct Settings: View {
                     .italic()
                     .padding()
                 Spacer()
-                NavigationLink(destination: ContentPreview(contentOne: self.$contents.zhuyin, contentTwo: self.$contents.pronunciation,previewID:$modeSettings.zhuyinPreviewID, pronunciationTextMode: self.$modeSettings.pronunciationTextMode, pronunciationVoiceMode: self.$modeSettings.pronunciationVoiceMode, voiceSelection: self.$voiceSelection ,timerValue: self.$timerValue, testModeSelection:self.$testModeSelection,testType: self.$testType)){
+                NavigationLink(destination: ContentPreviewZhuyin(contentOne: self.$contents.zhuyin, contentTwo: self.$contents.pronunciation, pronunciationTextMode: self.$modeSettings.pronunciationTextMode, pronunciationVoiceMode: self.$modeSettings.pronunciationVoiceMode, voiceSelection: self.$voiceSelection ,timerValue: self.$timerValue,testModeSelection:$testModeSelection)){
                     Text("Preview")
                         .frame(width: 200, height: 30, alignment: .center)
                         .foregroundColor(teal)
@@ -139,7 +137,7 @@ struct Settings: View {
                     .italic()
                     .padding()
                 Spacer()
-                NavigationLink(destination: ContentPreview(contentOne: self.$contents.pinyinzhuyin, contentTwo: self.$contents.pronunciation,previewID:$modeSettings.pinyintozhuyinPreviewID,pronunciationTextMode: self.$modeSettings.pronunciationTextMode, pronunciationVoiceMode: self.$modeSettings.pronunciationVoiceMode, voiceSelection: self.$voiceSelection, timerValue: self.$timerValue, testModeSelection:self.$testModeSelection,testType:self.$testType)){
+                NavigationLink(destination: ContentPreviewZhuyin(contentOne: self.$contents.pinyinzhuyin, contentTwo: self.$contents.pronunciation,pronunciationTextMode: self.$modeSettings.pronunciationTextMode, pronunciationVoiceMode: self.$modeSettings.pronunciationVoiceMode, voiceSelection: self.$voiceSelection, timerValue: self.$timerValue,testModeSelection:$testModeSelection)){
                     Text("Preview")
                         .frame(width: 200, height: 30, alignment: .center)
                         .foregroundColor(teal)
@@ -173,8 +171,6 @@ struct Settings: View {
                         .font(.system(size: 30, weight: .heavy))
                         .padding()
                         .frame(minWidth: 0, maxWidth: 300)
-                    //.background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black]), startPoint: .leading, endPoint: .trailing))
-                    
                 }
                 
             }

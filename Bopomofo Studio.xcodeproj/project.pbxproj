@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5215400B279F79B100CDD9FB /* ContentPreviewZhuyin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400A279F79B100CDD9FB /* ContentPreviewZhuyin.swift */; };
+		5215400D279F79C300CDD9FB /* ContentPreviewVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400C279F79C300CDD9FB /* ContentPreviewVocabulary.swift */; };
 		522D4F3126D1805500578A82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522D4F3026D1805500578A82 /* Images.xcassets */; };
 		5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */; };
 		5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17726A5CB3E00C7BC56 /* ContentView.swift */; };
@@ -91,7 +93,6 @@
 		5253446E275360D100C439AC /* M_ㄆ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52534449275360D100C439AC /* M_ㄆ.mp3 */; };
 		5253446F275360D100C439AC /* M_ㄦ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5253444A275360D100C439AC /* M_ㄦ.mp3 */; };
 		52C479AD26AB886900E3540F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479AC26AB886900E3540F /* Settings.swift */; };
-		52C479AF26AB9BDC00E3540F /* ContentPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479AE26AB9BDC00E3540F /* ContentPreview.swift */; };
 		52C479B126AC8DFE00E3540F /* Vocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479B026AC8DFE00E3540F /* Vocabulary.swift */; };
 		52C479B326B3906200E3540F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479B226B3906200E3540F /* Test.swift */; };
 		52D1A9732784676D00C0D14E /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D1A9722784676D00C0D14E /* Flashcard.swift */; };
@@ -115,6 +116,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5215400A279F79B100CDD9FB /* ContentPreviewZhuyin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewZhuyin.swift; sourceTree = "<group>"; };
+		5215400C279F79C300CDD9FB /* ContentPreviewVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewVocabulary.swift; sourceTree = "<group>"; };
 		522D4F3026D1805500578A82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bopomofo Studio.swift"; sourceTree = "<group>"; };
@@ -205,7 +208,6 @@
 		52534449275360D100C439AC /* M_ㄆ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M_ㄆ.mp3"; sourceTree = "<group>"; };
 		5253444A275360D100C439AC /* M_ㄦ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M_ㄦ.mp3"; sourceTree = "<group>"; };
 		52C479AC26AB886900E3540F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		52C479AE26AB9BDC00E3540F /* ContentPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreview.swift; sourceTree = "<group>"; };
 		52C479B026AC8DFE00E3540F /* Vocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vocabulary.swift; sourceTree = "<group>"; };
 		52C479B226B3906200E3540F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		52D1A9722784676D00C0D14E /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
@@ -261,10 +263,11 @@
 			children = (
 				5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */,
 				5237C17726A5CB3E00C7BC56 /* ContentView.swift */,
-				5237C1A026A5CC0800C7BC56 /* Zhuyin.swift */,
 				52C479AC26AB886900E3540F /* Settings.swift */,
 				52C479B026AC8DFE00E3540F /* Vocabulary.swift */,
-				52C479AE26AB9BDC00E3540F /* ContentPreview.swift */,
+				5215400A279F79B100CDD9FB /* ContentPreviewZhuyin.swift */,
+				5215400C279F79C300CDD9FB /* ContentPreviewVocabulary.swift */,
+				5237C1A026A5CC0800C7BC56 /* Zhuyin.swift */,
 				52C479B226B3906200E3540F /* Test.swift */,
 				52D1A9722784676D00C0D14E /* Flashcard.swift */,
 				522D4F3026D1805500578A82 /* Images.xcassets */,
@@ -605,7 +608,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52C479AF26AB9BDC00E3540F /* ContentPreview.swift in Sources */,
+				5215400D279F79C300CDD9FB /* ContentPreviewVocabulary.swift in Sources */,
 				5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */,
 				52D1A9732784676D00C0D14E /* Flashcard.swift in Sources */,
 				52C479B126AC8DFE00E3540F /* Vocabulary.swift in Sources */,
@@ -613,6 +616,7 @@
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
 				52C479B326B3906200E3540F /* Test.swift in Sources */,
 				52C479AD26AB886900E3540F /* Settings.swift in Sources */,
+				5215400B279F79B100CDD9FB /* ContentPreviewZhuyin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +663,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_STATIC_ANALYZER_MODE = deep;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -720,6 +725,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_STATIC_ANALYZER_MODE = deep;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
