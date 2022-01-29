@@ -31,7 +31,6 @@ struct Test: View {
     // Timer
     
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
-    let randomNumber = 0
     
     init(contentOne: Binding<[String]>,contentTwo: Binding<[String]>,previewID:Binding<String>,pronunciationTextMode: Binding<Bool>,timerValue: Binding<Double>){
         _contentOne = contentOne
@@ -91,11 +90,11 @@ struct Test: View {
                 ZStack{
                     Text(randomSymbol)
                         .padding()
-                        .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                        .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: UIScreen.main.bounds.width)
                         .font(.custom("copperplate", size: 25))
                         .foregroundColor(teal)
-                        .frame(minHeight: screenHeight/4)
+                        .frame(minHeight: screenHeight/5)
                         .onAppear(perform: {
                             generateNewSymbol()
                         })
@@ -252,7 +251,7 @@ struct Test: View {
                 HStack{
                     Button("一") {
                         self.userInput.append(" ")
-                    }.foregroundColor(.black)
+                    }.foregroundColor(.black).padding(6)
                 }
                 VStack{
                     
@@ -262,7 +261,7 @@ struct Test: View {
                             userInput = String(userInput.dropLast())
                         }
                         .padding()
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                        .border(Color.black)
                         .font(.custom("copperplate", size: 17))
                         .foregroundColor(teal)
                         
@@ -279,14 +278,14 @@ struct Test: View {
                             generateNewSymbol()
                         }
                         .padding()
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                        .border(Color.black)
                         .font(.custom("copperplate", size: 17))
                         .foregroundColor(teal)
                         
                         Spacer()
                         
                     }
-                    .font(/*@START_MENU_TOKEN@*/.headline/*@END_MENU_TOKEN@*/)
+                    .font(.headline)
                     .padding()
                     Spacer()
                 }
@@ -305,48 +304,48 @@ struct Test: View {
                             ScrollView{
                                 HStack{
                                     VStack{
-                                        Text("Word").bold()
+                                        Text("Word").bold().frame(width:screenWidth/4, height:50)
                                         ForEach(wrongWords, id: \.self){symbol in
                                             Text(symbol)
                                                 .padding(2)
                                                 .font(.system(size: 9))
-                                                .frame(minHeight:25)
-                                            
+                                                .frame(width:screenWidth/4, height:50)
+                                                .multilineTextAlignment(.center)
                                         }
                                     }
                                     VStack{
-                                        Text("Incorrect").bold()
+                                        Text("Incorrect").bold().frame(width:screenWidth/4, height:50)
                                         ForEach(wrongKey, id: \.self){symbol in
                                             Text(symbol)
                                                 .padding(2)
                                                 .font(.system(size: 9))
-                                                .frame(minHeight:25)
+                                                .frame(width:screenWidth/4, height:50)
+                                                .multilineTextAlignment(.center)
+                                            
                                             
                                         }
                                     }
                                     VStack{
-                                        Text("Correct").bold()
+                                        Text("Correct").bold().frame(width:screenWidth/4, height:50)
                                         ForEach(correctKey, id: \.self){symbol in
                                             Text(symbol)
                                                 .padding(2)
                                                 .font(.system(size: 9))
-                                                .frame(minHeight:25)
-                                            
+                                                .frame(width:screenWidth/4, height:50)
+                                                .multilineTextAlignment(.center)
                                         }
                                     }
                                 }
                             }
-                            Spacer()
-                            Button("Review") {
-                                if score > UserDefaults.standard.integer(forKey: previewID){
-                                    UserDefaults.standard.set(score, forKey: previewID+String(timerValue))
-                                }
-                                self.presentationMode.wrappedValue.dismiss()
-                            }
-                            .font(.system(size:70))
-                            .foregroundColor(.white)
-                            Spacer()
                         }
+                        Button("Review") {
+                            if score > UserDefaults.standard.integer(forKey: previewID){
+                                UserDefaults.standard.set(score, forKey: previewID+String(timerValue))
+                            }
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                        .font(.system(size:70))
+                        .foregroundColor(.white)
                     }
                 }
             }

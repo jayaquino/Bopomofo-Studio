@@ -8,10 +8,6 @@
 import SwiftUI
 
 class VocabularyList: ObservableObject{
-    
-    @Published var testCharacters = [""]
-    @Published var testPronunciation = [""]
-    
     /*Basics section
      */
     @Published var basicsChineseBPMF = ["ㄨㄛˇ","ㄊㄚ ","ㄨㄛˇㄇㄣ˙","ㄊㄚ ㄇㄣ˙","ㄕㄟˊ","ㄕㄣˊㄇㄜ˙","ㄋㄚˇㄌㄧˇ","ㄕㄣˊㄇㄜ˙ㄕˊㄏㄡˋ","ㄨㄟˋㄕㄣˊㄇㄜ˙","ㄑㄩˋ","ㄌㄞˊ","ㄕㄨㄛ ","ㄒㄧㄤˇ","ㄐㄩㄝˊㄉㄜ˙","ㄔ ","ㄏㄜ ","ㄒㄧˇㄏㄨㄢ ","ㄏㄢˋ","ㄖㄢˊㄏㄡˋ","ㄊㄞˋ","ㄌㄧˋㄏㄞˋ","ㄕㄥ ㄉㄧㄠˋ"]
@@ -402,14 +398,12 @@ class VocabularyList: ObservableObject{
 struct Vocabulary: View {
     @Environment(\.presentationMode) var presentationMode
     
+    @ObservedObject var vocabularyList = VocabularyList()
+    
     @Binding var pronunciationTextMode : Bool
-    @Binding var pronunciationVoiceMode : Bool
-    @Binding var voiceSelection : String
     @Binding var timerValue: Double
-    @Binding var testModeSelection: String
     @Binding var testType: String
     
-    @ObservedObject var vocabularyList = VocabularyList()
     @State var vocabularyTranslation = [""]
     @State var vocabularyBPMF = [""]
     @State var topic = "basics"
@@ -1281,13 +1275,10 @@ struct Vocabulary: View {
 
 struct Vocabulary_Previews: PreviewProvider {
     @State static var pronunciationTextMode = true
-    @State static var pronunciationVoiceMode = true
-    @State static var voiceSelection = ""
     @State static var timerValue = 1.1
-    @State static var testModeSelection = ""
     @State static var testType = ""
     
     static var previews: some View {
-        Vocabulary(pronunciationTextMode:$pronunciationTextMode,pronunciationVoiceMode:$pronunciationVoiceMode, voiceSelection:$voiceSelection, timerValue:$timerValue,testModeSelection: $testModeSelection,testType: $testType)
+        Vocabulary(pronunciationTextMode:$pronunciationTextMode, timerValue:$timerValue,testType: $testType)
     }
 }

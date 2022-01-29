@@ -123,15 +123,17 @@ struct ContentPreviewVocabulary: View {
                     .foregroundColor(teal)
                     .padding(10)
                     .font(.system(size: 30, weight: .heavy))
+                    .frame(width: screenWidth*9/10, height: screenHeight/8, alignment: .center)
                 }
-            }
-            if testType == "Flashcards"{
-                NavigationLink(destination: Flashcard(contentOne: self.$contentOneTestValues, contentTwo: self.$contentTwoTestValues, pronunciationTextMode: self.$pronunciationTextMode, timerValue: self.$timerValue)){
-                    Text("Start Test")
+                if testType == "Flashcards"{
+                    NavigationLink(destination: Flashcard(contentOne: self.$contentOneTestValues, contentTwo: self.$contentTwoTestValues)){
+                        Text("Start Test")
+                    }
+                    .foregroundColor(teal)
+                    .padding(10)
+                    .font(.system(size: 30, weight: .heavy))
+                    .frame(width: screenWidth*9/10, height: screenHeight/8, alignment: .center)
                 }
-                .foregroundColor(teal)
-                .padding(10)
-                .font(.system(size: 30, weight: .heavy))
             }
         }
     }

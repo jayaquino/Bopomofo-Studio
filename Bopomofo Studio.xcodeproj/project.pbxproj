@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5215400B279F79B100CDD9FB /* ContentPreviewZhuyin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400A279F79B100CDD9FB /* ContentPreviewZhuyin.swift */; };
 		5215400D279F79C300CDD9FB /* ContentPreviewVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400C279F79C300CDD9FB /* ContentPreviewVocabulary.swift */; };
+		5215400F27A386F100CDD9FB /* VocabularySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400E27A386F100CDD9FB /* VocabularySettings.swift */; };
 		522D4F3126D1805500578A82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522D4F3026D1805500578A82 /* Images.xcassets */; };
 		5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */; };
 		5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17726A5CB3E00C7BC56 /* ContentView.swift */; };
@@ -92,10 +93,13 @@
 		5253446D275360D100C439AC /* M_ㄒ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52534448275360D100C439AC /* M_ㄒ.mp3 */; };
 		5253446E275360D100C439AC /* M_ㄆ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52534449275360D100C439AC /* M_ㄆ.mp3 */; };
 		5253446F275360D100C439AC /* M_ㄦ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5253444A275360D100C439AC /* M_ㄦ.mp3 */; };
-		52C479AD26AB886900E3540F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479AC26AB886900E3540F /* Settings.swift */; };
+		5254DEFD27A552BC00C67ED6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5254DEFC27A552BC00C67ED6 /* GoogleService-Info.plist */; };
+		527B619D27A5778500D6C8AB /* SwiftBannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B619C27A5778500D6C8AB /* SwiftBannerAd.swift */; };
+		52C479AD26AB886900E3540F /* ZhuyinSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479AC26AB886900E3540F /* ZhuyinSettings.swift */; };
 		52C479B126AC8DFE00E3540F /* Vocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479B026AC8DFE00E3540F /* Vocabulary.swift */; };
 		52C479B326B3906200E3540F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479B226B3906200E3540F /* Test.swift */; };
 		52D1A9732784676D00C0D14E /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D1A9722784676D00C0D14E /* Flashcard.swift */; };
+		9CFE9044D1BD2D3BA71605EA /* Pods_Bopomofo_Studio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058BC81D9E897734AA79DFB3 /* Pods_Bopomofo_Studio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,8 +120,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		058BC81D9E897734AA79DFB3 /* Pods_Bopomofo_Studio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bopomofo_Studio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B92228B8BA30BD212E18049 /* Pods-Bopomofo Studio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bopomofo Studio.debug.xcconfig"; path = "Target Support Files/Pods-Bopomofo Studio/Pods-Bopomofo Studio.debug.xcconfig"; sourceTree = "<group>"; };
+		41344EA566991621591060E5 /* Pods-Bopomofo Studio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bopomofo Studio.release.xcconfig"; path = "Target Support Files/Pods-Bopomofo Studio/Pods-Bopomofo Studio.release.xcconfig"; sourceTree = "<group>"; };
 		5215400A279F79B100CDD9FB /* ContentPreviewZhuyin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewZhuyin.swift; sourceTree = "<group>"; };
 		5215400C279F79C300CDD9FB /* ContentPreviewVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewVocabulary.swift; sourceTree = "<group>"; };
+		5215400E27A386F100CDD9FB /* VocabularySettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularySettings.swift; sourceTree = "<group>"; };
 		522D4F3026D1805500578A82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bopomofo Studio.swift"; sourceTree = "<group>"; };
@@ -207,7 +215,9 @@
 		52534448275360D100C439AC /* M_ㄒ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M_ㄒ.mp3"; sourceTree = "<group>"; };
 		52534449275360D100C439AC /* M_ㄆ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M_ㄆ.mp3"; sourceTree = "<group>"; };
 		5253444A275360D100C439AC /* M_ㄦ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M_ㄦ.mp3"; sourceTree = "<group>"; };
-		52C479AC26AB886900E3540F /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		5254DEFC27A552BC00C67ED6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		527B619C27A5778500D6C8AB /* SwiftBannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBannerAd.swift; sourceTree = "<group>"; };
+		52C479AC26AB886900E3540F /* ZhuyinSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhuyinSettings.swift; sourceTree = "<group>"; };
 		52C479B026AC8DFE00E3540F /* Vocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vocabulary.swift; sourceTree = "<group>"; };
 		52C479B226B3906200E3540F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		52D1A9722784676D00C0D14E /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
@@ -218,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CFE9044D1BD2D3BA71605EA /* Pods_Bopomofo_Studio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +256,8 @@
 				5237C18626A5CB4000C7BC56 /* Bopomofo StudioTests */,
 				5237C19126A5CB4000C7BC56 /* Bopomofo StudioUITests */,
 				5237C17326A5CB3E00C7BC56 /* Products */,
+				65DBD39273935108825FE155 /* Pods */,
+				FFD91978D626F846223E93A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -263,14 +276,17 @@
 			children = (
 				5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */,
 				5237C17726A5CB3E00C7BC56 /* ContentView.swift */,
-				52C479AC26AB886900E3540F /* Settings.swift */,
-				52C479B026AC8DFE00E3540F /* Vocabulary.swift */,
+				52C479AC26AB886900E3540F /* ZhuyinSettings.swift */,
 				5215400A279F79B100CDD9FB /* ContentPreviewZhuyin.swift */,
-				5215400C279F79C300CDD9FB /* ContentPreviewVocabulary.swift */,
 				5237C1A026A5CC0800C7BC56 /* Zhuyin.swift */,
+				5215400E27A386F100CDD9FB /* VocabularySettings.swift */,
+				52C479B026AC8DFE00E3540F /* Vocabulary.swift */,
+				5215400C279F79C300CDD9FB /* ContentPreviewVocabulary.swift */,
 				52C479B226B3906200E3540F /* Test.swift */,
 				52D1A9722784676D00C0D14E /* Flashcard.swift */,
+				527B619C27A5778500D6C8AB /* SwiftBannerAd.swift */,
 				522D4F3026D1805500578A82 /* Images.xcassets */,
+				5254DEFC27A552BC00C67ED6 /* GoogleService-Info.plist */,
 				5237C17E26A5CB4000C7BC56 /* Info.plist */,
 				525344252753606200C439AC /* Male BPMF */,
 				5253436B2751503900C439AC /* Female BPMF */,
@@ -403,6 +419,23 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		65DBD39273935108825FE155 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B92228B8BA30BD212E18049 /* Pods-Bopomofo Studio.debug.xcconfig */,
+				41344EA566991621591060E5 /* Pods-Bopomofo Studio.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FFD91978D626F846223E93A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				058BC81D9E897734AA79DFB3 /* Pods_Bopomofo_Studio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -410,9 +443,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5237C19726A5CB4000C7BC56 /* Build configuration list for PBXNativeTarget "Bopomofo Studio" */;
 			buildPhases = (
+				063EE994A33C7D4C3C187CFC /* [CP] Check Pods Manifest.lock */,
 				5237C16E26A5CB3E00C7BC56 /* Sources */,
 				5237C16F26A5CB3E00C7BC56 /* Frameworks */,
 				5237C17026A5CB3E00C7BC56 /* Resources */,
+				6E80629A9741822450C5D29B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -466,7 +501,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					5237C17126A5CB3E00C7BC56 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -573,6 +608,7 @@
 				5253444E275360D100C439AC /* M_ㄡ.mp3 in Resources */,
 				5253441327521DDA00C439AC /* F_ㄨ.mp3 in Resources */,
 				5253441527521DDA00C439AC /* F_ㄢ.mp3 in Resources */,
+				5254DEFD27A552BC00C67ED6 /* GoogleService-Info.plist in Resources */,
 				52534457275360D100C439AC /* M_ㄞ.mp3 in Resources */,
 				5253442427521DDA00C439AC /* F_ㄛ.mp3 in Resources */,
 				5253444F275360D100C439AC /* M_ㄟ.mp3 in Resources */,
@@ -603,6 +639,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		063EE994A33C7D4C3C187CFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bopomofo Studio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E80629A9741822450C5D29B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bopomofo Studio/Pods-Bopomofo Studio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bopomofo Studio/Pods-Bopomofo Studio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bopomofo Studio/Pods-Bopomofo Studio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5237C16E26A5CB3E00C7BC56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -612,10 +690,12 @@
 				5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */,
 				52D1A9732784676D00C0D14E /* Flashcard.swift in Sources */,
 				52C479B126AC8DFE00E3540F /* Vocabulary.swift in Sources */,
+				5215400F27A386F100CDD9FB /* VocabularySettings.swift in Sources */,
 				5237C1A126A5CC0800C7BC56 /* Zhuyin.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
 				52C479B326B3906200E3540F /* Test.swift in Sources */,
-				52C479AD26AB886900E3540F /* Settings.swift in Sources */,
+				52C479AD26AB886900E3540F /* ZhuyinSettings.swift in Sources */,
+				527B619D27A5778500D6C8AB /* SwiftBannerAd.swift in Sources */,
 				5215400B279F79B100CDD9FB /* ContentPreviewZhuyin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,14 +736,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_OSOBJECT_C_STYLE_CAST = YES;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
+				CLANG_TIDY_BUGPRONE_REDUNDANT_BRANCH_CONDITION = YES;
+				CLANG_TIDY_MISC_REDUNDANT_EXPRESSION = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -692,7 +781,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -704,10 +793,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -718,14 +807,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_OSOBJECT_C_STYLE_CAST = YES;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
+				CLANG_TIDY_BUGPRONE_REDUNDANT_BRANCH_CONDITION = YES;
+				CLANG_TIDY_MISC_REDUNDANT_EXPRESSION = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -753,14 +851,14 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_NO_COMMON_BLOCKS = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -772,6 +870,7 @@
 		};
 		5237C19826A5CB4000C7BC56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B92228B8BA30BD212E18049 /* Pods-Bopomofo Studio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -795,6 +894,7 @@
 		};
 		5237C19926A5CB4000C7BC56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41344EA566991621591060E5 /* Pods-Bopomofo Studio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

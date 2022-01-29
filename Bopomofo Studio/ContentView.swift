@@ -8,14 +8,6 @@
 import SwiftUI
 import AVKit
 
-class TestMode: ObservableObject{
-    
-    @Published var Zhuyin = "Zhuyin"
-    @Published var PinyintoZhuyin = "PinyintoZhuyin"
-    @Published var Vocabulary = "Vocabulary"
-    
-}
-
 class SoundManager{
     
     static let instance = SoundManager()
@@ -36,9 +28,7 @@ class SoundManager{
 
 
 struct ContentView: View {
-    
-    @ObservedObject var testMode = TestMode()
-    
+
     public var screenWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
@@ -84,24 +74,17 @@ struct ContentView: View {
                         .padding()
                 }
                 
-                NavigationLink(destination: Settings( testModeSelection: self.$testMode.Zhuyin)) {
-                    Text("Learn Zhuyin Characters")
+                NavigationLink(destination: ZhuyinSettings()) {
+                    Text("Zhuyin")
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()
                         .foregroundColor(.white)
                         .background(teal)
                         .cornerRadius(40)
                 }
-                NavigationLink(destination: Settings(testModeSelection: self.$testMode.PinyintoZhuyin)){
-                    Text("Learn Pinyin-to-Zhuyin")
-                        .frame(minWidth: 0, maxWidth: 300)
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(teal)
-                        .cornerRadius(40)
-                }
-                NavigationLink(destination: Settings(testModeSelection: self.$testMode.Vocabulary)){
-                    Text("Learn Vocabulary")
+
+                NavigationLink(destination: VocabularySettings()){
+                    Text("Vocabulary")
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()
                         .foregroundColor(.white)
@@ -109,7 +92,6 @@ struct ContentView: View {
                         .cornerRadius(40)
                     
                 }
-                Spacer()
                 
             }
             .font(.custom("copperplate", size: 20))

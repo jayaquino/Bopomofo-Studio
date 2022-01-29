@@ -12,8 +12,6 @@ struct Flashcard: View {
     
     @Binding var contentOne: [String]
     @Binding var contentTwo: [String]
-    @Binding var pronunciationTextMode: Bool
-    @Binding var timerValue: Double
     
     @State var contentOneValue: [String]
     @State var contentTwoValue: [String]
@@ -28,25 +26,21 @@ struct Flashcard: View {
         return UIScreen.main.bounds.height
     }
     
-    init(contentOne: Binding<[String]>,contentTwo: Binding<[String]>,pronunciationTextMode: Binding<Bool>,timerValue: Binding<Double>){
+    init(contentOne: Binding<[String]>,contentTwo: Binding<[String]>){
         _contentOne = contentOne
         _contentOneValue = State(initialValue: contentOne.wrappedValue)
         _contentTwo = contentTwo
         _contentTwoValue = State(initialValue: contentTwo.wrappedValue)
-        _pronunciationTextMode = pronunciationTextMode
-        _timerValue = timerValue
+
     }
     
     
     func generateNewSymbol() {
-        if timerValue > 0 {
             let randomNumber = Int.random(in: 0...contentOneValue.count-1)
             randomSymbol = contentOneValue[randomNumber]
             randomKey = contentTwoValue[randomNumber]
             contentOneValue.remove(at:randomNumber)
             contentTwoValue.remove(at:randomNumber)
-            
-        }
     }
     
     
@@ -117,9 +111,7 @@ struct Flashcard: View {
 struct Flashcard_Previews: PreviewProvider {
     @State static var contentOne = [""]
     @State static var contentTwo = [""]
-    @State static var pronunciationTextMode = true
-    @State static var timerValue = 1.1
     static var previews: some View {
-        Flashcard(contentOne: $contentOne,contentTwo: $contentTwo, pronunciationTextMode: $pronunciationTextMode, timerValue:$timerValue)
+        Flashcard(contentOne: $contentOne,contentTwo: $contentTwo)
     }
 }

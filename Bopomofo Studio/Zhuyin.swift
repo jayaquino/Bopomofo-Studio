@@ -7,15 +7,16 @@
 
 import SwiftUI
 import Darwin
+import GoogleMobileAds
 
 struct Zhuyin: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var pronunciationTextMode : Bool
     @Binding var pronunciationVoiceMode: Bool
-    @Binding var testModeSelection : String
     @Binding var voiceSelection : String
     @Binding var timerValue : Double
+    @Binding var testType : String
     
     @State var timerSetValue = 0.0
     
@@ -118,9 +119,7 @@ struct Zhuyin: View {
     @State var randomSymbol = ""
     @State var randomSymbolExample = ""
     @State var displaySymbol = ""
-    @State var inputSymbol = ""
     
-    var dictionaryInput : String  = ""
     
     // Scoring
     @State var score = 0
@@ -142,11 +141,11 @@ struct Zhuyin: View {
             if timerSetValue > 0 {
                 let randomNumber = Int.random(in: 0...zhuyinSymbols.count-1)
                 randomSymbol = zhuyinSymbols[randomNumber]
-                if testModeSelection == "Zhuyin"{
+                if testType == "Zhuyin"{
                     displaySymbol = zhuyinSymbols[randomNumber]
                     randomSymbolExample = zhuyinSymbolsExample[randomNumber]
                 }
-                if testModeSelection == "PinyintoZhuyin" {
+                if testType == "Pinyin To Zhuyin" {
                     displaySymbol = pinyinSymbols[randomNumber]
                     randomSymbolExample = pinyinSymbolsExample[randomNumber]
                 }
@@ -181,11 +180,11 @@ struct Zhuyin: View {
     func onLoad() {
         if !didAppear {
             let randomNumber = Int.random(in: 0...zhuyinSymbols.count-1)
-            if testModeSelection == "Zhuyin"{
+            if testType == "Zhuyin"{
                 randomSymbol = zhuyinSymbols[randomNumber]
                 randomSymbolExample = zhuyinSymbolsExample[randomNumber]
             }
-            if testModeSelection == "PinyintoZhuyin" {
+            if testType == "Pinyin To Zhuyin" {
                 randomSymbol = pinyinSymbols[randomNumber]
                 randomSymbolExample = pinyinSymbolsExample[randomNumber]
             }
@@ -205,12 +204,11 @@ struct Zhuyin: View {
         
     }
     // Game
-    @State var showingGame = false
     
     init(pronunciationTextMode: Binding<Bool>,pronunciationVoiceMode: Binding<Bool>,voiceSelection: Binding<String>,timerValue:Binding<Double>, testModeSelection:Binding<String>){
         _pronunciationTextMode = pronunciationTextMode
         _pronunciationVoiceMode = pronunciationVoiceMode
-        _testModeSelection = testModeSelection
+        _testType = testModeSelection
         _voiceSelection = voiceSelection
         _timerValue = timerValue
         _timerSetValue = State(initialValue: timerValue.wrappedValue)
@@ -225,23 +223,38 @@ struct Zhuyin: View {
         return UIScreen.main.bounds.height
     }
     
+    //Ad
+    @State var height: CGFloat = 0 //Height of ad
+    @State var width: CGFloat = 0 //Width of ad
+    let adUnitId = "ca-app-pub-3940256099942544/2934735716"
+    
+    enum AdPosition {
+        case top
+        case bottom
+    }
     var body: some View {
         
         ZStack{
-            
             VStack(alignment: .center) {
+                BannerAd(adUnitId: adUnitId)
+                    .frame(width: width, height: height, alignment: .center)
+                    .onAppear {
+                        //Call this in .onAppear() b/c need to load the initial frame size
+                        //.onReceive() will not be called on initial load
+                        setFrame()
+                    }
                 HStack{
                     
                     Text("Score: " + String(self.score))
                         .padding()
                         .frame(minWidth: screenWidth*8/10/2,alignment:.leading)
                     
-                    if testModeSelection == "Zhuyin"{
+                    if testType == "Zhuyin"{
                         Text("High Score: " + String(UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(timerValue))))
                             .padding()
                             .frame(minWidth: screenWidth*8/10/2,alignment:.trailing)
                     }
-                    else if testModeSelection == "PinyintoZhuyin" {
+                    else if testType == "Pinyin To Zhuyin" {
                         Text("High Score: " + String(UserDefaults.standard.integer(forKey: "highscore-pinyintozhuyin"+String(timerValue)))).padding()
                             .frame(minWidth: screenWidth*8/10/2,alignment:.trailing)
                     }
@@ -259,11 +272,11 @@ struct Zhuyin: View {
                             .frame(minHeight: 200)
                             .onAppear{let randomNumber = Int.random(in: 0...zhuyinSymbols.count-1)
                                 randomSymbol = zhuyinSymbols[randomNumber]
-                                if testModeSelection == "Zhuyin"{
+                                if testType == "Zhuyin"{
                                     displaySymbol = zhuyinSymbols[randomNumber]
                                     randomSymbolExample = zhuyinSymbolsExample[randomNumber]
                                 }
-                                if testModeSelection == "PinyintoZhuyin" {
+                                if testType == "Pinyin To Zhuyin" {
                                     displaySymbol = pinyinSymbols[randomNumber]
                                     randomSymbolExample = pinyinSymbolsExample[randomNumber]
                                 }
@@ -475,12 +488,12 @@ struct Zhuyin: View {
                             .opacity(0.4)
                             .edgesIgnoringSafeArea(.all)
                         Button("Return") {
-                            if testModeSelection == "Zhuyin"{
+                            if testType == "Zhuyin"{
                                 if score > UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(timerValue)){
                                     UserDefaults.standard.set(score, forKey: "highscore-zhuyin"+String(timerValue))
                                 }
                             }
-                            else if testModeSelection == "PinyintoZhuyin"{
+                            else if testType == "Pinyin To Zhuyin"{
                                 if score > UserDefaults.standard.integer(forKey: "highscore-pinyinzhuyin"+String(timerValue)){
                                     UserDefaults.standard.set(score, forKey: "highscore-pinyintozhuyin"+String(timerValue))
                                 }
@@ -495,7 +508,21 @@ struct Zhuyin: View {
             }
         }
     }
+    func setFrame() {
+        
+        //Get the frame of the safe area
+        let safeAreaInsets = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.safeAreaInsets ?? .zero
+        let frame = UIScreen.main.bounds.inset(by: safeAreaInsets)
+        
+        //Use the frame to determine the size of the ad
+        let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(frame.width)
+        
+        //Set the ads frame
+        self.width = adSize.size.width
+        self.height = adSize.size.height
+    }
 }
+
 
 struct Zhuyin_Previews: PreviewProvider {
     
