@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 struct Test: View {
     @Environment(\.presentationMode) var presentationMode
@@ -67,10 +68,20 @@ struct Test: View {
         return UIScreen.main.bounds.height
     }
     
+    // Ads
+    @State var height: CGFloat = 0
+    @State var width: CGFloat = 0
+    let adUnitId = "ca-app-pub-1023765231299220/8192916298"
+    
     var body: some View {
         
         ZStack{
             VStack(alignment: .center) {
+                BannerAd(adUnitId: adUnitId)
+                    .frame(width: width, height: height, alignment: .center)
+                    .onAppear {
+                        setFrame()
+                    }
                 HStack{
                     
                     Text("Score: " + String(self.score))
@@ -301,6 +312,11 @@ struct Test: View {
                         VStack{
                             Text("Score: " + String(self.score))
                             Spacer()
+                            BannerAd(adUnitId: adUnitId)
+                                .frame(width: width, height: height, alignment: .center)
+                                .onAppear {
+                                    setFrame()
+                                }
                             ScrollView{
                                 HStack{
                                     VStack{
@@ -350,6 +366,19 @@ struct Test: View {
                 }
             }
         }
+    }
+    func setFrame() {
+        
+        //Get the frame of the safe area
+        let safeAreaInsets = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.safeAreaInsets ?? .zero
+        let frame = UIScreen.main.bounds.inset(by: safeAreaInsets)
+        
+        //Use the frame to determine the size of the ad
+        let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(frame.width)
+        
+        //Set the ads frame
+        self.width = adSize.size.width
+        self.height = adSize.size.height
     }
 }
 

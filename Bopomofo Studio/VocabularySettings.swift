@@ -16,7 +16,7 @@ struct VocabularySettings: View {
     
     @ObservedObject var vocabularymodeSettings = ZhuyinModeSettings()
     
-    @State var timerValue: Double = 10
+    @State var timerValue: Double = 30
     @State var testType = "Bopomofo"
     
     let testTypes = ["Bopomofo","Flashcards"]

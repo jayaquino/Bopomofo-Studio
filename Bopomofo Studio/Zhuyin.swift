@@ -224,14 +224,10 @@ struct Zhuyin: View {
     }
     
     //Ad
-    @State var height: CGFloat = 0 //Height of ad
-    @State var width: CGFloat = 0 //Width of ad
-    let adUnitId = "ca-app-pub-3940256099942544/2934735716"
-    
-    enum AdPosition {
-        case top
-        case bottom
-    }
+    @State var height: CGFloat = 0
+    @State var width: CGFloat = 0
+    let adUnitId = "ca-app-pub-1023765231299220/8192916298"
+
     var body: some View {
         
         ZStack{
@@ -239,8 +235,6 @@ struct Zhuyin: View {
                 BannerAd(adUnitId: adUnitId)
                     .frame(width: width, height: height, alignment: .center)
                     .onAppear {
-                        //Call this in .onAppear() b/c need to load the initial frame size
-                        //.onReceive() will not be called on initial load
                         setFrame()
                     }
                 HStack{
@@ -481,8 +475,14 @@ struct Zhuyin: View {
             }
             Spacer()
             
-            VStack{
-                if timerSetValue == 0 {
+            
+            if timerSetValue == 0 {
+                VStack{
+                    BannerAd(adUnitId: adUnitId)
+                        .frame(width: width, height: height, alignment: .center)
+                        .onAppear {
+                            setFrame()
+                        }
                     ZStack{
                         Color.gray
                             .opacity(0.4)

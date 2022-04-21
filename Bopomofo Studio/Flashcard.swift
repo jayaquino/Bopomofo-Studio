@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 struct Flashcard: View {
     @Environment(\.presentationMode) var presentationMode
@@ -48,8 +49,18 @@ struct Flashcard: View {
     
     var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
     
+    // Ads
+    @State var height: CGFloat = 0
+    @State var width: CGFloat = 0
+    let adUnitId = "ca-app-pub-1023765231299220/8192916298"
+    
     var body: some View {
         VStack{
+            BannerAd(adUnitId: adUnitId)
+                .frame(width: width, height: height, alignment: .center)
+                .onAppear {
+                    setFrame()
+                }
             VStack{
                 if flipper == "0" {
                     Text("?")
@@ -105,6 +116,19 @@ struct Flashcard: View {
             
         }
         
+    }
+    func setFrame() {
+        
+        //Get the frame of the safe area
+        let safeAreaInsets = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.safeAreaInsets ?? .zero
+        let frame = UIScreen.main.bounds.inset(by: safeAreaInsets)
+        
+        //Use the frame to determine the size of the ad
+        let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(frame.width)
+        
+        //Set the ads frame
+        self.width = adSize.size.width
+        self.height = adSize.size.height
     }
 }
 

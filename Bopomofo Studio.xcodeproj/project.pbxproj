@@ -94,7 +94,6 @@
 		5253446E275360D100C439AC /* M_ㄆ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52534449275360D100C439AC /* M_ㄆ.mp3 */; };
 		5253446F275360D100C439AC /* M_ㄦ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5253444A275360D100C439AC /* M_ㄦ.mp3 */; };
 		5254DEFD27A552BC00C67ED6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5254DEFC27A552BC00C67ED6 /* GoogleService-Info.plist */; };
-		527B619D27A5778500D6C8AB /* SwiftBannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527B619C27A5778500D6C8AB /* SwiftBannerAd.swift */; };
 		52C479AD26AB886900E3540F /* ZhuyinSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479AC26AB886900E3540F /* ZhuyinSettings.swift */; };
 		52C479B126AC8DFE00E3540F /* Vocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479B026AC8DFE00E3540F /* Vocabulary.swift */; };
 		52C479B326B3906200E3540F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479B226B3906200E3540F /* Test.swift */; };
@@ -216,7 +215,6 @@
 		52534449275360D100C439AC /* M_ㄆ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M_ㄆ.mp3"; sourceTree = "<group>"; };
 		5253444A275360D100C439AC /* M_ㄦ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M_ㄦ.mp3"; sourceTree = "<group>"; };
 		5254DEFC27A552BC00C67ED6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		527B619C27A5778500D6C8AB /* SwiftBannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBannerAd.swift; sourceTree = "<group>"; };
 		52C479AC26AB886900E3540F /* ZhuyinSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhuyinSettings.swift; sourceTree = "<group>"; };
 		52C479B026AC8DFE00E3540F /* Vocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vocabulary.swift; sourceTree = "<group>"; };
 		52C479B226B3906200E3540F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
@@ -284,7 +282,6 @@
 				5215400C279F79C300CDD9FB /* ContentPreviewVocabulary.swift */,
 				52C479B226B3906200E3540F /* Test.swift */,
 				52D1A9722784676D00C0D14E /* Flashcard.swift */,
-				527B619C27A5778500D6C8AB /* SwiftBannerAd.swift */,
 				522D4F3026D1805500578A82 /* Images.xcassets */,
 				5254DEFC27A552BC00C67ED6 /* GoogleService-Info.plist */,
 				5237C17E26A5CB4000C7BC56 /* Info.plist */,
@@ -695,7 +692,6 @@
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
 				52C479B326B3906200E3540F /* Test.swift in Sources */,
 				52C479AD26AB886900E3540F /* ZhuyinSettings.swift in Sources */,
-				527B619D27A5778500D6C8AB /* SwiftBannerAd.swift in Sources */,
 				5215400B279F79B100CDD9FB /* ContentPreviewZhuyin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,10 +774,11 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = NO;
+				"GCC_NO_COMMON_BLOCKS[arch=*]" = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -879,12 +876,12 @@
 				DEVELOPMENT_TEAM = V89Z8LQWPX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bopomofo Studio/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -903,12 +900,12 @@
 				DEVELOPMENT_TEAM = V89Z8LQWPX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bopomofo Studio/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

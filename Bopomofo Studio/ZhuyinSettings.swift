@@ -17,7 +17,7 @@ struct ZhuyinSettings: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var zhuyinmodeSettings = ZhuyinModeSettings()
     
-    @State var timerValue: Double = 10
+    @State var timerValue: Double = 30
     @State var voiceSelection = "Female"
     @State var testType = "Zhuyin"
     

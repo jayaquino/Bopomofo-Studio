@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 class Contents: ObservableObject{
     @Published var zhuyin = ["ㄅ","ㄆ","ㄇ","ㄈ","ㄉ","ㄊ","ㄋ","ㄌ","ˇ","ㄍ","ㄎ",
@@ -77,8 +78,18 @@ struct ContentPreviewZhuyin: View {
     
     var teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
     
+    //Ad
+    @State var height: CGFloat = 0
+    @State var width: CGFloat = 0
+    let adUnitId = "ca-app-pub-1023765231299220/8192916298"
+    
     var body: some View {
         VStack{
+            BannerAd(adUnitId: adUnitId)
+                .frame(width: width, height: height, alignment: .center)
+                .onAppear {
+                    setFrame()
+                }
             HStack{
                 ScrollView{
                     if testType == "Zhuyin"{
@@ -152,8 +163,19 @@ struct ContentPreviewZhuyin: View {
             
         }
     }
-    
-    
+    func setFrame() {
+        
+        //Get the frame of the safe area
+        let safeAreaInsets = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.safeAreaInsets ?? .zero
+        let frame = UIScreen.main.bounds.inset(by: safeAreaInsets)
+        
+        //Use the frame to determine the size of the ad
+        let adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(frame.width)
+        
+        //Set the ads frame
+        self.width = adSize.size.width
+        self.height = adSize.size.height
+    }
 }
 
 struct ContentPreviewZhuyin_Previews: PreviewProvider {
