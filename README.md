@@ -1,8 +1,8 @@
 # Bopomofo-Studio
 
 <p float="left">
-  <img src = "https://user-images.githubusercontent.com/46248987/164408610-b54ed1ac-8081-468a-94e7-ddc9562852a2.png" width="250">                                                                                                                          
-  <img src = "https://user-images.githubusercontent.com/46248987/164408642-ae16f736-618f-4e21-84d7-0c1f2aac7d6a.png" width="250"> 
+  <img src = "https://user-images.githubusercontent.com/46248987/164408610-b54ed1ac-8081-468a-94e7-ddc9562852a2.png" height="500">                                                                                                                          
+  <img src = "https://user-images.githubusercontent.com/46248987/164408642-ae16f736-618f-4e21-84d7-0c1f2aac7d6a.png" height="500"> 
 </p>
 
 ## Description
