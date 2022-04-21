@@ -14,5 +14,5 @@
 * GoogleMobileAds
 
 # What I Learned
-* Since I dove head first into SwiftUI without foundations, I needed to go back and learn foundations thoroughly to understand Swift architecture. 
+* Since I dove head first into SwiftUI without foundations, I needed to go back and learn foundations thoroughly to understand Swift architecture. Went on a journey to learn UIKit & Storyboard after building this app.
 * Basic SwiftUI; Stacks, Spacers, Navigation Links, State Variables, Toggles, Pickers, Sliders.
