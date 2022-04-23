@@ -8,6 +8,7 @@
 ## Description
 * An application to learn Chinese BPMF.
 * This was my first attempt in developing an application, without proper foundations (no design pattern implemented, no best practices implemented)
+* Available in the App Store.
 
 ## Frameworks
 * SwiftUI
