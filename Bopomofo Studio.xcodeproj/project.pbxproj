@@ -3,19 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5215400B279F79B100CDD9FB /* ContentPreviewZhuyin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400A279F79B100CDD9FB /* ContentPreviewZhuyin.swift */; };
-		5215400D279F79C300CDD9FB /* ContentPreviewVocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400C279F79C300CDD9FB /* ContentPreviewVocabulary.swift */; };
-		5215400F27A386F100CDD9FB /* VocabularySettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400E27A386F100CDD9FB /* VocabularySettings.swift */; };
-		522D4F3126D1805500578A82 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522D4F3026D1805500578A82 /* Images.xcassets */; };
+		522D4F3126D1805500578A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522D4F3026D1805500578A82 /* Assets.xcassets */; };
 		5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */; };
 		5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17726A5CB3E00C7BC56 /* ContentView.swift */; };
 		5237C18826A5CB4000C7BC56 /* Bopomofo_StudioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C18726A5CB4000C7BC56 /* Bopomofo_StudioTests.swift */; };
 		5237C19326A5CB4000C7BC56 /* Bopomofo_StudioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C19226A5CB4000C7BC56 /* Bopomofo_StudioUITests.swift */; };
 		5237C1A126A5CC0800C7BC56 /* Zhuyin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C1A026A5CC0800C7BC56 /* Zhuyin.swift */; };
+		5246F5262837A2F7006D0A10 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5246F5252837A2F7006D0A10 /* Launch Screen.storyboard */; };
 		5253431B2751026400C439AC /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5253431A2751026400C439AC /* ding.mp3 */; };
 		5253431D275102F300C439AC /* bonk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5253431C275102F300C439AC /* bonk.mp3 */; };
 		5253431F2751034A00C439AC /* eng.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5253431E2751034A00C439AC /* eng.mp3 */; };
@@ -93,12 +92,12 @@
 		5253446D275360D100C439AC /* M_ㄒ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52534448275360D100C439AC /* M_ㄒ.mp3 */; };
 		5253446E275360D100C439AC /* M_ㄆ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52534449275360D100C439AC /* M_ㄆ.mp3 */; };
 		5253446F275360D100C439AC /* M_ㄦ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5253444A275360D100C439AC /* M_ㄦ.mp3 */; };
-		5254DEFD27A552BC00C67ED6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5254DEFC27A552BC00C67ED6 /* GoogleService-Info.plist */; };
 		52C479AD26AB886900E3540F /* ZhuyinSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479AC26AB886900E3540F /* ZhuyinSettings.swift */; };
-		52C479B126AC8DFE00E3540F /* Vocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479B026AC8DFE00E3540F /* Vocabulary.swift */; };
-		52C479B326B3906200E3540F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C479B226B3906200E3540F /* Test.swift */; };
-		52D1A9732784676D00C0D14E /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D1A9722784676D00C0D14E /* Flashcard.swift */; };
-		9CFE9044D1BD2D3BA71605EA /* Pods_Bopomofo_Studio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058BC81D9E897734AA79DFB3 /* Pods_Bopomofo_Studio.framework */; };
+		52D43812282BD12700FFCAEB /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D43811282BD12700FFCAEB /* SoundManager.swift */; };
+		52D43814282BD15C00FFCAEB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D43813282BD15C00FFCAEB /* Constants.swift */; };
+		52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D43815282BD67200FFCAEB /* ZhuyinViewModel.swift */; };
+		52D43818282BD70C00FFCAEB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D43817282BD70C00FFCAEB /* SettingsViewModel.swift */; };
+		52D4381A282BE1A400FFCAEB /* TestList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D43819282BE1A400FFCAEB /* TestList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,13 +118,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		058BC81D9E897734AA79DFB3 /* Pods_Bopomofo_Studio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bopomofo_Studio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B92228B8BA30BD212E18049 /* Pods-Bopomofo Studio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bopomofo Studio.debug.xcconfig"; path = "Target Support Files/Pods-Bopomofo Studio/Pods-Bopomofo Studio.debug.xcconfig"; sourceTree = "<group>"; };
-		41344EA566991621591060E5 /* Pods-Bopomofo Studio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bopomofo Studio.release.xcconfig"; path = "Target Support Files/Pods-Bopomofo Studio/Pods-Bopomofo Studio.release.xcconfig"; sourceTree = "<group>"; };
 		5215400A279F79B100CDD9FB /* ContentPreviewZhuyin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewZhuyin.swift; sourceTree = "<group>"; };
-		5215400C279F79C300CDD9FB /* ContentPreviewVocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewVocabulary.swift; sourceTree = "<group>"; };
-		5215400E27A386F100CDD9FB /* VocabularySettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularySettings.swift; sourceTree = "<group>"; };
-		522D4F3026D1805500578A82 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		522D4F3026D1805500578A82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bopomofo Studio.swift"; sourceTree = "<group>"; };
 		5237C17726A5CB3E00C7BC56 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -137,6 +131,7 @@
 		5237C19226A5CB4000C7BC56 /* Bopomofo_StudioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bopomofo_StudioUITests.swift; sourceTree = "<group>"; };
 		5237C19426A5CB4000C7BC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5237C1A026A5CC0800C7BC56 /* Zhuyin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zhuyin.swift; sourceTree = "<group>"; };
+		5246F5252837A2F7006D0A10 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5253431A2751026400C439AC /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
 		5253431C275102F300C439AC /* bonk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bonk.mp3; sourceTree = "<group>"; };
 		5253431E2751034A00C439AC /* eng.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eng.mp3; sourceTree = "<group>"; };
@@ -214,11 +209,12 @@
 		52534448275360D100C439AC /* M_ㄒ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M_ㄒ.mp3"; sourceTree = "<group>"; };
 		52534449275360D100C439AC /* M_ㄆ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M_ㄆ.mp3"; sourceTree = "<group>"; };
 		5253444A275360D100C439AC /* M_ㄦ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "M_ㄦ.mp3"; sourceTree = "<group>"; };
-		5254DEFC27A552BC00C67ED6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		52C479AC26AB886900E3540F /* ZhuyinSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhuyinSettings.swift; sourceTree = "<group>"; };
-		52C479B026AC8DFE00E3540F /* Vocabulary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vocabulary.swift; sourceTree = "<group>"; };
-		52C479B226B3906200E3540F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		52D1A9722784676D00C0D14E /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
+		52D43811282BD12700FFCAEB /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		52D43813282BD15C00FFCAEB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		52D43815282BD67200FFCAEB /* ZhuyinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhuyinViewModel.swift; sourceTree = "<group>"; };
+		52D43817282BD70C00FFCAEB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		52D43819282BE1A400FFCAEB /* TestList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +222,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CFE9044D1BD2D3BA71605EA /* Pods_Bopomofo_Studio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +249,6 @@
 				5237C18626A5CB4000C7BC56 /* Bopomofo StudioTests */,
 				5237C19126A5CB4000C7BC56 /* Bopomofo StudioUITests */,
 				5237C17326A5CB3E00C7BC56 /* Products */,
-				65DBD39273935108825FE155 /* Pods */,
-				FFD91978D626F846223E93A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -273,18 +266,14 @@
 			isa = PBXGroup;
 			children = (
 				5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */,
-				5237C17726A5CB3E00C7BC56 /* ContentView.swift */,
-				52C479AC26AB886900E3540F /* ZhuyinSettings.swift */,
-				5215400A279F79B100CDD9FB /* ContentPreviewZhuyin.swift */,
-				5237C1A026A5CC0800C7BC56 /* Zhuyin.swift */,
-				5215400E27A386F100CDD9FB /* VocabularySettings.swift */,
-				52C479B026AC8DFE00E3540F /* Vocabulary.swift */,
-				5215400C279F79C300CDD9FB /* ContentPreviewVocabulary.swift */,
-				52C479B226B3906200E3540F /* Test.swift */,
-				52D1A9722784676D00C0D14E /* Flashcard.swift */,
-				522D4F3026D1805500578A82 /* Images.xcassets */,
-				5254DEFC27A552BC00C67ED6 /* GoogleService-Info.plist */,
+				52D43810282BD10B00FFCAEB /* Managers */,
+				52D4380F282BD0F900FFCAEB /* Model */,
+				52D4380D282BD0E000FFCAEB /* View */,
+				52D4380E282BD0E500FFCAEB /* ViewModel */,
+				52D43813282BD15C00FFCAEB /* Constants.swift */,
+				522D4F3026D1805500578A82 /* Assets.xcassets */,
 				5237C17E26A5CB4000C7BC56 /* Info.plist */,
+				5246F5252837A2F7006D0A10 /* Launch Screen.storyboard */,
 				525344252753606200C439AC /* Male BPMF */,
 				5253436B2751503900C439AC /* Female BPMF */,
 				52C258BC2750D54A002265EB /* Sounds */,
@@ -416,21 +405,40 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		65DBD39273935108825FE155 /* Pods */ = {
+		52D4380D282BD0E000FFCAEB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2B92228B8BA30BD212E18049 /* Pods-Bopomofo Studio.debug.xcconfig */,
-				41344EA566991621591060E5 /* Pods-Bopomofo Studio.release.xcconfig */,
+				5237C17726A5CB3E00C7BC56 /* ContentView.swift */,
+				52C479AC26AB886900E3540F /* ZhuyinSettings.swift */,
+				5215400A279F79B100CDD9FB /* ContentPreviewZhuyin.swift */,
+				5237C1A026A5CC0800C7BC56 /* Zhuyin.swift */,
 			);
-			path = Pods;
+			path = View;
 			sourceTree = "<group>";
 		};
-		FFD91978D626F846223E93A3 /* Frameworks */ = {
+		52D4380E282BD0E500FFCAEB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				058BC81D9E897734AA79DFB3 /* Pods_Bopomofo_Studio.framework */,
+				52D43815282BD67200FFCAEB /* ZhuyinViewModel.swift */,
 			);
-			name = Frameworks;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		52D4380F282BD0F900FFCAEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52D43817282BD70C00FFCAEB /* SettingsViewModel.swift */,
+				52D43819282BE1A400FFCAEB /* TestList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		52D43810282BD10B00FFCAEB /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				52D43811282BD12700FFCAEB /* SoundManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,11 +448,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5237C19726A5CB4000C7BC56 /* Build configuration list for PBXNativeTarget "Bopomofo Studio" */;
 			buildPhases = (
-				063EE994A33C7D4C3C187CFC /* [CP] Check Pods Manifest.lock */,
 				5237C16E26A5CB3E00C7BC56 /* Sources */,
 				5237C16F26A5CB3E00C7BC56 /* Frameworks */,
 				5237C17026A5CB3E00C7BC56 /* Resources */,
-				6E80629A9741822450C5D29B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -498,7 +504,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					5237C17126A5CB3E00C7BC56 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -575,6 +581,7 @@
 				5253441827521DDA00C439AC /* F_ㄓ.mp3 in Resources */,
 				5253445E275360D100C439AC /* M_ㄝ.mp3 in Resources */,
 				5253446C275360D100C439AC /* M_ㄤ.mp3 in Resources */,
+				5246F5262837A2F7006D0A10 /* Launch Screen.storyboard in Resources */,
 				5253440A27521DDA00C439AC /* F_ㄤ.mp3 in Resources */,
 				5253441E27521DDA00C439AC /* F_ㄩ.mp3 in Resources */,
 				5253440427521DDA00C439AC /* F_ㄦ.mp3 in Resources */,
@@ -586,7 +593,7 @@
 				52534455275360D100C439AC /* M_ㄔ.mp3 in Resources */,
 				5253445B275360D100C439AC /* M_ㄌ.mp3 in Resources */,
 				52534469275360D100C439AC /* M_ㄑ.mp3 in Resources */,
-				522D4F3126D1805500578A82 /* Images.xcassets in Resources */,
+				522D4F3126D1805500578A82 /* Assets.xcassets in Resources */,
 				5253441627521DDA00C439AC /* F_ㄘ.mp3 in Resources */,
 				5253440327521DDA00C439AC /* F_ㄒ.mp3 in Resources */,
 				5253441C27521DDA00C439AC /* F_ㄅ.mp3 in Resources */,
@@ -605,7 +612,6 @@
 				5253444E275360D100C439AC /* M_ㄡ.mp3 in Resources */,
 				5253441327521DDA00C439AC /* F_ㄨ.mp3 in Resources */,
 				5253441527521DDA00C439AC /* F_ㄢ.mp3 in Resources */,
-				5254DEFD27A552BC00C67ED6 /* GoogleService-Info.plist in Resources */,
 				52534457275360D100C439AC /* M_ㄞ.mp3 in Resources */,
 				5253442427521DDA00C439AC /* F_ㄛ.mp3 in Resources */,
 				5253444F275360D100C439AC /* M_ㄟ.mp3 in Resources */,
@@ -636,63 +642,21 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		063EE994A33C7D4C3C187CFC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Bopomofo Studio-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6E80629A9741822450C5D29B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bopomofo Studio/Pods-Bopomofo Studio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bopomofo Studio/Pods-Bopomofo Studio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bopomofo Studio/Pods-Bopomofo Studio-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		5237C16E26A5CB3E00C7BC56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5215400D279F79C300CDD9FB /* ContentPreviewVocabulary.swift in Sources */,
 				5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */,
-				52D1A9732784676D00C0D14E /* Flashcard.swift in Sources */,
-				52C479B126AC8DFE00E3540F /* Vocabulary.swift in Sources */,
-				5215400F27A386F100CDD9FB /* VocabularySettings.swift in Sources */,
 				5237C1A126A5CC0800C7BC56 /* Zhuyin.swift in Sources */,
+				52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
-				52C479B326B3906200E3540F /* Test.swift in Sources */,
 				52C479AD26AB886900E3540F /* ZhuyinSettings.swift in Sources */,
+				52D43812282BD12700FFCAEB /* SoundManager.swift in Sources */,
 				5215400B279F79B100CDD9FB /* ContentPreviewZhuyin.swift in Sources */,
+				52D43814282BD15C00FFCAEB /* Constants.swift in Sources */,
+				52D43818282BD70C00FFCAEB /* SettingsViewModel.swift in Sources */,
+				52D4381A282BE1A400FFCAEB /* TestList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,7 +738,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = NO;
@@ -790,7 +754,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -855,7 +819,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -867,7 +831,6 @@
 		};
 		5237C19826A5CB4000C7BC56 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B92228B8BA30BD212E18049 /* Pods-Bopomofo Studio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -885,13 +848,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		5237C19926A5CB4000C7BC56 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41344EA566991621591060E5 /* Pods-Bopomofo Studio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -909,7 +871,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

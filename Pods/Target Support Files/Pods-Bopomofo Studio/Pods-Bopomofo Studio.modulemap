@@ -1,6 +1,0 @@
-framework module Pods_Bopomofo_Studio {
-  umbrella header "Pods-Bopomofo Studio-umbrella.h"
-
-  export *
-  module * { export * }
-}
