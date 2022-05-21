@@ -109,36 +109,34 @@ struct Zhuyin: View {
             }
             
             if timeRemaining <= 0 {
-                TestResults(testType: settings.testType, timerValue: settings.timerValue, viewModel: viewModel)
-            }
-        }
-    }
-}
-
-
-struct TestResults: View {
-    
-    let testType : String
-    let timerValue : Double
-    let viewModel : ZhuyinViewModel
-    
-    var body: some View {
-        ZStack{
-            Color.gray
-                .edgesIgnoringSafeArea(.all)
-            Button("Return") {
-                if testType == "Zhuyin"{
-                    if viewModel.score > UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(timerValue)){
-                        UserDefaults.standard.set(viewModel.score, forKey: "highscore-zhuyin"+String(timerValue))
-                    }
-                } else {
-                    if viewModel.score > UserDefaults.standard.integer(forKey: "highscore-pinyinzhuyin"+String(timerValue)){
-                        UserDefaults.standard.set(viewModel.score, forKey: "highscore-pinyintozhuyin"+String(timerValue))
+                ZStack{
+                    Color.accentColor
+                        .edgesIgnoringSafeArea(.all)
+                    VStack{
+                        Text("Time Setting : \(String(format: "%.0f",timerValue))seconds").foregroundColor(.white)
+                        Text("Score: \(viewModel.score)")
+                            .foregroundColor(.white)
+                        Text("High Score: \(UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(timerValue)))")
+                            .foregroundColor(.white)
+                        Button("Return") {
+                            if settings.testType == "Zhuyin"{
+                                if viewModel.score > UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(timerValue)){
+                                    UserDefaults.standard.set(viewModel.score, forKey: "highscore-zhuyin"+String(timerValue))
+                                }
+                            } else {
+                                if viewModel.score > UserDefaults.standard.integer(forKey: "highscore-pinyinzhuyin"+String(timerValue)){
+                                    UserDefaults.standard.set(viewModel.score, forKey: "highscore-pinyintozhuyin"+String(timerValue))
+                                }
+                            }
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                        .foregroundColor(.white)
+                        .font(.system(size:70))
                     }
                 }
+                .navigationBarBackButtonHidden(true)
+                
             }
-            .foregroundColor(.white)
-            .font(.system(size:70))
         }
     }
 }
