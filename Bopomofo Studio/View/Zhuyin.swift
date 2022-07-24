@@ -128,6 +128,7 @@ struct Zhuyin: View {
                                     UserDefaults.standard.set(viewModel.score, forKey: "highscore-pinyintozhuyin"+String(timerValue))
                                 }
                             }
+                            ReviewManager.shared.updateSessionsCompleted()
                             presentationMode.wrappedValue.dismiss()
                         }
                         .foregroundColor(.white)
