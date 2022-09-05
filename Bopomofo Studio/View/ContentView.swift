@@ -16,15 +16,15 @@ struct ContentView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: Constants.screenWidth/2)
-                Text("Bopomofo Studio")
-                    .font(.largeTitle)
-                    .foregroundColor(.accentColor)
-                NavigationLink(destination: ZhuyinSettings()) {
-                    SelectionNavigation(title: "Zhuyin")
+                    .padding()
+                
+                NavigationLink(destination: SettingsView()) {
+                    Text("START_BUTTON")
+                        .font(.largeTitle)
                 }
             }
             .font(.custom("copperplate", size: 20))
-            .frame(maxWidth:Constants.screenWidth)
+            .frame(maxWidth: Constants.screenWidth)
             .padding()
         }
     }

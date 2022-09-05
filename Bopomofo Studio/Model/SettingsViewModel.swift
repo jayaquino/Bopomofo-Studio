@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SettingsViewModel: ObservableObject{
+class SettingsViewModel: ObservableObject {
     @Published var pronunciationTextMode : Bool = false
     @Published var pronunciationVoiceMode : Bool = false
     @Published var timerValue : Double = 30

@@ -1,0 +1,16 @@
+
+//MARK: - TITLES
+"BPMF_TITLE" = "BPMF";
+"PINYIN_TO_ZHUYIN_TITLE" = "Pinyin to Zhuyin";
+"ZHUYIN_TITLE" = "Zhuyin";
+"SETTINGS_TITLE" = "Settings";
+"CONTENT_PREVIEW_TITLE" = "CONTENT_PREVIEW_TITLE";
+
+//MARK_
+
+//MARK: - TOGGLE
+"TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE" = "Pronunciation Text Assistance";
+"TOGGLE_PRONUNCIATION_VOICE_ASSISTANCE" = "Pronunciation Voice Assistance";
+//MARK: - BUTTON
+"START_BUTTON" = "Start";
+

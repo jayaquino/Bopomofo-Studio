@@ -9,20 +9,20 @@ import SwiftUI
 
 
 
-struct ZhuyinSettings: View {
+struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var settings : SettingsViewModel
     
-    let testTypes = ["Zhuyin","Pinyin To Zhuyin"]
+    let testTypes = ["ZHUYIN_TITLE","PINYIN_TO_ZHUYIN_TITLE"]
     let voices = ["Female","Male"]
     
     var body: some View {
-        VStack{
-            Toggle("Pronunciation Text Assistance", isOn: self.$settings.pronunciationTextMode)
+        VStack {
+            Toggle("TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE", isOn: self.$settings.pronunciationTextMode)
                 .padding()
             
-            Toggle("Pronunciation Voice Assistance", isOn: self.$settings.pronunciationVoiceMode)
+            Toggle("TOGGLE_PRONUNCIATION_VOICE_ASSISTANCE", isOn: self.$settings.pronunciationVoiceMode)
                 .padding()
             
             if self.settings.pronunciationVoiceMode == true{
@@ -38,9 +38,9 @@ struct ZhuyinSettings: View {
                 }.padding()
             }
             
-            Picker("Style", selection: $settings.testType) {
+            Picker("", selection: $settings.testType) {
                 ForEach(testTypes, id: \.self) {
-                    Text($0)
+                    Text(LocalizedStringKey($0))
                         .padding()
                         .font(.custom("copperplate",size: 30))
                 }
@@ -48,23 +48,15 @@ struct ZhuyinSettings: View {
             .pickerStyle(SegmentedPickerStyle())
             .frame(width: Constants.screenWidth, height: 100)
             .padding()
-            
-            NavigationLink(destination: ContentPreviewZhuyin()){
-                Text("Preview")
-                    .frame(width: 200, height: 30, alignment: .center)
-                    .font(.system(size: 30, weight: .medium))
-                    .padding()
-                    .background(Color.accentColor)
-                    .cornerRadius(30)
-                    .foregroundColor(.white)
-            }
         }
+        .navigationTitle("SETTINGS_TITLE")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct ZhuyinSettings_Previews: PreviewProvider {
     
     static var previews: some View {
-        ZhuyinSettings().environmentObject(SettingsViewModel())
+        SettingsView().environmentObject(SettingsViewModel())
     }
 }

@@ -7,16 +7,15 @@
 
 import SwiftUI
 
-struct ContentPreviewZhuyin: View {
+struct ContentPreviewView: View {
     @Environment(\.presentationMode) var presentationMode
-    
     @EnvironmentObject var settings: SettingsViewModel
     @State var timerValue = 30.0
     
     let testList = TestList()
     
     var body: some View {
-        VStack{
+        VStack {
             ScrollView{
                 if settings.testType == "Zhuyin"{
                     HStack {
@@ -87,7 +86,7 @@ struct ContentPreviewZhuyin: View {
             Text("Timer (s): \(timerValue, specifier: "%.2f")")
                 .foregroundColor(.accentColor)
             
-            NavigationLink(destination: Zhuyin(viewModel: ZhuyinViewModel(testType: settings.testType), testList: TestList(), timerValue: $timerValue)){
+            NavigationLink(destination: ZhuyinTestView(viewModel: ZhuyinViewModel(testType: settings.testType), testList: TestList(), timerValue: $timerValue)){
                 Text("Start")
                     .frame(width: 200, height: 30, alignment: .center)
                     .font(.system(size: 30, weight: .medium))
@@ -98,12 +97,23 @@ struct ContentPreviewZhuyin: View {
             }
             Spacer()
         }
+        .navigationTitle("CONTENT_PREVIEW_TITLE")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                NavigationLink {
+                    SettingsView()
+                } label: {
+                    Image("gear")
+                }
+            }
+        }
     }
 }
 
 struct ContentPreviewZhuyin_Previews: PreviewProvider {
     
     static var previews: some View {
-        ContentPreviewZhuyin().environmentObject(SettingsViewModel())
+        ContentPreviewView().environmentObject(SettingsViewModel())
     }
 }

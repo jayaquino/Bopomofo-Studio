@@ -8,7 +8,7 @@
 import SwiftUI
 import Darwin
 
-struct Zhuyin: View {
+struct ZhuyinTestView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @EnvironmentObject var settings : SettingsViewModel
@@ -113,7 +113,7 @@ struct Zhuyin: View {
                     Color.accentColor
                         .edgesIgnoringSafeArea(.all)
                     VStack{
-                        Text("Time Setting : \(String(format: "%.0f",timerValue))seconds").foregroundColor(.white)
+                        Text("Time Setting : \(String(format: "%.0f",timerValue)) seconds").foregroundColor(.white)
                         Text("Score: \(viewModel.score)")
                             .foregroundColor(.white)
                         Text("High Score: \(UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(timerValue)))")
@@ -168,6 +168,6 @@ struct KeyboardView: View {
 struct Zhuyin_Previews: PreviewProvider {
     
     static var previews: some View {
-        Zhuyin(viewModel: ZhuyinViewModel(testType: SettingsViewModel().testType), testList: TestList(),timerValue: .constant(3.0)).environmentObject(SettingsViewModel())
+        ZhuyinTestView(viewModel: ZhuyinViewModel(testType: SettingsViewModel().testType), testList: TestList(),timerValue: .constant(3.0)).environmentObject(SettingsViewModel())
     }
 }

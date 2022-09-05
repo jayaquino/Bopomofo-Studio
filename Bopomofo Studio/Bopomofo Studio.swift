@@ -11,7 +11,8 @@ import SwiftUI
 struct Bopomofo_StudioApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(SettingsViewModel())
+            ContentView()
+                .environmentObject(SettingsViewModel())
         }
     }
 }
