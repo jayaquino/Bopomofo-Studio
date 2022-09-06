@@ -267,13 +267,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		070D526428C5DD5200CDA918 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		07B653A328C5CC440036A1E6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,7 +288,6 @@
 				5237C18626A5CB4000C7BC56 /* Bopomofo StudioTests */,
 				5237C19126A5CB4000C7BC56 /* Bopomofo StudioUITests */,
 				5237C17326A5CB3E00C7BC56 /* Products */,
-				070D526428C5DD5200CDA918 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
