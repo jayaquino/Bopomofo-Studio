@@ -24,7 +24,6 @@ final class ReviewManager {
     }
     
     func updateSessionsCompleted() {
-        print(sessionsCompleted)
         sessionsCompleted += 1
         UserDefaults.standard.set(sessionsCompleted, forKey: "sessionsCompleted")
         showReviewAlertIfAppropriate()

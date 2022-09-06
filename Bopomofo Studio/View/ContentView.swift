@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var router: Router
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -18,7 +20,7 @@ struct ContentView: View {
                     .frame(width: Constants.screenWidth/2)
                     .padding()
                 
-                NavigationLink(destination: SettingsView()) {
+                NavigationLink(destination: router.contentPreview) {
                     Text("START_BUTTON")
                         .font(.largeTitle)
                 }
@@ -45,6 +47,6 @@ struct SelectionNavigation: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(SettingsViewModel())
+        ContentView()
     }
 }

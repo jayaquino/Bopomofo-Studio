@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct TestList {
+public struct TestList {
 
     //MARK: - Symbol List
-    let zhuyinSymbols = ["ㄅ","ㄆ","ㄇ","ㄈ","ㄉ","ㄊ","ㄋ","ㄌ","ˇ","ㄍ","ㄎ",
+    public let zhuyinSymbols = ["ㄅ","ㄆ","ㄇ","ㄈ","ㄉ","ㄊ","ㄋ","ㄌ","ˇ","ㄍ","ㄎ",
                          "ㄏ","ˋ","ㄐ","ㄑ","ㄒ","ㄓ","ㄔ","ㄕ","ㄖ","ˊ","ㄗ","ㄘ","ㄙ","˙","ㄧ","ㄨ","ㄩ","ㄚ","ㄛ","ㄜ","ㄝ","ㄞ","ㄟ","ㄠ","ㄡ","ㄢ","ㄣ","ㄤ","ㄥ","ㄦ"]
     
-    let pinyinSymbols = ["b","p","m","f","d","t","n","l","ˇ","g","k",
+    public let pinyinSymbols = ["b","p","m","f","d","t","n","l","ˇ","g","k",
                          "h","ˋ","j","q","x","zh","ch","sh","r","ˊ","z","c","s","˙","i","u","ü","a","o","e*","e","ai","ei","ao","ou","an","en","ang","eng","er"]
     
     //MARK: - Pronunciation List
-    let zhuyinPronunciation =
+    public let zhuyinPronunciation =
     ["b in boy",
      "p in pout",
      "m in mom",
@@ -60,7 +60,7 @@ struct TestList {
      "ngue in tongue",
      "ur in fur",]
     
-    let pinyinPronunciation =
+    public let pinyinPronunciation =
     ["ㄅ b in boy",
      "ㄆ p in pout",
      "ㄇ m in mom",
@@ -103,5 +103,5 @@ struct TestList {
      "ㄥ ngue in tongue",
      "ㄦ ur in fur"]
     
-    let pinyinDictionary : [String:String] = ["b":"ㄅ","p":"ㄆ","m":"ㄇ","f":"ㄈ","d":"ㄉ","t":"ㄊ","n":"ㄋ","l":"ㄌ","ˇ":"ˇ","g":"ㄍ","k":"ㄎ","h":"ㄏ","ˋ":"ˋ","j":"ㄐ","q":"ㄑ","x":"ㄒ","zh":"ㄓ","ch":"ㄔ","sh":"ㄕ","r":"ㄖ","ˊ":"ˊ","z":"ㄗ","c":"ㄘ","s":"ㄙ","˙":"˙","i":"ㄧ","u":"ㄨ","ü":"ㄩ","a":"ㄚ","o":"ㄛ","e":"ㄜ","e ":"ㄝ","ai":"ㄞ","ei":"ㄟ","ao":"ㄠ","ou":"ㄡ","an":"ㄢ","en":"ㄣ","ang":"ㄤ","eng":"ㄥ","er":"ㄦ"]
+    public let pinyinDictionary : [String:String] = ["b":"ㄅ","p":"ㄆ","m":"ㄇ","f":"ㄈ","d":"ㄉ","t":"ㄊ","n":"ㄋ","l":"ㄌ","ˇ":"ˇ","g":"ㄍ","k":"ㄎ","h":"ㄏ","ˋ":"ˋ","j":"ㄐ","q":"ㄑ","x":"ㄒ","zh":"ㄓ","ch":"ㄔ","sh":"ㄕ","r":"ㄖ","ˊ":"ˊ","z":"ㄗ","c":"ㄘ","s":"ㄙ","˙":"˙","i":"ㄧ","u":"ㄨ","ü":"ㄩ","a":"ㄚ","o":"ㄛ","e":"ㄜ","e ":"ㄝ","ai":"ㄞ","ei":"ㄟ","ao":"ㄠ","ou":"ㄡ","an":"ㄢ","en":"ㄣ","ang":"ㄤ","eng":"ㄥ","er":"ㄦ"]
 }

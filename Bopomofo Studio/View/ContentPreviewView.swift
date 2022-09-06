@@ -6,21 +6,22 @@
 //
 
 import SwiftUI
+import CoreBopomofoStudio
+import MockProvider
 
 struct ContentPreviewView: View {
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var settings: SettingsViewModel
-    @State var timerValue = 30.0
     
-    let testList = TestList()
-    
+    @EnvironmentObject var router: Router
+    @StateObject var viewModel: ContentPreviewViewModel
+        
     var body: some View {
         VStack {
             ScrollView{
-                if settings.testType == "Zhuyin"{
+                if viewModel.contentStore.testType == .zhuyin {
                     HStack {
                         VStack{
-                            ForEach(testList.zhuyinSymbols, id: \.self){symbol in
+                            ForEach(viewModel.contentStore.testList.zhuyinSymbols, id: \.self){symbol in
                                 Text(symbol)
                                     .padding(2)
                                     .font(.custom("chalkboard se", size: 18))
@@ -34,7 +35,7 @@ struct ContentPreviewView: View {
                         }.padding()
                         
                         VStack{
-                            ForEach(testList.zhuyinPronunciation, id: \.self){symbol in
+                            ForEach(viewModel.contentStore.testList.zhuyinPronunciation, id: \.self){symbol in
                                 Text(symbol)
                                     .padding(2)
                                     .font(.custom("chalkboard se",size: 20))
@@ -50,7 +51,7 @@ struct ContentPreviewView: View {
                 } else {
                     HStack{
                         VStack{
-                            ForEach(testList.pinyinSymbols, id: \.self){symbol in
+                            ForEach(viewModel.contentStore.testList.pinyinSymbols, id: \.self){symbol in
                                 Text(symbol)
                                     .padding(2)
                                     .font(.custom("chalkboard se", size: 18))
@@ -64,7 +65,7 @@ struct ContentPreviewView: View {
                         }.padding()
                         
                         VStack{
-                            ForEach(testList.pinyinPronunciation, id: \.self){symbol in
+                            ForEach(viewModel.contentStore.testList.pinyinPronunciation, id: \.self){symbol in
                                 Text(symbol)
                                     .padding(2)
                                     .font(.custom("chalkboard se",size: 20))
@@ -81,12 +82,12 @@ struct ContentPreviewView: View {
             }
             .foregroundColor(.accentColor)
             
-            Slider(value: $timerValue, in: 30...300, step:10).padding(10)
+            Slider(value: $viewModel.timerValue, in: 30...300, step:10).padding(10)
             
-            Text("Timer (s): \(timerValue, specifier: "%.2f")")
+            Text("Timer (s): \(viewModel.timerValue, specifier: "%.2f")")
                 .foregroundColor(.accentColor)
             
-            NavigationLink(destination: ZhuyinTestView(viewModel: ZhuyinViewModel(testType: settings.testType), testList: TestList(), timerValue: $timerValue)){
+            NavigationLink(destination: router.zhuyinTestView()) {
                 Text("Start")
                     .frame(width: 200, height: 30, alignment: .center)
                     .font(.system(size: 30, weight: .medium))
@@ -100,11 +101,11 @@ struct ContentPreviewView: View {
         .navigationTitle("CONTENT_PREVIEW_TITLE")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
+            ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
-                    SettingsView()
+                    router.settingsView()
                 } label: {
-                    Image("gear")
+                    Image(systemName: "gear")
                 }
             }
         }
@@ -114,6 +115,7 @@ struct ContentPreviewView: View {
 struct ContentPreviewZhuyin_Previews: PreviewProvider {
     
     static var previews: some View {
-        ContentPreviewView().environmentObject(SettingsViewModel())
+        ContentPreviewView(
+            viewModel: ContentPreviewViewModel(contentStore: ContentStore(provider: MockContentProvider())))
     }
 }

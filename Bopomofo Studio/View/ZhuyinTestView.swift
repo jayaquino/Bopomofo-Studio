@@ -7,27 +7,14 @@
 
 import SwiftUI
 import Darwin
+import CoreBopomofoStudio
+import MockProvider
 
 struct ZhuyinTestView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @EnvironmentObject var settings : SettingsViewModel
     @ObservedObject var viewModel : ZhuyinViewModel
-    let testList : TestList
-    
-    // Scoring
-    @Binding var timerValue : Double
-    @State var timeRemaining : Double
-    
-    init (viewModel : ZhuyinViewModel, testList : TestList, timerValue: Binding<Double>) {
         
-        self.viewModel = viewModel
-        self.testList = testList
-        self._timerValue = timerValue
-        
-        self._timeRemaining = State(initialValue: timerValue.wrappedValue)
-    }
-    
     // Timer
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     
@@ -44,8 +31,8 @@ struct ZhuyinTestView: View {
                         .cornerRadius(20)
                         .shadow(radius: 3)
                     
-                    if settings.testType == "Zhuyin"{
-                        Text("High Score: " + String(UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(timerValue))))
+                    if viewModel.contentStore.testType == .zhuyin {
+                        Text("High Score: " + String(UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(viewModel.contentStore.timerValue))))
                             .padding()
                             .frame(minWidth: Constants.screenWidth*8/10/2,alignment:.center)
                             .foregroundColor(.white)
@@ -54,7 +41,7 @@ struct ZhuyinTestView: View {
                             .shadow(radius: 3)
                     }
                     else {
-                        Text("High Score: " + String(UserDefaults.standard.integer(forKey: "highscore-pinyintozhuyin"+String(timerValue)))).padding()
+                        Text("High Score: " + String(UserDefaults.standard.integer(forKey: "highscore-pinyintozhuyin"+String(viewModel.contentStore.timerValue)))).padding()
                             .frame(minWidth: Constants.screenWidth*8/10/2,alignment:.center)
                             .foregroundColor(.white)
                             .background(Color.accentColor)
@@ -62,6 +49,7 @@ struct ZhuyinTestView: View {
                             .shadow(radius: 3)
                     }
                 }
+                .padding()
                 
                 ZStack{
                     VStack{
@@ -71,18 +59,18 @@ struct ZhuyinTestView: View {
                             .font(.system(size:150))
                             .foregroundColor(.accentColor)
                             .frame(height: 200)
-                            .onAppear{let randomNumber = Int.random(in: 0...testList.zhuyinSymbols.count-1)
-                                viewModel.randomSymbol = testList.zhuyinSymbols[randomNumber]
-                                if settings.testType == "Zhuyin"{
-                                    viewModel.displaySymbol = testList.zhuyinSymbols[randomNumber]
-                                    viewModel.randomSymbolExample = testList.zhuyinSymbols[randomNumber]
+                            .onAppear{let randomNumber = Int.random(in: 0...viewModel.contentStore.testList.zhuyinSymbols.count-1)
+                                viewModel.randomSymbol = viewModel.contentStore.testList.zhuyinSymbols[randomNumber]
+                                if viewModel.contentStore.testType == .zhuyin {
+                                    viewModel.displaySymbol = viewModel.contentStore.testList.zhuyinSymbols[randomNumber]
+                                    viewModel.randomSymbolExample = viewModel.contentStore.testList.zhuyinSymbols[randomNumber]
                                 } else {
-                                    viewModel.displaySymbol = testList.pinyinSymbols[randomNumber]
-                                    viewModel.randomSymbolExample = testList.pinyinSymbols[randomNumber]
+                                    viewModel.displaySymbol = viewModel.contentStore.testList.pinyinSymbols[randomNumber]
+                                    viewModel.randomSymbolExample = viewModel.contentStore.testList.pinyinSymbols[randomNumber]
                                 }
                             }
                                
-                        if settings.pronunciationTextMode == true {
+                        if viewModel.contentStore.pronunciationTextMode == true {
                             Text(viewModel.randomSymbolExample)
                                 .padding()
                                 .opacity(0.5)
@@ -92,9 +80,9 @@ struct ZhuyinTestView: View {
                 }
                 
                 HStack{
-                    Text("Time Remaining: \(String(format: "%.0f", timeRemaining)) s").onReceive(timer) { _ in
-                        if timeRemaining > 0 {
-                            timeRemaining -= 1
+                    Text("Time Remaining: \(String(format: "%.0f", viewModel.timer)) s").onReceive(timer) { _ in
+                        if viewModel.timer > 0 {
+                            viewModel.timer -= 1
                         }
                     }
                     .foregroundColor(.accentColor)
@@ -108,24 +96,30 @@ struct ZhuyinTestView: View {
                 Spacer()
             }
             
-            if timeRemaining <= 0 {
+            if viewModel.testFinished {
                 ZStack{
                     Color.accentColor
                         .edgesIgnoringSafeArea(.all)
-                    VStack{
-                        Text("Time Setting : \(String(format: "%.0f",timerValue)) seconds").foregroundColor(.white)
-                        Text("Score: \(viewModel.score)")
+                    VStack (spacing: 10) {
+                        Text("Time Setting : \(String(format: "%.0f",viewModel.contentStore.timerValue)) seconds").foregroundColor(.white)
+                        Text(viewModel.score > 0 ? "Score: \(viewModel.score)" : "Try Again!")
                             .foregroundColor(.white)
-                        Text("High Score: \(UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(timerValue)))")
+                        if let scorePercentage = viewModel.scorePercentage {
+                            Text("Your score beats or equals \(scorePercentage , specifier: "%.1f")% of people who took this test!")
+                                .foregroundColor(.white)
+                                .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
+                        }
+                        Text("High Score: \(UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(viewModel.contentStore.timerValue)))")
                             .foregroundColor(.white)
                         Button("Return") {
-                            if settings.testType == "Zhuyin"{
-                                if viewModel.score > UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(timerValue)){
-                                    UserDefaults.standard.set(viewModel.score, forKey: "highscore-zhuyin"+String(timerValue))
+                            if viewModel.contentStore.testType == .zhuyin {
+                                if viewModel.score > UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(viewModel.contentStore.timerValue)){
+                                    UserDefaults.standard.set(viewModel.score, forKey: "highscore-zhuyin"+String(viewModel.contentStore.timerValue))
                                 }
                             } else {
-                                if viewModel.score > UserDefaults.standard.integer(forKey: "highscore-pinyinzhuyin"+String(timerValue)){
-                                    UserDefaults.standard.set(viewModel.score, forKey: "highscore-pinyintozhuyin"+String(timerValue))
+                                if viewModel.score > UserDefaults.standard.integer(forKey: "highscore-pinyinzhuyin"+String(viewModel.contentStore.timerValue)){
+                                    UserDefaults.standard.set(viewModel.score, forKey: "highscore-pinyintozhuyin"+String(viewModel.contentStore.timerValue))
                                 }
                             }
                             ReviewManager.shared.updateSessionsCompleted()
@@ -136,9 +130,9 @@ struct ZhuyinTestView: View {
                     }
                 }
                 .navigationBarBackButtonHidden(true)
-                
             }
         }
+        .navigationBarHidden(true)
     }
 }
 
@@ -147,14 +141,13 @@ struct KeyboardView: View {
     let keyboardRow : [String]
     let spacing : CGFloat
     let viewModel : ZhuyinViewModel
-    @EnvironmentObject var settings : SettingsViewModel
     
     var body: some View {
         HStack(spacing: spacing){
             ForEach(keyboardRow, id: \.self) { symbol in
                 Button(symbol) {
                     viewModel.checkSymbols(a:symbol,b:viewModel.randomSymbol)
-                    viewModel.generateNewSymbol(pronunciationVoiceMode: settings.pronunciationVoiceMode, voiceSelection: settings.voiceSelection)
+                    viewModel.generateNewSymbol(pronunciationVoiceMode: viewModel.contentStore.pronunciationVoiceMode, voiceSelection: viewModel.contentStore.voiceSelection.rawValue)
                 }
                 .font(.system(size: 20, weight: .medium))
                 .frame(width: Constants.screenWidth/17)
@@ -168,6 +161,6 @@ struct KeyboardView: View {
 struct Zhuyin_Previews: PreviewProvider {
     
     static var previews: some View {
-        ZhuyinTestView(viewModel: ZhuyinViewModel(testType: SettingsViewModel().testType), testList: TestList(),timerValue: .constant(3.0)).environmentObject(SettingsViewModel())
+        ZhuyinTestView(viewModel: ZhuyinViewModel(contentStore: ContentStore(provider: MockContentProvider())))
     }
 }

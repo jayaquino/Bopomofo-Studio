@@ -6,30 +6,27 @@
 //
 
 import SwiftUI
-
-
+import CoreBopomofoStudio
+import MockProvider
 
 struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var settings : SettingsViewModel
-    
-    let testTypes = ["ZHUYIN_TITLE","PINYIN_TO_ZHUYIN_TITLE"]
-    let voices = ["Female","Male"]
+    @StateObject var viewModel: SettingsViewModel
     
     var body: some View {
         VStack {
-            Toggle("TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE", isOn: self.$settings.pronunciationTextMode)
+            Toggle("TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE", isOn: $viewModel.pronunciationTextMode)
                 .padding()
             
-            Toggle("TOGGLE_PRONUNCIATION_VOICE_ASSISTANCE", isOn: self.$settings.pronunciationVoiceMode)
+            Toggle("TOGGLE_PRONUNCIATION_VOICE_ASSISTANCE", isOn: $viewModel.pronunciationVoiceMode)
                 .padding()
             
-            if self.settings.pronunciationVoiceMode == true{
+            if viewModel.pronunciationVoiceMode == true {
                 VStack{
-                    Picker("Style", selection: $settings.voiceSelection) {
-                        ForEach(voices, id: \.self) {
-                            Text($0)
+                    Picker("Style", selection: $viewModel.voiceSelection) {
+                        ForEach(ContentStore.VoiceSelection.allCases, id: \.self) {
+                            Text($0.rawValue)
                         }
                     }
                     .pickerStyle(InlinePickerStyle())
@@ -38,9 +35,9 @@ struct SettingsView: View {
                 }.padding()
             }
             
-            Picker("", selection: $settings.testType) {
-                ForEach(testTypes, id: \.self) {
-                    Text(LocalizedStringKey($0))
+            Picker("", selection: $viewModel.testType) {
+                ForEach(ContentStore.TestType.allCases, id: \.self) {
+                    Text(LocalizedStringKey($0.rawValue))
                         .padding()
                         .font(.custom("copperplate",size: 30))
                 }
@@ -57,6 +54,12 @@ struct SettingsView: View {
 struct ZhuyinSettings_Previews: PreviewProvider {
     
     static var previews: some View {
-        SettingsView().environmentObject(SettingsViewModel())
+        SettingsView(
+            viewModel: SettingsViewModel(
+                contentStore: ContentStore(
+                    provider: MockContentProvider()
+                )
+            )
+        )
     }
 }
