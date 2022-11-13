@@ -1,0 +1,11 @@
+//
+//  Release.xcconfig
+//  Bopomofo Studio
+//
+//  Created by Nelson Aquino Jr. on 11/13/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+MIXPANEL_KEY = e98128b594e3730b7d4320bc2ebbe01a
