@@ -23,12 +23,14 @@ open class AnalyticsProvider {
         
         case onboarding(event: OnboardingAnalyticEvent)
         case settings(event: SettingsAnalyticEvent)
+        case test(event: TestAnalyticEvent)
         
         public var eventName: String {
             switch self {
             case
                     .onboarding(event: let event as AnalyticTrackingProtocol),
-                    .settings(event: let event as AnalyticTrackingProtocol):
+                    .settings(event: let event as AnalyticTrackingProtocol),
+                    .test(event: let event as AnalyticTrackingProtocol):
                 
                 return event.eventName
             }
@@ -38,7 +40,8 @@ open class AnalyticsProvider {
             switch self {
             case
                     .onboarding(event: let event as AnalyticTrackingProtocol),
-                    .settings(event: let event as AnalyticTrackingProtocol):
+                    .settings(event: let event as AnalyticTrackingProtocol),
+                    .test(event: let event as AnalyticTrackingProtocol):
                 
                 return event.parameters
             }
@@ -70,6 +73,7 @@ open class AnalyticsProvider {
 
         case textAssistance(isOn: Bool)
         case voiceAssistance(isOn: Bool)
+        case voiceType(voiceType: String)
         
         public var eventName: String {
             switch self {
@@ -77,6 +81,8 @@ open class AnalyticsProvider {
                 return "Pronunciation_Text_Assistance_Changed"
             case .voiceAssistance:
                 return "Pronunciation_Voice_Assistance_Changed"
+            case .voiceType:
+                return "Pronunciation_Voice_Type_Changed"
             }
         }
         
@@ -86,6 +92,35 @@ open class AnalyticsProvider {
                     .textAssistance(isOn: let isOn),
                     .voiceAssistance(isOn: let isOn):
                 return ["isOn": isOn.description]
+                
+            case .voiceType(voiceType: let voiceType):
+                return ["voiceType": voiceType]
+            }
+        }
+        
+    }
+    
+    // MARK: - Test Analytics
+    public enum TestAnalyticEvent: AnalyticTrackingProtocol {
+
+        case beganTest(testSetting: String)
+        case finishedTest(testSetting: String)
+        
+        public var eventName: String {
+            switch self {
+            case .beganTest:
+                return "Test_Began"
+            case .finishedTest:
+                return "Test_Finished"
+            }
+        }
+        
+        public var parameters: [String : String] {
+            switch self {
+            case
+                    .beganTest(testSetting: let testSetting),
+                    .finishedTest(testSetting: let testSetting):
+                return ["testSetting": testSetting.appending("s")]
             }
         }
         

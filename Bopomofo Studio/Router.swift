@@ -25,7 +25,10 @@ class Router: ObservableObject {
     
     func zhuyinTestView() -> ZhuyinTestView {
         ZhuyinTestView(
-            viewModel: ZhuyinViewModel(contentStore: self.contentStore)
+            viewModel: ZhuyinViewModel(
+                contentStore: self.contentStore,
+                analytics: self.analytics
+            )
         )
     }
     

@@ -49,6 +49,7 @@ class SettingsViewModel: ObservableObject {
         $voiceSelection
             .sink { value in
                 self.contentStore.voiceSelection = value
+                self.trackEvent(event: .voiceType(voiceType: value.rawValue))
             }
             .store(in: &cancellables)
         

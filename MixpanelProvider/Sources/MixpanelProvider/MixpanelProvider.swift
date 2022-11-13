@@ -19,7 +19,7 @@ public class MixpanelProvider: AnalyticsProvider {
         Mixpanel.initialize(
             token: key,
             trackAutomaticEvents: true,
-            flushInterval: 10
+            flushInterval: 3
         )
         self.environment = environment
         super.init()
