@@ -13,9 +13,14 @@ import MockProvider
 class Router: ObservableObject {
     
     private let contentStore: ContentStore
+    private let analytics: AnalyticsProvider
     
-    init(contentStore: ContentStore) {
+    init(
+        contentStore: ContentStore,
+        analytics: AnalyticsProvider
+    ) {
         self.contentStore = contentStore
+        self.analytics = analytics
     }
     
     func zhuyinTestView() -> ZhuyinTestView {
@@ -26,7 +31,10 @@ class Router: ObservableObject {
     
     func settingsView() -> SettingsView {
         SettingsView(
-            viewModel: SettingsViewModel(contentStore: self.contentStore)
+            viewModel: SettingsViewModel(
+                contentStore: self.contentStore,
+                analytics: self.analytics
+            )
         )
     }
     

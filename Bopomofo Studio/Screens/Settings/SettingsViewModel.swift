@@ -12,6 +12,7 @@ import CoreBopomofoStudio
 class SettingsViewModel: ObservableObject {
     
     let contentStore: ContentStore
+    let analytics: AnalyticsProvider
     
     @Published var testType: ContentStore.TestType = .zhuyin
     @Published var voiceSelection: ContentStore.VoiceSelection = .female
@@ -20,14 +21,22 @@ class SettingsViewModel: ObservableObject {
     
     var cancellables = Set<AnyCancellable>()
     
-    init(contentStore: ContentStore) {
+    init(
+        contentStore: ContentStore,
+        analytics: AnalyticsProvider
+    ) {
+        self.analytics = analytics
         self.contentStore = contentStore
+
+        assignVariables()
+        addSubscribers()
+    }
+    
+    func assignVariables() {
         self.testType = contentStore.testType
         self.voiceSelection = contentStore.voiceSelection
         self.pronunciationTextMode = contentStore.pronunciationTextMode
         self.pronunciationVoiceMode = contentStore.pronunciationVoiceMode
-        
-        addSubscribers()
     }
     
     func addSubscribers() {
@@ -44,15 +53,23 @@ class SettingsViewModel: ObservableObject {
             .store(in: &cancellables)
         
         $pronunciationTextMode
-            .sink { value in
-                self.contentStore.pronunciationTextMode = value
+            .dropFirst()
+            .sink { isOn in
+                self.contentStore.pronunciationTextMode = isOn
+                self.trackEvent(event: .textAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
         
         $pronunciationVoiceMode
-            .sink { value in
-                self.contentStore.pronunciationVoiceMode = value
+            .dropFirst()
+            .sink { isOn in
+                self.contentStore.pronunciationVoiceMode = isOn
+                self.trackEvent(event: .voiceAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
+    }
+    
+    func trackEvent(event: AnalyticsProvider.SettingsAnalyticEvent) {
+        self.analytics.track(event: .settings(event: event))
     }
 }
