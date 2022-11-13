@@ -16,7 +16,6 @@ struct Bopomofo_StudioApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     let router: Router
-    let analytics: any AnalyticsProvider
     
     init() {
         FirebaseApp.configure()
@@ -25,8 +24,17 @@ struct Bopomofo_StudioApp: App {
             provider: FirebaseContentProvider(provider: FirebaseProvider())
         )
         
-        self.router = Router(contentStore: contentStore)
-        self.analytics = MixpanelProvider()
+       let analytics = MixpanelProvider(
+            key: EnvironmentKeys.mixpanelKey,
+            environment: EnvironmentKeys.environment
+        )
+        
+        self.router = Router(
+            contentStore: contentStore,
+            analytics: analytics
+        )
+        
+        
     }
         
     var body: some Scene {

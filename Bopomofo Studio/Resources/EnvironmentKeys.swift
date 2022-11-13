@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import CoreBopomofoStudio
 
 public enum EnvironmentKeys {
     enum Keys {
+        static let environment = "ENVIRONMENT"
         static let mixpanelKey = "MIXPANEL_KEY"
     }
     
@@ -21,6 +23,13 @@ public enum EnvironmentKeys {
     }()
     
     /// Get keys from plist
+    static let environment: AppEnvironment = {
+        guard let environment = AppEnvironment(rawValue: EnvironmentKeys.infoDictionary[Keys.environment] as? String ?? "") else {
+            fatalError("Environment not set in plist")
+        }
+        return environment
+    }()
+    
     static let mixpanelKey: String = {
         guard let oneSignalIdString = EnvironmentKeys.infoDictionary[Keys.mixpanelKey] as? String else {
             fatalError("Mixpanel Key not set in plist")

@@ -10,95 +10,35 @@ import CoreBopomofoStudio
 import Mixpanel
 
 public class MixpanelProvider: AnalyticsProvider {
+    let environment: AppEnvironment
     
-    public init() {}
+    public init(
+        key: String,
+        environment: AppEnvironment
+    ) {
+        Mixpanel.initialize(
+            token: key,
+            trackAutomaticEvents: true,
+            flushInterval: 3
+        )
+        self.environment = environment
+        super.init()
+        print("environment is: \(environment)")
+    }
     
     private var mixpanelInstance: MixpanelInstance {
         Mixpanel.mainInstance()
     }
     
-    public func track(event: AnalyticEvent) {
+    override public func track(event: AnalyticEvent) {
         Task {
             mixpanelInstance.track(
                 event: event.eventName,
                 properties: event.parameters
             )
         }
-    }
-    
-    public enum AnalyticEvent: AnalyticTrackingProtocol {
-        
-        case onboarding(event: OnboardingAnalyticEvent)
-        case settings(event: SettingsAnalyticEvent)
-        
-        public var eventName: String {
-            switch self {
-            case
-                    .onboarding(event: let event as AnalyticTrackingProtocol),
-                    .settings(event: let event as AnalyticTrackingProtocol):
-                
-                return event.eventName
-            }
+        if environment == .STAGING {
+            print("📊\nTracking \n\(event.eventName) \n\(event.parameters)")
         }
-        
-        public var parameters: [String: String] {
-            switch self {
-            case
-                    .onboarding(event: let event as AnalyticTrackingProtocol),
-                    .settings(event: let event as AnalyticTrackingProtocol):
-                
-                return event.parameters
-            }
-        }
-    }
-}
-
-// MARK: - Onboarding Analytics
-extension MixpanelProvider {
-    public enum OnboardingAnalyticEvent: AnalyticTrackingProtocol {
-        
-        case start
-        
-        public var eventName: String {
-            switch self {
-            case .start:
-                return "Onboarding_Started"
-            }
-        }
-        
-        public var parameters: [String : String] {
-            switch self {
-            case .start:
-                return [:]
-            }
-        }
-    }
-}
-
-// MARK: - Settings Analytics
-extension MixpanelProvider {
-    public enum SettingsAnalyticEvent: AnalyticTrackingProtocol {
-
-        case textAssistance(isOn: Bool)
-        case voiceAssistance(isOn: Bool)
-        
-        public var eventName: String {
-            switch self {
-            case .textAssistance:
-                return "Pronunciation_Text_Assistance_Changed"
-            case .voiceAssistance:
-                return "Pronunciation_Voice_Assistance_Changed"
-            }
-        }
-        
-        public var parameters: [String : String] {
-            switch self {
-            case
-                    .textAssistance(isOn: let isOn),
-                    .voiceAssistance(isOn: let isOn):
-                return ["isOn": isOn.description]
-            }
-        }
-        
     }
 }

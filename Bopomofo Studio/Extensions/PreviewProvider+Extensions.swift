@@ -11,6 +11,7 @@ import Foundation
 import SwiftUI
 import CoreBopomofoStudio
 import MockProvider
+import MixpanelProvider
 
 extension PreviewProvider {
     static var dev: DeveloperPreview {
@@ -24,11 +25,17 @@ struct DeveloperPreview {
     
     let router: Router
     let contentStore: ContentStore
+    let analytics: MixpanelProvider
     
     private init() {
         self.contentStore = ContentStore(provider: MockContentProvider())
+        self.analytics = MixpanelProvider(
+            key: "",
+            environment: .STAGING
+        )
         self.router = Router(
-            contentStore: self.contentStore
+            contentStore: self.contentStore,
+            analytics: self.analytics
         )
     }
 }
