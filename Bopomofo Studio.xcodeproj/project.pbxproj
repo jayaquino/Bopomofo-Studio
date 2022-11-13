@@ -126,6 +126,7 @@
 		07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewViewModel.swift; sourceTree = "<group>"; };
 		07248DF128C65141003FE4AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
+		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
 		07B653A428C5CCA70036A1E6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		07DFD73A29210FF200C23485 /* MixpanelProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MixpanelProvider; sourceTree = "<group>"; };
 		07DFD73F292117BA00C23485 /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
@@ -334,6 +335,7 @@
 		5237C17426A5CB3E00C7BC56 /* Bopomofo Studio */ = {
 			isa = PBXGroup;
 			children = (
+				07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */,
 				5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */,
 				070D526228C5DCCD00CDA918 /* Router.swift */,
 				070D525E28C5D76500CDA918 /* AppDelegate.swift */,
@@ -720,6 +722,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Bopomofo Studio/Bopomofo Studio.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V89Z8LQWPX;
 				ENABLE_PREVIEWS = YES;
@@ -882,6 +885,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Bopomofo Studio/Bopomofo Studio.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V89Z8LQWPX;
 				ENABLE_PREVIEWS = YES;
@@ -905,6 +909,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "Bopomofo Studio/Bopomofo Studio.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V89Z8LQWPX;
 				ENABLE_PREVIEWS = YES;
