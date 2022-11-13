@@ -7,6 +7,11 @@
 
 import Foundation
 
+public protocol AnalyticTrackingProtocol {
+    var eventName: String { get }
+    var parameters: [String: String] { get }
+}
+
 open class AnalyticsProvider {
     
     public init() {}
@@ -85,9 +90,4 @@ open class AnalyticsProvider {
         }
         
     }
-}
-
-public protocol AnalyticTrackingProtocol {
-    var eventName: String { get }
-    var parameters: [String: String] { get }
 }

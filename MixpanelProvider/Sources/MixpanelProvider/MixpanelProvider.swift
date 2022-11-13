@@ -9,11 +9,6 @@ import Foundation
 import CoreBopomofoStudio
 import Mixpanel
 
-public protocol AnalyticTrackingProtocol {
-    var eventName: String { get }
-    var parameters: [String: String] { get }
-}
-
 public class MixpanelProvider: AnalyticsProvider {
     let environment: AppEnvironment
     
