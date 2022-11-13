@@ -9,6 +9,7 @@ import SwiftUI
 import CoreBopomofoStudio
 import FirebaseProvider
 import Firebase
+import MixpanelProvider
 
 @main
 struct Bopomofo_StudioApp: App {
@@ -18,8 +19,22 @@ struct Bopomofo_StudioApp: App {
     
     init() {
         FirebaseApp.configure()
-        let contentStore = ContentStore(provider: FirebaseContentProvider(provider: FirebaseProvider()))
-        self.router = Router(contentStore: contentStore)
+        
+        let contentStore = ContentStore(
+            provider: FirebaseContentProvider(provider: FirebaseProvider())
+        )
+        
+       let analytics = MixpanelProvider(
+            key: EnvironmentKeys.mixpanelKey,
+            environment: EnvironmentKeys.environment
+        )
+        
+        self.router = Router(
+            contentStore: contentStore,
+            analytics: analytics
+        )
+        
+        
     }
         
     var body: some Scene {

@@ -13,6 +13,8 @@ import CoreBopomofoStudio
 class ZhuyinViewModel: ObservableObject, Identifiable {
     
     let contentStore: ContentStore
+    private let analytics: AnalyticsProvider
+    
     var cancellables = Set<AnyCancellable>()
     
     @Published var timer: Double
@@ -35,8 +37,12 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     }
 
     
-    init(contentStore: ContentStore) {
+    init(
+        contentStore: ContentStore,
+        analytics: AnalyticsProvider
+    ) {
         self.contentStore = contentStore
+        self.analytics = analytics
         self.timer = contentStore.timerValue
         let randomNumber = Int.random(in: 0...symbolList.count-1)
         randomSymbol = symbolList[randomNumber]
@@ -123,5 +129,9 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         }
         let scorePercentage = Double(score) / Double(maxScore) * 100.0
         return scorePercentage.rounded()
+    }
+    
+    func trackEvent(event: AnalyticsProvider.TestAnalyticEvent) {
+        self.analytics.track(event: .test(event: event))
     }
 }

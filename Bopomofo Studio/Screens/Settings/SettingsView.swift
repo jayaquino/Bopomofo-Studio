@@ -56,9 +56,8 @@ struct ZhuyinSettings_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(
             viewModel: SettingsViewModel(
-                contentStore: ContentStore(
-                    provider: MockContentProvider()
-                )
+                contentStore: dev.contentStore,
+                analytics: dev.analytics
             )
         )
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class ContentStore {
+public class ContentStore: ObservableObject {
     private let provider: ContentProvider
 
     public init(provider: ContentProvider) {

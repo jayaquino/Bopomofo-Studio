@@ -133,6 +133,12 @@ struct ZhuyinTestView: View {
             }
         }
         .navigationBarHidden(true)
+        .onAppear {
+            viewModel.trackEvent(event: .beganTest(testSetting: viewModel.contentStore.timerValue.description))
+        }
+        .onDisappear {
+            viewModel.trackEvent(event: .finishedTest(testSetting: viewModel.contentStore.timerValue.description))
+        }
     }
 }
 
@@ -161,6 +167,9 @@ struct KeyboardView: View {
 struct Zhuyin_Previews: PreviewProvider {
     
     static var previews: some View {
-        ZhuyinTestView(viewModel: ZhuyinViewModel(contentStore: ContentStore(provider: MockContentProvider())))
+        ZhuyinTestView(viewModel: ZhuyinViewModel(
+            contentStore: ContentStore(provider: MockContentProvider()),
+            analytics: dev.analytics)
+        )
     }
 }
