@@ -22,6 +22,9 @@
 		07B653A528C5CCA70036A1E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07B653A428C5CCA70036A1E6 /* Localizable.strings */; };
 		07DFD73729210D7C00C23485 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 07DFD73629210D7C00C23485 /* Mixpanel */; };
 		07DFD73E292112BD00C23485 /* PreviewProvider+DeveloperPreview in Sources */ = {isa = PBXBuildFile; fileRef = 07DFD73D292112BD00C23485 /* PreviewProvider+DeveloperPreview */; };
+		07DFD740292117BA00C23485 /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DFD73F292117BA00C23485 /* EnvironmentKeys.swift */; };
+		07DFD744292118C300C23485 /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 07DFD743292118C300C23485 /* Staging.xcconfig */; };
+		07DFD746292118CE00C23485 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 07DFD745292118CE00C23485 /* Release.xcconfig */; };
 		5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400A279F79B100CDD9FB /* ContentPreviewView.swift */; };
 		522D4F3126D1805500578A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522D4F3026D1805500578A82 /* Assets.xcassets */; };
 		5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */; };
@@ -123,7 +126,10 @@
 		07248DF128C65141003FE4AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		07B653A428C5CCA70036A1E6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		07DFD73A29210FF200C23485 /* MixpanelProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MixpanelProvider; sourceTree = "<group>"; };
-		07DFD73D292112BD00C23485 /* PreviewProvider+DeveloperPreview */ = {isa = PBXFileReference; lastKnownFileType = text; path = "PreviewProvider+DeveloperPreview"; sourceTree = "<group>"; };
+		07DFD73D292112BD00C23485 /* PreviewProvider+DeveloperPreview */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = "PreviewProvider+DeveloperPreview"; sourceTree = "<group>"; };
+		07DFD73F292117BA00C23485 /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
+		07DFD743292118C300C23485 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
+		07DFD745292118CE00C23485 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		5215400A279F79B100CDD9FB /* ContentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewView.swift; sourceTree = "<group>"; };
 		522D4F3026D1805500578A82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +276,9 @@
 				5237C17E26A5CB4000C7BC56 /* Info.plist */,
 				522D4F3026D1805500578A82 /* Assets.xcassets */,
 				07B653A428C5CCA70036A1E6 /* Localizable.strings */,
+				07DFD73F292117BA00C23485 /* EnvironmentKeys.swift */,
+				07DFD743292118C300C23485 /* Staging.xcconfig */,
+				07DFD745292118CE00C23485 /* Release.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -546,6 +555,7 @@
 				5253446D275360D100C439AC /* M_ㄒ.mp3 in Resources */,
 				5253441F27521DDA00C439AC /* F_ㄎ.mp3 in Resources */,
 				5253441727521DDA00C439AC /* F_ㄌ.mp3 in Resources */,
+				07DFD744292118C300C23485 /* Staging.xcconfig in Resources */,
 				5253445C275360D100C439AC /* M_ㄘ.mp3 in Resources */,
 				5253431B2751026400C439AC /* ding.mp3 in Resources */,
 				5253441827521DDA00C439AC /* F_ㄓ.mp3 in Resources */,
@@ -595,6 +605,7 @@
 				5253441227521DDA00C439AC /* F_ㄡ.mp3 in Resources */,
 				5253441127521DDA00C439AC /* F_ㄊ.mp3 in Resources */,
 				5253440B27521DDA00C439AC /* F_ㄕ.mp3 in Resources */,
+				07DFD746292118CE00C23485 /* Release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +616,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07DFD740292117BA00C23485 /* EnvironmentKeys.swift in Sources */,
 				070D525F28C5D76500CDA918 /* AppDelegate.swift in Sources */,
 				5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */,
 				5237C1A126A5CC0800C7BC56 /* ZhuyinTestView.swift in Sources */,
@@ -625,8 +637,98 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		07DFD7412921183000C23485 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07DFD743292118C300C23485 /* Staging.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_OSOBJECT_C_STYLE_CAST = YES;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_STATIC_ANALYZER_MODE = deep;
+				CLANG_TIDY_BUGPRONE_REDUNDANT_BRANCH_CONDITION = YES;
+				CLANG_TIDY_MISC_REDUNDANT_EXPRESSION = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Staging;
+		};
+		07DFD7422921183000C23485 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V89Z8LQWPX;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Bopomofo Studio/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.3.3;
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Staging;
+		};
 		5237C19526A5CB4000C7BC56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07DFD743292118C300C23485 /* Staging.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
@@ -699,6 +801,7 @@
 		};
 		5237C19626A5CB4000C7BC56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07DFD745292118CE00C23485 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
@@ -816,6 +919,7 @@
 			buildConfigurations = (
 				5237C19526A5CB4000C7BC56 /* Debug */,
 				5237C19626A5CB4000C7BC56 /* Release */,
+				07DFD7412921183000C23485 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -825,6 +929,7 @@
 			buildConfigurations = (
 				5237C19826A5CB4000C7BC56 /* Debug */,
 				5237C19926A5CB4000C7BC56 /* Release */,
+				07DFD7422921183000C23485 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

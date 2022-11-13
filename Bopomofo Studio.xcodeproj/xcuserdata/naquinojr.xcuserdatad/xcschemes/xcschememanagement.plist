@@ -4,17 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Bopomofo Studio.xcscheme_^#shared#^_</key>
+		<key>Bopomofo Studio - Release.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>Bopomofo Studio - Staging.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>Promises (Playground) 1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>6</integer>
 		</dict>
 		<key>Promises (Playground) 10.xcscheme</key>
 		<dict>
@@ -35,7 +40,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>7</integer>
 		</dict>
 		<key>Promises (Playground) 3.xcscheme</key>
 		<dict>
@@ -91,7 +96,15 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>5237C17126A5CB3E00C7BC56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

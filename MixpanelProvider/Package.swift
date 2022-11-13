@@ -19,7 +19,7 @@ let package = Package(
             name: "MixpanelProvider",
             dependencies: [
                 .product(name: "CoreBopomofoStudio", package: "CoreBopomofoStudio"),
-                .product(name: "Mixpanel", package: "mixpanel-swift.git")
+                .product(name: "Mixpanel", package: "mixpanel-swift")
             ]),
         .testTarget(
             name: "MixpanelProviderTests",
