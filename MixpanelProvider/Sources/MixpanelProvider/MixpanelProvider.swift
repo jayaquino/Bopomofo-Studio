@@ -16,7 +16,11 @@ public class MixpanelProvider: AnalyticsProvider {
         key: String,
         environment: AppEnvironment
     ) {
-        Mixpanel.initialize(token: key, trackAutomaticEvents: true)
+        Mixpanel.initialize(
+            token: key,
+            trackAutomaticEvents: true,
+            flushInterval: 10
+        )
         self.environment = environment
         super.init()
         print("environment is: \(environment)")
@@ -27,14 +31,13 @@ public class MixpanelProvider: AnalyticsProvider {
     }
     
     override public func track(event: AnalyticEvent) {
-        if environment == .RELEASE {
-            Task {
-                mixpanelInstance.track(
-                    event: event.eventName,
-                    properties: event.parameters
-                )
-            }
-        } else if environment == .STAGING {
+        Task {
+            mixpanelInstance.track(
+                event: event.eventName,
+                properties: event.parameters
+            )
+        }
+        if environment == .STAGING {
             print("📊\nTracking \n\(event.eventName) \n\(event.parameters)")
         }
     }
