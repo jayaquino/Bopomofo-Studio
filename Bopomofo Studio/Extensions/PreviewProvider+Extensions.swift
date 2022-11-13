@@ -1,9 +1,11 @@
 //
-//  PreviewProvider.swift
+//  PreviewProvider+Extensions.swift
 //  Bopomofo Studio
 //
 //  Created by Nelson Aquino Jr. on 11/13/22.
 //
+
+import Foundation
 
 import Foundation
 import SwiftUI

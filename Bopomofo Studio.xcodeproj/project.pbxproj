@@ -19,9 +19,9 @@
 		07248DE928C5E890003FE4AB /* MockProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 07248DE828C5E890003FE4AB /* MockProvider */; };
 		07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */; };
 		07248DF228C65141003FE4AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07248DF128C65141003FE4AB /* GoogleService-Info.plist */; };
+		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
 		07B653A528C5CCA70036A1E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07B653A428C5CCA70036A1E6 /* Localizable.strings */; };
 		07DFD73729210D7C00C23485 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 07DFD73629210D7C00C23485 /* Mixpanel */; };
-		07DFD73E292112BD00C23485 /* PreviewProvider+DeveloperPreview in Sources */ = {isa = PBXBuildFile; fileRef = 07DFD73D292112BD00C23485 /* PreviewProvider+DeveloperPreview */; };
 		07DFD740292117BA00C23485 /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DFD73F292117BA00C23485 /* EnvironmentKeys.swift */; };
 		07DFD744292118C300C23485 /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 07DFD743292118C300C23485 /* Staging.xcconfig */; };
 		07DFD746292118CE00C23485 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 07DFD745292118CE00C23485 /* Release.xcconfig */; };
@@ -125,9 +125,9 @@
 		07248DE728C5E6B3003FE4AB /* MockProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MockProvider; sourceTree = "<group>"; };
 		07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewViewModel.swift; sourceTree = "<group>"; };
 		07248DF128C65141003FE4AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07B653A428C5CCA70036A1E6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		07DFD73A29210FF200C23485 /* MixpanelProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MixpanelProvider; sourceTree = "<group>"; };
-		07DFD73D292112BD00C23485 /* PreviewProvider+DeveloperPreview */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = "PreviewProvider+DeveloperPreview"; sourceTree = "<group>"; };
 		07DFD73F292117BA00C23485 /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		07DFD743292118C300C23485 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		07DFD745292118CE00C23485 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 		07DFD73C292112B000C23485 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				07DFD73D292112BD00C23485 /* PreviewProvider+DeveloperPreview */,
+				07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -633,7 +633,6 @@
 				5237C1A126A5CC0800C7BC56 /* ZhuyinTestView.swift in Sources */,
 				52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
-				07DFD73E292112BD00C23485 /* PreviewProvider+DeveloperPreview in Sources */,
 				07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */,
 				0702FF8D288D5FB600D78BF6 /* ReviewManager.swift in Sources */,
 				52C479AD26AB886900E3540F /* SettingsView.swift in Sources */,
@@ -642,6 +641,7 @@
 				5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */,
 				52D43814282BD15C00FFCAEB /* Constants.swift in Sources */,
 				070D526328C5DCCD00CDA918 /* Router.swift in Sources */,
+				07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
