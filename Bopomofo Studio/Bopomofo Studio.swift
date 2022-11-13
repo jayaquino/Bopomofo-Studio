@@ -15,17 +15,24 @@ struct Bopomofo_StudioApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     let router: Router
+    let analytics: AnalyticsManager
     
     init() {
         FirebaseApp.configure()
-        let contentStore = ContentStore(provider: FirebaseContentProvider(provider: FirebaseProvider()))
+        
+        let contentStore = ContentStore(
+            provider: FirebaseContentProvider(provider: FirebaseProvider())
+        )
+        
         self.router = Router(contentStore: contentStore)
+        self.analytics = AnalyticsManager()
     }
         
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(self.router)
+                .environmentObject(self.analytics)
         }
     }
 }
