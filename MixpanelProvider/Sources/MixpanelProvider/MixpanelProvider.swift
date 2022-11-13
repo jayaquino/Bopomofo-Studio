@@ -1,5 +1,5 @@
 //
-//  AnalyticsManager.swift
+//  MixpanelProvider.swift
 //  
 //
 //  Created by Nelson Aquino Jr. on 11/13/22.

@@ -6,21 +6,8 @@
 //
 
 import Foundation
+import MixpanelProvider
 
 public protocol AnalyticsProvider {
     
-}
-
-enum AnalyticsProviderConfig {
-    case mixpanel
-    case mock
-        
-    var provider: AnalyticsProvider {
-        switch self {
-        case .analyticsProvider:
-            return MixPanelAnalyticsProvider()
-        case .mockAnalyticsProvider:
-            return MockAnalyticsProvider()
-        }
-    }
 }
