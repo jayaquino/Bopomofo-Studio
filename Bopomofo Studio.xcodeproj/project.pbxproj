@@ -267,9 +267,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0782F0E02920FB2B0080CAAF /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				52D43815282BD67200FFCAEB /* ZhuyinViewModel.swift */,
+				5237C1A026A5CC0800C7BC56 /* ZhuyinTestView.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		0782F0E12920FB400080CAAF /* ContentPreview */ = {
+			isa = PBXGroup;
+			children = (
+				07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */,
+				5215400A279F79B100CDD9FB /* ContentPreviewView.swift */,
+			);
+			path = ContentPreview;
+			sourceTree = "<group>";
+		};
+		0782F0E22920FB4E0080CAAF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				07248DE528C5E287003FE4AB /* SettingsViewModel.swift */,
+				52C479AC26AB886900E3540F /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		07B653A328C5CC440036A1E6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5253436B2751503900C439AC /* Female BPMF */,
+				52C258BC2750D54A002265EB /* Sounds */,
+				525344252753606200C439AC /* Male BPMF */,
 				52D43813282BD15C00FFCAEB /* Constants.swift */,
 				5237C17E26A5CB4000C7BC56 /* Info.plist */,
 				522D4F3026D1805500578A82 /* Assets.xcassets */,
@@ -304,6 +334,9 @@
 		5237C17426A5CB3E00C7BC56 /* Bopomofo Studio */ = {
 			isa = PBXGroup;
 			children = (
+				0782F0E22920FB4E0080CAAF /* Settings */,
+				0782F0E12920FB400080CAAF /* ContentPreview */,
+				0782F0E02920FB2B0080CAAF /* Test */,
 				07248DF128C65141003FE4AB /* GoogleService-Info.plist */,
 				5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */,
 				070D526228C5DCCD00CDA918 /* Router.swift */,
@@ -312,19 +345,8 @@
 				52D43810282BD10B00FFCAEB /* Managers */,
 				52D4380D282BD0E000FFCAEB /* View */,
 				5246F5252837A2F7006D0A10 /* Launch Screen.storyboard */,
-				525344252753606200C439AC /* Male BPMF */,
-				5253436B2751503900C439AC /* Female BPMF */,
-				52C258BC2750D54A002265EB /* Sounds */,
-				5237C17B26A5CB3F00C7BC56 /* Preview Content */,
 			);
 			path = "Bopomofo Studio";
-			sourceTree = "<group>";
-		};
-		5237C17B26A5CB3F00C7BC56 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		5237C18626A5CB4000C7BC56 /* Bopomofo StudioTests */ = {
@@ -447,12 +469,6 @@
 			isa = PBXGroup;
 			children = (
 				5237C17726A5CB3E00C7BC56 /* ContentView.swift */,
-				52C479AC26AB886900E3540F /* SettingsView.swift */,
-				07248DE528C5E287003FE4AB /* SettingsViewModel.swift */,
-				5215400A279F79B100CDD9FB /* ContentPreviewView.swift */,
-				07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */,
-				5237C1A026A5CC0800C7BC56 /* ZhuyinTestView.swift */,
-				52D43815282BD67200FFCAEB /* ZhuyinViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -877,7 +893,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Bopomofo Studio/Preview Content\"";
 				DEVELOPMENT_TEAM = V89Z8LQWPX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bopomofo Studio/Resources/Info.plist";
@@ -901,7 +916,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Bopomofo Studio/Preview Content\"";
 				DEVELOPMENT_TEAM = V89Z8LQWPX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bopomofo Studio/Resources/Info.plist";
