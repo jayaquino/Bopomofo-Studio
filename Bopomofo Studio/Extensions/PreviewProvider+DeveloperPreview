@@ -23,4 +23,10 @@ struct DeveloperPreview {
     let router: Router
     let contentStore: ContentStore
     
+    private init() {
+        self.contentStore = ContentStore(provider: MockContentProvider())
+        self.router = Router(
+            contentStore: self.contentStore
+        )
+    }
 }

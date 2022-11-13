@@ -9,13 +9,14 @@ import SwiftUI
 import CoreBopomofoStudio
 import FirebaseProvider
 import Firebase
+import MixpanelProvider
 
 @main
 struct Bopomofo_StudioApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     let router: Router
-    let analytics: AnalyticsManager
+    let analytics: any AnalyticsProvider
     
     init() {
         FirebaseApp.configure()
@@ -25,14 +26,13 @@ struct Bopomofo_StudioApp: App {
         )
         
         self.router = Router(contentStore: contentStore)
-        self.analytics = AnalyticsManager()
+        self.analytics = MixpanelProvider()
     }
         
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(self.router)
-                .environmentObject(self.analytics)
         }
     }
 }

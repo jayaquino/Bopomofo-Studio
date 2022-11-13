@@ -6,8 +6,14 @@
 //
 
 import Foundation
-import MixpanelProvider
 
 public protocol AnalyticsProvider {
+    associatedtype AnalyticEvent
     
+    func track(event: AnalyticEvent)
+}
+
+public protocol AnalyticTrackingProtocol {
+    var eventName: String { get }
+    var parameters: [String: String] { get }
 }
