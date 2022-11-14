@@ -1,4 +1,10 @@
 # Bopomofo-Studio
+# Nov '22
+* Refactored to a modular architecture (Using providers; mock and remote).
+* Integrated a simple Firebase implementation for scores.
+* Integrated Mixpanel for simple analytics. 
+* Created a staging and release environment.
+
 
 # May '22
 <p float="left">
