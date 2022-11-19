@@ -12,6 +12,7 @@ public enum EnvironmentKeys {
     enum Keys {
         static let environment = "ENVIRONMENT"
         static let mixpanelKey = "MIXPANEL_KEY"
+        static let oneSignalAppId = "ONESIGNAL_APP_ID"
     }
     
     /// Get plist
@@ -31,8 +32,15 @@ public enum EnvironmentKeys {
     }()
     
     static let mixpanelKey: String = {
-        guard let oneSignalIdString = EnvironmentKeys.infoDictionary[Keys.mixpanelKey] as? String else {
+        guard let mixpanelKeyString = EnvironmentKeys.infoDictionary[Keys.mixpanelKey] as? String else {
             fatalError("Mixpanel Key not set in plist")
+        }
+        return mixpanelKeyString
+    }()
+    
+    static let oneSignalAppId: String = {
+        guard let oneSignalIdString = EnvironmentKeys.infoDictionary[Keys.oneSignalAppId] as? String else {
+            fatalError("OneSignal Key not set in plist")
         }
         return oneSignalIdString
     }()

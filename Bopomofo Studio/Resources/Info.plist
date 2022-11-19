@@ -2,10 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ENVIRONMENT</key>
-	<string>$(ENVIRONMENT)</string>
-	<key>MIXPANEL_KEY</key>
-	<string>$(MIXPANEL_KEY)</string>
+	<key>ONESIGNAL_APP_ID</key>
+	<string>$(ONESIGNAL_APP_ID)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -26,8 +24,12 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>ENVIRONMENT</key>
+	<string>$(ENVIRONMENT)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MIXPANEL_KEY</key>
+	<string>$(MIXPANEL_KEY)</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -51,6 +53,10 @@
 	</dict>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UILaunchStoryboardName</key>
