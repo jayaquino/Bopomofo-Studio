@@ -12,22 +12,27 @@ struct ContentView: View {
     @EnvironmentObject var router: Router
     
     var body: some View {
+        
         NavigationView {
-            VStack {
-                Image("BPMF")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: Constants.screenWidth/2)
-                    .padding()
+            ZStack {
+                Color("AppColor")
+                    .ignoresSafeArea()
                 
-                NavigationLink(destination: router.contentPreview) {
-                    Text("START_BUTTON")
-                        .font(.largeTitle)
+                VStack {
+                    Image("BPMF")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding()
+                    
+                    NavigationLink(destination: router.contentPreview) {
+                        Text("START_BUTTON")
+                            .font(.largeTitle)
+                    }
                 }
+                .font(.custom("copperplate", size: 20))
+                .frame(maxWidth: Constants.screenWidth)
+                .padding()
             }
-            .font(.custom("copperplate", size: 20))
-            .frame(maxWidth: Constants.screenWidth)
-            .padding()
         }
     }
 }
@@ -48,5 +53,6 @@ struct SelectionNavigation: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(dev.router)
     }
 }
