@@ -16,6 +16,17 @@ struct SettingsView: View {
     
     var body: some View {
         VStack {
+            Picker("", selection: $viewModel.testType) {
+                ForEach(ContentStore.TestType.allCases, id: \.self) {
+                    Text(LocalizedStringKey($0.rawValue))
+                        .padding()
+                        .font(.custom("copperplate",size: 30))
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .frame(width: Constants.screenWidth, height: 100)
+            .padding()
+            
             Toggle("TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE", isOn: $viewModel.pronunciationTextMode)
                 .padding()
             
@@ -34,17 +45,7 @@ struct SettingsView: View {
                     .padding()
                 }.padding()
             }
-            
-            Picker("", selection: $viewModel.testType) {
-                ForEach(ContentStore.TestType.allCases, id: \.self) {
-                    Text(LocalizedStringKey($0.rawValue))
-                        .padding()
-                        .font(.custom("copperplate",size: 30))
-                }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .frame(width: Constants.screenWidth, height: 100)
-            .padding()
+            Spacer()
         }
         .navigationTitle("SETTINGS_TITLE")
         .navigationBarTitleDisplayMode(.inline)
