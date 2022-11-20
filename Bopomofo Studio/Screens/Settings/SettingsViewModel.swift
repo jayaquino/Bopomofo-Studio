@@ -41,15 +41,16 @@ class SettingsViewModel: ObservableObject {
     
     func addSubscribers() {
         $testType
-            .sink { value in
-                self.contentStore.testType = value
+            .sink { testType in
+                self.contentStore.testType = testType
+                self.trackEvent(event: .testType(testType: testType.rawValue))
             }
             .store(in: &cancellables)
         
         $voiceSelection
-            .sink { value in
-                self.contentStore.voiceSelection = value
-                self.trackEvent(event: .voiceType(voiceType: value.rawValue))
+            .sink { voiceType in
+                self.contentStore.voiceSelection = voiceType
+                self.trackEvent(event: .voiceType(voiceType: voiceType.rawValue))
             }
             .store(in: &cancellables)
         

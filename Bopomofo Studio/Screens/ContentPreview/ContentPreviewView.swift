@@ -19,64 +19,16 @@ struct ContentPreviewView: View {
         VStack {
             ScrollView{
                 if viewModel.contentStore.testType == .zhuyin {
-                    HStack {
-                        VStack{
-                            ForEach(viewModel.contentStore.testList.zhuyinSymbols, id: \.self){symbol in
-                                Text(symbol)
-                                    .padding(2)
-                                    .font(.custom("chalkboard se", size: 18))
-                                    .font(.system(size: 18, weight: .thin))
-                                    .frame(minHeight:100)
-                                    .frame(minWidth: Constants.screenWidth/3)
-                                    .multilineTextAlignment(.center)
-                                    .background(Color("AppColor"))
-                                    .cornerRadius(30)
-                            }
-                        }.padding()
+                    HStack(alignment: .center, spacing: 0) {
+                        testContent(content: viewModel.contentStore.testList.zhuyinSymbols)
                         
-                        VStack{
-                            ForEach(viewModel.contentStore.testList.zhuyinPronunciation, id: \.self){symbol in
-                                Text(symbol)
-                                    .padding(2)
-                                    .font(.custom("chalkboard se",size: 20))
-                                    .font(.system(size: 20, weight: .black))
-                                    .frame(minHeight:100)
-                                    .frame(minWidth: Constants.screenWidth/2)
-                                    .multilineTextAlignment(.center)
-                                    .background(Color("AppColor"))
-                                    .cornerRadius(30)
-                            }
-                        }.padding()
+                        testContent(content: viewModel.contentStore.testList.zhuyinPronunciation)
                     }
                 } else {
-                    HStack{
-                        VStack{
-                            ForEach(viewModel.contentStore.testList.pinyinSymbols, id: \.self){symbol in
-                                Text(symbol)
-                                    .padding(2)
-                                    .font(.custom("chalkboard se", size: 18))
-                                    .font(.system(size: 18, weight: .thin))
-                                    .frame(minHeight:100)
-                                    .frame(minWidth: Constants.screenWidth/3)
-                                    .multilineTextAlignment(.center)
-                                    .background(Color("AppColor"))
-                                    .cornerRadius(30)
-                            }
-                        }.padding()
+                    HStack(alignment: .center, spacing: 0) {
+                        testContent(content: viewModel.contentStore.testList.pinyinSymbols)
                         
-                        VStack{
-                            ForEach(viewModel.contentStore.testList.pinyinPronunciation, id: \.self){symbol in
-                                Text(symbol)
-                                    .padding(2)
-                                    .font(.custom("chalkboard se",size: 20))
-                                    .font(.system(size: 20, weight: .black))
-                                    .frame(minHeight:100)
-                                    .frame(minWidth: Constants.screenWidth/2)
-                                    .multilineTextAlignment(.center)
-                                    .background(Color("AppColor"))
-                                    .cornerRadius(30)
-                            }
-                        }.padding()
+                        testContent(content: viewModel.contentStore.testList.pinyinPronunciation)
                     }
                 }
             }
@@ -110,6 +62,20 @@ struct ContentPreviewView: View {
             }
         }
     }
+    
+    private func testContent(content: [String]) -> some View {
+        VStack(alignment: .trailing){
+            ForEach(content, id: \.self){symbol in
+                Text(symbol)
+                    .padding(2)
+                    .font(.custom("chalkboard se", size: 18))
+                    .font(.system(size: 18, weight: .thin))
+                    .frame(minHeight:100)
+                    .multilineTextAlignment(.center)
+                    .cornerRadius(30)
+            }
+        }.padding()
+    }
 }
 
 struct ContentPreviewZhuyin_Previews: PreviewProvider {
@@ -117,5 +83,6 @@ struct ContentPreviewZhuyin_Previews: PreviewProvider {
     static var previews: some View {
         ContentPreviewView(
             viewModel: ContentPreviewViewModel(contentStore: ContentStore(provider: MockContentProvider())))
+        .environmentObject(dev.router)
     }
 }
