@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0702FF8D288D5FB600D78BF6 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702FF8C288D5FB600D78BF6 /* ReviewManager.swift */; };
+		070C22442929DDE300A6CED2 /* OneSignal in Frameworks */ = {isa = PBXBuildFile; productRef = 070C22432929DDE300A6CED2 /* OneSignal */; };
 		070D525928C5D6EF00CDA918 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 070D525828C5D6EF00CDA918 /* FirebaseAuth */; };
 		070D525B28C5D6EF00CDA918 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 070D525A28C5D6EF00CDA918 /* FirebaseCrashlytics */; };
 		070D525D28C5D6EF00CDA918 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 070D525C28C5D6EF00CDA918 /* FirebaseFirestore */; };
@@ -29,7 +30,6 @@
 		07E7D276292908FD005393AE /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7D275292908FD005393AE /* NotificationService.swift */; };
 		07E7D27A292908FD005393AE /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 07E7D273292908FD005393AE /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		07E7D28529291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07E7D28429291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist */; };
-		07E7D286292940C2005393AE /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7D275292908FD005393AE /* NotificationService.swift */; };
 		07E7D28829294124005393AE /* OneSignal in Frameworks */ = {isa = PBXBuildFile; productRef = 07E7D28729294124005393AE /* OneSignal */; };
 		5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400A279F79B100CDD9FB /* ContentPreviewView.swift */; };
 		522D4F3126D1805500578A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522D4F3026D1805500578A82 /* Assets.xcassets */; };
@@ -262,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				070C22442929DDE300A6CED2 /* OneSignal in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +537,9 @@
 			dependencies = (
 			);
 			name = OneSignalNotificationServiceExtension;
+			packageProductDependencies = (
+				070C22432929DDE300A6CED2 /* OneSignal */,
+			);
 			productName = OneSignalNotificationServiceExtension;
 			productReference = 07E7D273292908FD005393AE /* OneSignalNotificationServiceExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -737,7 +741,6 @@
 				52D43812282BD12700FFCAEB /* SoundManager.swift in Sources */,
 				07248DE628C5E287003FE4AB /* SettingsViewModel.swift in Sources */,
 				5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */,
-				07E7D286292940C2005393AE /* NotificationService.swift in Sources */,
 				52D43814282BD15C00FFCAEB /* Constants.swift in Sources */,
 				070D526328C5DCCD00CDA918 /* Router.swift in Sources */,
 				07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */,
@@ -1189,6 +1192,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		070C22432929DDE300A6CED2 /* OneSignal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07E7D28029290990005393AE /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignal;
+		};
 		070D525828C5D6EF00CDA918 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 070D525728C5D6EF00CDA918 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
