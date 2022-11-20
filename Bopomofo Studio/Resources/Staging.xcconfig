@@ -11,3 +11,4 @@
 ENVIRONMENT = STAGING
 MIXPANEL_KEY = 09c1f6fb2979aaea89ebbf694258c5b3
 ONESIGNAL_APP_ID = f220d720-d6d3-45f1-acff-c55725790bed
+GOOGLE_PLIST = GoogleService-Info.naquinojr.Bopomofo-Studio.staging

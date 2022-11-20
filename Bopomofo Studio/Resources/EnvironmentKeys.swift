@@ -13,6 +13,7 @@ public enum EnvironmentKeys {
         static let environment = "ENVIRONMENT"
         static let mixpanelKey = "MIXPANEL_KEY"
         static let oneSignalAppId = "ONESIGNAL_APP_ID"
+        static let googlePlist = "GOOGLE_PLIST"
     }
     
     /// Get plist
@@ -43,5 +44,12 @@ public enum EnvironmentKeys {
             fatalError("OneSignal Key not set in plist")
         }
         return oneSignalIdString
+    }()
+    
+    static let googlePlist: String = {
+        guard let googlePlistString = EnvironmentKeys.infoDictionary[Keys.googlePlist] as? String else {
+            fatalError("OneSignal Key not set in plist")
+        }
+        return googlePlistString
     }()
 }
