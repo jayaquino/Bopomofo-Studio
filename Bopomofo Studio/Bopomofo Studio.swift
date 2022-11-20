@@ -18,7 +18,12 @@ struct Bopomofo_StudioApp: App {
     let router: Router
     
     init() {
-        FirebaseApp.configure()
+        let filePath = Bundle.main.path(forResource: EnvironmentKeys.googlePlist, ofType: "plist")
+        guard let options = FirebaseOptions(contentsOfFile: filePath!)
+          else {
+            fatalError("Couldn't load config file")
+        }
+        FirebaseApp.configure(options: options)
         
         let contentStore = ContentStore(
             provider: FirebaseContentProvider(provider: FirebaseProvider())
@@ -33,8 +38,6 @@ struct Bopomofo_StudioApp: App {
             contentStore: contentStore,
             analytics: analytics
         )
-        
-        
     }
         
     var body: some Scene {

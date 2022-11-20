@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0702FF8D288D5FB600D78BF6 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0702FF8C288D5FB600D78BF6 /* ReviewManager.swift */; };
+		070C22442929DDE300A6CED2 /* OneSignal in Frameworks */ = {isa = PBXBuildFile; productRef = 070C22432929DDE300A6CED2 /* OneSignal */; };
 		070D525928C5D6EF00CDA918 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 070D525828C5D6EF00CDA918 /* FirebaseAuth */; };
 		070D525B28C5D6EF00CDA918 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 070D525A28C5D6EF00CDA918 /* FirebaseCrashlytics */; };
 		070D525D28C5D6EF00CDA918 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 070D525C28C5D6EF00CDA918 /* FirebaseFirestore */; };
@@ -18,7 +19,7 @@
 		07248DE628C5E287003FE4AB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07248DE528C5E287003FE4AB /* SettingsViewModel.swift */; };
 		07248DE928C5E890003FE4AB /* MockProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 07248DE828C5E890003FE4AB /* MockProvider */; };
 		07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */; };
-		07248DF228C65141003FE4AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07248DF128C65141003FE4AB /* GoogleService-Info.plist */; };
+		07248DF228C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
 		07B653A528C5CCA70036A1E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07B653A428C5CCA70036A1E6 /* Localizable.strings */; };
 		07DFD73729210D7C00C23485 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 07DFD73629210D7C00C23485 /* Mixpanel */; };
@@ -26,6 +27,10 @@
 		07DFD744292118C300C23485 /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 07DFD743292118C300C23485 /* Staging.xcconfig */; };
 		07DFD746292118CE00C23485 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 07DFD745292118CE00C23485 /* Release.xcconfig */; };
 		07DFD74929211B0900C23485 /* MixpanelProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 07DFD74829211B0900C23485 /* MixpanelProvider */; };
+		07E7D276292908FD005393AE /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E7D275292908FD005393AE /* NotificationService.swift */; };
+		07E7D27A292908FD005393AE /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 07E7D273292908FD005393AE /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		07E7D28529291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07E7D28429291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist */; };
+		07E7D28829294124005393AE /* OneSignal in Frameworks */ = {isa = PBXBuildFile; productRef = 07E7D28729294124005393AE /* OneSignal */; };
 		5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400A279F79B100CDD9FB /* ContentPreviewView.swift */; };
 		522D4F3126D1805500578A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522D4F3026D1805500578A82 /* Assets.xcassets */; };
 		5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */; };
@@ -115,6 +120,30 @@
 		52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D43815282BD67200FFCAEB /* ZhuyinViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		07E7D278292908FD005393AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5237C16A26A5CB3E00C7BC56 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07E7D272292908FD005393AE;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		07E7D27B292908FD005393AE /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				07E7D27A292908FD005393AE /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0702FF8C288D5FB600D78BF6 /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		070D525E28C5D76500CDA918 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,7 +153,7 @@
 		07248DE528C5E287003FE4AB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		07248DE728C5E6B3003FE4AB /* MockProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MockProvider; sourceTree = "<group>"; };
 		07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewViewModel.swift; sourceTree = "<group>"; };
-		07248DF128C65141003FE4AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.naquinojr.Bopomofo-Studio.plist"; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
 		07B653A428C5CCA70036A1E6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -132,9 +161,14 @@
 		07DFD73F292117BA00C23485 /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		07DFD743292118C300C23485 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		07DFD745292118CE00C23485 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		07E7D273292908FD005393AE /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		07E7D275292908FD005393AE /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		07E7D277292908FD005393AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07E7D283292909BF005393AE /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
+		07E7D28429291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist"; sourceTree = "<group>"; };
 		5215400A279F79B100CDD9FB /* ContentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewView.swift; sourceTree = "<group>"; };
 		522D4F3026D1805500578A82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio - Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio - Staging.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bopomofo Studio.swift"; sourceTree = "<group>"; };
 		5237C17726A5CB3E00C7BC56 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5237C17E26A5CB4000C7BC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -224,6 +258,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		07E7D270292908FD005393AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				070C22442929DDE300A6CED2 /* OneSignal in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5237C16F26A5CB3E00C7BC56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,6 +275,7 @@
 				07248DE928C5E890003FE4AB /* MockProvider in Frameworks */,
 				07DFD73729210D7C00C23485 /* Mixpanel in Frameworks */,
 				070D525928C5D6EF00CDA918 /* FirebaseAuth in Frameworks */,
+				07E7D28829294124005393AE /* OneSignal in Frameworks */,
 				070D526828C5DD5500CDA918 /* FirebaseProvider in Frameworks */,
 				070D525B28C5D6EF00CDA918 /* FirebaseCrashlytics in Frameworks */,
 				070D525D28C5D6EF00CDA918 /* FirebaseFirestore in Frameworks */,
@@ -311,6 +354,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		07E7D274292908FD005393AE /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				07E7D283292909BF005393AE /* OneSignalNotificationServiceExtension.entitlements */,
+				07E7D275292908FD005393AE /* NotificationService.swift */,
+				07E7D277292908FD005393AE /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
 		5237C16926A5CB3E00C7BC56 = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +372,7 @@
 				070D526128C5DAAE00CDA918 /* CoreBopomofoStudio */,
 				070D526028C5D7E400CDA918 /* FirebaseProvider */,
 				5237C17426A5CB3E00C7BC56 /* Bopomofo Studio */,
+				07E7D274292908FD005393AE /* OneSignalNotificationServiceExtension */,
 				5237C17326A5CB3E00C7BC56 /* Products */,
 				07DFD74729211B0900C23485 /* Frameworks */,
 			);
@@ -327,7 +381,8 @@
 		5237C17326A5CB3E00C7BC56 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */,
+				5237C17226A5CB3E00C7BC56 /* Bopomofo Studio - Staging.app */,
+				07E7D273292908FD005393AE /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -345,7 +400,8 @@
 				52D4380D282BD0E000FFCAEB /* View */,
 				07DFD73C292112B000C23485 /* Extensions */,
 				5246F5252837A2F7006D0A10 /* Launch Screen.storyboard */,
-				07248DF128C65141003FE4AB /* GoogleService-Info.plist */,
+				07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */,
+				07E7D28429291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist */,
 			);
 			path = "Bopomofo Studio";
 			sourceTree = "<group>";
@@ -468,6 +524,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		07E7D272292908FD005393AE /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07E7D27F292908FD005393AE /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				07E7D26F292908FD005393AE /* Sources */,
+				07E7D270292908FD005393AE /* Frameworks */,
+				07E7D271292908FD005393AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			packageProductDependencies = (
+				070C22432929DDE300A6CED2 /* OneSignal */,
+			);
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 07E7D273292908FD005393AE /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		5237C17126A5CB3E00C7BC56 /* Bopomofo Studio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5237C19726A5CB4000C7BC56 /* Build configuration list for PBXNativeTarget "Bopomofo Studio" */;
@@ -475,10 +551,12 @@
 				5237C16E26A5CB3E00C7BC56 /* Sources */,
 				5237C16F26A5CB3E00C7BC56 /* Frameworks */,
 				5237C17026A5CB3E00C7BC56 /* Resources */,
+				07E7D27B292908FD005393AE /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				07E7D279292908FD005393AE /* PBXTargetDependency */,
 			);
 			name = "Bopomofo Studio";
 			packageProductDependencies = (
@@ -490,9 +568,10 @@
 				07248DE828C5E890003FE4AB /* MockProvider */,
 				07DFD73629210D7C00C23485 /* Mixpanel */,
 				07DFD74829211B0900C23485 /* MixpanelProvider */,
+				07E7D28729294124005393AE /* OneSignal */,
 			);
 			productName = "Bopomofo Studio";
-			productReference = 5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */;
+			productReference = 5237C17226A5CB3E00C7BC56 /* Bopomofo Studio - Staging.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -501,9 +580,12 @@
 		5237C16A26A5CB3E00C7BC56 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
+					07E7D272292908FD005393AE = {
+						CreatedOnToolsVersion = 14.0;
+					};
 					5237C17126A5CB3E00C7BC56 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -521,17 +603,26 @@
 			packageReferences = (
 				070D525728C5D6EF00CDA918 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				07DFD73529210D7C00C23485 /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
+				07E7D28029290990005393AE /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
 			);
 			productRefGroup = 5237C17326A5CB3E00C7BC56 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				5237C17126A5CB3E00C7BC56 /* Bopomofo Studio */,
+				07E7D272292908FD005393AE /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		07E7D271292908FD005393AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5237C17026A5CB3E00C7BC56 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -591,6 +682,7 @@
 				5253441627521DDA00C439AC /* F_ㄘ.mp3 in Resources */,
 				5253440327521DDA00C439AC /* F_ㄒ.mp3 in Resources */,
 				5253441C27521DDA00C439AC /* F_ㄅ.mp3 in Resources */,
+				07E7D28529291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist in Resources */,
 				52534463275360D100C439AC /* M_ㄩ.mp3 in Resources */,
 				52534452275360D100C439AC /* M_ㄚ.mp3 in Resources */,
 				5253442027521DDA00C439AC /* F_ㄋ.mp3 in Resources */,
@@ -602,7 +694,7 @@
 				5253440827521DDA00C439AC /* F_ㄔ.mp3 in Resources */,
 				5253445A275360D100C439AC /* M_ㄏ.mp3 in Resources */,
 				52534462275360D100C439AC /* M_ㄧ.mp3 in Resources */,
-				07248DF228C65141003FE4AB /* GoogleService-Info.plist in Resources */,
+				07248DF228C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist in Resources */,
 				5253444B275360D100C439AC /* M_ㄊ.mp3 in Resources */,
 				5253444E275360D100C439AC /* M_ㄡ.mp3 in Resources */,
 				5253441327521DDA00C439AC /* F_ㄨ.mp3 in Resources */,
@@ -625,6 +717,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		07E7D26F292908FD005393AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07E7D276292908FD005393AE /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5237C16E26A5CB3E00C7BC56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -648,6 +748,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07E7D279292908FD005393AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07E7D272292908FD005393AE /* OneSignalNotificationServiceExtension */;
+			targetProxy = 07E7D278292908FD005393AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		07DFD7412921183000C23485 /* Staging */ = {
@@ -719,7 +827,8 @@
 		07DFD7422921183000C23485 /* Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconStaging;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Bopomofo Studio/Bopomofo Studio.entitlements";
@@ -732,9 +841,100 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.4;
-				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
+				MARKETING_VERSION = 1.3.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
+				PRODUCT_NAME = "Bopomofo Studio - Staging";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Staging;
+		};
+		07E7D27C292908FD005393AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V89Z8LQWPX;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		07E7D27D292908FD005393AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V89Z8LQWPX;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.OneSignalNotificationServiceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		07E7D27E292908FD005393AE /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V89Z8LQWPX;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging.OneSignalNotificationServiceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -882,7 +1082,8 @@
 		5237C19826A5CB4000C7BC56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconStaging;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Bopomofo Studio/Bopomofo Studio.entitlements";
@@ -895,9 +1096,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.4;
-				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.3.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
+				PRODUCT_NAME = "Bopomofo Studio - Staging";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -906,6 +1107,7 @@
 		5237C19926A5CB4000C7BC56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -919,9 +1121,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.4;
+				MARKETING_VERSION = 1.3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -930,6 +1132,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		07E7D27F292908FD005393AE /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07E7D27C292908FD005393AE /* Debug */,
+				07E7D27D292908FD005393AE /* Release */,
+				07E7D27E292908FD005393AE /* Staging */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5237C16D26A5CB3E00C7BC56 /* Build configuration list for PBXProject "Bopomofo Studio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -969,9 +1181,22 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		07E7D28029290990005393AE /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		070C22432929DDE300A6CED2 /* OneSignal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07E7D28029290990005393AE /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignal;
+		};
 		070D525828C5D6EF00CDA918 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 070D525728C5D6EF00CDA918 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -1007,6 +1232,11 @@
 		07DFD74829211B0900C23485 /* MixpanelProvider */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MixpanelProvider;
+		};
+		07E7D28729294124005393AE /* OneSignal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07E7D28029290990005393AE /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
