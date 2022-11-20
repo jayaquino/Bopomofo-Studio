@@ -12,5 +12,5 @@ ARCHS[sdk=iphonesimulator*] = x86_64
 
 ENVIRONMENT = STAGING
 MIXPANEL_KEY = 09c1f6fb2979aaea89ebbf694258c5b3
-ONESIGNAL_APP_ID = f220d720-d6d3-45f1-acff-c55725790bed
+ONESIGNAL_APP_ID = 4177f5b6-48ec-4ba6-990f-f7a777e384b8
 GOOGLE_PLIST = GoogleService-Info.naquinojr.Bopomofo-Studio.staging
