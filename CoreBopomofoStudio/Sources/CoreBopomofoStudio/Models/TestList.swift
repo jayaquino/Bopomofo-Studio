@@ -56,7 +56,7 @@ public struct TestList {
      "ow in row",
      "an in iguana",
      "en in pen",
-     "a + nasal sound",
+     "ang in sangria",
      "ngue in tongue",
      "ur in fur",]
     
@@ -99,7 +99,7 @@ public struct TestList {
      "ㄡ ow in row",
      "ㄢ an in iguana",
      "ㄣ en in pen",
-     "ㄤ a + nasal sound",
+     "ㄤ ang in sangria",
      "ㄥ ngue in tongue",
      "ㄦ ur in fur"]
     

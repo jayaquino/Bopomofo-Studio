@@ -12,6 +12,7 @@ import CoreBopomofoStudio
 class ContentPreviewViewModel: ObservableObject {
     
     let contentStore: ContentStore
+    @Published var testType: ContentStore.TestType = .zhuyin
     
     @Published var timerValue: Double = 30.0 {
         didSet {
@@ -21,6 +22,9 @@ class ContentPreviewViewModel: ObservableObject {
     
     init(contentStore: ContentStore) {
         self.contentStore = contentStore
+        
+        contentStore.$testType
+            .assign(to: &$testType)
     }
     
 }

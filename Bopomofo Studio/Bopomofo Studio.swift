@@ -43,8 +43,8 @@ struct Bopomofo_StudioApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                router.contentPreview()
-                    .environmentObject(self.router)
+                MainView()
+                    .environmentObject(router)
             }
         }
     }
