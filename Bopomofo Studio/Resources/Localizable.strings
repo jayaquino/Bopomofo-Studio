@@ -6,11 +6,13 @@
 "SETTINGS_TITLE" = "Settings";
 "CONTENT_PREVIEW_TITLE" = "Content Preview";
 
-//MARK_
-
 //MARK: - TOGGLE
 "TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE" = "Pronunciation Text Assistance";
 "TOGGLE_PRONUNCIATION_VOICE_ASSISTANCE" = "Pronunciation Voice Assistance";
+
 //MARK: - BUTTON
 "START_BUTTON" = "Start";
 
+//MARK: - PICKER
+"PICKER_PRONUNCIATION_TEXT_ASSISTANCE_SUBTEXT" = "Shows pronunciation below the zhuyin or pinyin.";
+"PICKER_PRONUNCIATION_VOICE_ASSISTANCE_SUBTEXT" = "Turn on volume to hear pronunciation assistance.";

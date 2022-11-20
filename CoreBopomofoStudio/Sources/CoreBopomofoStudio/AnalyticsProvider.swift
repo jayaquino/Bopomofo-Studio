@@ -74,6 +74,7 @@ open class AnalyticsProvider {
         case textAssistance(isOn: Bool)
         case voiceAssistance(isOn: Bool)
         case voiceType(voiceType: String)
+        case testType(testType: String)
         
         public var eventName: String {
             switch self {
@@ -83,6 +84,8 @@ open class AnalyticsProvider {
                 return "Pronunciation_Voice_Assistance_Changed"
             case .voiceType:
                 return "Pronunciation_Voice_Type_Changed"
+            case .testType:
+                return "Test_Type_Changed"
             }
         }
         
@@ -92,9 +95,10 @@ open class AnalyticsProvider {
                     .textAssistance(isOn: let isOn),
                     .voiceAssistance(isOn: let isOn):
                 return ["isOn": isOn.description]
-                
             case .voiceType(voiceType: let voiceType):
                 return ["voiceType": voiceType]
+            case .testType(testType: let testType):
+                return ["testType": testType]
             }
         }
         

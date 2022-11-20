@@ -34,7 +34,6 @@
 		5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400A279F79B100CDD9FB /* ContentPreviewView.swift */; };
 		522D4F3126D1805500578A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522D4F3026D1805500578A82 /* Assets.xcassets */; };
 		5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */; };
-		5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17726A5CB3E00C7BC56 /* ContentView.swift */; };
 		5237C1A126A5CC0800C7BC56 /* ZhuyinTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C1A026A5CC0800C7BC56 /* ZhuyinTestView.swift */; };
 		5246F5262837A2F7006D0A10 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5246F5252837A2F7006D0A10 /* Launch Screen.storyboard */; };
 		5253431B2751026400C439AC /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5253431A2751026400C439AC /* ding.mp3 */; };
@@ -168,9 +167,8 @@
 		07E7D28429291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist"; sourceTree = "<group>"; };
 		5215400A279F79B100CDD9FB /* ContentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewView.swift; sourceTree = "<group>"; };
 		522D4F3026D1805500578A82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio - Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio - Staging.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bopomofo Studio.swift"; sourceTree = "<group>"; };
-		5237C17726A5CB3E00C7BC56 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5237C17E26A5CB4000C7BC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5237C1A026A5CC0800C7BC56 /* ZhuyinTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhuyinTestView.swift; sourceTree = "<group>"; };
 		5246F5252837A2F7006D0A10 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -381,7 +379,7 @@
 		5237C17326A5CB3E00C7BC56 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5237C17226A5CB3E00C7BC56 /* Bopomofo Studio - Staging.app */,
+				5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */,
 				07E7D273292908FD005393AE /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
@@ -397,7 +395,6 @@
 				52D43810282BD10B00FFCAEB /* Managers */,
 				07DFD73929210DB700C23485 /* Screens */,
 				07B653A328C5CC440036A1E6 /* Resources */,
-				52D4380D282BD0E000FFCAEB /* View */,
 				07DFD73C292112B000C23485 /* Extensions */,
 				5246F5252837A2F7006D0A10 /* Launch Screen.storyboard */,
 				07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */,
@@ -504,14 +501,6 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		52D4380D282BD0E000FFCAEB /* View */ = {
-			isa = PBXGroup;
-			children = (
-				5237C17726A5CB3E00C7BC56 /* ContentView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		52D43810282BD10B00FFCAEB /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,7 +560,7 @@
 				07E7D28729294124005393AE /* OneSignal */,
 			);
 			productName = "Bopomofo Studio";
-			productReference = 5237C17226A5CB3E00C7BC56 /* Bopomofo Studio - Staging.app */;
+			productReference = 5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -731,7 +720,6 @@
 			files = (
 				07DFD740292117BA00C23485 /* EnvironmentKeys.swift in Sources */,
 				070D525F28C5D76500CDA918 /* AppDelegate.swift in Sources */,
-				5237C17826A5CB3E00C7BC56 /* ContentView.swift in Sources */,
 				5237C1A126A5CC0800C7BC56 /* ZhuyinTestView.swift in Sources */,
 				52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
@@ -1098,7 +1086,7 @@
 				);
 				MARKETING_VERSION = 1.3.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
-				PRODUCT_NAME = "Bopomofo Studio - Staging";
+				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
