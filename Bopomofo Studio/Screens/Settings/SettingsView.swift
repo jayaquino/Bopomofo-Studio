@@ -16,10 +16,6 @@ struct SettingsView: View {
     
     var body: some View {
         VStack {
-            
-            Text("Test Settings")
-                .font(.headline)
-                .fontWeight(.black)
             Picker("", selection: $viewModel.testType) {
                 ForEach(ContentStore.TestType.allCases, id: \.self) {
                     Text(LocalizedStringKey($0.rawValue))
