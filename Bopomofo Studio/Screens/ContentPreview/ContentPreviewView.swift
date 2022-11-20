@@ -18,16 +18,12 @@ struct ContentPreviewView: View {
     var body: some View {
         VStack {
             ScrollView{
-                if viewModel.contentStore.testType == .zhuyin {
-                    HStack(alignment: .center, spacing: 0) {
+                HStack(alignment: .center, spacing: 0) {
+                    if viewModel.testType == .zhuyin {
                         testContent(content: viewModel.contentStore.testList.zhuyinSymbols)
-                        
                         testContent(content: viewModel.contentStore.testList.zhuyinPronunciation)
-                    }
-                } else {
-                    HStack(alignment: .center, spacing: 0) {
+                    } else {
                         testContent(content: viewModel.contentStore.testList.pinyinSymbols)
-                        
                         testContent(content: viewModel.contentStore.testList.pinyinPronunciation)
                     }
                 }
@@ -41,25 +37,14 @@ struct ContentPreviewView: View {
             
             NavigationLink(destination: router.zhuyinTestView()) {
                 Text("Start")
-                    .frame(width: 200, height: 30, alignment: .center)
+                    .frame(width: 150, height: 20, alignment: .center)
                     .font(.system(size: 30, weight: .medium))
                     .padding()
                     .background(Color.accentColor)
-                    .cornerRadius(30)
+                    .cornerRadius(20)
                     .foregroundColor(.white)
             }
             Spacer()
-        }
-        .navigationTitle("CONTENT_PREVIEW_TITLE")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink {
-                    router.settingsView()
-                } label: {
-                    Image(systemName: "gear")
-                }
-            }
         }
     }
     
