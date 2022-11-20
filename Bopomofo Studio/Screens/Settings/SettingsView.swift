@@ -31,9 +31,6 @@ struct SettingsView: View {
             .frame(width: Constants.screenWidth, height: 100)
             
             VStack(alignment: .leading) {
-                Text("Test Settings")
-                    .font(.headline)
-                    .fontWeight(.black)
                 VStack(alignment: .leading, spacing: 0) {
                     Toggle("TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE", isOn: $viewModel.pronunciationTextMode)
                     Text("PICKER_PRONUNCIATION_TEXT_ASSISTANCE_SUBTEXT")
