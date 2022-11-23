@@ -20,12 +20,14 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     @Published var timer: Double
     @Published var testFinished = false
     @Published var scorePercentage: Double?
+    @Published var isLoadingData = false
     
     var symbolList : [String] {
         get {
             return contentStore.testList.zhuyinSymbols
         }
     }
+    
     var symbolPronunciation : [String] {
         get {
             if contentStore.testType == .zhuyin {
@@ -43,9 +45,10 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     ) {
         self.contentStore = contentStore
         self.analytics = analytics
+        self.inputSymbol = ""
         self.timer = contentStore.timerValue
         let randomNumber = Int.random(in: 0...symbolList.count-1)
-        randomSymbol = symbolList[randomNumber]
+        self.randomSymbol = symbolList[randomNumber]
         if contentStore.testType == .zhuyin {
             displaySymbol = contentStore.testList.zhuyinSymbols[randomNumber]
             randomSymbolExample = contentStore.testList.zhuyinPronunciation[randomNumber]
@@ -54,12 +57,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
             randomSymbolExample = contentStore.testList.pinyinPronunciation[randomNumber]
         }
         
-        $timer
-            .first(where: { $0 <= 0 })
-            .sink { time in
-                self.testDidFinish()
-            }
-            .store(in: &cancellables)
+        addSubscribers()
     }
     
     @Published var randomSymbol = ""
@@ -68,40 +66,53 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     @Published var score = 0
     @Published var femaleSoundBPMF = ""
     @Published var maleSoundBPMF = ""
+    @Published var inputSymbol: String = "" {
+        didSet {
+            guard inputSymbol != "", randomSymbol != "" else { return }
+            if inputSymbol == randomSymbol {
+                score += 1
+                generateNewSymbol()
+            }
+            inputSymbol = ""
+        }
+    }
+        
+    private func addSubscribers() {
+        $timer
+            .first(where: { $0 <= 0 })
+            .sink { time in
+                self.testDidFinish()
+            }
+            .store(in: &cancellables)
+    }
     
-    let keyboardRow1 : [String] = ["ㄅ","ㄉ","ˇ","ˋ","ㄓ","ˊ","˙","ㄚ","ㄞ","ㄢ","ㄦ"]
-    let keyboardRow2 : [String] = ["ㄆ","ㄊ","ㄍ","ㄐ","ㄔ","ㄗ","ㄧ","ㄛ","ㄟ","ㄣ"]
-    let keyboardRow3 : [String] = ["ㄇ","ㄋ","ㄎ","ㄑ","ㄕ","ㄘ","ㄨ","ㄜ","ㄠ","ㄤ"]
-    let keyboardRow4 : [String] = ["ㄈ","ㄌ","ㄏ","ㄒ","ㄖ","ㄙ","ㄩ","ㄝ","ㄡ","ㄥ"]
-    
-    //MARK: - Functions
-    
-    func checkSymbols(a:String,b:String) {
+    func checkSymbols(a: String, b: String) {
         if a == b {
             score += 1
         }
     }
     
-    func generateNewSymbol(pronunciationVoiceMode: Bool, voiceSelection: String) {
+    func generateNewSymbol() {
         
         let randomNumber = Int.random(in: 0...symbolList.count-1)
         randomSymbol = symbolList[randomNumber]
-        if contentStore.testType == .zhuyin {
+        
+        switch contentStore.testType {
+        case .zhuyin:
             displaySymbol = contentStore.testList.zhuyinSymbols[randomNumber]
             randomSymbolExample = contentStore.testList.zhuyinPronunciation[randomNumber]
-        } else {
+        case .pinyinToZhuyin:
             displaySymbol = contentStore.testList.pinyinSymbols[randomNumber]
             randomSymbolExample = contentStore.testList.pinyinPronunciation[randomNumber]
         }
         femaleSoundBPMF = "F_" + randomSymbol
         maleSoundBPMF = "M_" + randomSymbol
         
-        if pronunciationVoiceMode == true {
-            
-            if voiceSelection == "Male" {
+        if contentStore.pronunciationVoiceMode {
+            if contentStore.voiceSelection == .male {
                 SoundManager.instance.playSound(sound: maleSoundBPMF)
             }
-            if voiceSelection == "Female"{
+            if contentStore.voiceSelection == .female {
                 SoundManager.instance.playSound(sound: femaleSoundBPMF)
             }
         }
@@ -120,6 +131,13 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
                 self.scorePercentage = calculateScorePercentageStanding(scores: scores)
             }
         }
+        
+        if contentStore.testType == .zhuyin, score > UserDefaults.standard.integer(forKey: "highscore-zhuyin" + String(contentStore.timerValue)) {
+            UserDefaults.standard.set(score, forKey: "highscore-zhuyin" + String(contentStore.timerValue))
+        } else if contentStore.testType == .pinyinToZhuyin, score > UserDefaults.standard.integer(forKey: "highscore-pinyintozhuyin" + String(contentStore.timerValue)) {
+            UserDefaults.standard.set(score, forKey: "highscore-pinyintozhuyin" + String(contentStore.timerValue))
+        }
+        ReviewManager.shared.updateSessionsCompleted()
     }
     
     private func calculateScorePercentageStanding(scores: [ScoreModel]) -> Double? {
