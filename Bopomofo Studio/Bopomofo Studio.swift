@@ -46,6 +46,7 @@ struct Bopomofo_StudioApp: App {
                 MainView()
                     .environmentObject(router)
             }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }
