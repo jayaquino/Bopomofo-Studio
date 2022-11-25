@@ -23,6 +23,10 @@
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
 		07B653A528C5CCA70036A1E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07B653A428C5CCA70036A1E6 /* Localizable.strings */; };
 		07BB8BAE292A456800B2CE7C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB8BAD292A456800B2CE7C /* MainView.swift */; };
+		07D1289429309D150011CFD9 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1289329309D150011CFD9 /* OnboardingViewModel.swift */; };
+		07D1289629309D1D0011CFD9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1289529309D1D0011CFD9 /* OnboardingView.swift */; };
+		07D1289A29309E940011CFD9 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1289929309E940011CFD9 /* OnboardingSlide.swift */; };
+		07D1289C2930B46A0011CFD9 /* TestContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1289B2930B46A0011CFD9 /* TestContentCell.swift */; };
 		07DFD73729210D7C00C23485 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 07DFD73629210D7C00C23485 /* Mixpanel */; };
 		07DFD740292117BA00C23485 /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DFD73F292117BA00C23485 /* EnvironmentKeys.swift */; };
 		07DFD744292118C300C23485 /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 07DFD743292118C300C23485 /* Staging.xcconfig */; };
@@ -158,6 +162,10 @@
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
 		07B653A428C5CCA70036A1E6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		07BB8BAD292A456800B2CE7C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		07D1289329309D150011CFD9 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		07D1289529309D1D0011CFD9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		07D1289929309E940011CFD9 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		07D1289B2930B46A0011CFD9 /* TestContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestContentCell.swift; sourceTree = "<group>"; };
 		07DFD73A29210FF200C23485 /* MixpanelProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MixpanelProvider; sourceTree = "<group>"; };
 		07DFD73F292117BA00C23485 /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		07DFD743292118C300C23485 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
@@ -299,6 +307,7 @@
 			children = (
 				07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */,
 				5215400A279F79B100CDD9FB /* ContentPreviewView.swift */,
+				07D1289B2930B46A0011CFD9 /* TestContentCell.swift */,
 			);
 			path = ContentPreview;
 			sourceTree = "<group>";
@@ -337,9 +346,20 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
+		07D1289229309D080011CFD9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				07D1289329309D150011CFD9 /* OnboardingViewModel.swift */,
+				07D1289529309D1D0011CFD9 /* OnboardingView.swift */,
+				07D1289929309E940011CFD9 /* OnboardingSlide.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		07DFD73929210DB700C23485 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				07D1289229309D080011CFD9 /* Onboarding */,
 				07BB8BAC292A455D00B2CE7C /* MainView */,
 				0782F0E22920FB4E0080CAAF /* Settings */,
 				0782F0E12920FB400080CAAF /* ContentPreview */,
@@ -732,6 +752,7 @@
 				07DFD740292117BA00C23485 /* EnvironmentKeys.swift in Sources */,
 				070D525F28C5D76500CDA918 /* AppDelegate.swift in Sources */,
 				5237C1A126A5CC0800C7BC56 /* ZhuyinTestView.swift in Sources */,
+				07D1289429309D150011CFD9 /* OnboardingViewModel.swift in Sources */,
 				52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
 				07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */,
@@ -742,7 +763,10 @@
 				5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */,
 				52D43814282BD15C00FFCAEB /* Constants.swift in Sources */,
 				070D526328C5DCCD00CDA918 /* Router.swift in Sources */,
+				07D1289C2930B46A0011CFD9 /* TestContentCell.swift in Sources */,
 				07BB8BAE292A456800B2CE7C /* MainView.swift in Sources */,
+				07D1289629309D1D0011CFD9 /* OnboardingView.swift in Sources */,
+				07D1289A29309E940011CFD9 /* OnboardingSlide.swift in Sources */,
 				07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,20 +15,23 @@ struct ContentPreviewView: View {
     @EnvironmentObject var router: Router
     @StateObject var viewModel: ContentPreviewViewModel
         
+    @State var scale = 0.8
+
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             ScrollView{
-                HStack(alignment: .center, spacing: 0) {
-                    if viewModel.testType == .zhuyin {
-                        testContent(content: viewModel.contentStore.testList.zhuyinSymbols)
-                        testContent(content: viewModel.contentStore.testList.zhuyinPronunciation)
-                    } else {
-                        testContent(content: viewModel.contentStore.testList.pinyinSymbols)
-                        testContent(content: viewModel.contentStore.testList.pinyinPronunciation)
+                VStack(spacing: 40) {
+                    ForEach(viewModel.contentStore.testList.zhuyinPronunciation, id: \.self) { testPronunciation in
+                        TestContentCell(
+                            image: "BPMF",
+                            description: testPronunciation
+                        )
                     }
                 }
             }
             .foregroundColor(.accentColor)
+            
+            Divider()
             
             Slider(value: $viewModel.timerValue, in: 30...300, step:10).padding(10)
             
@@ -44,7 +47,7 @@ struct ContentPreviewView: View {
                     .cornerRadius(20)
                     .foregroundColor(.white)
             }
-            Spacer()
+            .padding()
         }
     }
     
