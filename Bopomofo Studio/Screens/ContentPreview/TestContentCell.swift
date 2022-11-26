@@ -15,7 +15,6 @@ struct TestContentCell: View {
         HStack(spacing: 10) {
             VStack(spacing: 0) {
                 Image(image)
-                    .renderingMode(.template)
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: 80, maxHeight: 80)

@@ -55,13 +55,12 @@ struct ZhuyinTestView: View {
                 
                 ZStack{
                     VStack{
-                        Text(viewModel.displaySymbol)
+                        Image(viewModel.displaySymbol)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxHeight: 200)
                             .padding()
-                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                            .font(.system(size:150))
-                            .foregroundColor(.accentColor)
-                            .frame(height: 200)
-                            .onAppear{let randomNumber = Int.random(in: 0...viewModel.symbolList.count-1)
+                            .onAppear {let randomNumber = Int.random(in: 0...viewModel.symbolList.count-1)
                                 viewModel.randomSymbol = viewModel.symbolList[randomNumber]
                                 viewModel.displaySymbol = viewModel.symbolList[randomNumber]
                                 viewModel.randomSymbolExample = viewModel.symbolList[randomNumber]
