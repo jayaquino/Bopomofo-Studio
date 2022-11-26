@@ -13,16 +13,20 @@ struct TestContentCell: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            Image(image)
-                .resizable()
-                .scaledToFit()
-                .frame(maxWidth: 80, maxHeight: 80)
-                .cornerRadius(16)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(.secondary, lineWidth: 1)
-                }
-                .padding(.leading, 10)
+            VStack(spacing: 0) {
+                Image(image)
+                    .renderingMode(.template)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: 80, maxHeight: 80)
+                    .cornerRadius(16)
+                    .padding(5)
+            }
+            .overlay {
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(.secondary, lineWidth: 1)
+            }
+            .padding(10)
             Text(description)
         }
         .frame(maxWidth: 340, minHeight: 100, alignment: .leading)

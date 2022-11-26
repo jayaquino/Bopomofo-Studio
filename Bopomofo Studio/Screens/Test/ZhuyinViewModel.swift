@@ -13,6 +13,8 @@ import CoreBopomofoStudio
 class ZhuyinViewModel: ObservableObject, Identifiable {
     
     let contentStore: ContentStore
+    let symbolList: [String]
+    let symbolPronunciation: [String]
     private let analytics: AnalyticsProvider
     
     var cancellables = Set<AnyCancellable>()
@@ -22,40 +24,23 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     @Published var scorePercentage: Double?
     @Published var isLoadingData = false
     
-    var symbolList : [String] {
-        get {
-            return contentStore.testList.zhuyinSymbols
-        }
-    }
-    
-    var symbolPronunciation : [String] {
-        get {
-            if contentStore.testType == .zhuyin {
-                return contentStore.testList.zhuyinPronunciation
-            } else {
-                return contentStore.testList.pinyinPronunciation
-            }
-        }
-    }
-
-    
     init(
         contentStore: ContentStore,
-        analytics: AnalyticsProvider
+        analytics: AnalyticsProvider,
+        symbolList: [String],
+        symbolPronunciation: [String]
     ) {
         self.contentStore = contentStore
         self.analytics = analytics
+        self.symbolList = symbolList
+        self.symbolPronunciation = symbolPronunciation
         self.inputSymbol = ""
         self.timer = contentStore.timerValue
         let randomNumber = Int.random(in: 0...symbolList.count-1)
         self.randomSymbol = symbolList[randomNumber]
-        if contentStore.testType == .zhuyin {
-            displaySymbol = contentStore.testList.zhuyinSymbols[randomNumber]
-            randomSymbolExample = contentStore.testList.zhuyinPronunciation[randomNumber]
-        } else {
-            displaySymbol = contentStore.testList.pinyinSymbols[randomNumber]
-            randomSymbolExample = contentStore.testList.pinyinPronunciation[randomNumber]
-        }
+        displaySymbol = symbolList[randomNumber]
+        randomSymbolExample = symbolPronunciation[randomNumber]
+     
         
         addSubscribers()
     }
@@ -96,15 +81,8 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         
         let randomNumber = Int.random(in: 0...symbolList.count-1)
         randomSymbol = symbolList[randomNumber]
-        
-        switch contentStore.testType {
-        case .zhuyin:
-            displaySymbol = contentStore.testList.zhuyinSymbols[randomNumber]
-            randomSymbolExample = contentStore.testList.zhuyinPronunciation[randomNumber]
-        case .pinyinToZhuyin:
-            displaySymbol = contentStore.testList.pinyinSymbols[randomNumber]
-            randomSymbolExample = contentStore.testList.pinyinPronunciation[randomNumber]
-        }
+        displaySymbol = symbolList[randomNumber]
+        randomSymbolExample = symbolPronunciation[randomNumber]
         femaleSoundBPMF = "F_" + randomSymbol
         maleSoundBPMF = "M_" + randomSymbol
         

@@ -61,15 +61,10 @@ struct ZhuyinTestView: View {
                             .font(.system(size:150))
                             .foregroundColor(.accentColor)
                             .frame(height: 200)
-                            .onAppear{let randomNumber = Int.random(in: 0...viewModel.contentStore.testList.zhuyinSymbols.count-1)
-                                viewModel.randomSymbol = viewModel.contentStore.testList.zhuyinSymbols[randomNumber]
-                                if viewModel.contentStore.testType == .zhuyin {
-                                    viewModel.displaySymbol = viewModel.contentStore.testList.zhuyinSymbols[randomNumber]
-                                    viewModel.randomSymbolExample = viewModel.contentStore.testList.zhuyinSymbols[randomNumber]
-                                } else {
-                                    viewModel.displaySymbol = viewModel.contentStore.testList.pinyinSymbols[randomNumber]
-                                    viewModel.randomSymbolExample = viewModel.contentStore.testList.pinyinSymbols[randomNumber]
-                                }
+                            .onAppear{let randomNumber = Int.random(in: 0...viewModel.symbolList.count-1)
+                                viewModel.randomSymbol = viewModel.symbolList[randomNumber]
+                                viewModel.displaySymbol = viewModel.symbolList[randomNumber]
+                                viewModel.randomSymbolExample = viewModel.symbolList[randomNumber]
                             }
                                
                         if viewModel.contentStore.pronunciationTextMode == true {
@@ -150,7 +145,9 @@ struct Zhuyin_Previews: PreviewProvider {
     static var previews: some View {
         ZhuyinTestView(viewModel: ZhuyinViewModel(
             contentStore: ContentStore(provider: MockContentProvider()),
-            analytics: dev.analytics)
+            analytics: dev.analytics,
+            symbolList: ["ㄅ"],
+            symbolPronunciation: ["ㄅ"])
         )
     }
 }

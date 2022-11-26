@@ -21,10 +21,10 @@ struct ContentPreviewView: View {
         VStack(spacing: 0) {
             ScrollView{
                 VStack(spacing: 40) {
-                    ForEach(viewModel.contentStore.testList.zhuyinPronunciation, id: \.self) { testPronunciation in
+                    ForEach(0..<viewModel.testKeys.count) { index in
                         TestContentCell(
-                            image: "BPMF",
-                            description: testPronunciation
+                            image: viewModel.testKeys[index],
+                            description: viewModel.testValues[index]
                         )
                     }
                 }
@@ -38,7 +38,10 @@ struct ContentPreviewView: View {
             Text("Timer (s): \(viewModel.timerValue, specifier: "%.2f")")
                 .foregroundColor(.accentColor)
             
-            NavigationLink(destination: router.zhuyinTestView()) {
+            NavigationLink(destination: router.zhuyinTestView(
+                symbolList: viewModel.testKeys,
+                symbolPronunciation: viewModel.testValues
+            )) {
                 Text("Start")
                     .frame(width: 150, height: 20, alignment: .center)
                     .font(.system(size: 30, weight: .medium))
