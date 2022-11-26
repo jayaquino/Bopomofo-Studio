@@ -7,8 +7,11 @@
 
 import Foundation
 import OneSignal
+import CoreBopomofoStudio
 
 class OnboardingViewModel: ObservableObject {
+    let analytics: AnalyticsProvider
+    
     var onboardingSlides: [OnboardingSlide] = [
         OnboardingSlide(
             image: "onboarding_Slide_One",
@@ -35,7 +38,8 @@ class OnboardingViewModel: ObservableObject {
     @Published var selection: OnboardingSlide
     @Published var showHomeView = false
     
-    init() {
+    init(analytics: AnalyticsProvider) {
+        self.analytics = analytics
         selection = onboardingSlides[0]
     }
     
@@ -44,9 +48,11 @@ class OnboardingViewModel: ObservableObject {
         let nextIndex = selectionIndex + 1
         
         if nextIndex < onboardingSlides.count {
+            analytics.track(event: .onboarding(event: .viewedSlide(slideIndex: selectionIndex)))
             selection = onboardingSlides[nextIndex]
         } else {
             OneSignal.promptForPushNotifications(userResponse: { _ in })
+            analytics.track(event: .onboarding(event: .viewedSlide(slideIndex: onboardingSlides.count - 1)))
             showHomeView = true
         }
     }

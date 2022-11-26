@@ -22,10 +22,12 @@ struct MainView: View {
                     Label("Settings", systemImage: "gear")
                 }
             
-            router.developerControlsView()
-                .tabItem {
-                    Label("Dev", systemImage: "ant")
-                }
+            if EnvironmentKeys.environment == .STAGING {
+                router.developerControlsView()
+                    .tabItem {
+                        Label("Dev", systemImage: "ant")
+                    }
+            }
         }
     }
 }

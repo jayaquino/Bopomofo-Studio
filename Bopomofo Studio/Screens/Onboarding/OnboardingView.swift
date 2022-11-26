@@ -16,6 +16,7 @@ struct OnboardingView: View {
             VStack(spacing: 30) {
                 NavigationLink(isActive: $viewModel.showHomeView) {
                     MainView()
+                        .navigationBarBackButtonHidden(true)
                 } label: {
                     EmptyView()
                 }
@@ -39,6 +40,10 @@ struct OnboardingView: View {
             }
             .onAppear {
                 viewModel.setDidSeeOnboarding()
+                viewModel.analytics.track(event: .onboarding(event: .onboardingStarted))
+            }
+            .onDisappear {
+                viewModel.analytics.track(event: .onboarding(event: .onboardingFinished))
             }
         }
     }
@@ -75,10 +80,10 @@ struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView(viewModel: OnboardingViewModel())
+        OnboardingView(viewModel: OnboardingViewModel(analytics: dev.analytics))
             .environmentObject(dev.router)
         
-        OnboardingView(viewModel: OnboardingViewModel())
+        OnboardingView(viewModel: OnboardingViewModel(analytics: dev.analytics))
             .environmentObject(dev.router)
             .previewDevice(PreviewDevice(rawValue: "iPad Air (3rd generation)"))
             .previewDisplayName("iPad Air (3rd generation)")
