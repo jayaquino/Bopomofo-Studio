@@ -25,16 +25,16 @@ struct OnboardingView: View {
                 viewModel.nextButtonPressed()
             } label: {
                 if viewModel.selection.title == LocalizedStringKey("ONBOARDING_NOTIFICATION_TITLE") {
-                    Text("")
+                    Image(systemName: "checkmark")
                 } else {
                     Image(systemName: "arrow.right")
-                        .font(.system(size: 24, weight: .light))
-                        .foregroundStyle(.white)
-                        .frame(width: 86, height: 56)
-                        .background(.tint)
-                        .clipShape(Circle())
                 }
             }
+            .font(.system(size: 30, weight: .light))
+            .foregroundStyle(.white)
+            .frame(width: 86, height: 56)
+            .background(.tint)
+            .clipShape(Circle())
         }
         .onAppear {
             viewModel.setDidSeeOnboarding()
@@ -50,6 +50,7 @@ struct OnboardingView: View {
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .always))
+        .animation(.linear, value: viewModel.selection)
     }
     
     private func onboardingCarouselView(onboardingSlide: OnboardingSlide) -> some View {
