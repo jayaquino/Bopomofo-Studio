@@ -14,7 +14,7 @@ struct MainView: View {
         TabView {
             router.contentPreview()
                 .tabItem {
-                    Label("Menu", systemImage: "keyboard")
+                    Label("Test", systemImage: "keyboard")
                 }
             
             router.settingsView()
