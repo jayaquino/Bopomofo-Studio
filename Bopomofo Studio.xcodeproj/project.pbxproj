@@ -27,6 +27,7 @@
 		07D1289629309D1D0011CFD9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1289529309D1D0011CFD9 /* OnboardingView.swift */; };
 		07D1289A29309E940011CFD9 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1289929309E940011CFD9 /* OnboardingSlide.swift */; };
 		07D1289C2930B46A0011CFD9 /* TestContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1289B2930B46A0011CFD9 /* TestContentCell.swift */; };
+		07D1289E2931F2310011CFD9 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1289D2931F2310011CFD9 /* UserDefaults+Extensions.swift */; };
 		07DFD73729210D7C00C23485 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 07DFD73629210D7C00C23485 /* Mixpanel */; };
 		07DFD740292117BA00C23485 /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DFD73F292117BA00C23485 /* EnvironmentKeys.swift */; };
 		07DFD744292118C300C23485 /* Staging.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 07DFD743292118C300C23485 /* Staging.xcconfig */; };
@@ -166,6 +167,7 @@
 		07D1289529309D1D0011CFD9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		07D1289929309E940011CFD9 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		07D1289B2930B46A0011CFD9 /* TestContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestContentCell.swift; sourceTree = "<group>"; };
+		07D1289D2931F2310011CFD9 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		07DFD73A29210FF200C23485 /* MixpanelProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MixpanelProvider; sourceTree = "<group>"; };
 		07DFD73F292117BA00C23485 /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		07DFD743292118C300C23485 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */,
+				07D1289D2931F2310011CFD9 /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -755,6 +758,7 @@
 				07D1289429309D150011CFD9 /* OnboardingViewModel.swift in Sources */,
 				52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
+				07D1289E2931F2310011CFD9 /* UserDefaults+Extensions.swift in Sources */,
 				07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */,
 				0702FF8D288D5FB600D78BF6 /* ReviewManager.swift in Sources */,
 				52C479AD26AB886900E3540F /* SettingsView.swift in Sources */,

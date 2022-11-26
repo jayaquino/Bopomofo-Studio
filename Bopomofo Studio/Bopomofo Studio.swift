@@ -43,9 +43,13 @@ struct Bopomofo_StudioApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                MainView()
-                    .environmentObject(router)
+                if UserDefaults.didSeeOnboarding {
+                    MainView()
+                } else {
+                    OnboardingView(viewModel: OnboardingViewModel())
+                }
             }
+            .environmentObject(router)
             .navigationViewStyle(StackNavigationViewStyle())
         }
     }

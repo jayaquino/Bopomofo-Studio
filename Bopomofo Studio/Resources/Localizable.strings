@@ -20,7 +20,7 @@
 //MARK: - ONBOARDING
 "ONBOARDING_SLIDE_ONE_TITLE" = "What can you learn?";
 "ONBOARDING_SLIDE_ONE_DESCRIPTION" = "The purpose of this app is to teach English speakers how to type Zhuyin / 注音 / Bopomofo — an alternative to Pinyin. Bo-po-mo-fo are the first four sounds of the system.";
-"ONBOARDING_SLIDE_TWO_TITLE" = "What are the content?";
+"ONBOARDING_SLIDE_TWO_TITLE" = "What are the contents?";
 "ONBOARDING_SLIDE_TWO_DESCRIPTION" = "Zhuyin is a sound-based system, which introduces learners to all the possible sounds in Chinese. You can continually test yourself while turning on/off sounds, or turning on/off Pinyin if you're coming from a Pinyin background.";
 "ONBOARDING_SLIDE_THREE_TITLE" = "What are the benefits?";
 "ONBOARDING_SLIDE_THREE_DESCRIPTION" = "One of main benefits of learning Zhuyin is the sound is not open to one's interpretation based on their mother tongue (e.g. long vowels vs. short vowels). If you know both Pinyin & Zhuyin, you can leverage the convenience of Pinyin and combine it with the correctness of Zhuyin.";

@@ -32,6 +32,7 @@ class OnboardingViewModel: ObservableObject {
     ]
     
     @Published var selection: OnboardingSlide
+    @Published var showHomeView = false
     
     init() {
         selection = onboardingSlides[0]
@@ -43,6 +44,12 @@ class OnboardingViewModel: ObservableObject {
         
         if nextIndex < onboardingSlides.count {
             selection = onboardingSlides[nextIndex]
+        } else {
+            showHomeView = true
         }
+    }
+    
+    func setDidSeeOnboarding() {
+        UserDefaults.didSeeOnboarding = true
     }
 }

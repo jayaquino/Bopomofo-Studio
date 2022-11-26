@@ -8,7 +8,11 @@
 import Foundation
 import SwiftUI
 
-struct OnboardingSlide: Equatable, Identifiable {
+struct OnboardingSlide: Equatable, Identifiable, Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
     let id = UUID()
     let image: String
     let title: LocalizedStringKey
