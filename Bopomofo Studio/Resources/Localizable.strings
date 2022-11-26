@@ -26,3 +26,6 @@
 "ONBOARDING_SLIDE_THREE_DESCRIPTION" = "One of main benefits of learning Zhuyin is the sound is not open to one's interpretation based on their mother tongue (e.g. long vowels vs. short vowels). If you know both Pinyin & Zhuyin, you can leverage the convenience of Pinyin and combine it with the correctness of Zhuyin.";
 "ONBOARDING_NOTIFICATION_TITLE" = "Practice makes (almost) perfect!";
 "ONBOARDING_NOTIFICATION_DESCRIPTION" = "Turn on notifications to turn on daily reminders and also receive notifications when there are new updates!";
+
+//MARK: - DEVELOPER SETTINGS
+"DID_SEE_ONBOARDING_TITLE" = "Onboarding Reset";

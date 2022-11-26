@@ -46,6 +46,12 @@ class Router: ObservableObject {
         )
     }
     
+    func developerControlsView() -> DeveloperControlsView {
+        DeveloperControlsView(
+            viewModel: DeveloperControlsViewModel()
+        )
+    }
+    
     func contentPreview() -> ContentPreviewView {
         ContentPreviewView(
             viewModel: ContentPreviewViewModel(contentStore: self.contentStore)

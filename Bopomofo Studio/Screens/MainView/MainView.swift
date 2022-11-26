@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainView: View {
-    
     @EnvironmentObject var router: Router
     
     var body: some View {
@@ -23,7 +22,10 @@ struct MainView: View {
                     Label("Settings", systemImage: "gear")
                 }
             
-            
+            router.developerControlsView()
+                .tabItem {
+                    Label("Dev", systemImage: "ant")
+                }
         }
     }
 }
