@@ -18,10 +18,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         OneSignal.initWithLaunchOptions(launchOptions)
         OneSignal.setAppId(EnvironmentKeys.oneSignalAppId)
         
-        OneSignal.promptForPushNotifications(userResponse: { accepted in
-            print("User accepted notification: \(accepted)")
-        })
-        
         return true
     }
 }

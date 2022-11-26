@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OneSignal
 
 class OnboardingViewModel: ObservableObject {
     var onboardingSlides: [OnboardingSlide] = [
@@ -45,6 +46,7 @@ class OnboardingViewModel: ObservableObject {
         if nextIndex < onboardingSlides.count {
             selection = onboardingSlides[nextIndex]
         } else {
+            OneSignal.promptForPushNotifications(userResponse: { _ in })
             showHomeView = true
         }
     }

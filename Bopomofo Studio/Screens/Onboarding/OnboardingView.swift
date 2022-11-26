@@ -12,32 +12,34 @@ struct OnboardingView: View {
     @EnvironmentObject var router: Router
     
     var body: some View {
-        VStack(spacing: 30) {
-            NavigationLink(isActive: $viewModel.showHomeView) {
-                MainView()
-            } label: {
-                EmptyView()
-            }
-            
-            pagerView
-            Spacer()
-            Button {
-                viewModel.nextButtonPressed()
-            } label: {
-                if viewModel.selection.title == LocalizedStringKey("ONBOARDING_NOTIFICATION_TITLE") {
-                    Image(systemName: "checkmark")
-                } else {
-                    Image(systemName: "arrow.right")
+        ZStack {
+            VStack(spacing: 30) {
+                NavigationLink(isActive: $viewModel.showHomeView) {
+                    MainView()
+                } label: {
+                    EmptyView()
                 }
+                
+                pagerView
+                Spacer()
+                Button {
+                    viewModel.nextButtonPressed()
+                } label: {
+                    if viewModel.selection.title == LocalizedStringKey("ONBOARDING_NOTIFICATION_TITLE") {
+                        Image(systemName: "checkmark")
+                    } else {
+                        Image(systemName: "arrow.right")
+                    }
+                }
+                .font(.system(size: 30, weight: .light))
+                .foregroundStyle(.white)
+                .frame(width: 86, height: 56)
+                .background(.tint)
+                .clipShape(Circle())
             }
-            .font(.system(size: 30, weight: .light))
-            .foregroundStyle(.white)
-            .frame(width: 86, height: 56)
-            .background(.tint)
-            .clipShape(Circle())
-        }
-        .onAppear {
-            viewModel.setDidSeeOnboarding()
+            .onAppear {
+                viewModel.setDidSeeOnboarding()
+            }
         }
     }
     
