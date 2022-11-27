@@ -63,8 +63,8 @@ struct SettingsView: View {
             } label: {
                 Text("SEND_FEEDBACK_BUTTON")
                     .font(.footnote)
-                    .padding()
             }
+            .padding(.vertical, 20)
 
         }
         .navigationTitle("SETTINGS_TITLE")
