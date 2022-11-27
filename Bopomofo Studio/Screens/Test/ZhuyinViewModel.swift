@@ -141,6 +141,16 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         return scorePercentage
     }
     
+    func reset() {
+        testFinished = false
+        self.inputSymbol = ""
+        self.timer = contentStore.timerValue
+        let randomNumber = Int.random(in: 0...symbolList.count-1)
+        self.randomSymbol = symbolList[randomNumber]
+        self.displaySymbol = symbolList[randomNumber]
+        self.randomSymbolExample = symbolPronunciation[randomNumber]
+    }
+    
     func trackEvent(event: AnalyticsProvider.TestAnalyticEvent) {
         self.analytics.track(event: .test(event: event))
     }

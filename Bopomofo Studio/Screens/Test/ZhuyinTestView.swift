@@ -11,8 +11,7 @@ import CoreBopomofoStudio
 import MockProvider
 
 struct ZhuyinTestView: View {
-    @Environment(\.presentationMode) var presentationMode
-    
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel : ZhuyinViewModel
         
     @FocusState private var focus: Bool
@@ -119,13 +118,14 @@ struct ZhuyinTestView: View {
                     .padding()
                 }
                 .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
+                    dismiss()
                 }
                 .navigationBarBackButtonHidden(true)
             }
         }
         .navigationBarHidden(true)
         .onAppear {
+            viewModel.reset()
             viewModel.trackEvent(event: .beganTest(testSetting: viewModel.contentStore.timerValue.description))
         }
         .onDisappear {
