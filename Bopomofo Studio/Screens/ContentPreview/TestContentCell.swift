@@ -27,8 +27,10 @@ struct TestContentCell: View {
             }
             .padding(10)
             Text(description)
+                .font(.headline)
+                .fontWeight(.light)
         }
-        .frame(maxWidth: 340, minHeight: 100, alignment: .leading)
+        .frame(maxWidth: 400, minHeight: 100, alignment: .leading)
         .cornerRadius(16)
         .background(
             RoundedRectangle(cornerRadius: 16)

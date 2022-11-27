@@ -37,15 +37,15 @@ struct ContentPreviewView: View {
             
             Text("Timer (s): \(viewModel.timerValue, specifier: "%.2f")")
                 .foregroundColor(.accentColor)
+                .font(.subheadline)
             
             NavigationLink(destination: router.zhuyinTestView(
                 symbolList: viewModel.testKeys,
                 symbolPronunciation: viewModel.testValues
             )) {
                 Text("Start")
-                    .frame(width: 150, height: 20, alignment: .center)
-                    .font(.system(size: 30, weight: .medium))
-                    .padding()
+                    .frame(maxWidth: 120, maxHeight: 20, alignment: .center)
+                    .font(.title)                    .padding()
                     .background(Color.accentColor)
                     .cornerRadius(20)
                     .foregroundColor(.white)
