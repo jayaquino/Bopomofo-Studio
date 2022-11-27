@@ -82,7 +82,7 @@ public class ContentStore: ObservableObject {
                         "s": "ㄙ s in soon",
                         "i": "ㄧ i in iguana",
                         "u": "ㄨ u in iguana",
-                        "ü": "ㄩ ü in june",
+                        "ü 1": "ㄩ ü in june",
                         "a": "ㄚ a in fat",
                         "o": "ㄛ aw in law",
                         "e*": "ㄜ uh in duh",
