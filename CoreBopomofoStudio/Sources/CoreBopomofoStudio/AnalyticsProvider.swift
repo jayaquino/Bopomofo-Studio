@@ -48,26 +48,6 @@ open class AnalyticsProvider {
         }
     }
     
-    // MARK: - Onboarding Analytics
-    public enum OnboardingAnalyticEvent: AnalyticTrackingProtocol {
-        
-        case start
-        
-        public var eventName: String {
-            switch self {
-            case .start:
-                return "Onboarding_Started"
-            }
-        }
-        
-        public var parameters: [String : String] {
-            switch self {
-            case .start:
-                return [:]
-            }
-        }
-    }
-    
     // MARK: - Settings Analytics
     public enum SettingsAnalyticEvent: AnalyticTrackingProtocol {
 
@@ -127,6 +107,36 @@ open class AnalyticsProvider {
                 return ["testSetting": testSetting.appending("s")]
             }
         }
+    }
+    
+    // MARK: - Onboarding Analytics
+    public enum OnboardingAnalyticEvent: AnalyticTrackingProtocol {
+        case onboardingStarted
+        case onboardingFinished
+        case viewedSlide(
+            slideIndex: Int
+        )
         
+        public var eventName: String {
+            switch self {
+            case .onboardingStarted:
+                return "Onboarding_Started"
+            case .onboardingFinished:
+                return "Onboarding_Finished"
+            case .viewedSlide:
+                return "Viewed_Onboarding_Slide"
+            }
+        }
+        
+        public var parameters: [String : String] {
+            switch self {
+            case .onboardingStarted, .onboardingFinished:
+                return [:]
+            case .viewedSlide(slideIndex: let slideIndex):
+                return [
+                    "slideIndex": slideIndex.description
+                ]
+            }
+        }
     }
 }

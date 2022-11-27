@@ -30,4 +30,8 @@ public class MockContentProvider: ContentProvider {
             )
         ]
     }
+    
+    public func sendFeedback(description: String) async throws -> Bool {
+        return true
+    }
 }

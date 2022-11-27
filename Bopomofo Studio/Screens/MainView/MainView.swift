@@ -8,20 +8,26 @@
 import SwiftUI
 
 struct MainView: View {
-    
     @EnvironmentObject var router: Router
     
     var body: some View {
         TabView {
             router.contentPreview()
                 .tabItem {
-                    Label("Menu", systemImage: "keyboard")
+                    Label("Test", systemImage: "keyboard")
                 }
             
             router.settingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
+            
+            if EnvironmentKeys.environment == .STAGING {
+                router.developerControlsView()
+                    .tabItem {
+                        Label("Dev", systemImage: "ant")
+                    }
+            }
         }
     }
 }

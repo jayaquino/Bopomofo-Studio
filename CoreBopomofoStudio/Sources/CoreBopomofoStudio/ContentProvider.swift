@@ -8,8 +8,16 @@
 import Foundation
 
 public protocol ContentProvider {
-    func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws
+    func saveHighScore(
+        testType: ContentStore.TestType,
+        scoreModel: ScoreModel
+    ) async throws
     
-    func retrieveScores(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> [ScoreModel]
+    func retrieveScores(
+        testType: ContentStore.TestType,
+        scoreModel: ScoreModel
+    ) async throws -> [ScoreModel]
+    
+    func sendFeedback(description: String) async throws -> Bool
 }
 

@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import CoreBopomofoStudio
 
+@MainActor
 class SettingsViewModel: ObservableObject {
     
     let contentStore: ContentStore
@@ -16,8 +17,10 @@ class SettingsViewModel: ObservableObject {
     
     @Published var testType: ContentStore.TestType = .zhuyin
     @Published var voiceSelection: ContentStore.VoiceSelection = .female
-    @Published var pronunciationTextMode: Bool = false
-    @Published var pronunciationVoiceMode: Bool = false
+    @Published var pronunciationTextMode = false
+    @Published var pronunciationVoiceMode = false
+    @Published var feedback = ""
+    @Published var showAlert = false
     
     var cancellables = Set<AnyCancellable>()
     
@@ -41,6 +44,7 @@ class SettingsViewModel: ObservableObject {
     
     func addSubscribers() {
         $testType
+            .dropFirst()
             .sink { testType in
                 self.contentStore.testType = testType
                 self.trackEvent(event: .testType(testType: testType.rawValue))
@@ -48,6 +52,7 @@ class SettingsViewModel: ObservableObject {
             .store(in: &cancellables)
         
         $voiceSelection
+            .dropFirst()
             .sink { voiceType in
                 self.contentStore.voiceSelection = voiceType
                 self.trackEvent(event: .voiceType(voiceType: voiceType.rawValue))
@@ -69,6 +74,17 @@ class SettingsViewModel: ObservableObject {
                 self.trackEvent(event: .voiceAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
+    }
+    
+    func sendFeedback() {
+        guard !feedback.isEmpty else { return }
+        Task {
+            let success = try await contentStore.sendFeedback(description: feedback)
+            if success {
+                feedback = ""
+                showAlert = true
+            }
+        }
     }
     
     func trackEvent(event: AnalyticsProvider.SettingsAnalyticEvent) {
