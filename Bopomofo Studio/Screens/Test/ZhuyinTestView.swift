@@ -11,10 +11,11 @@ import CoreBopomofoStudio
 import MockProvider
 
 struct ZhuyinTestView: View {
-    @Environment(\.presentationMode) var presentationMode
-    
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel : ZhuyinViewModel
         
+    @FocusState private var focus: Bool
+    
     // Timer
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     
@@ -53,22 +54,11 @@ struct ZhuyinTestView: View {
                 
                 ZStack{
                     VStack{
-                        Text(viewModel.displaySymbol)
+                        Image(viewModel.displaySymbol)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxHeight: 200)
                             .padding()
-                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                            .font(.system(size:150))
-                            .foregroundColor(.accentColor)
-                            .frame(height: 200)
-                            .onAppear{let randomNumber = Int.random(in: 0...viewModel.contentStore.testList.zhuyinSymbols.count-1)
-                                viewModel.randomSymbol = viewModel.contentStore.testList.zhuyinSymbols[randomNumber]
-                                if viewModel.contentStore.testType == .zhuyin {
-                                    viewModel.displaySymbol = viewModel.contentStore.testList.zhuyinSymbols[randomNumber]
-                                    viewModel.randomSymbolExample = viewModel.contentStore.testList.zhuyinSymbols[randomNumber]
-                                } else {
-                                    viewModel.displaySymbol = viewModel.contentStore.testList.pinyinSymbols[randomNumber]
-                                    viewModel.randomSymbolExample = viewModel.contentStore.testList.pinyinSymbols[randomNumber]
-                                }
-                            }
                                
                         if viewModel.contentStore.pronunciationTextMode == true {
                             Text(viewModel.randomSymbolExample)
@@ -88,12 +78,13 @@ struct ZhuyinTestView: View {
                     .foregroundColor(.accentColor)
                     .font(.title2)
                 }
-                Spacer()
-                KeyboardView(keyboardRow: viewModel.keyboardRow1, spacing: Constants.screenWidth/30, viewModel: viewModel)
-                KeyboardView(keyboardRow: viewModel.keyboardRow2, spacing: Constants.screenWidth/34, viewModel: viewModel)
-                KeyboardView(keyboardRow: viewModel.keyboardRow3, spacing: Constants.screenWidth/38, viewModel: viewModel)
-                KeyboardView(keyboardRow: viewModel.keyboardRow4, spacing: Constants.screenWidth/30, viewModel: viewModel)
-                Spacer()
+                
+                TextField("Enter the character shown", text: $viewModel.inputSymbol)
+                    .focused($focus)
+                    .textFieldStyle(.roundedBorder)
+                    .padding(.horizontal)                    .onAppear {
+                        focus = true
+                    }
             }
             
             if viewModel.testFinished {
@@ -109,31 +100,32 @@ struct ZhuyinTestView: View {
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
+                        } else if viewModel.score != 0 {
+                            ProgressView()
+                                .tint(.white)
                         }
-                        Text("High Score: \(UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(viewModel.contentStore.timerValue)))")
-                            .foregroundColor(.white)
-                        Button("Return") {
-                            if viewModel.contentStore.testType == .zhuyin {
-                                if viewModel.score > UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(viewModel.contentStore.timerValue)){
-                                    UserDefaults.standard.set(viewModel.score, forKey: "highscore-zhuyin"+String(viewModel.contentStore.timerValue))
-                                }
-                            } else {
-                                if viewModel.score > UserDefaults.standard.integer(forKey: "highscore-pinyinzhuyin"+String(viewModel.contentStore.timerValue)){
-                                    UserDefaults.standard.set(viewModel.score, forKey: "highscore-pinyintozhuyin"+String(viewModel.contentStore.timerValue))
-                                }
-                            }
-                            ReviewManager.shared.updateSessionsCompleted()
-                            presentationMode.wrappedValue.dismiss()
+                        switch viewModel.contentStore.testType {
+                        case .zhuyin:
+                            Text("High Score: \(UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(viewModel.contentStore.timerValue)))")
+                                .foregroundColor(.white)
+                                .font(.system(size:40))
+                        case .pinyinToZhuyin:
+                            Text("High Score: \(UserDefaults.standard.integer(forKey: "highscore-pinyintozhuyin"+String(viewModel.contentStore.timerValue)))")
+                                .foregroundColor(.white)
+                                .font(.system(size:40))
                         }
-                        .foregroundColor(.white)
-                        .font(.system(size:70))
                     }
+                    .padding()
+                }
+                .onTapGesture {
+                    dismiss()
                 }
                 .navigationBarBackButtonHidden(true)
             }
         }
         .navigationBarHidden(true)
         .onAppear {
+            viewModel.reset()
             viewModel.trackEvent(event: .beganTest(testSetting: viewModel.contentStore.timerValue.description))
         }
         .onDisappear {
@@ -142,34 +134,14 @@ struct ZhuyinTestView: View {
     }
 }
 
-struct KeyboardView: View {
-    
-    let keyboardRow : [String]
-    let spacing : CGFloat
-    let viewModel : ZhuyinViewModel
-    
-    var body: some View {
-        HStack(spacing: spacing){
-            ForEach(keyboardRow, id: \.self) { symbol in
-                Button(symbol) {
-                    viewModel.checkSymbols(a:symbol,b:viewModel.randomSymbol)
-                    viewModel.generateNewSymbol(pronunciationVoiceMode: viewModel.contentStore.pronunciationVoiceMode, voiceSelection: viewModel.contentStore.voiceSelection.rawValue)
-                }
-                .font(.system(size: 20, weight: .medium))
-                .frame(width: Constants.screenWidth/17)
-            }
-        }.padding(2)
-    }
-}
-
-
-
 struct Zhuyin_Previews: PreviewProvider {
     
     static var previews: some View {
         ZhuyinTestView(viewModel: ZhuyinViewModel(
             contentStore: ContentStore(provider: MockContentProvider()),
-            analytics: dev.analytics)
+            analytics: dev.analytics,
+            symbolList: ["ㄅ"],
+            symbolPronunciation: ["ㄅ"])
         )
     }
 }

@@ -16,6 +16,7 @@ struct Bopomofo_StudioApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     let router: Router
+    let analytics: AnalyticsProvider
     
     init() {
         let filePath = Bundle.main.path(forResource: EnvironmentKeys.googlePlist, ofType: "plist")
@@ -34,6 +35,8 @@ struct Bopomofo_StudioApp: App {
             environment: EnvironmentKeys.environment
         )
         
+        self.analytics = analytics
+        
         self.router = Router(
             contentStore: contentStore,
             analytics: analytics
@@ -43,9 +46,14 @@ struct Bopomofo_StudioApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                MainView()
-                    .environmentObject(router)
+                if UserDefaults.didSeeOnboarding {
+                    MainView()
+                } else {
+                    OnboardingView(viewModel: OnboardingViewModel(analytics: analytics))
+                }
             }
+            .environmentObject(router)
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

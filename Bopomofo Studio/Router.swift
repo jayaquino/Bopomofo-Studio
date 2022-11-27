@@ -23,11 +23,16 @@ class Router: ObservableObject {
         self.analytics = analytics
     }
     
-    func zhuyinTestView() -> ZhuyinTestView {
+    func zhuyinTestView(
+        symbolList: [String],
+        symbolPronunciation: [String]
+    ) -> ZhuyinTestView {
         ZhuyinTestView(
             viewModel: ZhuyinViewModel(
                 contentStore: self.contentStore,
-                analytics: self.analytics
+                analytics: self.analytics,
+                symbolList: symbolList,
+                symbolPronunciation: symbolPronunciation
             )
         )
     }
@@ -38,6 +43,12 @@ class Router: ObservableObject {
                 contentStore: self.contentStore,
                 analytics: self.analytics
             )
+        )
+    }
+    
+    func developerControlsView() -> DeveloperControlsView {
+        DeveloperControlsView(
+            viewModel: DeveloperControlsViewModel()
         )
     }
     

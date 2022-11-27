@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import CoreBopomofoStudio
 
+@MainActor
 class SettingsViewModel: ObservableObject {
     
     let contentStore: ContentStore
@@ -16,8 +17,10 @@ class SettingsViewModel: ObservableObject {
     
     @Published var testType: ContentStore.TestType = .zhuyin
     @Published var voiceSelection: ContentStore.VoiceSelection = .female
-    @Published var pronunciationTextMode: Bool = false
-    @Published var pronunciationVoiceMode: Bool = false
+    @Published var pronunciationTextMode = false
+    @Published var pronunciationVoiceMode = false
+    @Published var feedback = ""
+    @Published var showAlert = false
     
     var cancellables = Set<AnyCancellable>()
     
@@ -41,34 +44,47 @@ class SettingsViewModel: ObservableObject {
     
     func addSubscribers() {
         $testType
-            .sink { testType in
-                self.contentStore.testType = testType
-                self.trackEvent(event: .testType(testType: testType.rawValue))
+            .dropFirst()
+            .sink { [weak self] testType in
+                self?.contentStore.testType = testType
+                self?.trackEvent(event: .testType(testType: testType.rawValue))
             }
             .store(in: &cancellables)
         
         $voiceSelection
-            .sink { voiceType in
-                self.contentStore.voiceSelection = voiceType
-                self.trackEvent(event: .voiceType(voiceType: voiceType.rawValue))
+            .dropFirst()
+            .sink { [weak self] voiceType in
+                self?.contentStore.voiceSelection = voiceType
+                self?.trackEvent(event: .voiceType(voiceType: voiceType.rawValue))
             }
             .store(in: &cancellables)
         
         $pronunciationTextMode
             .dropFirst()
-            .sink { isOn in
-                self.contentStore.pronunciationTextMode = isOn
-                self.trackEvent(event: .textAssistance(isOn: isOn))
+            .sink { [weak self] isOn in
+                self?.contentStore.pronunciationTextMode = isOn
+                self?.trackEvent(event: .textAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
         
         $pronunciationVoiceMode
             .dropFirst()
-            .sink { isOn in
-                self.contentStore.pronunciationVoiceMode = isOn
-                self.trackEvent(event: .voiceAssistance(isOn: isOn))
+            .sink { [weak self] isOn in
+                self?.contentStore.pronunciationVoiceMode = isOn
+                self?.trackEvent(event: .voiceAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
+    }
+    
+    func sendFeedback() {
+        guard !feedback.isEmpty else { return }
+        Task {
+            let success = try await contentStore.sendFeedback(description: feedback)
+            if success {
+                feedback = ""
+                showAlert = true
+            }
+        }
     }
     
     func trackEvent(event: AnalyticsProvider.SettingsAnalyticEvent) {

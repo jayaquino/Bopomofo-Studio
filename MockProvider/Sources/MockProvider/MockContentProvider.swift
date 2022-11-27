@@ -7,7 +7,8 @@ public class MockContentProvider: ContentProvider {
 
     public init() {}
     
-    public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws {
+    public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {
+        return true
     }
     
     public func retrieveScores(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> [ScoreModel] {
@@ -29,5 +30,9 @@ public class MockContentProvider: ContentProvider {
                 time: 30
             )
         ]
+    }
+    
+    public func sendFeedback(description: String) async throws -> Bool {
+        return true
     }
 }

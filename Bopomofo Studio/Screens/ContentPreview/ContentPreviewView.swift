@@ -10,41 +10,43 @@ import CoreBopomofoStudio
 import MockProvider
 
 struct ContentPreviewView: View {
-    @Environment(\.presentationMode) var presentationMode
-    
     @EnvironmentObject var router: Router
     @StateObject var viewModel: ContentPreviewViewModel
-        
+    
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             ScrollView{
-                HStack(alignment: .center, spacing: 0) {
-                    if viewModel.testType == .zhuyin {
-                        testContent(content: viewModel.contentStore.testList.zhuyinSymbols)
-                        testContent(content: viewModel.contentStore.testList.zhuyinPronunciation)
-                    } else {
-                        testContent(content: viewModel.contentStore.testList.pinyinSymbols)
-                        testContent(content: viewModel.contentStore.testList.pinyinPronunciation)
+                VStack(spacing: 40) {
+                    ForEach(0..<viewModel.testKeys.count - 10, id: \.self) { index in
+                        TestContentCell(
+                            image: viewModel.testKeys[index],
+                            description: viewModel.testValues[index]
+                        )
                     }
                 }
             }
             .foregroundColor(.accentColor)
             
+            Divider()
+            
             Slider(value: $viewModel.timerValue, in: 30...300, step:10).padding(10)
             
             Text("Timer (s): \(viewModel.timerValue, specifier: "%.2f")")
                 .foregroundColor(.accentColor)
+                .font(.subheadline)
             
-            NavigationLink(destination: router.zhuyinTestView()) {
+            NavigationLink(destination: router.zhuyinTestView(
+                symbolList: viewModel.testKeys,
+                symbolPronunciation: viewModel.testValues
+            )) {
                 Text("Start")
-                    .frame(width: 150, height: 20, alignment: .center)
-                    .font(.system(size: 30, weight: .medium))
-                    .padding()
+                    .frame(maxWidth: 120, maxHeight: 20, alignment: .center)
+                    .font(.title)                    .padding()
                     .background(Color.accentColor)
                     .cornerRadius(20)
                     .foregroundColor(.white)
             }
-            Spacer()
+            .padding()
         }
     }
     
