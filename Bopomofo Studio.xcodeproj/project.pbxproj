@@ -20,6 +20,7 @@
 		07248DE928C5E890003FE4AB /* MockProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 07248DE828C5E890003FE4AB /* MockProvider */; };
 		07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */; };
 		07248DF228C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */; };
+		073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073313B92933313C0053F290 /* FeedbackSheet.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
 		07B653A528C5CCA70036A1E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07B653A428C5CCA70036A1E6 /* Localizable.strings */; };
 		07BB8BAE292A456800B2CE7C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB8BAD292A456800B2CE7C /* MainView.swift */; };
@@ -161,6 +162,7 @@
 		07248DE728C5E6B3003FE4AB /* MockProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MockProvider; sourceTree = "<group>"; };
 		07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewViewModel.swift; sourceTree = "<group>"; };
 		07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.naquinojr.Bopomofo-Studio.plist"; sourceTree = "<group>"; };
+		073313B92933313C0053F290 /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
 		07B653A428C5CCA70036A1E6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 			children = (
 				07248DE528C5E287003FE4AB /* SettingsViewModel.swift */,
 				52C479AC26AB886900E3540F /* SettingsView.swift */,
+				073313B92933313C0053F290 /* FeedbackSheet.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				0702FF8D288D5FB600D78BF6 /* ReviewManager.swift in Sources */,
 				07D128A12931F4D10011CFD9 /* DeveloperControlsView.swift in Sources */,
 				52C479AD26AB886900E3540F /* SettingsView.swift in Sources */,
+				073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */,
 				52D43812282BD12700FFCAEB /* SoundManager.swift in Sources */,
 				07248DE628C5E287003FE4AB /* SettingsViewModel.swift in Sources */,
 				5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */,

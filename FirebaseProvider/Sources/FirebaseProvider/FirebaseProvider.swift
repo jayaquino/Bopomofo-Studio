@@ -3,6 +3,8 @@ import CoreBopomofoStudio
 import Firebase
 
 public actor FirebaseProvider {
+    public init() {}
+    
     public func sendHighScore(
         testType: ContentStore.TestType,
         scoreModel: ScoreModel
@@ -24,9 +26,9 @@ public actor FirebaseProvider {
         return try await withCheckedThrowingContinuation({ continuation in
             collection.addDocument(data: ["description": description]) { error in
                 if let error {
-                    continuation.resume(returning: true)
-                } else {
                     continuation.resume(returning: false)
+                } else {
+                    continuation.resume(returning: true)
                 }
             }
         })

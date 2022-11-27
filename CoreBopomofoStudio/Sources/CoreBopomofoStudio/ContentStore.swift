@@ -123,10 +123,7 @@ public class ContentStore: ObservableObject {
         try await provider.retrieveScores(testType: testType, scoreModel: scoreModel)
     }
     
-    public func sendFeedback(description: String) async throws {
-        let success = try await provider.sendFeedback(description: description)
-        if !success {
-            throw URLError(.badServerResponse)
-        }
+    public func sendFeedback(description: String) async throws -> Bool {
+        try await provider.sendFeedback(description: description)
     }
 }

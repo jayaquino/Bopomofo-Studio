@@ -13,7 +13,8 @@ struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel: SettingsViewModel
-    
+    @State var showFeedbackSheet = false
+            
     var body: some View {
         VStack {
             Picker("", selection: $viewModel.testType) {
@@ -56,9 +57,21 @@ struct SettingsView: View {
             }
             
             Spacer()
+            
+            Button {
+                showFeedbackSheet = true
+            } label: {
+                Text("SEND_FEEDBACK_BUTTON")
+                    .font(.footnote)
+                    .padding()
+            }
+
         }
         .navigationTitle("SETTINGS_TITLE")
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showFeedbackSheet) {
+            FeedbackSheet(viewModel: viewModel)
+        }
     }
 }
 

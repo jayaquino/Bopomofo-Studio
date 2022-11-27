@@ -12,10 +12,14 @@
 
 //MARK: - BUTTON
 "START_BUTTON" = "Start";
+"SEND_FEEDBACK_BUTTON" = "Got Suggestions? Send Feedback!";
 
 //MARK: - PICKER
 "PICKER_PRONUNCIATION_TEXT_ASSISTANCE_SUBTEXT" = "Shows pronunciation below the zhuyin or pinyin.";
 "PICKER_PRONUNCIATION_VOICE_ASSISTANCE_SUBTEXT" = "Turn on volume to hear pronunciation assistance.";
+
+//MARK: - TEXTFIELDS
+"SEND_FEEDBACK_TEXTFIELD" = "Good feedback? Bad feedback? Feature suggestions?";
 
 //MARK: - ONBOARDING
 "ONBOARDING_SLIDE_ONE_TITLE" = "What can you learn?";
@@ -29,3 +33,7 @@
 
 //MARK: - DEVELOPER SETTINGS
 "DID_SEE_ONBOARDING_TITLE" = "Onboarding Reset";
+
+//MARK: - ALERTS
+"FEEDBACK_ALERT_TITLE" = "Thanks for the feedback!";
+"ALERT_CONTINUE_BUTTON" = "Continue";
