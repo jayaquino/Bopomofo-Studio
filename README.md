@@ -1,4 +1,14 @@
 # Bopomofo-Studio
+# Nov '22
+ <img src = "https://user-images.githubusercontent.com/46248987/203016987-bbcdc52f-737e-467e-9080-7130468d2476.jpeg" height="250"> 
+ 
+* Refactored to a modular architecture (Using providers; mock and remote).
+* Integrated a simple Firebase implementation for scores.
+* Created a staging and release environment. Using Xcode cloud to create builds in TestFlight when changes in the develop branch occur, App Store builds on the main branch.
+* Integrated Mixpanel for simple analytics (staging and release). 
+* Integrated push notifications (staging and release).
+* Integrated Tab Bar & slight UI refactor.
+
 
 # May '22
 <p float="left">
