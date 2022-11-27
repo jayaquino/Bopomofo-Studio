@@ -132,12 +132,13 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     }
     
     private func calculateScorePercentageStanding(scores: [ScoreModel]) -> Double? {
-        let maxScore = scores.compactMap({ $0.score }).max()
-        guard let maxScore = maxScore else {
-            return nil
-        }
-        let scorePercentage = Double(score) / Double(maxScore) * 100.0
-        return scorePercentage.rounded()
+        let totalCount = scores.count
+        let sortedScores = scores.sorted(by: { $1.score >= $0.score })
+        let userPosition = sortedScores.lastIndex(where: { $0.score == score })
+
+        guard let userPosition else { return nil }
+        let scorePercentage = Double(userPosition) / Double(totalCount) * 100
+        return scorePercentage
     }
     
     func trackEvent(event: AnalyticsProvider.TestAnalyticEvent) {
