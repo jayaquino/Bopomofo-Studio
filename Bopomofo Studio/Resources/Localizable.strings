@@ -19,7 +19,7 @@
 "PICKER_PRONUNCIATION_VOICE_ASSISTANCE_SUBTEXT" = "Turn on volume to hear pronunciation assistance.";
 
 //MARK: - TEXTFIELDS
-"SEND_FEEDBACK_TEXTFIELD" = "Good feedback? Bad feedback? Feature suggestions?";
+"SEND_FEEDBACK_TEXTFIELD" = "Any comments, feedback, or feature suggestions?";
 
 //MARK: - ONBOARDING
 "ONBOARDING_SLIDE_ONE_TITLE" = "What can you learn?";

@@ -12,22 +12,20 @@ struct FeedbackSheet: View {
     @ObservedObject var viewModel: SettingsViewModel
     
     var body: some View {
-        VStack {
-            feedbackTextField
-                .frame(maxWidth: 500, maxHeight: .infinity)
-                .padding()
-                .multilineTextAlignment(.leading)
-                .lineLimit(nil)
-                .textFieldStyle(.roundedBorder)
-            
+        VStack(alignment: .trailing) {
             Button {
                 viewModel.sendFeedback()
             } label: {
                 Text("Send")
-                    .font(.footnote)
+                    .font(.title2)
             }
-            .padding()
+            feedbackTextField
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .multilineTextAlignment(.leading)
+                .lineLimit(nil)
+                .textFieldStyle(.roundedBorder)
         }
+        .padding()
         .alert(isPresented: $viewModel.showAlert) {
             Alert(title: Text("FEEDBACK_ALERT_TITLE"), dismissButton: .default(Text("ALERT_CONTINUE_BUTTON"), action: {
                 dismiss()

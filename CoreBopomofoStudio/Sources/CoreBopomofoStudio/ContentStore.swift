@@ -105,7 +105,6 @@ public class ContentStore: ObservableObject {
         case male = "Male"
     }
     
-    public let testList = TestList()
     @Published public var testType: TestType = .zhuyin
     @Published public var pronunciationTextMode : Bool = false
     @Published public var pronunciationVoiceMode : Bool = false
