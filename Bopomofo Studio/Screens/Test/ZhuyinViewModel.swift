@@ -53,12 +53,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     @Published var maleSoundBPMF = ""
     @Published var inputSymbol: String = "" {
         didSet {
-            guard inputSymbol != "", randomSymbol != "" else { return }
-            if inputSymbol == randomSymbol {
-                score += 1
-                generateNewSymbol()
-            }
-            inputSymbol = ""
+            checkUserInput()
         }
     }
         
@@ -94,6 +89,24 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
                 SoundManager.instance.playSound(sound: femaleSoundBPMF)
             }
         }
+    }
+    
+    private func checkUserInput() {
+        guard inputSymbol != "", randomSymbol != "" else { return }
+
+        switch contentStore.testType {
+        case .zhuyin:
+            if inputSymbol == randomSymbol {
+                score += 1
+                generateNewSymbol()
+            }
+        case .pinyinToZhuyin:
+            if inputSymbol == contentStore.testType.pinyinDictionary[randomSymbol] {
+                score += 1
+                generateNewSymbol()
+            }
+        }
+        inputSymbol = ""
     }
     
     private func testDidFinish() {

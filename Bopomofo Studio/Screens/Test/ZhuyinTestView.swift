@@ -60,11 +60,6 @@ struct ZhuyinTestView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(maxHeight: 200)
                             .padding()
-                            .onAppear {let randomNumber = Int.random(in: 0...viewModel.symbolList.count-1)
-                                viewModel.randomSymbol = viewModel.symbolList[randomNumber]
-                                viewModel.displaySymbol = viewModel.symbolList[randomNumber]
-                                viewModel.randomSymbolExample = viewModel.symbolList[randomNumber]
-                            }
                                
                         if viewModel.contentStore.pronunciationTextMode == true {
                             Text(viewModel.randomSymbolExample)
@@ -87,8 +82,8 @@ struct ZhuyinTestView: View {
                 
                 TextField("Enter the character shown", text: $viewModel.inputSymbol)
                     .focused($focus)
-                    .opacity(1)
-                    .onAppear {
+                    .textFieldStyle(.roundedBorder)
+                    .padding(.horizontal)                    .onAppear {
                         focus = true
                     }
             }
