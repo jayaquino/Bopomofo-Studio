@@ -15,7 +15,7 @@ public class FirebaseContentProvider: ContentProvider {
         self.provider = provider
     }
     
-    public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws {
+    public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {
         try await provider.sendHighScore(testType: testType, scoreModel: scoreModel)
     }
     

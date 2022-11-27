@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "ao.svg",
-      "idiom" : "universal"
+      "filename" : "ao.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ao@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ao@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

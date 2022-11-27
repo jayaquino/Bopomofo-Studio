@@ -7,7 +7,8 @@ public class MockContentProvider: ContentProvider {
 
     public init() {}
     
-    public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws {
+    public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {
+        return true
     }
     
     public func retrieveScores(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> [ScoreModel] {

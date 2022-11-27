@@ -10,18 +10,14 @@ import CoreBopomofoStudio
 import MockProvider
 
 struct ContentPreviewView: View {
-    @Environment(\.presentationMode) var presentationMode
-    
     @EnvironmentObject var router: Router
     @StateObject var viewModel: ContentPreviewViewModel
-        
-    @State var scale = 0.8
-
+    
     var body: some View {
         VStack(spacing: 0) {
             ScrollView{
                 VStack(spacing: 40) {
-                    ForEach(0..<viewModel.testKeys.count) { index in
+                    ForEach(0..<viewModel.testKeys.count - 10, id: \.self) { index in
                         TestContentCell(
                             image: viewModel.testKeys[index],
                             description: viewModel.testValues[index]

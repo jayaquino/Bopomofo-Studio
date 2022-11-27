@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "converted 12.svg",
-      "idiom" : "universal"
+      "filename" : "ㄥ.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ㄥ@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ㄥ@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "ei.svg",
-      "idiom" : "universal"
+      "filename" : "ei.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ei@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ei@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

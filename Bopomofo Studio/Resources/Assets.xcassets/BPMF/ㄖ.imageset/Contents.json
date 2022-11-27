@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "ㄖ.svg",
-      "idiom" : "universal"
+      "filename" : "ㄖ.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ㄖ@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ㄖ@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

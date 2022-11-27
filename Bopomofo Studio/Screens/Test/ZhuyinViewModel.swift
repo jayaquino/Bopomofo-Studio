@@ -60,8 +60,8 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     private func addSubscribers() {
         $timer
             .first(where: { $0 <= 0 })
-            .sink { time in
-                self.testDidFinish()
+            .sink { [weak self] time in
+                self?.testDidFinish()
             }
             .store(in: &cancellables)
     }

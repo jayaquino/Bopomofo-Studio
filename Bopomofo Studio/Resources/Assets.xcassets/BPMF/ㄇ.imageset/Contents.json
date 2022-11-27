@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "ㄇ.svg",
-      "idiom" : "universal"
+      "filename" : "ㄇ.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ㄇ@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ㄇ@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

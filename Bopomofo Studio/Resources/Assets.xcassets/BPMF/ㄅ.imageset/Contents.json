@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "ㄅ.svg",
-      "idiom" : "universal"
+      "filename" : "ㄅ.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "ㄅ@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "ㄅ@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

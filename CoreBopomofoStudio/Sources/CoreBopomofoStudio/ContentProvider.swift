@@ -11,7 +11,7 @@ public protocol ContentProvider {
     func saveHighScore(
         testType: ContentStore.TestType,
         scoreModel: ScoreModel
-    ) async throws
+    ) async throws -> Bool
     
     func retrieveScores(
         testType: ContentStore.TestType,

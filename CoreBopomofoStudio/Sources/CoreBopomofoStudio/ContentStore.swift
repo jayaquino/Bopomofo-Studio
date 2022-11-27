@@ -82,10 +82,10 @@ public class ContentStore: ObservableObject {
                         "s": "ㄙ s in soon",
                         "i": "ㄧ i in iguana",
                         "u": "ㄨ u in iguana",
-                        "ü 1": "ㄩ ü in june",
+                        "uu": "ㄩ ü in june",
                         "a": "ㄚ a in fat",
                         "o": "ㄛ aw in law",
-                        "e*": "ㄜ uh in duh",
+                        "eh": "ㄜ uh in duh",
                         "e": "ㄝ e in yet",
                         "ai": "ㄞ igh in sigh",
                         "ei": "ㄟ ay in lay",
@@ -99,7 +99,7 @@ public class ContentStore: ObservableObject {
             }
         }
         
-        public var pinyinDictionary : [String: String] { ["b":"ㄅ","p":"ㄆ","m":"ㄇ","f":"ㄈ","d":"ㄉ","t":"ㄊ","n":"ㄋ","l":"ㄌ","g":"ㄍ","k":"ㄎ","h":"ㄏ","j":"ㄐ","q":"ㄑ","x":"ㄒ","zh":"ㄓ","ch":"ㄔ","sh":"ㄕ","r":"ㄖ","z":"ㄗ","c":"ㄘ","s":"ㄙ","i":"ㄧ","u":"ㄨ","ü 1":"ㄩ","a":"ㄚ","o":"ㄛ","e*":"ㄜ","e ":"ㄝ","ai":"ㄞ","ei":"ㄟ","ao":"ㄠ","ou":"ㄡ","an":"ㄢ","en":"ㄣ","ang":"ㄤ","eng":"ㄥ","er":"ㄦ"]
+        public var pinyinDictionary : [String: String] { ["b":"ㄅ","p":"ㄆ","m":"ㄇ","f":"ㄈ","d":"ㄉ","t":"ㄊ","n":"ㄋ","l":"ㄌ","g":"ㄍ","k":"ㄎ","h":"ㄏ","j":"ㄐ","q":"ㄑ","x":"ㄒ","zh":"ㄓ","ch":"ㄔ","sh":"ㄕ","r":"ㄖ","z":"ㄗ","c":"ㄘ","s":"ㄙ","i":"ㄧ","u":"ㄨ","uu":"ㄩ","a":"ㄚ","o":"ㄛ","eh":"ㄜ","e ":"ㄝ","ai":"ㄞ","ei":"ㄟ","ao":"ㄠ","ou":"ㄡ","an":"ㄢ","en":"ㄣ","ang":"ㄤ","eng":"ㄥ","er":"ㄦ"]
         }
     }
     
@@ -117,7 +117,8 @@ public class ContentStore: ObservableObject {
     @Published public var contentTwo : [String] = []
     @Published public var testId : String = ""
     
-    public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws {
+    @discardableResult
+    public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {
         try await provider.saveHighScore(testType: testType, scoreModel: scoreModel)
     }
     

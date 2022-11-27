@@ -30,10 +30,10 @@ class ContentPreviewViewModel: ObservableObject {
         self.testValues = contentStore.testType.dictionary.map({ $0.value })
         
         contentStore.$testType
-            .sink { testType in
-                self.testType = testType
-                self.testKeys = testType.dictionary.map({ $0.key})
-                self.testValues = testType.dictionary.map({ $0.value })
+            .sink { [weak self] testType in
+                self?.testType = testType
+                self?.testKeys = testType.dictionary.map({ $0.key})
+                self?.testValues = testType.dictionary.map({ $0.value })
             }
             .store(in: &cancellables)
     }

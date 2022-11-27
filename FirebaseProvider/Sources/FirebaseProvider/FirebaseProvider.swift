@@ -8,9 +8,17 @@ public actor FirebaseProvider {
     public func sendHighScore(
         testType: ContentStore.TestType,
         scoreModel: ScoreModel
-    ) {
+    ) async throws -> Bool {
         let collection = Firestore.firestore().collection("\(testType) highscore: \(scoreModel.time)")
-        collection.addDocument(data: scoreModel.dictionary)
+        return try await withCheckedThrowingContinuation({ continuation in
+            collection.addDocument(data: scoreModel.dictionary) { error in
+                if error != nil {
+                    continuation.resume(returning: false)
+                } else {
+                    continuation.resume(returning: true)
+                }
+            }
+        })
     }
     
     public func retrieveScores(
@@ -25,7 +33,7 @@ public actor FirebaseProvider {
         let collection = Firestore.firestore().collection("feedback")
         return try await withCheckedThrowingContinuation({ continuation in
             collection.addDocument(data: ["description": description]) { error in
-                if let error {
+                if error != nil {
                     continuation.resume(returning: false)
                 } else {
                     continuation.resume(returning: true)

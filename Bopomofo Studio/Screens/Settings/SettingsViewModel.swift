@@ -45,33 +45,33 @@ class SettingsViewModel: ObservableObject {
     func addSubscribers() {
         $testType
             .dropFirst()
-            .sink { testType in
-                self.contentStore.testType = testType
-                self.trackEvent(event: .testType(testType: testType.rawValue))
+            .sink { [weak self] testType in
+                self?.contentStore.testType = testType
+                self?.trackEvent(event: .testType(testType: testType.rawValue))
             }
             .store(in: &cancellables)
         
         $voiceSelection
             .dropFirst()
-            .sink { voiceType in
-                self.contentStore.voiceSelection = voiceType
-                self.trackEvent(event: .voiceType(voiceType: voiceType.rawValue))
+            .sink { [weak self] voiceType in
+                self?.contentStore.voiceSelection = voiceType
+                self?.trackEvent(event: .voiceType(voiceType: voiceType.rawValue))
             }
             .store(in: &cancellables)
         
         $pronunciationTextMode
             .dropFirst()
-            .sink { isOn in
-                self.contentStore.pronunciationTextMode = isOn
-                self.trackEvent(event: .textAssistance(isOn: isOn))
+            .sink { [weak self] isOn in
+                self?.contentStore.pronunciationTextMode = isOn
+                self?.trackEvent(event: .textAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
         
         $pronunciationVoiceMode
             .dropFirst()
-            .sink { isOn in
-                self.contentStore.pronunciationVoiceMode = isOn
-                self.trackEvent(event: .voiceAssistance(isOn: isOn))
+            .sink { [weak self] isOn in
+                self?.contentStore.pronunciationVoiceMode = isOn
+                self?.trackEvent(event: .voiceAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
     }

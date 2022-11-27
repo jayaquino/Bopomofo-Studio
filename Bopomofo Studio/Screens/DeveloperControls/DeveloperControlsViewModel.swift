@@ -19,9 +19,9 @@ class DeveloperControlsViewModel: ObservableObject {
     
     private func addSubscribers() {
         $didSeeOnboarding
-            .sink { didSeeOnboarding in
+            .sink { [weak self] didSeeOnboarding in
                 if didSeeOnboarding {
-                    self.resetDidSeeOnboarding()
+                    self?.resetDidSeeOnboarding()
                 }
             }
             .store(in: &cancellables)
