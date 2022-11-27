@@ -38,6 +38,7 @@ struct OnboardingView: View {
                 .background(.tint)
                 .clipShape(Circle())
             }
+            .padding()
             .onAppear {
                 viewModel.setDidSeeOnboarding()
                 viewModel.analytics.track(event: .onboarding(event: .onboardingStarted))

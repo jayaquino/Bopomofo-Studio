@@ -14,22 +14,22 @@ class OnboardingViewModel: ObservableObject {
     
     var onboardingSlides: [OnboardingSlide] = [
         OnboardingSlide(
-            image: "onboarding_Slide_One",
+            image: "ㄅ",
             title: "ONBOARDING_SLIDE_ONE_TITLE",
             description: "ONBOARDING_SLIDE_ONE_DESCRIPTION"
         ),
         OnboardingSlide(
-            image: "onboarding_Slide_Two",
+            image: "ㄆ",
             title: "ONBOARDING_SLIDE_TWO_TITLE",
-            description: "ONBOARDING_SLIDE_THREE_DESCRIPTION"
+            description: "ONBOARDING_SLIDE_TWO_DESCRIPTION"
         ),
         OnboardingSlide(
-            image: "onboarding_Slide_Three",
+            image: "ㄇ",
             title: "ONBOARDING_SLIDE_THREE_TITLE",
             description: "ONBOARDING_SLIDE_THREE_DESCRIPTION"
         ),
         OnboardingSlide(
-            image: "onboarding_Notification",
+            image: "ㄈ",
             title: "ONBOARDING_NOTIFICATION_TITLE",
             description: "ONBOARDING_NOTIFICATION_DESCRIPTION"
             )
