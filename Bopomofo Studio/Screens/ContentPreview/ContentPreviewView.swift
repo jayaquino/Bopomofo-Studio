@@ -18,11 +18,14 @@ struct ContentPreviewView: View {
         VStack(spacing: 0) {
             ScrollView{
                 VStack(spacing: 40) {
-                    ForEach(0..<viewModel.testKeys.count - 10, id: \.self) { index in
+                    ForEach(0..<viewModel.testKeys.count, id: \.self) { index in
                         TestContentCell(
                             image: viewModel.testKeys[index],
                             description: viewModel.testValues[index]
                         )
+                        .onTapGesture {
+                            viewModel.playSound(symbol: viewModel.testKeys[index])
+                        }
                     }
                 }
             }
@@ -36,17 +39,6 @@ struct ContentPreviewView: View {
                 .foregroundColor(.accentColor)
                 .font(.subheadline)
             
-//            NavigationLink(destination: router.zhuyinTestView(
-//                symbolList: viewModel.testKeys,
-//                symbolPronunciation: viewModel.testValues
-//            )) {
-//                Text("Start")
-//                    .frame(maxWidth: 120, maxHeight: 20, alignment: .center)
-//                    .font(.title)                    .padding()
-//                    .background(Color.accentColor)
-//                    .cornerRadius(20)
-//                    .foregroundColor(.white)
-//            }
             Button(action: {
                 showTestView = true
             }, label: {

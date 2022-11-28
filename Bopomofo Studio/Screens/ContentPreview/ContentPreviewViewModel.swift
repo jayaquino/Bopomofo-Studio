@@ -38,4 +38,18 @@ class ContentPreviewViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    func playSound(symbol: String) {
+        var sound = symbol
+        
+        if contentStore.testType == .pinyinToZhuyin {
+            sound = contentStore.testType.pinyinDictionary[symbol] ?? ""
+        }
+        
+        switch contentStore.voiceSelection {
+        case .male:
+            SoundManager.instance.playMaleSound(sound: sound)
+        case .female:
+            SoundManager.instance.playFemaleSound(sound: sound)
+        }
+    }
 }
