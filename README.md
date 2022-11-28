@@ -1,6 +1,15 @@
 # Bopomofo-Studio
 # Nov '22
- <img src = "https://user-images.githubusercontent.com/46248987/203016987-bbcdc52f-737e-467e-9080-7130468d2476.jpeg" height="250"> 
+<p float="left">
+ <img src = "https://user-images.githubusercontent.com/46248987/204400536-83bf67ec-78a5-4541-a8ee-166a73f37337.png" height="250"> 
+ <img src = "https://user-images.githubusercontent.com/46248987/204400299-29c9a770-78be-4dfb-9375-0a46b2402dd0.png" height = "250">
+  <img src = "https://user-images.githubusercontent.com/46248987/204400718-48f895f6-193e-4c21-9fd0-497c42cb177d.png" height = "250">
+
+<p float="left">
+ <img src = "https://user-images.githubusercontent.com/46248987/204400420-03e6b393-cc8f-407f-8128-5b0bcb819a4c.png" height="250"> 
+ <img src = "https://user-images.githubusercontent.com/46248987/204400608-83b371a9-fc6a-4cfb-af56-cbf2835a5156.png" height = "250">
+ <img src = "https://user-images.githubusercontent.com/46248987/204400729-fb5a0775-176c-42a1-a283-f7e3ba5e54fe.png" height = "250">
+
  
 * Refactored to a modular architecture (Using providers; mock and remote).
 * Integrated a simple Firebase implementation for scores.
@@ -8,6 +17,7 @@
 * Integrated Mixpanel for simple analytics (staging and release). 
 * Integrated push notifications (staging and release).
 * Integrated Tab Bar & slight UI refactor.
+* iPad support
 
 
 # May '22
