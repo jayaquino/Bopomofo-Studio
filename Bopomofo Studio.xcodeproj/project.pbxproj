@@ -884,6 +884,7 @@
 				DEVELOPMENT_TEAM = V89Z8LQWPX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bopomofo Studio/Resources/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1139,6 +1140,7 @@
 				DEVELOPMENT_TEAM = V89Z8LQWPX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bopomofo Studio/Resources/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1164,6 +1166,7 @@
 				DEVELOPMENT_TEAM = V89Z8LQWPX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bopomofo Studio/Resources/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
