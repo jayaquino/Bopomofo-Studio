@@ -40,7 +40,6 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         self.randomSymbol = symbolList[randomNumber]
         displaySymbol = symbolList[randomNumber]
         randomSymbolExample = symbolPronunciation[randomNumber]
-     
         
         addSubscribers()
     }
@@ -139,16 +138,6 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         guard let userPosition else { return nil }
         let scorePercentage = Double(userPosition) / Double(totalCount) * 100
         return scorePercentage
-    }
-    
-    func reset() {
-        testFinished = false
-        self.inputSymbol = ""
-        self.timer = contentStore.timerValue
-        let randomNumber = Int.random(in: 0...symbolList.count-1)
-        self.randomSymbol = symbolList[randomNumber]
-        self.displaySymbol = symbolList[randomNumber]
-        self.randomSymbolExample = symbolPronunciation[randomNumber]
     }
     
     func trackEvent(event: AnalyticsProvider.TestAnalyticEvent) {

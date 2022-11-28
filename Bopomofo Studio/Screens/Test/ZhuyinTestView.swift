@@ -125,7 +125,6 @@ struct ZhuyinTestView: View {
         }
         .navigationBarHidden(true)
         .onAppear {
-            viewModel.reset()
             viewModel.trackEvent(event: .beganTest(testSetting: viewModel.contentStore.timerValue.description))
         }
         .onDisappear {
