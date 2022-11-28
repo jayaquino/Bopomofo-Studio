@@ -41,6 +41,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         displaySymbol = symbolList[randomNumber]
         randomSymbolExample = symbolPronunciation[randomNumber]
         
+        playSound(symbol: randomSymbol)
         addSubscribers()
     }
     
@@ -48,8 +49,6 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     @Published var randomSymbolExample = ""
     @Published var displaySymbol = ""
     @Published var score = 0
-    @Published var femaleSoundBPMF = ""
-    @Published var maleSoundBPMF = ""
     @Published var inputSymbol: String = "" {
         didSet {
             checkUserInput()
@@ -77,16 +76,22 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         randomSymbol = symbolList[randomNumber]
         displaySymbol = symbolList[randomNumber]
         randomSymbolExample = symbolPronunciation[randomNumber]
-        femaleSoundBPMF = "F_" + randomSymbol
-        maleSoundBPMF = "M_" + randomSymbol
         
-        if contentStore.pronunciationVoiceMode {
-            if contentStore.voiceSelection == .male {
-                SoundManager.instance.playSound(sound: maleSoundBPMF)
-            }
-            if contentStore.voiceSelection == .female {
-                SoundManager.instance.playSound(sound: femaleSoundBPMF)
-            }
+        playSound(symbol: randomSymbol)
+    }
+    
+    private func playSound(symbol: String) {
+        var sound = symbol
+        
+        if contentStore.testType == .pinyinToZhuyin {
+            sound = contentStore.testType.pinyinDictionary[symbol] ?? ""
+        }
+        
+        switch contentStore.voiceSelection {
+        case .male:
+            SoundManager.instance.playMaleSound(sound: sound)
+        case .female:
+            SoundManager.instance.playFemaleSound(sound: sound)
         }
     }
     

@@ -14,14 +14,25 @@ class SoundManager{
     
     var player: AVAudioPlayer?
     
-    func playSound(sound: String){
-        guard let url = Bundle.main.url(forResource: sound, withExtension:".mp3")
+    func playMaleSound(sound: String) {
+        guard let url = Bundle.main.url(forResource: "M_\(sound)", withExtension:".mp3")
         else { return}
         do {
-            player = try AVAudioPlayer(contentsOf:url)
+            player = try AVAudioPlayer(contentsOf: url)
             player?.play()
         } catch let error {
-            print("Error playing sound. \(error.localizedDescription)")
+            print("Error playing male sound. \(error.localizedDescription)")
+        }
+    }
+    
+    func playFemaleSound(sound: String) {
+        guard let url = Bundle.main.url(forResource: "F_\(sound)", withExtension:".mp3")
+        else { return}
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        } catch let error {
+            print("Error playing female sound. \(error.localizedDescription)")
         }
     }
 }
