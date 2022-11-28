@@ -13,6 +13,7 @@ struct ContentPreviewView: View {
     @EnvironmentObject var router: Router
     @StateObject var viewModel: ContentPreviewViewModel
     
+    @State var showTestView = false
     var body: some View {
         VStack(spacing: 0) {
             ScrollView{
@@ -35,18 +36,34 @@ struct ContentPreviewView: View {
                 .foregroundColor(.accentColor)
                 .font(.subheadline)
             
-            NavigationLink(destination: router.zhuyinTestView(
-                symbolList: viewModel.testKeys,
-                symbolPronunciation: viewModel.testValues
-            )) {
+//            NavigationLink(destination: router.zhuyinTestView(
+//                symbolList: viewModel.testKeys,
+//                symbolPronunciation: viewModel.testValues
+//            )) {
+//                Text("Start")
+//                    .frame(maxWidth: 120, maxHeight: 20, alignment: .center)
+//                    .font(.title)                    .padding()
+//                    .background(Color.accentColor)
+//                    .cornerRadius(20)
+//                    .foregroundColor(.white)
+//            }
+            Button(action: {
+                showTestView = true
+            }, label: {
                 Text("Start")
                     .frame(maxWidth: 120, maxHeight: 20, alignment: .center)
                     .font(.title)                    .padding()
                     .background(Color.accentColor)
                     .cornerRadius(20)
                     .foregroundColor(.white)
-            }
+            })
             .padding()
+        }
+        .fullScreenCover(isPresented: $showTestView) {
+            router.zhuyinTestView(
+                symbolList: viewModel.testKeys,
+                symbolPronunciation: viewModel.testValues
+            )
         }
     }
     
