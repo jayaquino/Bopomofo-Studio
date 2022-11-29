@@ -122,8 +122,12 @@ public class ContentStore: ObservableObject {
         try await provider.saveHighScore(testType: testType, scoreModel: scoreModel)
     }
     
-    public func retrieveScores(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> [ScoreModel] {
-        try await provider.retrieveScores(testType: testType, scoreModel: scoreModel)
+    public func fetchScores(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> [ScoreModel] {
+        try await provider.fetchScores(testType: testType, scoreModel: scoreModel)
+    }
+    
+    public func fetchSimpleVerbs() async throws -> [VocabularyModel] {
+        try await provider.fetchSimpleVerbs()
     }
     
     public func sendFeedback(description: String) async throws -> Bool {

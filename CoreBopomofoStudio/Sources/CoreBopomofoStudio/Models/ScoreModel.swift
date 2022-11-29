@@ -8,6 +8,11 @@
 import Foundation
 
 public struct ScoreModel: Codable {
+    enum CodingKeys: CodingKey {
+        case score
+        case time
+    }
+    
     public let score : Int
     public let time: Double
     public var dictionary: [String: Any] {
@@ -30,5 +35,11 @@ public struct ScoreModel: Codable {
         }
         self.score = score
         self.time = time
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        score = try container.decode(Int.self, forKey: .score)
+        time = try container.decode(Double.self, forKey: .score)
     }
 }

@@ -16,14 +16,24 @@ public class FirebaseContentProvider: ContentProvider {
     }
     
     public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {
-        try await provider.sendHighScore(testType: testType, scoreModel: scoreModel)
+        try await provider.addDocument(
+            location: "\(testType) highscore: \(scoreModel.time)",
+            data: scoreModel.dictionary
+        )
     }
     
-    public func retrieveScores(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> [ScoreModel] {
-        try await provider.retrieveScores(testType: testType, scoreModel: scoreModel)
+    public func fetchScores(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> [ScoreModel] {
+        try await provider.fetchScores(location: "\(testType) highscore: \(scoreModel.time)")
+    }
+    
+    public func fetchSimpleVerbs() async throws -> [VocabularyModel] {
+        try await provider.fetchVocabulary(location: "simple_verbs")
     }
     
     public func sendFeedback(description: String) async throws -> Bool {
-        try await provider.sendFeedback(description: description)
+        try await provider.addDocument(
+            location: "feedback",
+            data: ["description": description]
+        )
     }
 }

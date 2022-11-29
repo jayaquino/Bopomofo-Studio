@@ -13,10 +13,12 @@ public protocol ContentProvider {
         scoreModel: ScoreModel
     ) async throws -> Bool
     
-    func retrieveScores(
+    func fetchScores(
         testType: ContentStore.TestType,
         scoreModel: ScoreModel
     ) async throws -> [ScoreModel]
+    
+    func fetchSimpleVerbs() async throws -> [VocabularyModel]
     
     func sendFeedback(description: String) async throws -> Bool
 }

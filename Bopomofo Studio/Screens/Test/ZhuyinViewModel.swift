@@ -122,7 +122,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
             )
             Task {
                 try await self.contentStore.saveHighScore(testType: contentStore.testType, scoreModel: score)
-                let scores = try await self.contentStore.retrieveScores(testType: contentStore.testType, scoreModel: score)
+                let scores = try await self.contentStore.fetchScores(testType: contentStore.testType, scoreModel: score)
                 self.scorePercentage = calculateScorePercentageStanding(scores: scores)
             }
         }

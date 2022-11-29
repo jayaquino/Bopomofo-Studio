@@ -11,7 +11,7 @@ public class MockContentProvider: ContentProvider {
         return true
     }
     
-    public func retrieveScores(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> [ScoreModel] {
+    public func fetchScores(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> [ScoreModel] {
         [
             ScoreModel(
                 score: 12,
@@ -34,5 +34,18 @@ public class MockContentProvider: ContentProvider {
     
     public func sendFeedback(description: String) async throws -> Bool {
         return true
+    }
+    
+    public func fetchSimpleVerbs() async throws -> [VocabularyModel] {
+        [
+            VocabularyModel(
+                character: "去",
+                pronunciation: "ㄑㄩˋ"
+            ),
+            VocabularyModel(
+                character: "來",
+                pronunciation: "ㄌㄞˊ"
+            )
+        ]
     }
 }
