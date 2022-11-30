@@ -60,6 +60,7 @@ struct SettingsView: View {
             
             Button {
                 showFeedbackSheet = true
+                viewModel.trackEvent(event: .feedbackTapped)
             } label: {
                 Text("SEND_FEEDBACK_BUTTON")
                     .font(.footnote)

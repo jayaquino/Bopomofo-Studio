@@ -79,6 +79,7 @@ class SettingsViewModel: ObservableObject {
     func sendFeedback() {
         guard !feedback.isEmpty else { return }
         Task {
+            trackEvent(event: .feedbackSendButtonTapped)
             let success = try await contentStore.sendFeedback(description: feedback)
             if success {
                 feedback = ""

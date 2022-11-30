@@ -55,6 +55,8 @@ open class AnalyticsProvider {
         case voiceAssistance(isOn: Bool)
         case voiceType(voiceType: String)
         case testType(testType: String)
+        case feedbackTapped
+        case feedbackSendButtonTapped
         
         public var eventName: String {
             switch self {
@@ -66,6 +68,10 @@ open class AnalyticsProvider {
                 return "Pronunciation_Voice_Type_Changed"
             case .testType:
                 return "Test_Type_Changed"
+            case .feedbackTapped:
+                return "feedback_button_tapped"
+            case .feedbackSendButtonTapped:
+                return "feedback_send_button_tapped"
             }
         }
         
@@ -79,6 +85,8 @@ open class AnalyticsProvider {
                 return ["voiceType": voiceType]
             case .testType(testType: let testType):
                 return ["testType": testType]
+            case .feedbackTapped, .feedbackSendButtonTapped:
+                return [:]
             }
         }
         
