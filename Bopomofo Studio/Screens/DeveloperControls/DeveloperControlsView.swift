@@ -19,7 +19,7 @@ struct DeveloperControlsView: View {
             .disabled(!UserDefaults.didSeeOnboarding)
             
             Toggle(isOn: $viewModel.timerOverride) {
-                Text("TIMER_OVERRIDE_TITLE")
+                Text("OVERRIDE_TIMER_TITLE")
             }
         }
         .padding()
