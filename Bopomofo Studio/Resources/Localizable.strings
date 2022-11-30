@@ -33,6 +33,7 @@
 
 //MARK: - DEVELOPER SETTINGS
 "DID_SEE_ONBOARDING_TITLE" = "Onboarding Reset";
+"OVERRIDE_TIMER_TITLE" = "Override test timer to 5 seconds";
 
 //MARK: - ALERTS
 "FEEDBACK_ALERT_TITLE" = "Thanks for the feedback!";
