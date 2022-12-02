@@ -6,13 +6,17 @@
 //
 
 import Foundation
+import Combine
 
 public class ContentStore: ObservableObject {
     private let provider: ContentProvider
     
     public init(provider: ContentProvider) {
         self.provider = provider
+        self.addSubscribers()
     }
+    
+    private var cancellables = Set<AnyCancellable>()
     
     public enum TestType: String, CaseIterable {
         case zhuyin = "Zhuyin"
@@ -108,7 +112,7 @@ public class ContentStore: ObservableObject {
         case male = "Male"
     }
     
-    enum CharacterCardSet: String, CaseIterable {
+    public enum CharacterCardSet: String, CaseIterable {
         case simple_verbs
     }
     
@@ -122,6 +126,7 @@ public class ContentStore: ObservableObject {
     @Published public var testId : String = ""
     
     @Published public var hanziTestCharacterSet: [VocabularyModel]?
+    @Published public var hanziTest: CharacterCardSet = .simple_verbs
     
     @discardableResult
     public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {
@@ -132,11 +137,28 @@ public class ContentStore: ObservableObject {
         try await provider.fetchScores(testType: testType, scoreModel: scoreModel)
     }
     
-    public func fetchSimpleVerbs() async throws {
-        self.hanziTestCharacterSet = try await provider.fetchSimpleVerbs()
+    public func fetchVocab() async throws {
+        switch hanziTest {
+        case .simple_verbs:
+            self.hanziTestCharacterSet = try await provider.fetchSimpleVerbs()
+        }
     }
     
     public func sendFeedback(description: String) async throws -> Bool {
         try await provider.sendFeedback(description: description)
+    }
+    
+    private func addSubscribers() {
+        $hanziTest
+            .sink { hanziTest in
+                Task {
+                    do {
+                        try await self.fetchVocab()
+                    } catch {
+                        print("Error fetching vocabulary list")
+                    }
+                }
+            }
+            .store(in: &cancellables)
     }
 }

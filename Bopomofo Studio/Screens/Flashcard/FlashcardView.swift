@@ -12,17 +12,14 @@ struct FlashcardView: View {
     
     var body: some View {
         VStack {
-            Text("Hello, World!")
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    
-                } label: {
-                    Image(systemName: "plus")
+            if let characterSet = viewModel.characterSet {
+                ForEach(characterSet, id: \.id) { vocabulary in
+                    Text(vocabulary.character)
                 }
-
             }
+        }
+        .onAppear {
+            viewModel.test()
         }
     }
 }

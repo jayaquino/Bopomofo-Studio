@@ -8,6 +8,7 @@
 import Foundation
 
 public struct VocabularyModel: Codable {
+    public let id = UUID()
     public let character: String
     public let pronunciation: String
     

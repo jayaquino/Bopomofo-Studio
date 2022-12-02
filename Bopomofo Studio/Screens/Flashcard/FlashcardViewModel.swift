@@ -11,18 +11,15 @@ import CoreBopomofoStudio
 class FlashcardViewModel: ObservableObject {
     var contentStore: ContentStore
     
-    @Published private var characterSet: [VocabularyModel]?
+    @Published var characterSet: [VocabularyModel]?
     
     init(contentStore: ContentStore) {
         self.contentStore = contentStore
+        self.assignVariables()
     }
     
     private func assignVariables() {
         self.contentStore.$hanziTestCharacterSet
             .assign(to: &self.$characterSet)
-    }
-    
-    func test() {
-        print("Character set appearing")
     }
 }
