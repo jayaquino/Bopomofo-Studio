@@ -14,14 +14,19 @@ struct MainView: View {
         TabView {
             router.contentPreview()
                 .tabItem {
-                    Label("Test", systemImage: "keyboard")
+                    Label("BPMF", systemImage: "keyboard")
+                }
+            
+            router.flashcardView()
+                .tabItem {
+                    Label("Characters", systemImage: "book.closed")
                 }
             
             router.settingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
-            
+
             if EnvironmentKeys.environment == .STAGING {
                 router.developerControlsView()
                     .tabItem {

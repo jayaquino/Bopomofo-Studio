@@ -57,4 +57,8 @@ class Router: ObservableObject {
             viewModel: ContentPreviewViewModel(contentStore: self.contentStore)
         )
     }
+    
+    func flashcardView() -> FlashcardView {
+        FlashcardView(viewModel: FlashcardViewModel(contentStore: self.contentStore))
+    }
 }

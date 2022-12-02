@@ -22,6 +22,8 @@
 		07248DF228C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */; };
 		073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073313B92933313C0053F290 /* FeedbackSheet.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
+		07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A22939FB0800ECDA2F /* FlashcardView.swift */; };
+		07AE37A52939FB1600ECDA2F /* FlashcardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A42939FB1600ECDA2F /* FlashcardViewModel.swift */; };
 		07B653A528C5CCA70036A1E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07B653A428C5CCA70036A1E6 /* Localizable.strings */; };
 		07BB8BAE292A456800B2CE7C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB8BAD292A456800B2CE7C /* MainView.swift */; };
 		07D1289429309D150011CFD9 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1289329309D150011CFD9 /* OnboardingViewModel.swift */; };
@@ -165,6 +167,8 @@
 		073313B92933313C0053F290 /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
+		07AE37A22939FB0800ECDA2F /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
+		07AE37A42939FB1600ECDA2F /* FlashcardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardViewModel.swift; sourceTree = "<group>"; };
 		07B653A428C5CCA70036A1E6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		07BB8BAD292A456800B2CE7C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		07D1289329309D150011CFD9 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -330,6 +334,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		07AE37A12939FAF900ECDA2F /* Flashcard */ = {
+			isa = PBXGroup;
+			children = (
+				07AE37A22939FB0800ECDA2F /* FlashcardView.swift */,
+				07AE37A42939FB1600ECDA2F /* FlashcardViewModel.swift */,
+			);
+			path = Flashcard;
+			sourceTree = "<group>";
+		};
 		07B653A328C5CC440036A1E6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +390,7 @@
 		07DFD73929210DB700C23485 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				07AE37A12939FAF900ECDA2F /* Flashcard */,
 				07D1289F2931F4C00011CFD9 /* DeveloperControls */,
 				07D1289229309D080011CFD9 /* Onboarding */,
 				07BB8BAC292A455D00B2CE7C /* MainView */,
@@ -770,9 +784,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				07DFD740292117BA00C23485 /* EnvironmentKeys.swift in Sources */,
+				07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */,
 				070D525F28C5D76500CDA918 /* AppDelegate.swift in Sources */,
 				5237C1A126A5CC0800C7BC56 /* ZhuyinTestView.swift in Sources */,
 				07D1289429309D150011CFD9 /* OnboardingViewModel.swift in Sources */,
+				07AE37A52939FB1600ECDA2F /* FlashcardViewModel.swift in Sources */,
 				52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
 				07D1289E2931F2310011CFD9 /* UserDefaults+Extensions.swift in Sources */,

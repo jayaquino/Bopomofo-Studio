@@ -108,6 +108,10 @@ public class ContentStore: ObservableObject {
         case male = "Male"
     }
     
+    enum CharacterCardSet: String, CaseIterable {
+        case simple_verbs
+    }
+    
     @Published public var testType: TestType = .zhuyin
     @Published public var pronunciationTextMode : Bool = false
     @Published public var pronunciationVoiceMode : Bool = false
@@ -116,6 +120,8 @@ public class ContentStore: ObservableObject {
     @Published public var contentOne : [String] = []
     @Published public var contentTwo : [String] = []
     @Published public var testId : String = ""
+    
+    @Published public var hanziTestCharacterSet: [VocabularyModel]?
     
     @discardableResult
     public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {
@@ -126,8 +132,8 @@ public class ContentStore: ObservableObject {
         try await provider.fetchScores(testType: testType, scoreModel: scoreModel)
     }
     
-    public func fetchSimpleVerbs() async throws -> [VocabularyModel] {
-        try await provider.fetchSimpleVerbs()
+    public func fetchSimpleVerbs() async throws {
+        self.hanziTestCharacterSet = try await provider.fetchSimpleVerbs()
     }
     
     public func sendFeedback(description: String) async throws -> Bool {

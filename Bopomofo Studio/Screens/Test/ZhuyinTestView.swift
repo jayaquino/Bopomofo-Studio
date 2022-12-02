@@ -40,8 +40,7 @@ struct ZhuyinTestView: View {
                             .background(Color.accentColor)
                             .cornerRadius(20)
                             .shadow(radius: 3)
-                    }
-                    else {
+                    } else if viewModel.contentStore.testType == .pinyinToZhuyin {
                         Text("High Score: " + String(UserDefaults.standard.integer(forKey: "highscore-pinyintozhuyin"+String(viewModel.contentStore.timerValue)))).padding()
                             .frame(minWidth: Constants.screenWidth*8/10/2,alignment:.center)
                             .foregroundColor(.white)
