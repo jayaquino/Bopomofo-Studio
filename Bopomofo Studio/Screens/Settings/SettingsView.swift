@@ -21,15 +21,6 @@ struct SettingsView: View {
                 VStack(spacing: 0) {
                     Text("Bopomofo")
                         .font(.title)
-                    Picker("", selection: $viewModel.testType) {
-                        ForEach(ContentStore.TestType.allCases, id: \.self) {
-                            Text(LocalizedStringKey($0.rawValue))
-                                .padding()
-                                .font(.custom("copperplate",size: 30))
-                        }
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .frame(width: Constants.screenWidth, height: 100)
                     
                     VStack(alignment: .leading) {
                         VStack(alignment: .leading, spacing: 0) {

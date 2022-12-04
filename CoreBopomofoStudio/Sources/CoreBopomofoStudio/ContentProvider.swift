@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 public protocol ContentProvider {
-    func saveHighScore(
-        testType: ContentStore.TestType,
+    func saveScore(
+        topic: TopicModel,
         scoreModel: ScoreModel
     ) async throws -> Bool
     
     func fetchScores(
-        testType: ContentStore.TestType,
+        topic: TopicModel,
         scoreModel: ScoreModel
     ) async throws -> [ScoreModel]
     

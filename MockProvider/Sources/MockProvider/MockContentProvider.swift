@@ -48,11 +48,11 @@ public class MockContentProvider: ContentProvider {
         UIImage(named: "BPMF")
     }
     
-    public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {
+    public func saveScore(topic: TopicModel, scoreModel: ScoreModel) async throws -> Bool {
         return true
     }
     
-    public func fetchScores(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> [ScoreModel] {
+    public func fetchScores(topic: TopicModel, scoreModel: ScoreModel) async throws -> [ScoreModel] {
         [
             ScoreModel(
                 score: 12,

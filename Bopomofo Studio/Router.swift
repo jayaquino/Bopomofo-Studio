@@ -28,15 +28,13 @@ class Router: ObservableObject {
     }
     
     func zhuyinTestView(
-        symbolList: [String],
-        symbolPronunciation: [String]
+        topic: TopicModel
     ) -> ZhuyinTestView {
         ZhuyinTestView(
             viewModel: ZhuyinViewModel(
+                topic: topic,
                 contentStore: self.contentStore,
-                analytics: self.analytics,
-                symbolList: symbolList,
-                symbolPronunciation: symbolPronunciation
+                analytics: self.analytics
             )
         )
     }

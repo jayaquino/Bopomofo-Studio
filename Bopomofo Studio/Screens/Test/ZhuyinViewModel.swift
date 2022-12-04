@@ -13,9 +13,10 @@ import CoreBopomofoStudio
 class ZhuyinViewModel: ObservableObject, Identifiable {
     
     let contentStore: ContentStore
-    let symbolList: [String]
-    let symbolPronunciation: [String]
+    let topic: TopicModel
     private let analytics: AnalyticsProvider
+    private let letters = NSCharacterSet.letters
+
     
     var cancellables = Set<AnyCancellable>()
     
@@ -25,21 +26,19 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     @Published var isLoadingData = false
     
     init(
+        topic: TopicModel,
         contentStore: ContentStore,
-        analytics: AnalyticsProvider,
-        symbolList: [String],
-        symbolPronunciation: [String]
+        analytics: AnalyticsProvider
     ) {
+        self.topic = topic
         self.contentStore = contentStore
         self.analytics = analytics
-        self.symbolList = symbolList
-        self.symbolPronunciation = symbolPronunciation
         self.inputSymbol = ""
         self.timer = contentStore.timerValue
-        let randomNumber = Int.random(in: 0...symbolList.count-1)
-        self.randomSymbol = symbolList[randomNumber]
-        displaySymbol = symbolList[randomNumber]
-        randomSymbolExample = symbolPronunciation[randomNumber]
+        let randomNumber = Int.random(in: 0...topic.vocabulary.count-1)
+        self.randomSymbol = topic.vocabulary[randomNumber].character
+        displaySymbol = topic.vocabulary[randomNumber].character
+        randomSymbolExample = topic.vocabulary[randomNumber].pronunciation
         
         playSound(symbol: randomSymbol)
         addSubscribers()
@@ -54,6 +53,10 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
             checkUserInput()
         }
     }
+    
+    var symbolKey: String {
+        Constants.bpmf.contains(randomSymbol) ? randomSymbol : PinyinHelper.convertPinyin(randomSymbol) ?? ""
+    }
         
     private func addSubscribers() {
         $timer
@@ -64,28 +67,18 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
             .store(in: &cancellables)
     }
     
-    func checkSymbols(a: String, b: String) {
-        if a == b {
-            score += 1
-        }
-    }
-    
     func generateNewSymbol() {
         
-        let randomNumber = Int.random(in: 0...symbolList.count-1)
-        randomSymbol = symbolList[randomNumber]
-        displaySymbol = symbolList[randomNumber]
-        randomSymbolExample = symbolPronunciation[randomNumber]
+        let randomNumber = Int.random(in: 0...topic.vocabulary.count-1)
+        randomSymbol = topic.vocabulary[randomNumber].character
+        displaySymbol = topic.vocabulary[randomNumber].character
+        randomSymbolExample = topic.vocabulary[randomNumber].pronunciation
         
         playSound(symbol: randomSymbol)
     }
     
     private func playSound(symbol: String) {
-        var sound = symbol
-        
-        if contentStore.testType == .pinyinToZhuyin {
-            sound = contentStore.testType.pinyinDictionary[symbol] ?? ""
-        }
+        let sound = Constants.bpmf.contains(symbol) ? symbol : PinyinHelper.convertPinyin(symbol) ?? ""
         
         switch contentStore.voiceSelection {
         case .male:
@@ -97,42 +90,37 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     
     private func checkUserInput() {
         guard inputSymbol != "", randomSymbol != "" else { return }
-
-        switch contentStore.testType {
-        case .zhuyin:
-            if inputSymbol == randomSymbol {
-                score += 1
-                generateNewSymbol()
-            }
-        case .pinyinToZhuyin:
-            if inputSymbol == contentStore.testType.pinyinDictionary[randomSymbol] {
-                score += 1
-                generateNewSymbol()
-            }
+        if inputSymbol == symbolKey {
+            score += 1
+            generateNewSymbol()
         }
+        
         inputSymbol = ""
     }
     
     private func testDidFinish() {
         self.testFinished = true
         if self.score > 0 {
+            handleScore()
+        }
+        ReviewManager.shared.updateSessionsCompleted()
+    }
+    
+    private func handleScore() {
+        Task {
             let score = ScoreModel(
                 score: self.score,
                 time: self.contentStore.timerValue
             )
-            Task {
-                try await self.contentStore.saveHighScore(testType: contentStore.testType, scoreModel: score)
-                let scores = try await self.contentStore.fetchScores(testType: contentStore.testType, scoreModel: score)
-                self.scorePercentage = calculateScorePercentageStanding(scores: scores)
-            }
+            
+            try await self.contentStore.saveScore(topic: topic, scoreModel: score)
+            let scores = try await self.contentStore.fetchScores(topic: topic, scoreModel: score)
+            self.scorePercentage = calculateScorePercentageStanding(scores: scores)
         }
         
-        if contentStore.testType == .zhuyin, score > UserDefaults.standard.integer(forKey: "highscore-zhuyin" + String(contentStore.timerValue)) {
-            UserDefaults.standard.set(score, forKey: "highscore-zhuyin" + String(contentStore.timerValue))
-        } else if contentStore.testType == .pinyinToZhuyin, score > UserDefaults.standard.integer(forKey: "highscore-pinyintozhuyin" + String(contentStore.timerValue)) {
-            UserDefaults.standard.set(score, forKey: "highscore-pinyintozhuyin" + String(contentStore.timerValue))
+        if score > UserDefaults.standard.integer(forKey: topic.topicName) {
+            UserDefaults.standard.set(score, forKey: topic.topicName)
         }
-        ReviewManager.shared.updateSessionsCompleted()
     }
     
     private func calculateScorePercentageStanding(scores: [ScoreModel]) -> Double? {

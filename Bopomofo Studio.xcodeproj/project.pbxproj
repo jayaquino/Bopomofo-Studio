@@ -22,6 +22,8 @@
 		07248DF228C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */; };
 		072518F3293CADBC00977A75 /* TopicCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F2293CADBC00977A75 /* TopicCellViewModel.swift */; };
 		072518F5293CC15200977A75 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 072518F4293CC15200977A75 /* FirebaseDatabase */; };
+		072518F7293D2F3500977A75 /* Strings+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F6293D2F3500977A75 /* Strings+Extension.swift */; };
+		072518FA293D30A600977A75 /* PinyinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F9293D30A600977A75 /* PinyinHelper.swift */; };
 		073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073313B92933313C0053F290 /* FeedbackSheet.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
 		07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A22939FB0800ECDA2F /* FlashcardView.swift */; };
@@ -172,6 +174,8 @@
 		07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewViewModel.swift; sourceTree = "<group>"; };
 		07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.naquinojr.Bopomofo-Studio.plist"; sourceTree = "<group>"; };
 		072518F2293CADBC00977A75 /* TopicCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellViewModel.swift; sourceTree = "<group>"; };
+		072518F6293D2F3500977A75 /* Strings+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extension.swift"; sourceTree = "<group>"; };
+		072518F9293D30A600977A75 /* PinyinHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinyinHelper.swift; sourceTree = "<group>"; };
 		073313B92933313C0053F290 /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
@@ -319,6 +323,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		072518F8293D308100977A75 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				072518F9293D30A600977A75 /* PinyinHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0782F0E02920FB2B0080CAAF /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */,
+				072518F6293D2F3500977A75 /* Strings+Extension.swift */,
 				07D1289D2931F2310011CFD9 /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
@@ -487,6 +500,7 @@
 				07DFD73929210DB700C23485 /* Screens */,
 				07B653A328C5CC440036A1E6 /* Resources */,
 				07DFD73C292112B000C23485 /* Extensions */,
+				072518F8293D308100977A75 /* Helpers */,
 				5246F5252837A2F7006D0A10 /* Launch Screen.storyboard */,
 				07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */,
 				07E7D28429291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist */,
@@ -833,9 +847,11 @@
 				07248DE628C5E287003FE4AB /* SettingsViewModel.swift in Sources */,
 				5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */,
 				52D43814282BD15C00FFCAEB /* Constants.swift in Sources */,
+				072518F7293D2F3500977A75 /* Strings+Extension.swift in Sources */,
 				070D526328C5DCCD00CDA918 /* Router.swift in Sources */,
 				07D1289C2930B46A0011CFD9 /* TestContentCell.swift in Sources */,
 				07BB8BAE292A456800B2CE7C /* MainView.swift in Sources */,
+				072518FA293D30A600977A75 /* PinyinHelper.swift in Sources */,
 				07FB8485293C8456001181A7 /* HomeViewModel.swift in Sources */,
 				07D1289629309D1D0011CFD9 /* OnboardingView.swift in Sources */,
 				072518F3293CADBC00977A75 /* TopicCellViewModel.swift in Sources */,

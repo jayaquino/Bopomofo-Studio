@@ -15,7 +15,6 @@ class SettingsViewModel: ObservableObject {
     let contentStore: ContentStore
     let analytics: AnalyticsProvider
     
-    @Published var testType: ContentStore.TestType = .zhuyin
     @Published var voiceSelection: ContentStore.VoiceSelection = .female
     @Published var pronunciationTextMode = false
     @Published var pronunciationVoiceMode = false
@@ -36,21 +35,12 @@ class SettingsViewModel: ObservableObject {
     }
     
     func assignVariables() {
-        self.testType = contentStore.testType
         self.voiceSelection = contentStore.voiceSelection
         self.pronunciationTextMode = contentStore.pronunciationTextMode
         self.pronunciationVoiceMode = contentStore.pronunciationVoiceMode
     }
     
     func addSubscribers() {
-        $testType
-            .dropFirst()
-            .sink { [weak self] testType in
-                self?.contentStore.testType = testType
-                self?.trackEvent(event: .testType(testType: testType.rawValue))
-            }
-            .store(in: &cancellables)
-        
         $voiceSelection
             .dropFirst()
             .sink { [weak self] voiceType in

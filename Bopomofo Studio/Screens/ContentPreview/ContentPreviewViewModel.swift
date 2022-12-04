@@ -14,9 +14,6 @@ class ContentPreviewViewModel: ObservableObject {
     
     let contentStore: ContentStore
     let topic: TopicModel
-    @Published var testKeys: [String]
-    @Published var testValues: [String]
-    @Published var testType: ContentStore.TestType = .zhuyin
     
     var cancellables = Set<AnyCancellable>()
     
@@ -32,24 +29,10 @@ class ContentPreviewViewModel: ObservableObject {
     ) {
         self.contentStore = contentStore
         self.topic = topic
-        self.testKeys = contentStore.testType.dictionary.map({ $0.key })
-        self.testValues = contentStore.testType.dictionary.map({ $0.value })
-        
-        contentStore.$testType
-            .sink { [weak self] testType in
-                self?.testType = testType
-                self?.testKeys = testType.dictionary.map({ $0.key})
-                self?.testValues = testType.dictionary.map({ $0.value })
-            }
-            .store(in: &cancellables)
     }
     
     func playSound(symbol: String) {
-        var sound = symbol
-        
-        if contentStore.testType == .pinyinToZhuyin {
-            sound = contentStore.testType.pinyinDictionary[symbol] ?? ""
-        }
+        let sound = Constants.bpmf.contains(symbol) ? symbol : PinyinHelper.convertPinyin(symbol) ?? ""
         
         switch contentStore.voiceSelection {
         case .male:

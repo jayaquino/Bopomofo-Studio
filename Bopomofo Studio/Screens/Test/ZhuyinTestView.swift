@@ -32,22 +32,13 @@ struct ZhuyinTestView: View {
                         .cornerRadius(20)
                         .shadow(radius: 3)
                     
-                    if viewModel.contentStore.testType == .zhuyin {
-                        Text("High Score: " + String(UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(viewModel.contentStore.timerValue))))
-                            .padding()
-                            .frame(minWidth: Constants.screenWidth*8/10/2,alignment:.center)
-                            .foregroundColor(.white)
-                            .background(Color.accentColor)
-                            .cornerRadius(20)
-                            .shadow(radius: 3)
-                    } else if viewModel.contentStore.testType == .pinyinToZhuyin {
-                        Text("High Score: " + String(UserDefaults.standard.integer(forKey: "highscore-pinyintozhuyin"+String(viewModel.contentStore.timerValue)))).padding()
-                            .frame(minWidth: Constants.screenWidth*8/10/2,alignment:.center)
-                            .foregroundColor(.white)
-                            .background(Color.accentColor)
-                            .cornerRadius(20)
-                            .shadow(radius: 3)
-                    }
+                    Text("High Score: " + String(UserDefaults.standard.integer(forKey: viewModel.topic.topicName)))
+                        .padding()
+                        .frame(minWidth: Constants.screenWidth*8/10/2,alignment:.center)
+                        .foregroundColor(.white)
+                        .background(Color.accentColor)
+                        .cornerRadius(20)
+                        .shadow(radius: 3)
                 }
                 .padding()
                 
@@ -103,16 +94,9 @@ struct ZhuyinTestView: View {
                             ProgressView()
                                 .tint(.white)
                         }
-                        switch viewModel.contentStore.testType {
-                        case .zhuyin:
-                            Text("High Score: \(UserDefaults.standard.integer(forKey: "highscore-zhuyin"+String(viewModel.contentStore.timerValue)))")
-                                .foregroundColor(.white)
-                                .font(.system(size:40))
-                        case .pinyinToZhuyin:
-                            Text("High Score: \(UserDefaults.standard.integer(forKey: "highscore-pinyintozhuyin"+String(viewModel.contentStore.timerValue)))")
-                                .foregroundColor(.white)
-                                .font(.system(size:40))
-                        }
+                        Text("High Score: \(UserDefaults.standard.integer(forKey: viewModel.topic.topicName))")
+                            .foregroundColor(.white)
+                            .font(.system(size:40))
                     }
                     .padding()
                 }
@@ -136,10 +120,9 @@ struct Zhuyin_Previews: PreviewProvider {
     
     static var previews: some View {
         ZhuyinTestView(viewModel: ZhuyinViewModel(
-            contentStore: ContentStore(provider: MockContentProvider()),
-            analytics: dev.analytics,
-            symbolList: ["ㄅ"],
-            symbolPronunciation: ["ㄅ"])
+            topic: TopicModel(topicName: "", topicImage: "", vocabulary: []),
+            contentStore: dev.contentStore,
+            analytics: dev.analytics)
         )
     }
 }
