@@ -24,6 +24,8 @@
 		072518F5293CC15200977A75 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 072518F4293CC15200977A75 /* FirebaseDatabase */; };
 		072518F7293D2F3500977A75 /* Strings+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F6293D2F3500977A75 /* Strings+Extension.swift */; };
 		072518FA293D30A600977A75 /* PinyinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F9293D30A600977A75 /* PinyinHelper.swift */; };
+		072518FC293D4BE700977A75 /* FeaturedContentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FB293D4BE700977A75 /* FeaturedContentCellView.swift */; };
+		072518FE293D4BF100977A75 /* FeaturedContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FD293D4BF100977A75 /* FeaturedContentCellViewModel.swift */; };
 		073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073313B92933313C0053F290 /* FeedbackSheet.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
 		07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A22939FB0800ECDA2F /* FlashcardView.swift */; };
@@ -176,6 +178,8 @@
 		072518F2293CADBC00977A75 /* TopicCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellViewModel.swift; sourceTree = "<group>"; };
 		072518F6293D2F3500977A75 /* Strings+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extension.swift"; sourceTree = "<group>"; };
 		072518F9293D30A600977A75 /* PinyinHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinyinHelper.swift; sourceTree = "<group>"; };
+		072518FB293D4BE700977A75 /* FeaturedContentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedContentCellView.swift; sourceTree = "<group>"; };
+		072518FD293D4BF100977A75 /* FeaturedContentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedContentCellViewModel.swift; sourceTree = "<group>"; };
 		073313B92933313C0053F290 /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
@@ -461,6 +465,8 @@
 				07FB8486293C845C001181A7 /* HomeView.swift */,
 				07FB8488293C9AD8001181A7 /* TopicCellView.swift */,
 				072518F2293CADBC00977A75 /* TopicCellViewModel.swift */,
+				072518FB293D4BE700977A75 /* FeaturedContentCellView.swift */,
+				072518FD293D4BF100977A75 /* FeaturedContentCellViewModel.swift */,
 				073313B92933313C0053F290 /* FeedbackSheet.swift */,
 			);
 			path = Home;
@@ -839,6 +845,7 @@
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
 				07D1289E2931F2310011CFD9 /* UserDefaults+Extensions.swift in Sources */,
 				07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */,
+				072518FE293D4BF100977A75 /* FeaturedContentCellViewModel.swift in Sources */,
 				0702FF8D288D5FB600D78BF6 /* ReviewManager.swift in Sources */,
 				07D128A12931F4D10011CFD9 /* DeveloperControlsView.swift in Sources */,
 				52C479AD26AB886900E3540F /* SettingsView.swift in Sources */,
@@ -857,6 +864,7 @@
 				072518F3293CADBC00977A75 /* TopicCellViewModel.swift in Sources */,
 				07D1289A29309E940011CFD9 /* OnboardingSlide.swift in Sources */,
 				07D128A32931F4DC0011CFD9 /* DeveloperControlsViewModel.swift in Sources */,
+				072518FC293D4BE700977A75 /* FeaturedContentCellView.swift in Sources */,
 				07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

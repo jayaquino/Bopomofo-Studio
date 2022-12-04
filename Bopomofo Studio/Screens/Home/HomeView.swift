@@ -15,11 +15,12 @@ struct HomeView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             ScrollView(.vertical, showsIndicators: false) {
-            if let zhuyinContent = viewModel.zhuyinContent {
+                if let zhuyinContent = viewModel.zhuyinContent {
                     ForEach(zhuyinContent, id: \.self) { category in
                         VStack(alignment: .leading) {
                             Text(category.categoryName)
                                 .font(.largeTitle)
+                                .padding(.horizontal)
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 0) {
                                     ForEach(category.topicList, id: \.self) { topic in
@@ -32,15 +33,25 @@ struct HomeView: View {
                                     }
                                 }
                             }
-                            Spacer()
                         }
-                        .padding(.horizontal, 16)
                     }
                 }
-            }
-            if let featuredContent = viewModel.featuredContent {
-                ForEach(featuredContent, id: \.self) { category in
-                    Text(category.categoryName)
+                if let featuredContent = viewModel.featuredContent {
+                    ForEach(featuredContent, id: \.self) { category in
+                        VStack(alignment: .leading) {
+                            Text(category.categoryName)
+                                .font(.title)
+                                .padding(.horizontal)
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                HStack(spacing: 0) {
+                                    ForEach(category.topicList, id: \.self) { topic in
+                                        router.featuredContentCellView(topic: topic)
+                                            .padding()
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
             Spacer()

@@ -76,4 +76,11 @@ class Router: ObservableObject {
             topic: topic)
         )
     }
+    
+    func featuredContentCellView(topic: TopicModel) -> FeaturedContentCellView {
+        FeaturedContentCellView(viewModel: FeaturedContentViewModel(
+            contentStore: self.contentStore,
+            topic: topic)
+        )
+    }
 }
