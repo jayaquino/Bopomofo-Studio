@@ -14,9 +14,9 @@ struct HomeView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            if let allCategories = viewModel.allCategories {
+            if let zhuyinContent = viewModel.zhuyinContent {
                 ScrollView(.vertical, showsIndicators: false) {
-                    ForEach(allCategories, id: \.self) { category in
+                    ForEach(zhuyinContent, id: \.self) { category in
                         VStack(alignment: .leading) {
                             Text(category.categoryName)
                                 .font(.largeTitle)

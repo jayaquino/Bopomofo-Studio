@@ -13,7 +13,7 @@ class HomeViewModel: ObservableObject {
     let contentStore: ContentStore
     let analytics: AnalyticsProvider
     
-    @Published var allCategories: [CategoryModel]?
+    @Published var zhuyinContent: [CategoryModel]?
     @Published var feedback = ""
     @Published var showAlert = false
     
@@ -29,8 +29,8 @@ class HomeViewModel: ObservableObject {
     }
     
     private func assignVariables() {
-        contentStore.$allContent
-            .assign(to: &self.$allCategories)
+        contentStore.$zhuyinContent
+            .assign(to: &self.$zhuyinContent)
     }
     
     private func fetchZhuyinContent() {
