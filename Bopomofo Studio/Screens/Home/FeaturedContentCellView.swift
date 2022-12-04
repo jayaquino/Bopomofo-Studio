@@ -21,11 +21,10 @@ struct FeaturedContentCellView: View {
                             .scaledToFit()
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     } else {
-                        Image(systemName: "heart")
+                        Image("comingSoon")
                             .resizable()
                             .scaledToFit()
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .redacted(reason: .placeholder)
                     }
                 }
                 Text(viewModel.topic.topicName)
