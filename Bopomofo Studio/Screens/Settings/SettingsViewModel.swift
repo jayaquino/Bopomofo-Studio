@@ -18,8 +18,6 @@ class SettingsViewModel: ObservableObject {
     @Published var voiceSelection: ContentStore.VoiceSelection = .female
     @Published var pronunciationTextMode = false
     @Published var pronunciationVoiceMode = false
-    @Published var feedback = ""
-    @Published var showAlert = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -64,18 +62,6 @@ class SettingsViewModel: ObservableObject {
                 self?.trackEvent(event: .voiceAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
-    }
-    
-    func sendFeedback() {
-        guard !feedback.isEmpty else { return }
-        Task {
-            trackEvent(event: .feedbackSendButtonTapped)
-            let success = try await contentStore.sendFeedback(description: feedback)
-            if success {
-                feedback = ""
-                showAlert = true
-            }
-        }
     }
     
     func trackEvent(event: AnalyticsProvider.SettingsAnalyticEvent) {

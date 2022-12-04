@@ -24,13 +24,16 @@ open class AnalyticsProvider {
         case onboarding(event: OnboardingAnalyticEvent)
         case settings(event: SettingsAnalyticEvent)
         case test(event: TestAnalyticEvent)
+        case home(event: HomeAnalyticEvent)
         
         public var eventName: String {
             switch self {
             case
+                    .home(event: let event as AnalyticTrackingProtocol),
                     .onboarding(event: let event as AnalyticTrackingProtocol),
                     .settings(event: let event as AnalyticTrackingProtocol),
                     .test(event: let event as AnalyticTrackingProtocol):
+                
                 
                 return event.eventName
             }
@@ -39,11 +42,34 @@ open class AnalyticsProvider {
         public var parameters: [String: String] {
             switch self {
             case
+                    .home(event: let event as AnalyticTrackingProtocol),
                     .onboarding(event: let event as AnalyticTrackingProtocol),
                     .settings(event: let event as AnalyticTrackingProtocol),
                     .test(event: let event as AnalyticTrackingProtocol):
                 
                 return event.parameters
+            }
+        }
+    }
+    
+    // MARK: - Home Analytics
+    public enum HomeAnalyticEvent: AnalyticTrackingProtocol {
+        case feedbackTapped
+        case feedbackSendButtonTapped
+        
+        public var eventName: String {
+            switch self {
+            case .feedbackTapped:
+                return "feedback_button_tapped"
+            case .feedbackSendButtonTapped:
+                return "feedback_send_button_tapped"
+            }
+        }
+        
+        public var parameters: [String : String] {
+            switch self {
+            case .feedbackTapped, .feedbackSendButtonTapped:
+                return [:]
             }
         }
     }
@@ -55,8 +81,6 @@ open class AnalyticsProvider {
         case voiceAssistance(isOn: Bool)
         case voiceType(voiceType: String)
         case testType(testType: String)
-        case feedbackTapped
-        case feedbackSendButtonTapped
         
         public var eventName: String {
             switch self {
@@ -68,10 +92,6 @@ open class AnalyticsProvider {
                 return "Pronunciation_Voice_Type_Changed"
             case .testType:
                 return "Test_Type_Changed"
-            case .feedbackTapped:
-                return "feedback_button_tapped"
-            case .feedbackSendButtonTapped:
-                return "feedback_send_button_tapped"
             }
         }
         
@@ -85,8 +105,6 @@ open class AnalyticsProvider {
                 return ["voiceType": voiceType]
             case .testType(testType: let testType):
                 return ["testType": testType]
-            case .feedbackTapped, .feedbackSendButtonTapped:
-                return [:]
             }
         }
         

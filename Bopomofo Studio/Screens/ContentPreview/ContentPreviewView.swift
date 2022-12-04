@@ -55,6 +55,16 @@ struct ContentPreviewView: View {
             router.zhuyinTestView(topic: viewModel.topic)
         }
         .navigationTitle("Content Preview")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink {
+                    router.settingsView()
+                } label: {
+                    Image(systemName: "gear")
+                    
+                }
+            }
+        }
     }
     
     private func testContent(content: [String]) -> some View {

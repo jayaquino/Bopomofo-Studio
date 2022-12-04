@@ -13,7 +13,6 @@ struct SettingsView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @StateObject var viewModel: SettingsViewModel
-    @State var showFeedbackSheet = false
     
     var body: some View {
         VStack {
@@ -52,24 +51,10 @@ struct SettingsView: View {
                 
                 Divider()
                     .padding()
-                Text("Character")
-                    .font(.title)
-                    .padding()
             }
-            Button {
-                showFeedbackSheet = true
-                viewModel.trackEvent(event: .feedbackTapped)
-            } label: {
-                Text("SEND_FEEDBACK_BUTTON")
-                    .font(.footnote)
-            }
-            .padding(.vertical, 20)
         }
         .navigationTitle("SETTINGS_TITLE")
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $showFeedbackSheet) {
-            FeedbackSheet(viewModel: viewModel)
-        }
     }
 }
 

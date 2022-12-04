@@ -51,7 +51,7 @@ public actor FirebaseProvider {
         })
     }
     
-    public func fetchCategories(location: String) async throws -> [CategoryModel] {
+    public func fetchCategories<T: Codable>(location: String, type: T.Type) async throws -> [T] {
         do {
             let data = try await ref.child(location).getData()
             guard let dict = data.value as? [String: Any] else {
@@ -61,7 +61,7 @@ public actor FirebaseProvider {
             do {
                 let values = dict.map({ $0.value })
                 let json = try JSONSerialization.data(withJSONObject: values)
-                return try JSONDecoder().decode([CategoryModel].self, from: json)
+                return try JSONDecoder().decode([T].self, from: json)
             } catch let error {
                 throw error
             }

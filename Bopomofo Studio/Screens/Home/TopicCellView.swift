@@ -34,7 +34,7 @@ struct TopicCellView: View {
                     .fontWeight(.light)
                     .padding()
             }
-            .frame(maxWidth: 250, maxHeight: 300, alignment: .top)
+            .frame(width: 250, height: 300, alignment: .top)
             .cornerRadius(16)
             .background(
                 RoundedRectangle(cornerRadius: 16)

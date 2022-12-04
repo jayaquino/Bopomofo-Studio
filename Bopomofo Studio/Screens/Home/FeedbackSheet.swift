@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FeedbackSheet: View {
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel: SettingsViewModel
+    @ObservedObject var viewModel: HomeViewModel
     
     var body: some View {
         VStack(alignment: .trailing) {
@@ -44,6 +44,6 @@ struct FeedbackSheet: View {
 
 struct FeedbackSheet_Previews: PreviewProvider {
     static var previews: some View {
-        FeedbackSheet(viewModel: SettingsViewModel(contentStore: dev.contentStore, analytics: dev.analytics))
+        FeedbackSheet(viewModel: HomeViewModel(contentStore: dev.contentStore, analytics: dev.analytics))
     }
 }

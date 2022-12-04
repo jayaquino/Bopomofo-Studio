@@ -18,13 +18,6 @@ struct MainView: View {
             .tabItem {
                 Label("Home", systemImage: "house")
             }
-            
-            NavigationView {
-                router.flashcardView()
-            }
-            .tabItem {
-                Label("Characters", systemImage: "book.closed")
-            }
                 
             if EnvironmentKeys.environment == .STAGING {
                 router.developerControlsView()

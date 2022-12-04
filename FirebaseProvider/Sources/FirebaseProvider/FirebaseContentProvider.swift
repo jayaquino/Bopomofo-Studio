@@ -17,7 +17,7 @@ public class FirebaseContentProvider: ContentProvider {
     }
     
     public func fetchAllCategories() async throws -> [CoreBopomofoStudio.CategoryModel] {
-        try await provider.fetchCategories(location: "category")
+        try await provider.fetchCategories(location: "category", type: CategoryModel.self)
     }
     
     public func fetchImage(urlString: String) async throws -> UIImage? {

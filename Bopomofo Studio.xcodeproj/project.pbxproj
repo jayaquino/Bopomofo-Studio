@@ -355,7 +355,6 @@
 			children = (
 				07248DE528C5E287003FE4AB /* SettingsViewModel.swift */,
 				52C479AC26AB886900E3540F /* SettingsView.swift */,
-				073313B92933313C0053F290 /* FeedbackSheet.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -462,6 +461,7 @@
 				07FB8486293C845C001181A7 /* HomeView.swift */,
 				07FB8488293C9AD8001181A7 /* TopicCellView.swift */,
 				072518F2293CADBC00977A75 /* TopicCellViewModel.swift */,
+				073313B92933313C0053F290 /* FeedbackSheet.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

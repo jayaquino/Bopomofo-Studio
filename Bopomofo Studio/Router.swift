@@ -24,7 +24,10 @@ class Router: ObservableObject {
     }
     
     func homeView() -> HomeView {
-        HomeView(viewModel: HomeViewModel(contentStore: self.contentStore))
+        HomeView(viewModel: HomeViewModel(
+            contentStore: self.contentStore,
+            analytics: self.analytics)
+        )
     }
     
     func zhuyinTestView(
