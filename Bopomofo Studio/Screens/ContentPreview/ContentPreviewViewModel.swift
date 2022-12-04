@@ -9,14 +9,13 @@ import Foundation
 import Combine
 import CoreBopomofoStudio
 
+@MainActor
 class ContentPreviewViewModel: ObservableObject {
     
     let contentStore: ContentStore
-    @Published var testKeys: [String]
-    @Published var testValues: [String]
-    @Published var testType: ContentStore.TestType = .zhuyin
+    let topic: TopicModel
     
-    var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     
     @Published var timerValue: Double = 30.0 {
         didSet {
@@ -24,26 +23,16 @@ class ContentPreviewViewModel: ObservableObject {
         }
     }
     
-    init(contentStore: ContentStore) {
+    init(
+        contentStore: ContentStore,
+        topic: TopicModel
+    ) {
         self.contentStore = contentStore
-        self.testKeys = contentStore.testType.dictionary.map({ $0.key })
-        self.testValues = contentStore.testType.dictionary.map({ $0.value })
-        
-        contentStore.$testType
-            .sink { [weak self] testType in
-                self?.testType = testType
-                self?.testKeys = testType.dictionary.map({ $0.key})
-                self?.testValues = testType.dictionary.map({ $0.value })
-            }
-            .store(in: &cancellables)
+        self.topic = topic
     }
     
     func playSound(symbol: String) {
-        var sound = symbol
-        
-        if contentStore.testType == .pinyinToZhuyin {
-            sound = contentStore.testType.pinyinDictionary[symbol] ?? ""
-        }
+        let sound = Constants.bpmf.contains(symbol) ? symbol : PinyinHelper.convertPinyin(symbol) ?? ""
         
         switch contentStore.voiceSelection {
         case .male:

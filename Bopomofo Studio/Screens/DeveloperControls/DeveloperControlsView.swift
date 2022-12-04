@@ -17,6 +17,10 @@ struct DeveloperControlsView: View {
                 Text("DID_SEE_ONBOARDING_TITLE")
             }
             .disabled(!UserDefaults.didSeeOnboarding)
+            
+            Toggle(isOn: $viewModel.timerOverride) {
+                Text("OVERRIDE_TIMER_TITLE")
+            }
         }
         .padding()
     }
@@ -24,7 +28,7 @@ struct DeveloperControlsView: View {
 
 struct DeveloperControlsView_Previews: PreviewProvider {
     static var previews: some View {
-        DeveloperControlsView(viewModel: DeveloperControlsViewModel())
+        DeveloperControlsView(viewModel: DeveloperControlsViewModel(contentStore: dev.contentStore))
             .environmentObject(dev.router)
     }
 }

@@ -20,8 +20,16 @@
 		07248DE928C5E890003FE4AB /* MockProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 07248DE828C5E890003FE4AB /* MockProvider */; };
 		07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */; };
 		07248DF228C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */; };
+		072518F3293CADBC00977A75 /* TopicCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F2293CADBC00977A75 /* TopicCellViewModel.swift */; };
+		072518F5293CC15200977A75 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 072518F4293CC15200977A75 /* FirebaseDatabase */; };
+		072518F7293D2F3500977A75 /* Strings+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F6293D2F3500977A75 /* Strings+Extension.swift */; };
+		072518FA293D30A600977A75 /* PinyinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F9293D30A600977A75 /* PinyinHelper.swift */; };
+		072518FC293D4BE700977A75 /* FeaturedContentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FB293D4BE700977A75 /* FeaturedContentCellView.swift */; };
+		072518FE293D4BF100977A75 /* FeaturedContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FD293D4BF100977A75 /* FeaturedContentCellViewModel.swift */; };
 		073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073313B92933313C0053F290 /* FeedbackSheet.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
+		07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A22939FB0800ECDA2F /* FlashcardView.swift */; };
+		07AE37A52939FB1600ECDA2F /* FlashcardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A42939FB1600ECDA2F /* FlashcardViewModel.swift */; };
 		07B653A528C5CCA70036A1E6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07B653A428C5CCA70036A1E6 /* Localizable.strings */; };
 		07BB8BAE292A456800B2CE7C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB8BAD292A456800B2CE7C /* MainView.swift */; };
 		07D1289429309D150011CFD9 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1289329309D150011CFD9 /* OnboardingViewModel.swift */; };
@@ -40,6 +48,11 @@
 		07E7D27A292908FD005393AE /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 07E7D273292908FD005393AE /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		07E7D28529291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07E7D28429291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist */; };
 		07E7D28829294124005393AE /* OneSignal in Frameworks */ = {isa = PBXBuildFile; productRef = 07E7D28729294124005393AE /* OneSignal */; };
+		07FB8485293C8456001181A7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB8484293C8456001181A7 /* HomeViewModel.swift */; };
+		07FB8487293C845C001181A7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB8486293C845C001181A7 /* HomeView.swift */; };
+		07FB8489293C9AD8001181A7 /* TopicCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB8488293C9AD8001181A7 /* TopicCellView.swift */; };
+		07FB848B293C9BD5001181A7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 07FB848A293C9BD5001181A7 /* FirebaseStorage */; };
+		07FB8492293C9EC2001181A7 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 07FB8491293C9EC2001181A7 /* NukeUI */; };
 		5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400A279F79B100CDD9FB /* ContentPreviewView.swift */; };
 		522D4F3126D1805500578A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522D4F3026D1805500578A82 /* Assets.xcassets */; };
 		5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */; };
@@ -162,9 +175,16 @@
 		07248DE728C5E6B3003FE4AB /* MockProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MockProvider; sourceTree = "<group>"; };
 		07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewViewModel.swift; sourceTree = "<group>"; };
 		07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.naquinojr.Bopomofo-Studio.plist"; sourceTree = "<group>"; };
+		072518F2293CADBC00977A75 /* TopicCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellViewModel.swift; sourceTree = "<group>"; };
+		072518F6293D2F3500977A75 /* Strings+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extension.swift"; sourceTree = "<group>"; };
+		072518F9293D30A600977A75 /* PinyinHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinyinHelper.swift; sourceTree = "<group>"; };
+		072518FB293D4BE700977A75 /* FeaturedContentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedContentCellView.swift; sourceTree = "<group>"; };
+		072518FD293D4BF100977A75 /* FeaturedContentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedContentCellViewModel.swift; sourceTree = "<group>"; };
 		073313B92933313C0053F290 /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
+		07AE37A22939FB0800ECDA2F /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
+		07AE37A42939FB1600ECDA2F /* FlashcardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardViewModel.swift; sourceTree = "<group>"; };
 		07B653A428C5CCA70036A1E6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		07BB8BAD292A456800B2CE7C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		07D1289329309D150011CFD9 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -183,6 +203,9 @@
 		07E7D277292908FD005393AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07E7D283292909BF005393AE /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		07E7D28429291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist"; sourceTree = "<group>"; };
+		07FB8484293C8456001181A7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		07FB8486293C845C001181A7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		07FB8488293C9AD8001181A7 /* TopicCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellView.swift; sourceTree = "<group>"; };
 		5215400A279F79B100CDD9FB /* ContentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewView.swift; sourceTree = "<group>"; };
 		522D4F3026D1805500578A82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -289,7 +312,10 @@
 				070D526628C5DD5200CDA918 /* CoreBopomofoStudio in Frameworks */,
 				07DFD74929211B0900C23485 /* MixpanelProvider in Frameworks */,
 				07248DE928C5E890003FE4AB /* MockProvider in Frameworks */,
+				07FB8492293C9EC2001181A7 /* NukeUI in Frameworks */,
+				07FB848B293C9BD5001181A7 /* FirebaseStorage in Frameworks */,
 				07DFD73729210D7C00C23485 /* Mixpanel in Frameworks */,
+				072518F5293CC15200977A75 /* FirebaseDatabase in Frameworks */,
 				070D525928C5D6EF00CDA918 /* FirebaseAuth in Frameworks */,
 				07E7D28829294124005393AE /* OneSignal in Frameworks */,
 				070D526828C5DD5500CDA918 /* FirebaseProvider in Frameworks */,
@@ -301,6 +327,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		072518F8293D308100977A75 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				072518F9293D30A600977A75 /* PinyinHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0782F0E02920FB2B0080CAAF /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,9 +359,17 @@
 			children = (
 				07248DE528C5E287003FE4AB /* SettingsViewModel.swift */,
 				52C479AC26AB886900E3540F /* SettingsView.swift */,
-				073313B92933313C0053F290 /* FeedbackSheet.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		07AE37A12939FAF900ECDA2F /* Flashcard */ = {
+			isa = PBXGroup;
+			children = (
+				07AE37A22939FB0800ECDA2F /* FlashcardView.swift */,
+				07AE37A42939FB1600ECDA2F /* FlashcardViewModel.swift */,
+			);
+			path = Flashcard;
 			sourceTree = "<group>";
 		};
 		07B653A328C5CC440036A1E6 /* Resources */ = {
@@ -377,6 +419,8 @@
 		07DFD73929210DB700C23485 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				07FB8483293C844C001181A7 /* Home */,
+				07AE37A12939FAF900ECDA2F /* Flashcard */,
 				07D1289F2931F4C00011CFD9 /* DeveloperControls */,
 				07D1289229309D080011CFD9 /* Onboarding */,
 				07BB8BAC292A455D00B2CE7C /* MainView */,
@@ -391,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */,
+				072518F6293D2F3500977A75 /* Strings+Extension.swift */,
 				07D1289D2931F2310011CFD9 /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
@@ -411,6 +456,20 @@
 				07E7D277292908FD005393AE /* Info.plist */,
 			);
 			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
+		07FB8483293C844C001181A7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				07FB8484293C8456001181A7 /* HomeViewModel.swift */,
+				07FB8486293C845C001181A7 /* HomeView.swift */,
+				07FB8488293C9AD8001181A7 /* TopicCellView.swift */,
+				072518F2293CADBC00977A75 /* TopicCellViewModel.swift */,
+				072518FB293D4BE700977A75 /* FeaturedContentCellView.swift */,
+				072518FD293D4BF100977A75 /* FeaturedContentCellViewModel.swift */,
+				073313B92933313C0053F290 /* FeedbackSheet.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		5237C16926A5CB3E00C7BC56 = {
@@ -447,6 +506,7 @@
 				07DFD73929210DB700C23485 /* Screens */,
 				07B653A328C5CC440036A1E6 /* Resources */,
 				07DFD73C292112B000C23485 /* Extensions */,
+				072518F8293D308100977A75 /* Helpers */,
 				5246F5252837A2F7006D0A10 /* Launch Screen.storyboard */,
 				07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */,
 				07E7D28429291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist */,
@@ -609,6 +669,9 @@
 				07DFD73629210D7C00C23485 /* Mixpanel */,
 				07DFD74829211B0900C23485 /* MixpanelProvider */,
 				07E7D28729294124005393AE /* OneSignal */,
+				07FB848A293C9BD5001181A7 /* FirebaseStorage */,
+				07FB8491293C9EC2001181A7 /* NukeUI */,
+				072518F4293CC15200977A75 /* FirebaseDatabase */,
 			);
 			productName = "Bopomofo Studio";
 			productReference = 5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */;
@@ -644,6 +707,7 @@
 				070D525728C5D6EF00CDA918 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				07DFD73529210D7C00C23485 /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 				07E7D28029290990005393AE /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
+				07FB848E293C9D99001181A7 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = 5237C17326A5CB3E00C7BC56 /* Products */;
 			projectDirPath = "";
@@ -769,14 +833,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07FB8487293C845C001181A7 /* HomeView.swift in Sources */,
 				07DFD740292117BA00C23485 /* EnvironmentKeys.swift in Sources */,
+				07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */,
 				070D525F28C5D76500CDA918 /* AppDelegate.swift in Sources */,
 				5237C1A126A5CC0800C7BC56 /* ZhuyinTestView.swift in Sources */,
 				07D1289429309D150011CFD9 /* OnboardingViewModel.swift in Sources */,
+				07FB8489293C9AD8001181A7 /* TopicCellView.swift in Sources */,
+				07AE37A52939FB1600ECDA2F /* FlashcardViewModel.swift in Sources */,
 				52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
 				07D1289E2931F2310011CFD9 /* UserDefaults+Extensions.swift in Sources */,
 				07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */,
+				072518FE293D4BF100977A75 /* FeaturedContentCellViewModel.swift in Sources */,
 				0702FF8D288D5FB600D78BF6 /* ReviewManager.swift in Sources */,
 				07D128A12931F4D10011CFD9 /* DeveloperControlsView.swift in Sources */,
 				52C479AD26AB886900E3540F /* SettingsView.swift in Sources */,
@@ -785,12 +854,17 @@
 				07248DE628C5E287003FE4AB /* SettingsViewModel.swift in Sources */,
 				5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */,
 				52D43814282BD15C00FFCAEB /* Constants.swift in Sources */,
+				072518F7293D2F3500977A75 /* Strings+Extension.swift in Sources */,
 				070D526328C5DCCD00CDA918 /* Router.swift in Sources */,
 				07D1289C2930B46A0011CFD9 /* TestContentCell.swift in Sources */,
 				07BB8BAE292A456800B2CE7C /* MainView.swift in Sources */,
+				072518FA293D30A600977A75 /* PinyinHelper.swift in Sources */,
+				07FB8485293C8456001181A7 /* HomeViewModel.swift in Sources */,
 				07D1289629309D1D0011CFD9 /* OnboardingView.swift in Sources */,
+				072518F3293CADBC00977A75 /* TopicCellViewModel.swift in Sources */,
 				07D1289A29309E940011CFD9 /* OnboardingSlide.swift in Sources */,
 				07D128A32931F4DC0011CFD9 /* DeveloperControlsViewModel.swift in Sources */,
+				072518FC293D4BE700977A75 /* FeaturedContentCellView.swift in Sources */,
 				07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1240,6 +1314,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		07FB848E293C9D99001181A7 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1275,6 +1357,11 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = MockProvider;
 		};
+		072518F4293CC15200977A75 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 070D525728C5D6EF00CDA918 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
 		07DFD73629210D7C00C23485 /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 07DFD73529210D7C00C23485 /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
@@ -1288,6 +1375,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 07E7D28029290990005393AE /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
 			productName = OneSignal;
+		};
+		07FB848A293C9BD5001181A7 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 070D525728C5D6EF00CDA918 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		07FB8491293C9EC2001181A7 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07FB848E293C9D99001181A7 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -15,14 +15,11 @@ class SettingsViewModel: ObservableObject {
     let contentStore: ContentStore
     let analytics: AnalyticsProvider
     
-    @Published var testType: ContentStore.TestType = .zhuyin
     @Published var voiceSelection: ContentStore.VoiceSelection = .female
     @Published var pronunciationTextMode = false
     @Published var pronunciationVoiceMode = false
-    @Published var feedback = ""
-    @Published var showAlert = false
     
-    var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     
     init(
         contentStore: ContentStore,
@@ -35,22 +32,13 @@ class SettingsViewModel: ObservableObject {
         addSubscribers()
     }
     
-    func assignVariables() {
-        self.testType = contentStore.testType
+    private func assignVariables() {
         self.voiceSelection = contentStore.voiceSelection
         self.pronunciationTextMode = contentStore.pronunciationTextMode
         self.pronunciationVoiceMode = contentStore.pronunciationVoiceMode
     }
     
-    func addSubscribers() {
-        $testType
-            .dropFirst()
-            .sink { [weak self] testType in
-                self?.contentStore.testType = testType
-                self?.trackEvent(event: .testType(testType: testType.rawValue))
-            }
-            .store(in: &cancellables)
-        
+    private func addSubscribers() {
         $voiceSelection
             .dropFirst()
             .sink { [weak self] voiceType in
@@ -74,17 +62,6 @@ class SettingsViewModel: ObservableObject {
                 self?.trackEvent(event: .voiceAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
-    }
-    
-    func sendFeedback() {
-        guard !feedback.isEmpty else { return }
-        Task {
-            let success = try await contentStore.sendFeedback(description: feedback)
-            if success {
-                feedback = ""
-                showAlert = true
-            }
-        }
     }
     
     func trackEvent(event: AnalyticsProvider.SettingsAnalyticEvent) {

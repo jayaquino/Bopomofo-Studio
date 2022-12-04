@@ -7,13 +7,19 @@
 
 import Foundation
 import Combine
+import CoreBopomofoStudio
 
+@MainActor
 class DeveloperControlsViewModel: ObservableObject {
+    let contentStore: ContentStore
+    
     @Published var didSeeOnboarding = false
+    @Published var timerOverride = false
     
     private var cancellables = Set<AnyCancellable>()
     
-    init() {
+    init(contentStore: ContentStore) {
+        self.contentStore = contentStore
         addSubscribers()
     }
     
@@ -25,9 +31,19 @@ class DeveloperControlsViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+        
+        $timerOverride
+            .sink { [weak self] timerOverride in
+                self?.overrideTestTimerToFiveSeconds()
+            }
+            .store(in: &cancellables)
     }
     
     func resetDidSeeOnboarding() {
         UserDefaults.didSeeOnboarding = false
+    }
+    
+    func overrideTestTimerToFiveSeconds() {
+        contentStore.timerValue = 5
     }
 }

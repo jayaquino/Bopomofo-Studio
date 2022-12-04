@@ -23,16 +23,21 @@ class Router: ObservableObject {
         self.analytics = analytics
     }
     
+    func homeView() -> HomeView {
+        HomeView(viewModel: HomeViewModel(
+            contentStore: self.contentStore,
+            analytics: self.analytics)
+        )
+    }
+    
     func zhuyinTestView(
-        symbolList: [String],
-        symbolPronunciation: [String]
+        topic: TopicModel
     ) -> ZhuyinTestView {
         ZhuyinTestView(
             viewModel: ZhuyinViewModel(
+                topic: topic,
                 contentStore: self.contentStore,
-                analytics: self.analytics,
-                symbolList: symbolList,
-                symbolPronunciation: symbolPronunciation
+                analytics: self.analytics
             )
         )
     }
@@ -48,13 +53,34 @@ class Router: ObservableObject {
     
     func developerControlsView() -> DeveloperControlsView {
         DeveloperControlsView(
-            viewModel: DeveloperControlsViewModel()
+            viewModel: DeveloperControlsViewModel(contentStore: self.contentStore)
         )
     }
     
-    func contentPreview() -> ContentPreviewView {
+    func contentPreview(topic: TopicModel) -> ContentPreviewView {
         ContentPreviewView(
-            viewModel: ContentPreviewViewModel(contentStore: self.contentStore)
+            viewModel: ContentPreviewViewModel(
+                contentStore: self.contentStore,
+                topic: topic
+            )
+        )
+    }
+    
+    func flashcardView() -> FlashcardView {
+        FlashcardView(viewModel: FlashcardViewModel(contentStore: self.contentStore))
+    }
+    
+    func topicCellView(topic: TopicModel) -> TopicCellView {
+        TopicCellView(viewModel: TopicCellViewModel(
+            contentStore: self.contentStore,
+            topic: topic)
+        )
+    }
+    
+    func featuredContentCellView(topic: TopicModel) -> FeaturedContentCellView {
+        FeaturedContentCellView(viewModel: FeaturedContentViewModel(
+            contentStore: self.contentStore,
+            topic: topic)
         )
     }
 }
