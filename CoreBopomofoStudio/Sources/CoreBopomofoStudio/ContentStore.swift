@@ -40,8 +40,8 @@ public class ContentStore: ObservableObject {
     @Published public var hanziTestCharacterSet: [VocabularyModel]?
     @Published public var hanziTest: CharacterCardSet = .simple_verbs
     
-    public func fetchAllCategories() async throws {
-        self.allContent = try await provider.fetchAllCategories()
+    public func fetchZhuyinContent() async throws {
+        self.allContent = try await provider.fetchZhuyinContent()
     }
     
     public func fetchImage(urlString: String) async throws -> UIImage? {
@@ -55,13 +55,6 @@ public class ContentStore: ObservableObject {
     
     public func fetchScores(topic: TopicModel, scoreModel: ScoreModel) async throws -> [ScoreModel] {
         try await provider.fetchScores(topic: topic, scoreModel: scoreModel)
-    }
-    
-    public func fetchVocab() async throws {
-        switch hanziTest {
-        case .simple_verbs:
-            self.hanziTestCharacterSet = try await provider.fetchSimpleVerbs()
-        }
     }
     
     public func sendFeedback(description: String) async throws -> Bool {

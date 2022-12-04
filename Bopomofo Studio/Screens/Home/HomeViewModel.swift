@@ -25,7 +25,7 @@ class HomeViewModel: ObservableObject {
         self.analytics = analytics
 
         self.assignVariables()
-        self.fetchAllCategories()
+        self.fetchZhuyinContent()
     }
     
     private func assignVariables() {
@@ -33,10 +33,10 @@ class HomeViewModel: ObservableObject {
             .assign(to: &self.$allCategories)
     }
     
-    private func fetchAllCategories() {
+    private func fetchZhuyinContent() {
         Task {
             do {
-                try await self.contentStore.fetchAllCategories()
+                try await self.contentStore.fetchZhuyinContent()
             } catch {
                 print("Error fetching all content")
             }

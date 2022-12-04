@@ -19,12 +19,10 @@ public protocol ContentProvider {
         scoreModel: ScoreModel
     ) async throws -> [ScoreModel]
     
-    func fetchAllCategories() async throws -> [CategoryModel]
+    func fetchZhuyinContent() async throws -> [CategoryModel]
     
     func fetchImage(urlString: String) async throws -> UIImage?
-    
-    func fetchSimpleVerbs() async throws -> [VocabularyModel]
-    
+        
     func sendFeedback(description: String) async throws -> Bool
 }
 
