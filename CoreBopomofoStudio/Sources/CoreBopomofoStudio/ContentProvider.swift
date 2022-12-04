@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol ContentProvider {
     func saveHighScore(
@@ -19,6 +20,8 @@ public protocol ContentProvider {
     ) async throws -> [ScoreModel]
     
     func fetchAllCategories() async throws -> [CategoryModel]
+    
+    func fetchImage(urlString: String) async throws -> UIImage?
     
     func fetchSimpleVerbs() async throws -> [VocabularyModel]
     

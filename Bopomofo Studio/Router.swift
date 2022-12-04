@@ -56,13 +56,23 @@ class Router: ObservableObject {
         )
     }
     
-    func contentPreview() -> ContentPreviewView {
+    func contentPreview(topic: TopicModel) -> ContentPreviewView {
         ContentPreviewView(
-            viewModel: ContentPreviewViewModel(contentStore: self.contentStore)
+            viewModel: ContentPreviewViewModel(
+                contentStore: self.contentStore,
+                topic: topic
+            )
         )
     }
     
     func flashcardView() -> FlashcardView {
         FlashcardView(viewModel: FlashcardViewModel(contentStore: self.contentStore))
+    }
+    
+    func topicCellView(topic: TopicModel) -> TopicCellView {
+        TopicCellView(viewModel: TopicCellViewModel(
+            contentStore: self.contentStore,
+            topic: topic)
+        )
     }
 }

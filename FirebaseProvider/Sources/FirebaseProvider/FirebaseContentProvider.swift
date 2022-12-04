@@ -5,7 +5,7 @@
 //  Created by Nelson Aquino Jr. on 9/5/22.
 //
 
-import Foundation
+import UIKit
 import CoreBopomofoStudio
 
 public class FirebaseContentProvider: ContentProvider {
@@ -17,7 +17,11 @@ public class FirebaseContentProvider: ContentProvider {
     }
     
     public func fetchAllCategories() async throws -> [CoreBopomofoStudio.CategoryModel] {
-        throw DevelopmentError.notImplemented
+        try await provider.fetchCategories(location: "category")
+    }
+    
+    public func fetchImage(urlString: String) async throws -> UIImage? {
+        try await provider.fetchFromStorage(urlString: urlString)
     }
     
     public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {

@@ -8,6 +8,7 @@
 import Foundation
 import CoreBopomofoStudio
 
+@MainActor
 class HomeViewModel: ObservableObject {
     let contentStore: ContentStore
     
@@ -29,6 +30,7 @@ class HomeViewModel: ObservableObject {
         Task {
             do {
                 try await self.contentStore.fetchAllCategories()
+                print("allcategories", allCategories)
             } catch {
                 print("Error fetching all content")
             }

@@ -20,6 +20,8 @@
 		07248DE928C5E890003FE4AB /* MockProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 07248DE828C5E890003FE4AB /* MockProvider */; };
 		07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */; };
 		07248DF228C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */; };
+		072518F3293CADBC00977A75 /* TopicCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F2293CADBC00977A75 /* TopicCellViewModel.swift */; };
+		072518F5293CC15200977A75 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 072518F4293CC15200977A75 /* FirebaseDatabase */; };
 		073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073313B92933313C0053F290 /* FeedbackSheet.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
 		07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A22939FB0800ECDA2F /* FlashcardView.swift */; };
@@ -44,8 +46,9 @@
 		07E7D28829294124005393AE /* OneSignal in Frameworks */ = {isa = PBXBuildFile; productRef = 07E7D28729294124005393AE /* OneSignal */; };
 		07FB8485293C8456001181A7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB8484293C8456001181A7 /* HomeViewModel.swift */; };
 		07FB8487293C845C001181A7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB8486293C845C001181A7 /* HomeView.swift */; };
-		07FB8489293C9AD8001181A7 /* CategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB8488293C9AD8001181A7 /* CategoryCellView.swift */; };
+		07FB8489293C9AD8001181A7 /* TopicCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB8488293C9AD8001181A7 /* TopicCellView.swift */; };
 		07FB848B293C9BD5001181A7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 07FB848A293C9BD5001181A7 /* FirebaseStorage */; };
+		07FB8492293C9EC2001181A7 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 07FB8491293C9EC2001181A7 /* NukeUI */; };
 		5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400A279F79B100CDD9FB /* ContentPreviewView.swift */; };
 		522D4F3126D1805500578A82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522D4F3026D1805500578A82 /* Assets.xcassets */; };
 		5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5237C17526A5CB3E00C7BC56 /* Bopomofo Studio.swift */; };
@@ -168,6 +171,7 @@
 		07248DE728C5E6B3003FE4AB /* MockProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MockProvider; sourceTree = "<group>"; };
 		07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewViewModel.swift; sourceTree = "<group>"; };
 		07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.naquinojr.Bopomofo-Studio.plist"; sourceTree = "<group>"; };
+		072518F2293CADBC00977A75 /* TopicCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellViewModel.swift; sourceTree = "<group>"; };
 		073313B92933313C0053F290 /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
@@ -193,7 +197,7 @@
 		07E7D28429291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist"; sourceTree = "<group>"; };
 		07FB8484293C8456001181A7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		07FB8486293C845C001181A7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		07FB8488293C9AD8001181A7 /* CategoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellView.swift; sourceTree = "<group>"; };
+		07FB8488293C9AD8001181A7 /* TopicCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellView.swift; sourceTree = "<group>"; };
 		5215400A279F79B100CDD9FB /* ContentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewView.swift; sourceTree = "<group>"; };
 		522D4F3026D1805500578A82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,8 +304,10 @@
 				070D526628C5DD5200CDA918 /* CoreBopomofoStudio in Frameworks */,
 				07DFD74929211B0900C23485 /* MixpanelProvider in Frameworks */,
 				07248DE928C5E890003FE4AB /* MockProvider in Frameworks */,
+				07FB8492293C9EC2001181A7 /* NukeUI in Frameworks */,
 				07FB848B293C9BD5001181A7 /* FirebaseStorage in Frameworks */,
 				07DFD73729210D7C00C23485 /* Mixpanel in Frameworks */,
+				072518F5293CC15200977A75 /* FirebaseDatabase in Frameworks */,
 				070D525928C5D6EF00CDA918 /* FirebaseAuth in Frameworks */,
 				07E7D28829294124005393AE /* OneSignal in Frameworks */,
 				070D526828C5DD5500CDA918 /* FirebaseProvider in Frameworks */,
@@ -441,7 +447,8 @@
 			children = (
 				07FB8484293C8456001181A7 /* HomeViewModel.swift */,
 				07FB8486293C845C001181A7 /* HomeView.swift */,
-				07FB8488293C9AD8001181A7 /* CategoryCellView.swift */,
+				07FB8488293C9AD8001181A7 /* TopicCellView.swift */,
+				072518F2293CADBC00977A75 /* TopicCellViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -643,6 +650,8 @@
 				07DFD74829211B0900C23485 /* MixpanelProvider */,
 				07E7D28729294124005393AE /* OneSignal */,
 				07FB848A293C9BD5001181A7 /* FirebaseStorage */,
+				07FB8491293C9EC2001181A7 /* NukeUI */,
+				072518F4293CC15200977A75 /* FirebaseDatabase */,
 			);
 			productName = "Bopomofo Studio";
 			productReference = 5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */;
@@ -678,6 +687,7 @@
 				070D525728C5D6EF00CDA918 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				07DFD73529210D7C00C23485 /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 				07E7D28029290990005393AE /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
+				07FB848E293C9D99001181A7 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = 5237C17326A5CB3E00C7BC56 /* Products */;
 			projectDirPath = "";
@@ -809,7 +819,7 @@
 				070D525F28C5D76500CDA918 /* AppDelegate.swift in Sources */,
 				5237C1A126A5CC0800C7BC56 /* ZhuyinTestView.swift in Sources */,
 				07D1289429309D150011CFD9 /* OnboardingViewModel.swift in Sources */,
-				07FB8489293C9AD8001181A7 /* CategoryCellView.swift in Sources */,
+				07FB8489293C9AD8001181A7 /* TopicCellView.swift in Sources */,
 				07AE37A52939FB1600ECDA2F /* FlashcardViewModel.swift in Sources */,
 				52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
@@ -828,6 +838,7 @@
 				07BB8BAE292A456800B2CE7C /* MainView.swift in Sources */,
 				07FB8485293C8456001181A7 /* HomeViewModel.swift in Sources */,
 				07D1289629309D1D0011CFD9 /* OnboardingView.swift in Sources */,
+				072518F3293CADBC00977A75 /* TopicCellViewModel.swift in Sources */,
 				07D1289A29309E940011CFD9 /* OnboardingSlide.swift in Sources */,
 				07D128A32931F4DC0011CFD9 /* DeveloperControlsViewModel.swift in Sources */,
 				07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */,
@@ -1279,6 +1290,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		07FB848E293C9D99001181A7 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1314,6 +1333,11 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = MockProvider;
 		};
+		072518F4293CC15200977A75 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 070D525728C5D6EF00CDA918 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
 		07DFD73629210D7C00C23485 /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 07DFD73529210D7C00C23485 /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
@@ -1332,6 +1356,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 070D525728C5D6EF00CDA918 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		07FB8491293C9EC2001181A7 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 07FB848E293C9D99001181A7 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

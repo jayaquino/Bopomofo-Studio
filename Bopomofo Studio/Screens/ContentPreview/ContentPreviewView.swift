@@ -79,7 +79,8 @@ struct ContentPreviewZhuyin_Previews: PreviewProvider {
     
     static var previews: some View {
         ContentPreviewView(
-            viewModel: ContentPreviewViewModel(contentStore: ContentStore(provider: MockContentProvider())))
+            viewModel: ContentPreviewViewModel(contentStore: ContentStore(provider: MockContentProvider()), topic: TopicModel(
+                topicName: "", topicImage: "", vocabulary: [])))
         .environmentObject(dev.router)
     }
 }

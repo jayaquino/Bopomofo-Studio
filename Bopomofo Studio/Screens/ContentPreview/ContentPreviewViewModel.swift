@@ -9,9 +9,11 @@ import Foundation
 import Combine
 import CoreBopomofoStudio
 
+@MainActor
 class ContentPreviewViewModel: ObservableObject {
     
     let contentStore: ContentStore
+    let topic: TopicModel
     @Published var testKeys: [String]
     @Published var testValues: [String]
     @Published var testType: ContentStore.TestType = .zhuyin
@@ -24,8 +26,12 @@ class ContentPreviewViewModel: ObservableObject {
         }
     }
     
-    init(contentStore: ContentStore) {
+    init(
+        contentStore: ContentStore,
+        topic: TopicModel
+    ) {
         self.contentStore = contentStore
+        self.topic = topic
         self.testKeys = contentStore.testType.dictionary.map({ $0.key })
         self.testValues = contentStore.testType.dictionary.map({ $0.value })
         

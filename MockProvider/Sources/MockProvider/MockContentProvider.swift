@@ -1,10 +1,9 @@
 
 
 import CoreBopomofoStudio
-import Foundation
+import UIKit
 
 public class MockContentProvider: ContentProvider {
-
     public init() {}
     
     public func fetchAllCategories() async throws -> [CoreBopomofoStudio.CategoryModel] {
@@ -14,6 +13,7 @@ public class MockContentProvider: ContentProvider {
                 topicList: [
                     TopicModel(
                         topicName: "Zhuyin Practice",
+                        topicImage: "BPMF.png",
                         vocabulary: [
                             VocabularyModel(
                                 character: "去",
@@ -27,6 +27,7 @@ public class MockContentProvider: ContentProvider {
                     ),
                     TopicModel(
                         topicName: "Pinyin to Zhuyin Practice",
+                        topicImage: "BPMF.png",
                         vocabulary: [
                             VocabularyModel(
                                 character: "去",
@@ -41,6 +42,10 @@ public class MockContentProvider: ContentProvider {
                 ]
             )
         ]
+    }
+    
+    public func fetchImage(urlString: String) async throws -> UIImage? {
+        UIImage(named: "BPMF")
     }
     
     public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {

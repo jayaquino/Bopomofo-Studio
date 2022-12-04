@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import CoreBopomofoStudio
 
+@MainActor
 class DeveloperControlsViewModel: ObservableObject {
     let contentStore: ContentStore
     

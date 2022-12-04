@@ -7,7 +7,9 @@
 
 import Foundation
 import Combine
+import UIKit
 
+@MainActor
 public class ContentStore: ObservableObject {
     private let provider: ContentProvider
     
@@ -130,6 +132,10 @@ public class ContentStore: ObservableObject {
     
     public func fetchAllCategories() async throws {
         self.allContent = try await provider.fetchAllCategories()
+    }
+    
+    public func fetchImage(urlString: String) async throws -> UIImage? {
+        try await provider.fetchImage(urlString: urlString)
     }
     
     @discardableResult

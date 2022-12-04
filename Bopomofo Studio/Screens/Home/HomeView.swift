@@ -16,9 +16,24 @@ struct HomeView: View {
         VStack(spacing: 0) {
             if let allCategories = viewModel.allCategories {
                 ForEach(allCategories, id: \.self) { category in
-                    ForEach(category.topicList, id: \.self) { topic in
-                        Text(topic.topicName)
+                    VStack(alignment: .leading) {
+                        Text(category.categoryName)
+                            .font(.largeTitle)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 0) {
+                                ForEach(category.topicList, id: \.self) { topic in
+                                    NavigationLink {
+                                        router.contentPreview(topic: topic)
+                                    } label: {
+                                        router.topicCellView(topic: topic)
+                                    }
+                                    .padding()
+                                }
+                            }
+                        }
+                        Spacer()
                     }
+                    .padding(.horizontal, 16)
                 }
             }
         }

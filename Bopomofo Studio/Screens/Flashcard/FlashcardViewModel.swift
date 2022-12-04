@@ -8,6 +8,7 @@
 import Foundation
 import CoreBopomofoStudio
 
+@MainActor
 class FlashcardViewModel: ObservableObject {
     var contentStore: ContentStore
     
