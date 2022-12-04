@@ -9,8 +9,16 @@ import Foundation
 import AVKit
 
 class SoundManager{
-
+    
     static let instance = SoundManager()
+    
+    init() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback)
+        } catch let error {
+            print("Error setting AVAudioSession category", error.localizedDescription)
+        }
+    }
     
     var player: AVAudioPlayer?
     

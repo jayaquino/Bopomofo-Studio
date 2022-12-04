@@ -24,13 +24,16 @@ open class AnalyticsProvider {
         case onboarding(event: OnboardingAnalyticEvent)
         case settings(event: SettingsAnalyticEvent)
         case test(event: TestAnalyticEvent)
+        case home(event: HomeAnalyticEvent)
         
         public var eventName: String {
             switch self {
             case
+                    .home(event: let event as AnalyticTrackingProtocol),
                     .onboarding(event: let event as AnalyticTrackingProtocol),
                     .settings(event: let event as AnalyticTrackingProtocol),
                     .test(event: let event as AnalyticTrackingProtocol):
+                
                 
                 return event.eventName
             }
@@ -39,11 +42,34 @@ open class AnalyticsProvider {
         public var parameters: [String: String] {
             switch self {
             case
+                    .home(event: let event as AnalyticTrackingProtocol),
                     .onboarding(event: let event as AnalyticTrackingProtocol),
                     .settings(event: let event as AnalyticTrackingProtocol),
                     .test(event: let event as AnalyticTrackingProtocol):
                 
                 return event.parameters
+            }
+        }
+    }
+    
+    // MARK: - Home Analytics
+    public enum HomeAnalyticEvent: AnalyticTrackingProtocol {
+        case feedbackTapped
+        case feedbackSendButtonTapped
+        
+        public var eventName: String {
+            switch self {
+            case .feedbackTapped:
+                return "feedback_button_tapped"
+            case .feedbackSendButtonTapped:
+                return "feedback_send_button_tapped"
+            }
+        }
+        
+        public var parameters: [String : String] {
+            switch self {
+            case .feedbackTapped, .feedbackSendButtonTapped:
+                return [:]
             }
         }
     }

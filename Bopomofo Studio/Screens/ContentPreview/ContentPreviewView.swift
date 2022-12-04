@@ -18,13 +18,13 @@ struct ContentPreviewView: View {
         VStack(spacing: 0) {
             ScrollView{
                 VStack(spacing: 40) {
-                    ForEach(0..<viewModel.testKeys.count, id: \.self) { index in
+                    ForEach(0..<viewModel.topic.vocabulary.count, id: \.self) { index in
                         TestContentCell(
-                            image: viewModel.testKeys[index],
-                            description: viewModel.testValues[index]
+                            image: viewModel.topic.vocabulary[index].character,
+                            description: viewModel.topic.vocabulary[index].pronunciation
                         )
                         .onTapGesture {
-                            viewModel.playSound(symbol: viewModel.testKeys[index])
+                            viewModel.playSound(symbol: viewModel.topic.vocabulary[index].character)
                         }
                     }
                 }
@@ -52,10 +52,18 @@ struct ContentPreviewView: View {
             .padding()
         }
         .fullScreenCover(isPresented: $showTestView) {
-            router.zhuyinTestView(
-                symbolList: viewModel.testKeys,
-                symbolPronunciation: viewModel.testValues
-            )
+            router.zhuyinTestView(topic: viewModel.topic)
+        }
+        .navigationTitle("Content Preview")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink {
+                    router.settingsView()
+                } label: {
+                    Image(systemName: "gear")
+                    
+                }
+            }
         }
     }
     
@@ -78,7 +86,8 @@ struct ContentPreviewZhuyin_Previews: PreviewProvider {
     
     static var previews: some View {
         ContentPreviewView(
-            viewModel: ContentPreviewViewModel(contentStore: ContentStore(provider: MockContentProvider())))
+            viewModel: ContentPreviewViewModel(contentStore: ContentStore(provider: MockContentProvider()), topic: TopicModel(
+                topicName: "", topicImage: "", vocabulary: [])))
         .environmentObject(dev.router)
     }
 }
