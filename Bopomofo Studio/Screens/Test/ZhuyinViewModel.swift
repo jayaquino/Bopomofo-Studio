@@ -16,14 +16,23 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     let topic: TopicModel
     private let analytics: AnalyticsProvider
     private let letters = NSCharacterSet.letters
-
-    
-    var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     
     @Published var timer: Double
     @Published var testFinished = false
     @Published var scorePercentage: Double?
     @Published var isLoadingData = false
+    @Published var randomSymbol = ""
+    @Published var randomSymbolExample = ""
+    @Published var score = 0
+    @Published var inputSymbol: String = "" {
+        didSet {
+            checkUserInput()
+        }
+    }
+    private var symbolKey: String {
+        Constants.bpmf.contains(randomSymbol) ? randomSymbol : PinyinHelper.convertPinyin(randomSymbol) ?? ""
+    }
     
     init(
         topic: TopicModel,
@@ -37,25 +46,10 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         self.timer = contentStore.timerValue
         let randomNumber = Int.random(in: 0...topic.vocabulary.count-1)
         self.randomSymbol = topic.vocabulary[randomNumber].character
-        displaySymbol = topic.vocabulary[randomNumber].character
         randomSymbolExample = topic.vocabulary[randomNumber].pronunciation
         
         playSound(symbol: randomSymbol)
         addSubscribers()
-    }
-    
-    @Published var randomSymbol = ""
-    @Published var randomSymbolExample = ""
-    @Published var displaySymbol = ""
-    @Published var score = 0
-    @Published var inputSymbol: String = "" {
-        didSet {
-            checkUserInput()
-        }
-    }
-    
-    var symbolKey: String {
-        Constants.bpmf.contains(randomSymbol) ? randomSymbol : PinyinHelper.convertPinyin(randomSymbol) ?? ""
     }
         
     private func addSubscribers() {
@@ -67,13 +61,10 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
             .store(in: &cancellables)
     }
     
-    func generateNewSymbol() {
-        
+    private func generateNewSymbol() {
         let randomNumber = Int.random(in: 0...topic.vocabulary.count-1)
         randomSymbol = topic.vocabulary[randomNumber].character
-        displaySymbol = topic.vocabulary[randomNumber].character
         randomSymbolExample = topic.vocabulary[randomNumber].pronunciation
-        
         playSound(symbol: randomSymbol)
     }
     

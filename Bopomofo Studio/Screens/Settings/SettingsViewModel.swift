@@ -21,7 +21,7 @@ class SettingsViewModel: ObservableObject {
     @Published var feedback = ""
     @Published var showAlert = false
     
-    var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     
     init(
         contentStore: ContentStore,
@@ -34,13 +34,13 @@ class SettingsViewModel: ObservableObject {
         addSubscribers()
     }
     
-    func assignVariables() {
+    private func assignVariables() {
         self.voiceSelection = contentStore.voiceSelection
         self.pronunciationTextMode = contentStore.pronunciationTextMode
         self.pronunciationVoiceMode = contentStore.pronunciationVoiceMode
     }
     
-    func addSubscribers() {
+    private func addSubscribers() {
         $voiceSelection
             .dropFirst()
             .sink { [weak self] voiceType in

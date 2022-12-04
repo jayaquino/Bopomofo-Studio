@@ -44,7 +44,7 @@ struct ZhuyinTestView: View {
                 
                 ZStack{
                     VStack{
-                        Image(viewModel.displaySymbol)
+                        Image(viewModel.randomSymbol)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(maxHeight: 200)
