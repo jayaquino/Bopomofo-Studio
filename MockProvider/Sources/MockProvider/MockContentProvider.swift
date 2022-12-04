@@ -79,6 +79,10 @@ public class MockContentProvider: ContentProvider {
         mockCategoryModels
     }
     
+    public func fetchFeaturedContent() async throws -> [CategoryModel] {
+        mockCategoryModels
+    }
+    
     public func fetchImage(urlString: String) async throws -> UIImage? {
         mockUIImage
     }

@@ -30,12 +30,17 @@ public class ContentStore: ObservableObject {
     @Published public var timerValue: Double = 30.0
     
     @Published public var zhuyinContent: [CategoryModel]?
+    @Published public var featuredContent: [CategoryModel]?
     @Published public var hanziTestCharacterSet: [VocabularyModel]?
     
     public func fetchZhuyinContent() async throws {
         self.zhuyinContent = try await provider.fetchZhuyinContent()
     }
     
+    public func fetchFeaturedContent() async throws {
+        self.featuredContent = try await provider.fetchFeaturedContent()
+    }
+
     public func fetchImage(urlString: String) async throws -> UIImage? {
         try await provider.fetchImage(urlString: urlString)
     }

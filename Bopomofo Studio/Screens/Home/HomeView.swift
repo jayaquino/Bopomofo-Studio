@@ -14,8 +14,8 @@ struct HomeView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
+            ScrollView(.vertical, showsIndicators: false) {
             if let zhuyinContent = viewModel.zhuyinContent {
-                ScrollView(.vertical, showsIndicators: false) {
                     ForEach(zhuyinContent, id: \.self) { category in
                         VStack(alignment: .leading) {
                             Text(category.categoryName)
@@ -36,6 +36,11 @@ struct HomeView: View {
                         }
                         .padding(.horizontal, 16)
                     }
+                }
+            }
+            if let featuredContent = viewModel.featuredContent {
+                ForEach(featuredContent, id: \.self) { category in
+                    Text(category.categoryName)
                 }
             }
             Spacer()

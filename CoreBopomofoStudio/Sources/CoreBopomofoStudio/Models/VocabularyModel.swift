@@ -19,13 +19,4 @@ public struct VocabularyModel: Codable {
         self.character = character
         self.pronunciation = pronunciation
     }
-    
-    public init?(data: [String: Any]) {
-        guard let character = data["character"] as? String,
-              let pronunciation = data["pronunciation"] as? String else {
-            return nil
-        }
-        self.character = character
-        self.pronunciation = pronunciation
-    }
 }

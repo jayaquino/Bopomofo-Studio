@@ -14,6 +14,7 @@ class HomeViewModel: ObservableObject {
     let analytics: AnalyticsProvider
     
     @Published var zhuyinContent: [CategoryModel]?
+    @Published var featuredContent: [CategoryModel]?
     @Published var feedback = ""
     @Published var showAlert = false
     
@@ -25,12 +26,20 @@ class HomeViewModel: ObservableObject {
         self.analytics = analytics
 
         self.assignVariables()
-        self.fetchZhuyinContent()
+        self.fetchAllContent()
     }
     
     private func assignVariables() {
         contentStore.$zhuyinContent
             .assign(to: &self.$zhuyinContent)
+        
+        contentStore.$featuredContent
+            .assign(to: &self.$featuredContent)
+    }
+    
+    private func fetchAllContent() {
+        fetchZhuyinContent()
+        fetchFeaturedContent()
     }
     
     private func fetchZhuyinContent() {
@@ -38,7 +47,17 @@ class HomeViewModel: ObservableObject {
             do {
                 try await self.contentStore.fetchZhuyinContent()
             } catch {
-                print("Error fetching all content")
+                print("Error fetching Zhuyin content")
+            }
+        }
+    }
+    
+    private func fetchFeaturedContent() {
+        Task {
+            do {
+                try await self.contentStore.fetchFeaturedContent()
+            } catch {
+                print("Error fetching Featured content")
             }
         }
     }

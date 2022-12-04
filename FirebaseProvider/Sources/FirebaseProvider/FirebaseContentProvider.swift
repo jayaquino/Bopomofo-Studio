@@ -20,6 +20,10 @@ public class FirebaseContentProvider: ContentProvider {
         try await provider.fetchCategories(location: "zhuyin", type: CategoryModel.self)
     }
     
+    public func fetchFeaturedContent() async throws -> [CategoryModel] {
+        try await provider.fetchCategories(location: "featured_content", type: CategoryModel.self)
+    }
+    
     public func fetchImage(urlString: String) async throws -> UIImage? {
         try await provider.fetchFromStorage(urlString: urlString)
     }
@@ -33,10 +37,6 @@ public class FirebaseContentProvider: ContentProvider {
     
     public func fetchScores(topic: TopicModel, scoreModel: ScoreModel) async throws -> [ScoreModel] {
         try await provider.fetchScores(location: "\(topic.topicName): \(scoreModel.time)")
-    }
-    
-    public func fetchSimpleVerbs() async throws -> [VocabularyModel] {
-        try await provider.fetchVocabulary(location: "simple_verbs")
     }
     
     public func sendFeedback(description: String) async throws -> Bool {
