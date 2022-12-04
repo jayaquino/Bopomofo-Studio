@@ -7,6 +7,42 @@ public class MockContentProvider: ContentProvider {
 
     public init() {}
     
+    public func fetchAllCategories() async throws -> [CoreBopomofoStudio.CategoryModel] {
+        [
+            CategoryModel(
+                categoryName: "Bopomofo",
+                topicList: [
+                    TopicModel(
+                        topicName: "Zhuyin Practice",
+                        vocabulary: [
+                            VocabularyModel(
+                                character: "去",
+                                pronunciation: "ㄑㄩˋ"
+                            ),
+                            VocabularyModel(
+                                character: "來",
+                                pronunciation: "ㄌㄞˊ"
+                            )
+                        ]
+                    ),
+                    TopicModel(
+                        topicName: "Pinyin to Zhuyin Practice",
+                        vocabulary: [
+                            VocabularyModel(
+                                character: "去",
+                                pronunciation: "ㄑㄩˋ"
+                            ),
+                            VocabularyModel(
+                                character: "來",
+                                pronunciation: "ㄌㄞˊ"
+                            )
+                        ]
+                    )
+                ]
+            )
+        ]
+    }
+    
     public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {
         return true
     }

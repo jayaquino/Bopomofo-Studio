@@ -9,10 +9,15 @@ import Foundation
 import CoreBopomofoStudio
 
 public class FirebaseContentProvider: ContentProvider {
+    
     private let provider: FirebaseProvider
     
     public init(provider: FirebaseProvider) {
         self.provider = provider
+    }
+    
+    public func fetchAllCategories() async throws -> [CoreBopomofoStudio.CategoryModel] {
+        throw DevelopmentError.notImplemented
     }
     
     public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {
@@ -35,5 +40,9 @@ public class FirebaseContentProvider: ContentProvider {
             location: "feedback",
             data: ["description": description]
         )
+    }
+    
+    enum DevelopmentError: Error {
+        case notImplemented
     }
 }

@@ -18,6 +18,8 @@ public protocol ContentProvider {
         scoreModel: ScoreModel
     ) async throws -> [ScoreModel]
     
+    func fetchAllCategories() async throws -> [CategoryModel]
+    
     func fetchSimpleVerbs() async throws -> [VocabularyModel]
     
     func sendFeedback(description: String) async throws -> Bool

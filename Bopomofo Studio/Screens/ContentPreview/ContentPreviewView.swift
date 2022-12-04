@@ -57,6 +57,7 @@ struct ContentPreviewView: View {
                 symbolPronunciation: viewModel.testValues
             )
         }
+        .navigationTitle("Content Preview")
     }
     
     private func testContent(content: [String]) -> some View {

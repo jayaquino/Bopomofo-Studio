@@ -13,7 +13,6 @@ public class ContentStore: ObservableObject {
     
     public init(provider: ContentProvider) {
         self.provider = provider
-        self.addSubscribers()
     }
     
     private var cancellables = Set<AnyCancellable>()
@@ -125,8 +124,13 @@ public class ContentStore: ObservableObject {
     @Published public var contentTwo : [String] = []
     @Published public var testId : String = ""
     
+    @Published public var allContent: [CategoryModel]?
     @Published public var hanziTestCharacterSet: [VocabularyModel]?
     @Published public var hanziTest: CharacterCardSet = .simple_verbs
+    
+    public func fetchAllCategories() async throws {
+        self.allContent = try await provider.fetchAllCategories()
+    }
     
     @discardableResult
     public func saveHighScore(testType: ContentStore.TestType, scoreModel: ScoreModel) async throws -> Bool {
@@ -146,19 +150,5 @@ public class ContentStore: ObservableObject {
     
     public func sendFeedback(description: String) async throws -> Bool {
         try await provider.sendFeedback(description: description)
-    }
-    
-    private func addSubscribers() {
-        $hanziTest
-            .sink { hanziTest in
-                Task {
-                    do {
-                        try await self.fetchVocab()
-                    } catch {
-                        print("Error fetching vocabulary list")
-                    }
-                }
-            }
-            .store(in: &cancellables)
     }
 }

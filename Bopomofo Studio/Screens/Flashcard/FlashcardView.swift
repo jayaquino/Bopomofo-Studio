@@ -18,9 +18,6 @@ struct FlashcardView: View {
                 }
             }
         }
-        .onAppear {
-            viewModel.test()
-        }
     }
 }
 

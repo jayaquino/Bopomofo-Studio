@@ -12,21 +12,20 @@ struct MainView: View {
     
     var body: some View {
         TabView {
-            router.contentPreview()
-                .tabItem {
-                    Label("BPMF", systemImage: "keyboard")
-                }
+            NavigationView {
+                router.homeView()
+            }
+            .tabItem {
+                Label("Home", systemImage: "house")
+            }
             
-            router.flashcardView()
-                .tabItem {
-                    Label("Characters", systemImage: "book.closed")
-                }
-            
-            router.settingsView()
-                .tabItem {
-                    Label("Settings", systemImage: "gear")
-                }
-
+            NavigationView {
+                router.flashcardView()
+            }
+            .tabItem {
+                Label("Characters", systemImage: "book.closed")
+            }
+                
             if EnvironmentKeys.environment == .STAGING {
                 router.developerControlsView()
                     .tabItem {
