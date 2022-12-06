@@ -968,7 +968,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.0;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
 				PRODUCT_NAME = "Bopomofo Studio - Staging";
 				SWIFT_VERSION = 5.0;
@@ -1224,7 +1224,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.0;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
 				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;
@@ -1250,7 +1250,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.0;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
 				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;
