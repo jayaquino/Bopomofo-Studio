@@ -16,18 +16,8 @@ struct TopicCellView: View {
     var body: some View {
         VStack {
             VStack(alignment: .center, spacing: 0) {
-                VStack(spacing: 0) {
-                    if let image = viewModel.image {
-                        LazyImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/bopomofo-studio.appspot.com/o/bpmf_cover.png?alt=media&token=e6e74436-4b21-4464-b4e8-37f3120006c8")!, resizingMode: .aspectFit)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    } else {
-                        Image(systemName: "heart")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .redacted(reason: .placeholder)
-                    }
-                }
+                LazyImage(url: URL(string: viewModel.topic.topicImage)!, resizingMode: .aspectFit)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 Text(viewModel.topic.topicName)
                     .font(.headline)
                     .fontWeight(.light)

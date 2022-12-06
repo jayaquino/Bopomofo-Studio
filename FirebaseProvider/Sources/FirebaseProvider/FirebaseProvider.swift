@@ -9,7 +9,9 @@ public actor FirebaseProvider {
     
     let ref = Database.database().reference()
     
-    public init() {}
+    public init() {
+        ref.keepSynced(true)
+    }
     
     public func addDocument(
         location: String,
