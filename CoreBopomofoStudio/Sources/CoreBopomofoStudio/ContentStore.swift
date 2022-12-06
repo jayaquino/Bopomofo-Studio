@@ -38,7 +38,9 @@ public class ContentStore: ObservableObject {
     }
     
     public func fetchFeaturedContent() async throws {
+        print("fetching featured")
         self.featuredContent = try await provider.fetchFeaturedContent()
+        print("fetched featured")
     }
 
     public func fetchImage(urlString: String) async throws -> UIImage? {
