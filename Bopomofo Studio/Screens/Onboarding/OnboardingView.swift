@@ -10,17 +10,11 @@ import SwiftUI
 struct OnboardingView: View {
     @StateObject var viewModel: OnboardingViewModel
     @EnvironmentObject var router: Router
+    @Binding var showOnboarding: Bool
     
     var body: some View {
         ZStack {
             VStack(spacing: 30) {
-                NavigationLink(isActive: $viewModel.showHomeView) {
-                    MainView()
-                        .navigationBarBackButtonHidden(true)
-                } label: {
-                    EmptyView()
-                }
-                
                 pagerView
                 Spacer()
                 Button {
@@ -46,6 +40,9 @@ struct OnboardingView: View {
             .onDisappear {
                 viewModel.analytics.track(event: .onboarding(event: .onboardingFinished))
             }
+        }
+        .onChange(of: viewModel.showOnboarding) { newValue in
+            showOnboarding = newValue
         }
     }
     
@@ -81,10 +78,10 @@ struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView(viewModel: OnboardingViewModel(analytics: dev.analytics))
+        OnboardingView(viewModel: OnboardingViewModel(analytics: dev.analytics), showOnboarding: .constant(false))
             .environmentObject(dev.router)
         
-        OnboardingView(viewModel: OnboardingViewModel(analytics: dev.analytics))
+        OnboardingView(viewModel: OnboardingViewModel(analytics: dev.analytics), showOnboarding: .constant(false))
             .environmentObject(dev.router)
             .previewDevice(PreviewDevice(rawValue: "iPad Air (3rd generation)"))
             .previewDisplayName("iPad Air (3rd generation)")
