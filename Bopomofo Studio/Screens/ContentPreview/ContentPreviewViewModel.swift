@@ -14,6 +14,7 @@ class ContentPreviewViewModel: ObservableObject {
     
     let contentStore: ContentStore
     let topic: TopicModel
+    @Published var pronunciationTextMode = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -23,6 +24,13 @@ class ContentPreviewViewModel: ObservableObject {
     ) {
         self.contentStore = contentStore
         self.topic = topic
+        
+        self.assignVariables()
+    }
+    
+    private func assignVariables() {
+        contentStore.$pronunciationTextMode
+            .assign(to: &self.$pronunciationTextMode)
     }
     
     func playSound(symbol: String) {

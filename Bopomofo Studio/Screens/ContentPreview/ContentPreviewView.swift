@@ -21,6 +21,7 @@ struct ContentPreviewView: View {
                     ForEach(0..<viewModel.topic.vocabulary.count, id: \.self) { index in
                         TestContentCell(
                             image: viewModel.topic.vocabulary[index].character,
+                            showPronunciation: $viewModel.pronunciationTextMode,
                             description: viewModel.topic.vocabulary[index].pronunciation
                         )
                         .onTapGesture {
