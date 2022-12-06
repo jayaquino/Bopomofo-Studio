@@ -72,7 +72,8 @@ struct ZhuyinTestView: View {
                 TextField("Enter the character shown", text: $viewModel.inputSymbol)
                     .focused($focus)
                     .textFieldStyle(.roundedBorder)
-                    .padding(.horizontal)                    .onAppear {
+                    .padding()
+                    .onAppear {
                         focus = true
                     }
             }
