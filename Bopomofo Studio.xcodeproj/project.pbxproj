@@ -1298,8 +1298,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 		07DFD73529210D7C00C23485 /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
