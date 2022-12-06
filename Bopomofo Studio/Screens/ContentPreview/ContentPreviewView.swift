@@ -33,12 +33,6 @@ struct ContentPreviewView: View {
             
             Divider()
             
-            Slider(value: $viewModel.timerValue, in: 30...300, step:10).padding(10)
-            
-            Text("Timer (s): \(viewModel.timerValue, specifier: "%.2f")")
-                .foregroundColor(.accentColor)
-                .font(.subheadline)
-            
             Button(action: {
                 showTestView = true
             }, label: {

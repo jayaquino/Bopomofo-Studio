@@ -18,6 +18,11 @@ class SettingsViewModel: ObservableObject {
     @Published var voiceSelection: ContentStore.VoiceSelection = .female
     @Published var pronunciationTextMode = false
     @Published var pronunciationVoiceMode = false
+    @Published var timerValue: Double = 30.0 {
+        didSet {
+            contentStore.timerValue = oldValue
+        }
+    }
     
     private var cancellables = Set<AnyCancellable>()
     

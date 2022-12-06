@@ -69,13 +69,15 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     }
     
     private func playSound(symbol: String) {
-        let sound = Constants.bpmf.contains(symbol) ? symbol : PinyinHelper.convertPinyin(symbol) ?? ""
-        
-        switch contentStore.voiceSelection {
-        case .male:
-            SoundManager.instance.playMaleSound(sound: sound)
-        case .female:
-            SoundManager.instance.playFemaleSound(sound: sound)
+        if contentStore.pronunciationVoiceMode {
+            let sound = Constants.bpmf.contains(symbol) ? symbol : PinyinHelper.convertPinyin(symbol) ?? ""
+            
+            switch contentStore.voiceSelection {
+            case .male:
+                SoundManager.instance.playMaleSound(sound: sound)
+            case .female:
+                SoundManager.instance.playFemaleSound(sound: sound)
+            }
         }
     }
     

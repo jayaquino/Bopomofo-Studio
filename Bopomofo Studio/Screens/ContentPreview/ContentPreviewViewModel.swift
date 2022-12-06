@@ -17,12 +17,6 @@ class ContentPreviewViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var timerValue: Double = 30.0 {
-        didSet {
-            contentStore.timerValue = oldValue
-        }
-    }
-    
     init(
         contentStore: ContentStore,
         topic: TopicModel
