@@ -26,6 +26,7 @@
 		072518FA293D30A600977A75 /* PinyinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F9293D30A600977A75 /* PinyinHelper.swift */; };
 		072518FC293D4BE700977A75 /* FeaturedContentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FB293D4BE700977A75 /* FeaturedContentCellView.swift */; };
 		072518FE293D4BF100977A75 /* FeaturedContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FD293D4BF100977A75 /* FeaturedContentCellViewModel.swift */; };
+		07251903293F42C500977A75 /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07251902293F42C500977A75 /* TextField+Extensions.swift */; };
 		073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073313B92933313C0053F290 /* FeedbackSheet.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
 		07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A22939FB0800ECDA2F /* FlashcardView.swift */; };
@@ -180,6 +181,7 @@
 		072518F9293D30A600977A75 /* PinyinHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinyinHelper.swift; sourceTree = "<group>"; };
 		072518FB293D4BE700977A75 /* FeaturedContentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedContentCellView.swift; sourceTree = "<group>"; };
 		072518FD293D4BF100977A75 /* FeaturedContentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedContentCellViewModel.swift; sourceTree = "<group>"; };
+		07251902293F42C500977A75 /* TextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extensions.swift"; sourceTree = "<group>"; };
 		073313B92933313C0053F290 /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 			children = (
 				07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */,
 				072518F6293D2F3500977A75 /* Strings+Extension.swift */,
+				07251902293F42C500977A75 /* TextField+Extensions.swift */,
 				07D1289D2931F2310011CFD9 /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
@@ -844,6 +847,7 @@
 				52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
 				07D1289E2931F2310011CFD9 /* UserDefaults+Extensions.swift in Sources */,
+				07251903293F42C500977A75 /* TextField+Extensions.swift in Sources */,
 				07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */,
 				072518FE293D4BF100977A75 /* FeaturedContentCellViewModel.swift in Sources */,
 				0702FF8D288D5FB600D78BF6 /* ReviewManager.swift in Sources */,
@@ -964,7 +968,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.0;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
 				PRODUCT_NAME = "Bopomofo Studio - Staging";
 				SWIFT_VERSION = 5.0;
@@ -1220,7 +1224,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.0;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
 				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;
@@ -1246,7 +1250,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.0;
+				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
 				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;
@@ -1294,8 +1298,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 		07DFD73529210D7C00C23485 /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {

@@ -16,11 +16,12 @@ struct ContentPreviewView: View {
     @State var showTestView = false
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView{
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 40) {
                     ForEach(0..<viewModel.topic.vocabulary.count, id: \.self) { index in
                         TestContentCell(
                             image: viewModel.topic.vocabulary[index].character,
+                            showPronunciation: $viewModel.pronunciationTextMode,
                             description: viewModel.topic.vocabulary[index].pronunciation
                         )
                         .onTapGesture {
@@ -33,20 +34,14 @@ struct ContentPreviewView: View {
             
             Divider()
             
-            Slider(value: $viewModel.timerValue, in: 30...300, step:10).padding(10)
-            
-            Text("Timer (s): \(viewModel.timerValue, specifier: "%.2f")")
-                .foregroundColor(.accentColor)
-                .font(.subheadline)
-            
             Button(action: {
                 showTestView = true
             }, label: {
                 Text("Start")
-                    .frame(maxWidth: 120, maxHeight: 20, alignment: .center)
-                    .font(.title)                    .padding()
+                    .font(.title)
+                    .padding(.horizontal)
                     .background(Color.accentColor)
-                    .cornerRadius(20)
+                    .cornerRadius(10)
                     .foregroundColor(.white)
             })
             .padding()

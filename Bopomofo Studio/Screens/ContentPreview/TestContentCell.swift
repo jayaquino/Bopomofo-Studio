@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TestContentCell: View {
     let image: String
+    @Binding var showPronunciation: Bool
     let description: String
     
     var body: some View {
@@ -26,11 +27,13 @@ struct TestContentCell: View {
                     .stroke(.secondary, lineWidth: 1)
             }
             .padding(10)
-            Text(description)
-                .font(.headline)
-                .fontWeight(.light)
+            if showPronunciation {
+                Text(description)
+                    .font(.headline)
+                    .fontWeight(.light)
+            }
         }
-        .frame(maxWidth: 400, minHeight: 100, alignment: .leading)
+        .frame(maxWidth: showPronunciation ? 400 : nil, minHeight: 100, alignment: .leading)
         .cornerRadius(16)
         .background(
             RoundedRectangle(cornerRadius: 16)
@@ -52,9 +55,18 @@ struct TestContentCell: View {
 
 struct TestContentCell_Previews: PreviewProvider {
     static var previews: some View {
-        TestContentCell(
-            image: "BPMF",
-            description: "This is a description"
-        )
+        Group {
+            TestContentCell(
+                image: "BPMF",
+                showPronunciation: .constant(true),
+                description: "This is a description"
+            )
+            
+            TestContentCell(
+                image: "BPMF",
+                showPronunciation: .constant(false),
+                description: "This is a description"
+            )
+        }
     }
 }

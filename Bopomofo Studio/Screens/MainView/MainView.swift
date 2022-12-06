@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var router: Router
+    @State private var showOnboarding =  !UserDefaults.didSeeOnboarding
     
     var body: some View {
         TabView {
@@ -25,6 +26,9 @@ struct MainView: View {
                         Label("Dev", systemImage: "ant")
                     }
             }
+        }
+        .fullScreenCover(isPresented: $showOnboarding) {
+            router.onboardingView(showOnboarding: $showOnboarding)
         }
     }
 }

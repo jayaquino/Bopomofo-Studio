@@ -9,7 +9,9 @@ public actor FirebaseProvider {
     
     let ref = Database.database().reference()
     
-    public init() {}
+    public init() {
+        ref.keepSynced(true)
+    }
     
     public func addDocument(
         location: String,
@@ -46,7 +48,7 @@ public actor FirebaseProvider {
         })
     }
     
-    public func fetchCategories<T: Codable>(location: String, type: T.Type) async throws -> [T] {
+    public func fetchCategories<T: Decodable>(location: String, type: T.Type) async throws -> [T] {
         do {
             let data = try await ref.child(location).getData()
             guard let dict = data.value as? [String: Any] else {

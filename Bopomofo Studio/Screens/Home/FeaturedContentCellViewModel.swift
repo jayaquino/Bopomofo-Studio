@@ -8,6 +8,7 @@
 import CoreBopomofoStudio
 import UIKit
 
+@MainActor
 class FeaturedContentViewModel: ObservableObject {
     let contentStore: ContentStore
     let topic: TopicModel

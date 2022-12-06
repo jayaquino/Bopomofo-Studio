@@ -36,9 +36,11 @@ class OnboardingViewModel: ObservableObject {
     ]
     
     @Published var selection: OnboardingSlide
-    @Published var showHomeView = false
+    @Published var showOnboarding = true
     
-    init(analytics: AnalyticsProvider) {
+    init(
+        analytics: AnalyticsProvider
+    ) {
         self.analytics = analytics
         selection = onboardingSlides[0]
     }
@@ -53,7 +55,7 @@ class OnboardingViewModel: ObservableObject {
         } else {
             OneSignal.promptForPushNotifications(userResponse: { _ in })
             analytics.track(event: .onboarding(event: .viewedSlide(slideIndex: onboardingSlides.count - 1)))
-            showHomeView = true
+            showOnboarding = false
         }
     }
     

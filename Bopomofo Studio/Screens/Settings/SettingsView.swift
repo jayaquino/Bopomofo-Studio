@@ -49,6 +49,12 @@ struct SettingsView: View {
                 }
                 .padding()
                 
+                Slider(value: $viewModel.timerValue, in: 30...300, step:10).padding(10)
+
+                Text("Timer (s): \(viewModel.timerValue, specifier: "%.2f")")
+                    .foregroundColor(.accentColor)
+                    .font(.subheadline)
+                
                 Divider()
                     .padding()
             }

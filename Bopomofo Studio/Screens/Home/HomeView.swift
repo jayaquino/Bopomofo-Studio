@@ -62,7 +62,7 @@ struct HomeView: View {
                 Text("SEND_FEEDBACK_BUTTON")
                     .font(.footnote)
             }
-            .padding(.vertical, 20)
+            .padding(.vertical, 10)
         }
         .navigationTitle("Home")
         .navigationBarTitleDisplayMode(.inline)

@@ -7,10 +7,15 @@
 
 import Foundation
 
-public struct VocabularyModel: Codable {
+public class VocabularyModel: Decodable {
+    enum CodingKeys: CodingKey {
+        case character
+        case pronunciation
+    }
+    
     public let id = UUID()
-    public let character: String
-    public let pronunciation: String
+    @Published public var character: String
+    @Published public var pronunciation: String
     
     public init(
         character: String,
@@ -18,5 +23,11 @@ public struct VocabularyModel: Codable {
     ) {
         self.character = character
         self.pronunciation = pronunciation
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        character = try container.decode(String.self, forKey: .character)
+        pronunciation = try container.decode(String.self, forKey: .pronunciation)
     }
 }

@@ -25,7 +25,7 @@ public class ContentStore: ObservableObject {
     }
     
     @Published public var pronunciationTextMode : Bool = false
-    @Published public var pronunciationVoiceMode : Bool = false
+    @Published public var pronunciationVoiceMode : Bool = true
     @Published public var voiceSelection: VoiceSelection = .female
     @Published public var timerValue: Double = 30.0
     
