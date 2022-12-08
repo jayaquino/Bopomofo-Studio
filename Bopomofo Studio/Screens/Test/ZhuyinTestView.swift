@@ -74,7 +74,7 @@ struct ZhuyinTestView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding()
                     .onAppear {
-                        focus = true
+                        focus.toggle()
                     }
             }
             
