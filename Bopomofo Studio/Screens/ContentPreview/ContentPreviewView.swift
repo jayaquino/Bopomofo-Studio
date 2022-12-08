@@ -45,6 +45,7 @@ struct ContentPreviewView: View {
                     .foregroundColor(.white)
             })
             .padding()
+            .disabled(viewModel.topic.vocabulary.count <= 1)
         }
         .fullScreenCover(isPresented: $showTestView) {
             router.zhuyinTestView(topic: viewModel.topic)

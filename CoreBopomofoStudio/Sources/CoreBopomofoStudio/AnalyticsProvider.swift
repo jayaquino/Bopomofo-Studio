@@ -56,6 +56,7 @@ open class AnalyticsProvider {
     public enum HomeAnalyticEvent: AnalyticTrackingProtocol {
         case feedbackTapped
         case feedbackSendButtonTapped
+        case topicTapped(topic: TopicModel)
         
         public var eventName: String {
             switch self {
@@ -63,6 +64,8 @@ open class AnalyticsProvider {
                 return "feedback_button_tapped"
             case .feedbackSendButtonTapped:
                 return "feedback_send_button_tapped"
+            case .topicTapped:
+                return "topic_tapped"
             }
         }
         
@@ -70,6 +73,8 @@ open class AnalyticsProvider {
             switch self {
             case .feedbackTapped, .feedbackSendButtonTapped:
                 return [:]
+            case .topicTapped(topic: let topic):
+                return ["topic_name": topic.topicName]
             }
         }
     }
@@ -80,7 +85,6 @@ open class AnalyticsProvider {
         case textAssistance(isOn: Bool)
         case voiceAssistance(isOn: Bool)
         case voiceType(voiceType: String)
-        case testType(testType: String)
         
         public var eventName: String {
             switch self {
@@ -90,8 +94,6 @@ open class AnalyticsProvider {
                 return "Pronunciation_Voice_Assistance_Changed"
             case .voiceType:
                 return "Pronunciation_Voice_Type_Changed"
-            case .testType:
-                return "Test_Type_Changed"
             }
         }
         
@@ -103,8 +105,6 @@ open class AnalyticsProvider {
                 return ["isOn": isOn.description]
             case .voiceType(voiceType: let voiceType):
                 return ["voiceType": voiceType]
-            case .testType(testType: let testType):
-                return ["testType": testType]
             }
         }
         
