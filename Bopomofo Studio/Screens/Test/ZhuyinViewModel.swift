@@ -31,7 +31,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         }
     }
     private var symbolKey: String {
-        Constants.bpmf.contains(randomSymbol) ? randomSymbol : PinyinHelper.convertPinyin(randomSymbol) ?? ""
+        Constants.bpmf.contains(randomSymbol) ? randomSymbol : LanguageHelper.convertPinyin(randomSymbol) ?? ""
     }
     
     init(
@@ -70,7 +70,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     
     private func playSound(symbol: String) {
         if contentStore.pronunciationVoiceMode {
-            let sound = Constants.bpmf.contains(symbol) ? symbol : PinyinHelper.convertPinyin(symbol) ?? ""
+            let sound = Constants.bpmf.contains(symbol) ? symbol : LanguageHelper.convertPinyin(symbol) ?? ""
             
             switch contentStore.voiceSelection {
             case .male:

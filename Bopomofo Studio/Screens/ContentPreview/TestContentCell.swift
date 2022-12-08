@@ -15,12 +15,19 @@ struct TestContentCell: View {
     var body: some View {
         HStack(spacing: 10) {
             VStack(spacing: 0) {
-                Image(image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 80, maxHeight: 80)
-                    .cornerRadius(16)
-                    .padding(5)
+                if LanguageHelper.isZhuyinOrPinyin(image) {
+                    Image(image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: 80, maxHeight: 80)
+                        .cornerRadius(16)
+                        .padding(5)
+                } else {
+                    Text(image)
+                        .frame(maxWidth: 80, maxHeight: 80)
+                        .cornerRadius(16)
+                        .padding(5)
+                }
             }
             .overlay {
                 RoundedRectangle(cornerRadius: 16)

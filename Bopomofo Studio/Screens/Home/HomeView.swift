@@ -45,7 +45,11 @@ struct HomeView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 0) {
                                     ForEach(category.topicList, id: \.self) { topic in
-                                        router.featuredContentCellView(topic: topic)
+                                        NavigationLink {
+                                            router.contentPreview(topic: topic)
+                                        } label: {
+                                            router.featuredContentCellView(topic: topic)
+                                        }
                                             .padding()
                                     }
                                 }

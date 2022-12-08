@@ -24,7 +24,6 @@ class ContentPreviewViewModel: ObservableObject {
     ) {
         self.contentStore = contentStore
         self.topic = topic
-        
         self.assignVariables()
     }
     
@@ -34,7 +33,7 @@ class ContentPreviewViewModel: ObservableObject {
     }
     
     func playSound(symbol: String) {
-        let sound = Constants.bpmf.contains(symbol) ? symbol : PinyinHelper.convertPinyin(symbol) ?? ""
+        let sound = Constants.bpmf.contains(symbol) ? symbol : LanguageHelper.convertPinyin(symbol) ?? ""
         
         switch contentStore.voiceSelection {
         case .male:
