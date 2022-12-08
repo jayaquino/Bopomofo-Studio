@@ -35,11 +35,18 @@ class ContentPreviewViewModel: ObservableObject {
     func playSound(symbol: String) {
         let sound = Constants.bpmf.contains(symbol) ? symbol : LanguageHelper.convertPinyin(symbol) ?? ""
         
-        switch contentStore.voiceSelection {
-        case .male:
-            SoundManager.instance.playMaleSound(sound: sound)
-        case .female:
-            SoundManager.instance.playFemaleSound(sound: sound)
+        if LanguageHelper.isZhuyinOrPinyin(symbol) {
+            switch contentStore.voiceSelection {
+            case .male:
+                SoundManager.instance.playMaleSound(sound: sound)
+            case .female:
+                SoundManager.instance.playFemaleSound(sound: sound)
+            }
+        } else {
+            SoundManager.instance.utterSound(
+                sound: symbol,
+                rate: contentStore.speakingSpeed
+            )
         }
     }
 }

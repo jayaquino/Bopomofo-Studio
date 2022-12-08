@@ -22,8 +22,17 @@ struct TestContentCell: View {
                         .frame(maxWidth: 80, maxHeight: 80)
                         .cornerRadius(16)
                         .padding(5)
+                } else if image == "\"\"" {
+                    Text("Coming Soon!")
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, maxHeight: 80)
+                        .cornerRadius(16)
+                        .padding(5)
+                        .multilineTextAlignment(.center)
                 } else {
                     Text(image)
+                        .font(.system(size: 40))
+                        .fontWeight(.bold)
                         .frame(maxWidth: 80, maxHeight: 80)
                         .cornerRadius(16)
                         .padding(5)
@@ -34,7 +43,7 @@ struct TestContentCell: View {
                     .stroke(.secondary, lineWidth: 1)
             }
             .padding(10)
-            if showPronunciation {
+            if showPronunciation && description != "\"\"" {
                 Text(description)
                     .font(.headline)
                     .fontWeight(.light)

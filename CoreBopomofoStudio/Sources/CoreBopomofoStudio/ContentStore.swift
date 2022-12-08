@@ -28,6 +28,7 @@ public class ContentStore: ObservableObject {
     @Published public var pronunciationVoiceMode : Bool = true
     @Published public var voiceSelection: VoiceSelection = .female
     @Published public var timerValue: Double = 30.0
+    @Published public var speakingSpeed: Float = 0.5
     
     @Published public var zhuyinContent: [CategoryModel]?
     @Published public var featuredContent: [CategoryModel]?

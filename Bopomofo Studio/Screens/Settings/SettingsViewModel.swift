@@ -23,6 +23,11 @@ class SettingsViewModel: ObservableObject {
             contentStore.timerValue = oldValue
         }
     }
+    @Published var speakingSpeed: Double = 50.0 {
+        didSet {
+            contentStore.speakingSpeed = Float(oldValue/100)
+        }
+    }
     
     private var cancellables = Set<AnyCancellable>()
     
