@@ -13,7 +13,7 @@ import MockProvider
 struct ZhuyinTestView: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel : ZhuyinViewModel
-        
+    
     @FocusState private var focus: Bool
     
     // Timer
@@ -44,12 +44,25 @@ struct ZhuyinTestView: View {
                 
                 ZStack{
                     VStack{
-                        Image(viewModel.randomSymbol)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxHeight: 200)
-                            .padding()
-                               
+                        Group {
+                            if LanguageHelper.isZhuyinOrPinyin(viewModel.randomSymbol) {
+                                Image(viewModel.randomSymbol)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .padding()
+                            } else {
+                                Text(viewModel.randomSymbol)
+                                    .font(.system(size: 100))
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity, maxHeight: 100)
+                                    .cornerRadius(16)
+                                    .padding(5)
+                            }
+                        }
+                        .frame(maxHeight: 200)
+
+                    
+                        
                         if viewModel.contentStore.pronunciationTextMode == true || viewModel.showPronunciation {
                             Text(viewModel.randomSymbolExample)
                                 .frame(height: 30)
@@ -63,14 +76,36 @@ struct ZhuyinTestView: View {
                 }
                 
                 HStack{
-                    Text("Time Remaining: \(String(format: "%.0f", viewModel.timer)) s").onReceive(timer) { _ in
-                        if viewModel.timer > 0 {
-                            viewModel.timer -= 1
+                    if viewModel.timer >= 1 {
+                        Text("Time Remaining: \(String(format: "%.0f", viewModel.timer)) s").onReceive(timer) { _ in
+                            if viewModel.timer > 0 {
+                                viewModel.timer -= 1
+                            }
                         }
+                        
+                        if !viewModel.isZhuyinOrPinyin {
+                            Button {
+                                viewModel.showPronunciation = true
+                            } label: {
+                                Text("Reveal Character")
+                                    .font(.subheadline)
+                                    .padding(.horizontal)
+                                    .background(Color.accentColor)
+                                    .cornerRadius(10)
+                                    .foregroundColor(.white)
+                                    .disabled(viewModel.showPronunciation)
+                            }
+                            .buttonStyle(.plain)
+
+                        }
+                        
+                    } else {
+                        Text("Test Finished")
+                            .fontWeight(.bold)
                     }
-                    .foregroundColor(.accentColor)
-                    .font(.title2)
                 }
+                .foregroundColor(.accentColor)
+                .font(.subheadline)
                 
                 TextField("Enter the character shown", text: $viewModel.inputSymbol)
                     .focused($focus)
@@ -86,35 +121,63 @@ struct ZhuyinTestView: View {
             viewModel.trackEvent(event: .beganTest(testSetting: viewModel.contentStore.timerValue.description))
         }
         .fullScreenCover(isPresented: $viewModel.showResults) {
-            ZStack {
-                Color.accentColor
-                    .edgesIgnoringSafeArea(.all)
+            resultsView
+                .onAppear {
+                    viewModel.trackEvent(event: .finishedTest(testSetting: viewModel.contentStore.timerValue.description))
+                }
+        }
+    }
+    
+    private var resultsView: some View {
+        ZStack {
+            Color.accentColor
+                .edgesIgnoringSafeArea(.all)
+            ScrollView(showsIndicators: false) {
                 VStack (spacing: 10) {
-                    Text("Time Setting : \(String(format: "%.0f",viewModel.contentStore.timerValue)) seconds").foregroundColor(.white)
+                    Text("High Score: \(UserDefaults.standard.integer(forKey: viewModel.topic.topicName))")
+                        .font(.headline)
+                    
+                    Text("Time Setting : \(String(format: "%.0f",viewModel.contentStore.timerValue)) seconds")
+                        .font(.subheadline)
                     Text(viewModel.score > 0 ? "Score: \(viewModel.score)" : "Try Again!")
-                        .foregroundColor(.white)
+                        .font(.subheadline)
                     if let scorePercentage = viewModel.scorePercentage {
                         Text("Your score beats or equals \(scorePercentage , specifier: "%.1f")% of people who took this test!")
                             .foregroundColor(.white)
+                            .font(.subheadline)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                     } else if viewModel.score != 0 {
                         ProgressView()
                             .tint(.white)
                     }
-                    Text("High Score: \(UserDefaults.standard.integer(forKey: viewModel.topic.topicName))")
-                        .foregroundColor(.white)
-                        .font(.system(size:40))
+                    Text("Incorrect Vocabulary")
+                        .font(.headline)
+                    
+                    RoundedRectangle(cornerRadius: 1)
+                        .frame(width: Constants.screenWidth*2/3, height: 2)
+                    
+                    if viewModel.incorrectVocabulary.isEmpty && viewModel.score > 0 {
+                        Image(systemName: "checkmark.circle")
+                            .renderingMode(.template)
+                            .frame(maxWidth: 300, maxHeight: 300)
+                            .foregroundColor(.green)
+                    } else {
+                        ForEach(viewModel.incorrectVocabulary, id: \.id) { incorrectVocabulary in
+                            HStack {
+                                Text(incorrectVocabulary.character)
+                                Text(incorrectVocabulary.pronunciation)
+                            }
+                        }
+                    }
                 }
-                .padding()
+                .foregroundColor(.white)
             }
-            .onTapGesture {
-                viewModel.showResults = false
-                dismiss()
-            }
-            .onAppear {
-                viewModel.trackEvent(event: .finishedTest(testSetting: viewModel.contentStore.timerValue.description))
-            }
+            .padding()
+        }
+        .onTapGesture {
+            viewModel.showResults = false
+            dismiss()
         }
     }
 }
