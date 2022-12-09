@@ -63,19 +63,16 @@ class SettingsViewModel: ObservableObject {
                 self?.trackEvent(event: .voiceAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
-        
-        $timerValue
-            .dropFirst()
-            .sink { [weak self] value in
-                self?.contentStore.timerValue = value
-            }
-            .store(in: &cancellables)
-        $speakingSpeed
-            .dropFirst()
-            .sink { [weak self] speed in
-                self?.contentStore.speakingSpeed = speed
-            }
-            .store(in: &cancellables)
+    }
+    
+    func handleSpeakingSpeedSliderChanged() {
+        self.contentStore.speakingSpeed = self.speakingSpeed
+        self.trackEvent(event: .utterSpeedChanged(speed: self.speakingSpeed))
+    }
+    
+    func handleTimerValueSliderChanged() {
+        self.contentStore.timerValue = self.timerValue
+        self.trackEvent(event: .timerChanged(timer: self.timerValue))
     }
     
     func trackEvent(event: AnalyticsProvider.SettingsAnalyticEvent) {

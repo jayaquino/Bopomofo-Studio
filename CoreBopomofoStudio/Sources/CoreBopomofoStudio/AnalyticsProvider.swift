@@ -85,6 +85,8 @@ open class AnalyticsProvider {
         case textAssistance(isOn: Bool)
         case voiceAssistance(isOn: Bool)
         case voiceType(voiceType: String)
+        case timerChanged(timer: Double)
+        case utterSpeedChanged(speed: Float)
         
         public var eventName: String {
             switch self {
@@ -94,6 +96,10 @@ open class AnalyticsProvider {
                 return "Pronunciation_Voice_Assistance_Changed"
             case .voiceType:
                 return "Pronunciation_Voice_Type_Changed"
+            case .timerChanged:
+                return "timer_changed"
+            case .utterSpeedChanged:
+                return "utter_speed_changed"
             }
         }
         
@@ -105,6 +111,10 @@ open class AnalyticsProvider {
                 return ["isOn": isOn.description]
             case .voiceType(voiceType: let voiceType):
                 return ["voiceType": voiceType]
+            case .timerChanged(timer: let timer):
+                return ["timer_value": timer.description]
+            case .utterSpeedChanged(speed: let speed):
+                return ["speed_value": speed.description]
             }
         }
         
