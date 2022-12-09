@@ -28,15 +28,15 @@ public class FirebaseContentProvider: ContentProvider {
         try await provider.fetchFromStorage(urlString: urlString)
     }
     
-    public func saveScore(topic: TopicModel, scoreModel: ScoreModel) async throws -> Bool {
+    public func saveScore(topic: TopicModel, scoreModel: ScoreModel, textAssistance: Bool) async throws -> Bool {
         try await provider.addDocument(
-            location: "\(topic.topicName): \(scoreModel.time)",
+            location: "\(topic.topicName): \(scoreModel.time), textAssistance \(textAssistance.description)",
             data: scoreModel.dictionary
         )
     }
     
-    public func fetchScores(topic: TopicModel, scoreModel: ScoreModel) async throws -> [ScoreModel] {
-        try await provider.fetchScores(location: "\(topic.topicName): \(scoreModel.time)")
+    public func fetchScores(topic: TopicModel, scoreModel: ScoreModel, textAssistance: Bool) async throws -> [ScoreModel] {
+        try await provider.fetchScores(location: "\(topic.topicName): \(scoreModel.time), textAssistance \(textAssistance.description)")
     }
     
     public func sendFeedback(description: String) async throws -> Bool {

@@ -48,11 +48,11 @@ public class ContentStore: ObservableObject {
     
     @discardableResult
     public func saveScore(topic: TopicModel, scoreModel: ScoreModel) async throws -> Bool {
-        try await provider.saveScore(topic: topic, scoreModel: scoreModel)
+        try await provider.saveScore(topic: topic, scoreModel: scoreModel, textAssistance: pronunciationTextMode)
     }
     
     public func fetchScores(topic: TopicModel, scoreModel: ScoreModel) async throws -> [ScoreModel] {
-        try await provider.fetchScores(topic: topic, scoreModel: scoreModel)
+        try await provider.fetchScores(topic: topic, scoreModel: scoreModel, textAssistance: pronunciationTextMode)
     }
     
     public func sendFeedback(description: String) async throws -> Bool {
