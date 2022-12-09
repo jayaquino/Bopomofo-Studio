@@ -19,15 +19,21 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     private var cancellables = Set<AnyCancellable>()
     
     @Published var timer: Double
-    @Published var testFinished = false
+    @Published var showResults = false
     @Published var scorePercentage: Double?
     @Published var isLoadingData = false
     @Published var randomSymbol = ""
     @Published var randomSymbolExample = ""
     @Published var score = 0
+    @Published var showPronunciation = false
     @Published var inputSymbol: String = "" {
         didSet {
             checkUserInput()
+        }
+    }
+    private var errorCounter = 0 {
+        willSet {
+            showPronunciation = newValue >= 3
         }
     }
     private var symbolKey: String {
@@ -100,6 +106,9 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
             score += 1
             generateNewSymbol()
             inputSymbol = ""
+            errorCounter = 0
+        } else {
+            errorCounter += 1
         }
         
         if LanguageHelper.isZhuyinOrPinyin(symbolKey) {
@@ -108,7 +117,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     }
     
     private func testDidFinish() {
-        self.testFinished = true
+        self.showResults = true
         if self.score > 0 {
             handleScore()
         }

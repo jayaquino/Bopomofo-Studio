@@ -50,10 +50,13 @@ struct ZhuyinTestView: View {
                             .frame(maxHeight: 200)
                             .padding()
                                
-                        if viewModel.contentStore.pronunciationTextMode == true {
+                        if viewModel.contentStore.pronunciationTextMode == true || viewModel.showPronunciation {
                             Text(viewModel.randomSymbolExample)
-                                .padding()
+                                .frame(height: 30)
                                 .opacity(0.5)
+                        } else {
+                            Text(" ")
+                                .frame(height: 30)
                         }
                     }
                     .frame(minHeight: Constants.screenHeight/3)
@@ -77,42 +80,41 @@ struct ZhuyinTestView: View {
                         focus.toggle()
                     }
             }
-            
-            if viewModel.testFinished {
-                ZStack{
-                    Color.accentColor
-                        .edgesIgnoringSafeArea(.all)
-                    VStack (spacing: 10) {
-                        Text("Time Setting : \(String(format: "%.0f",viewModel.contentStore.timerValue)) seconds").foregroundColor(.white)
-                        Text(viewModel.score > 0 ? "Score: \(viewModel.score)" : "Try Again!")
-                            .foregroundColor(.white)
-                        if let scorePercentage = viewModel.scorePercentage {
-                            Text("Your score beats or equals \(scorePercentage , specifier: "%.1f")% of people who took this test!")
-                                .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .multilineTextAlignment(.center)
-                        } else if viewModel.score != 0 {
-                            ProgressView()
-                                .tint(.white)
-                        }
-                        Text("High Score: \(UserDefaults.standard.integer(forKey: viewModel.topic.topicName))")
-                            .foregroundColor(.white)
-                            .font(.system(size:40))
-                    }
-                    .padding()
-                }
-                .onTapGesture {
-                    dismiss()
-                }
-                .navigationBarBackButtonHidden(true)
-            }
         }
         .navigationBarHidden(true)
         .onAppear {
             viewModel.trackEvent(event: .beganTest(testSetting: viewModel.contentStore.timerValue.description))
         }
-        .onDisappear {
-            viewModel.trackEvent(event: .finishedTest(testSetting: viewModel.contentStore.timerValue.description))
+        .fullScreenCover(isPresented: $viewModel.showResults) {
+            ZStack {
+                Color.accentColor
+                    .edgesIgnoringSafeArea(.all)
+                VStack (spacing: 10) {
+                    Text("Time Setting : \(String(format: "%.0f",viewModel.contentStore.timerValue)) seconds").foregroundColor(.white)
+                    Text(viewModel.score > 0 ? "Score: \(viewModel.score)" : "Try Again!")
+                        .foregroundColor(.white)
+                    if let scorePercentage = viewModel.scorePercentage {
+                        Text("Your score beats or equals \(scorePercentage , specifier: "%.1f")% of people who took this test!")
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                    } else if viewModel.score != 0 {
+                        ProgressView()
+                            .tint(.white)
+                    }
+                    Text("High Score: \(UserDefaults.standard.integer(forKey: viewModel.topic.topicName))")
+                        .foregroundColor(.white)
+                        .font(.system(size:40))
+                }
+                .padding()
+            }
+            .onTapGesture {
+                viewModel.showResults = false
+                dismiss()
+            }
+            .onAppear {
+                viewModel.trackEvent(event: .finishedTest(testSetting: viewModel.contentStore.timerValue.description))
+            }
         }
     }
 }
