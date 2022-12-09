@@ -30,6 +30,9 @@ struct HomeView: View {
                                             router.topicCellView(topic: topic)
                                         }
                                         .padding()
+                                        .simultaneousGesture(TapGesture().onEnded({
+                                            viewModel.trackEvent(event: .topicTapped(topic: topic))
+                                        }))
                                     }
                                 }
                             }
@@ -50,7 +53,10 @@ struct HomeView: View {
                                         } label: {
                                             router.featuredContentCellView(topic: topic)
                                         }
-                                            .padding()
+                                        .padding()
+                                        .simultaneousGesture(TapGesture().onEnded({
+                                            viewModel.trackEvent(event: .topicTapped(topic: topic))
+                                        }))
                                     }
                                 }
                             }
