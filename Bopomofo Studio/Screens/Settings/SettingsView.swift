@@ -35,9 +35,13 @@ struct SettingsView: View {
                                 .fontWeight(.thin)
                         }
                         VStack(alignment: .center, spacing: 0) {
-                            Slider(value: $viewModel.timerValue, in: 30...300, step:10).padding(10)
+                            Slider(value: $viewModel.timerValue, in: 30...300, step:10, onEditingChanged: { editing in
+                                if !editing {
+                                    viewModel.handleTimerValueSliderChanged()
+                                }
+                            }).padding(10)
                             
-                            Text("Timer (s): \(viewModel.timerValue, specifier: "%.2f")")
+                            Text("Timer (s): \(viewModel.timerValue, specifier: "%.0f")")
                                 .foregroundColor(.accentColor)
                                 .font(.subheadline)
                         }
@@ -64,8 +68,12 @@ struct SettingsView: View {
                             .font(.title)
                         
                         VStack(alignment: .center, spacing: 0) {
-                            Slider(value: $viewModel.speakingSpeed, in: 0...100, step: 1).padding(10)
-                            Text("Speech Speed (slow - fast): \(viewModel.speakingSpeed, specifier: "%.2f")")
+                            Slider(value: $viewModel.speakingSpeed, in: 0...100, step: 1, onEditingChanged: { editing in
+                                if !editing {
+                                    viewModel.handleSpeakingSpeedSliderChanged()
+                                }
+                            }).padding(10)
+                            Text("Speech Speed (slow - fast)")
                                 .foregroundColor(.accentColor)
                                 .font(.subheadline)
                         }

@@ -15,19 +15,11 @@ class SettingsViewModel: ObservableObject {
     let contentStore: ContentStore
     let analytics: AnalyticsProvider
     
-    @Published var voiceSelection: ContentStore.VoiceSelection = .female
-    @Published var pronunciationTextMode = false
-    @Published var pronunciationVoiceMode = false
-    @Published var timerValue: Double = 30.0 {
-        didSet {
-            contentStore.timerValue = oldValue
-        }
-    }
-    @Published var speakingSpeed: Double = 50.0 {
-        didSet {
-            contentStore.speakingSpeed = Float(oldValue/100)
-        }
-    }
+    @Published var voiceSelection: ContentStore.VoiceSelection
+    @Published var pronunciationTextMode: Bool
+    @Published var pronunciationVoiceMode: Bool
+    @Published var timerValue: Double
+    @Published var speakingSpeed: Float
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -38,14 +30,13 @@ class SettingsViewModel: ObservableObject {
         self.analytics = analytics
         self.contentStore = contentStore
 
-        assignVariables()
-        addSubscribers()
-    }
-    
-    private func assignVariables() {
         self.voiceSelection = contentStore.voiceSelection
         self.pronunciationTextMode = contentStore.pronunciationTextMode
         self.pronunciationVoiceMode = contentStore.pronunciationVoiceMode
+        self.timerValue = contentStore.timerValue
+        self.speakingSpeed = contentStore.speakingSpeed
+
+        addSubscribers()
     }
     
     private func addSubscribers() {
@@ -72,6 +63,16 @@ class SettingsViewModel: ObservableObject {
                 self?.trackEvent(event: .voiceAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
+    }
+    
+    func handleSpeakingSpeedSliderChanged() {
+        self.contentStore.speakingSpeed = self.speakingSpeed
+        self.trackEvent(event: .utterSpeedChanged(speed: self.speakingSpeed))
+    }
+    
+    func handleTimerValueSliderChanged() {
+        self.contentStore.timerValue = self.timerValue
+        self.trackEvent(event: .timerChanged(timer: self.timerValue))
     }
     
     func trackEvent(event: AnalyticsProvider.SettingsAnalyticEvent) {

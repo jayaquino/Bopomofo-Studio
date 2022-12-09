@@ -32,13 +32,15 @@ public class MixpanelProvider: AnalyticsProvider {
     
     override public func track(event: AnalyticEvent) {
         Task {
+            guard let properties = event.parameters as? [String: MixpanelType] else { return }
             mixpanelInstance.track(
                 event: event.eventName,
-                properties: event.parameters
+                properties: properties
             )
-        }
-        if environment == .STAGING {
-            print("📊\nTracking \n\(event.eventName) \n\(event.parameters)")
+            
+            if environment == .STAGING {
+                print("📊\nTracking \n\(event.eventName) \n\(properties)")
+            }
         }
     }
 }
