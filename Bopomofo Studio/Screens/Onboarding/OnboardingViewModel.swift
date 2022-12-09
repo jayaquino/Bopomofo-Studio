@@ -53,6 +53,7 @@ class OnboardingViewModel: ObservableObject {
             selection = onboardingSlides[nextIndex]
         } else {
             analytics.track(event: .onboarding(event: .viewedSlide(slideIndex: onboardingSlides.count - 1)))
+            analytics.track(event: .onboarding(event: .notificationsNotNowTapped))
             showOnboarding = false
         }
     }

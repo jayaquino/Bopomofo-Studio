@@ -96,7 +96,8 @@ struct OnboardingView: View {
     }
     
     private func enableNotificationButtonTapped() {
-        OneSignal.promptForPushNotifications(userResponse: { _ in
+        OneSignal.promptForPushNotifications(userResponse: { enabled in
+            viewModel.analytics.track(event: .onboarding(event: .notificationEnabled(enabled: enabled)))
             showOnboarding = false
         })
     }
