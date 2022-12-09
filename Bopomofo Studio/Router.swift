@@ -8,6 +8,7 @@
 import Foundation
 import CoreBopomofoStudio
 import MockProvider
+import SwiftUI
 
 @MainActor
 class Router: ObservableObject {
@@ -28,6 +29,10 @@ class Router: ObservableObject {
             contentStore: self.contentStore,
             analytics: self.analytics)
         )
+    }
+    
+    func onboardingView(showOnboarding: Binding<Bool>) -> OnboardingView {
+        OnboardingView(viewModel: OnboardingViewModel(analytics: self.analytics), showOnboarding: showOnboarding)
     }
     
     func zhuyinTestView(

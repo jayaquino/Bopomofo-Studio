@@ -17,11 +17,10 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             ScrollView {
-                VStack(spacing: 0) {
-                    Text("Bopomofo")
-                        .font(.title)
-                    
-                    VStack(alignment: .leading) {
+                VStack(spacing: 40) {
+                    VStack(spacing: 10) {
+                        Text("General")
+                            .font(.title)
                         VStack(alignment: .leading, spacing: 0) {
                             Toggle("TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE", isOn: $viewModel.pronunciationTextMode)
                             Text("PICKER_PRONUNCIATION_TEXT_ASSISTANCE_SUBTEXT")
@@ -35,22 +34,44 @@ struct SettingsView: View {
                                 .font(.subheadline)
                                 .fontWeight(.thin)
                         }
-                    }
-                    .padding()
-                    
-                    Picker("", selection: $viewModel.voiceSelection) {
-                        ForEach(ContentStore.VoiceSelection.allCases, id: \.self) {
-                            Text($0.rawValue)
+                        VStack(alignment: .center, spacing: 0) {
+                            Slider(value: $viewModel.timerValue, in: 30...300, step:10).padding(10)
+                            
+                            Text("Timer (s): \(viewModel.timerValue, specifier: "%.2f")")
+                                .foregroundColor(.accentColor)
+                                .font(.subheadline)
                         }
                     }
-                    .pickerStyle(.segmented)
-                    .disabled(!viewModel.pronunciationVoiceMode)
-                    
+                    Divider()
+                        .padding()
+                    VStack(spacing: 10) {
+                        Text("Bopomofo")
+                            .font(.title)
+                        Text("Voice Type")
+                            .font(.subheadline)
+                        Picker("", selection: $viewModel.voiceSelection) {
+                            ForEach(ContentStore.VoiceSelection.allCases, id: \.self) {
+                                Text($0.rawValue)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .disabled(!viewModel.pronunciationVoiceMode)
+                    }
+                    Divider()
+                        .padding()
+                    VStack(spacing: 10) {
+                        Text("Characters")
+                            .font(.title)
+                        
+                        VStack(alignment: .center, spacing: 0) {
+                            Slider(value: $viewModel.speakingSpeed, in: 0...100, step: 1).padding(10)
+                            Text("Speech Speed (slow - fast): \(viewModel.speakingSpeed, specifier: "%.2f")")
+                                .foregroundColor(.accentColor)
+                                .font(.subheadline)
+                        }
+                    }
                 }
                 .padding()
-                
-                Divider()
-                    .padding()
             }
         }
         .navigationTitle("SETTINGS_TITLE")

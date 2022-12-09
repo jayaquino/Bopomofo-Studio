@@ -45,15 +45,10 @@ struct Bopomofo_StudioApp: App {
         
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                if UserDefaults.didSeeOnboarding {
-                    MainView()
-                } else {
-                    OnboardingView(viewModel: OnboardingViewModel(analytics: analytics))
-                }
-            }
-            .environmentObject(router)
-            .navigationViewStyle(StackNavigationViewStyle())
+            MainView()
+                .environmentObject(router)
+                .navigationViewStyle(StackNavigationViewStyle())
+            
         }
     }
 }

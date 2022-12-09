@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseStorage
 import CoreBopomofoStudio
+import NukeUI
 
 struct TopicCellView: View {
     @ObservedObject var viewModel: TopicCellViewModel
@@ -15,20 +16,8 @@ struct TopicCellView: View {
     var body: some View {
         VStack {
             VStack(alignment: .center, spacing: 0) {
-                VStack(spacing: 0) {
-                    if let image = viewModel.image {
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    } else {
-                        Image(systemName: "heart")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .redacted(reason: .placeholder)
-                    }
-                }
+                LazyImage(url: URL(string: viewModel.topic.topicImage)!, resizingMode: .aspectFit)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 Text(viewModel.topic.topicName)
                     .font(.headline)
                     .fontWeight(.light)

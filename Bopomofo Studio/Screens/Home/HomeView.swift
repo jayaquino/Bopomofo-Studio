@@ -30,6 +30,9 @@ struct HomeView: View {
                                             router.topicCellView(topic: topic)
                                         }
                                         .padding()
+                                        .simultaneousGesture(TapGesture().onEnded({
+                                            viewModel.trackEvent(event: .topicTapped(topic: topic))
+                                        }))
                                     }
                                 }
                             }
@@ -45,8 +48,15 @@ struct HomeView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 0) {
                                     ForEach(category.topicList, id: \.self) { topic in
-                                        router.featuredContentCellView(topic: topic)
-                                            .padding()
+                                        NavigationLink {
+                                            router.contentPreview(topic: topic)
+                                        } label: {
+                                            router.featuredContentCellView(topic: topic)
+                                        }
+                                        .padding()
+                                        .simultaneousGesture(TapGesture().onEnded({
+                                            viewModel.trackEvent(event: .topicTapped(topic: topic))
+                                        }))
                                     }
                                 }
                             }
@@ -62,7 +72,7 @@ struct HomeView: View {
                 Text("SEND_FEEDBACK_BUTTON")
                     .font(.footnote)
             }
-            .padding(.vertical, 20)
+            .padding(.vertical, 10)
         }
         .navigationTitle("Home")
         .navigationBarTitleDisplayMode(.inline)

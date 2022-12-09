@@ -14,14 +14,9 @@ class ContentPreviewViewModel: ObservableObject {
     
     let contentStore: ContentStore
     let topic: TopicModel
+    @Published var pronunciationTextMode = false
     
     private var cancellables = Set<AnyCancellable>()
-    
-    @Published var timerValue: Double = 30.0 {
-        didSet {
-            contentStore.timerValue = oldValue
-        }
-    }
     
     init(
         contentStore: ContentStore,
@@ -29,16 +24,29 @@ class ContentPreviewViewModel: ObservableObject {
     ) {
         self.contentStore = contentStore
         self.topic = topic
+        self.assignVariables()
+    }
+    
+    private func assignVariables() {
+        contentStore.$pronunciationTextMode
+            .assign(to: &self.$pronunciationTextMode)
     }
     
     func playSound(symbol: String) {
-        let sound = Constants.bpmf.contains(symbol) ? symbol : PinyinHelper.convertPinyin(symbol) ?? ""
+        let sound = Constants.bpmf.contains(symbol) ? symbol : LanguageHelper.convertPinyin(symbol) ?? ""
         
-        switch contentStore.voiceSelection {
-        case .male:
-            SoundManager.instance.playMaleSound(sound: sound)
-        case .female:
-            SoundManager.instance.playFemaleSound(sound: sound)
+        if LanguageHelper.isZhuyinOrPinyin(symbol) {
+            switch contentStore.voiceSelection {
+            case .male:
+                SoundManager.instance.playMaleSound(sound: sound)
+            case .female:
+                SoundManager.instance.playFemaleSound(sound: sound)
+            }
+        } else {
+            SoundManager.instance.utterSound(
+                sound: symbol,
+                rate: contentStore.speakingSpeed
+            )
         }
     }
 }

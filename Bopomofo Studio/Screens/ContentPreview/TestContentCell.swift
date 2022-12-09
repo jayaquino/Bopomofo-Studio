@@ -9,28 +9,47 @@ import SwiftUI
 
 struct TestContentCell: View {
     let image: String
+    @Binding var showPronunciation: Bool
     let description: String
     
     var body: some View {
         HStack(spacing: 10) {
             VStack(spacing: 0) {
-                Image(image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 80, maxHeight: 80)
-                    .cornerRadius(16)
-                    .padding(5)
+                if LanguageHelper.isZhuyinOrPinyin(image) {
+                    Image(image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: 80, maxHeight: 80)
+                        .cornerRadius(16)
+                        .padding(5)
+                } else if image == "\"\"" {
+                    Text("Coming Soon!")
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, maxHeight: 80)
+                        .cornerRadius(16)
+                        .padding(5)
+                        .multilineTextAlignment(.center)
+                } else {
+                    Text(image)
+                        .font(.system(size: 40))
+                        .fontWeight(.bold)
+                        .frame(maxWidth: 80, maxHeight: 80)
+                        .cornerRadius(16)
+                        .padding(5)
+                }
             }
             .overlay {
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(.secondary, lineWidth: 1)
             }
             .padding(10)
-            Text(description)
-                .font(.headline)
-                .fontWeight(.light)
+            if showPronunciation && description != "\"\"" {
+                Text(description)
+                    .font(.headline)
+                    .fontWeight(.light)
+            }
         }
-        .frame(maxWidth: 400, minHeight: 100, alignment: .leading)
+        .frame(maxWidth: showPronunciation ? 400 : nil, minHeight: 100, alignment: .leading)
         .cornerRadius(16)
         .background(
             RoundedRectangle(cornerRadius: 16)
@@ -52,9 +71,18 @@ struct TestContentCell: View {
 
 struct TestContentCell_Previews: PreviewProvider {
     static var previews: some View {
-        TestContentCell(
-            image: "BPMF",
-            description: "This is a description"
-        )
+        Group {
+            TestContentCell(
+                image: "BPMF",
+                showPronunciation: .constant(true),
+                description: "This is a description"
+            )
+            
+            TestContentCell(
+                image: "BPMF",
+                showPronunciation: .constant(false),
+                description: "This is a description"
+            )
+        }
     }
 }

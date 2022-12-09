@@ -11,7 +11,8 @@ import AVKit
 class SoundManager{
     
     static let instance = SoundManager()
-    
+    private let synth = AVSpeechSynthesizer()
+
     init() {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback)
@@ -25,6 +26,7 @@ class SoundManager{
     func playMaleSound(sound: String) {
         guard let url = Bundle.main.url(forResource: "M_\(sound)", withExtension:".mp3")
         else { return}
+        
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.play()
@@ -42,5 +44,15 @@ class SoundManager{
         } catch let error {
             print("Error playing female sound. \(error.localizedDescription)")
         }
+    }
+    
+    func utterSound(
+        sound: String,
+        rate: Float
+    ) {
+        let utterance = AVSpeechUtterance(string: sound)
+        utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
+        utterance.rate = rate
+        synth.speak(utterance)
     }
 }

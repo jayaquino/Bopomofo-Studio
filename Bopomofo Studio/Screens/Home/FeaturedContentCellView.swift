@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreBopomofoStudio
+import NukeUI
 
 struct FeaturedContentCellView: View {
     @ObservedObject var viewModel: FeaturedContentViewModel
@@ -15,17 +16,8 @@ struct FeaturedContentCellView: View {
         VStack {
             VStack(alignment: .center, spacing: 0) {
                 VStack(spacing: 0) {
-                    if let image = viewModel.image {
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFit()
+                    LazyImage(url: URL(string: viewModel.topic.topicImage)!, resizingMode: .aspectFit)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    } else {
-                        Image("comingSoon")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    }
                 }
                 Text(viewModel.topic.topicName)
                     .font(.subheadline)

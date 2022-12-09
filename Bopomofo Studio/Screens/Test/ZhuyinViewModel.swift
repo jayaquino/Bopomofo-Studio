@@ -31,7 +31,11 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         }
     }
     private var symbolKey: String {
-        Constants.bpmf.contains(randomSymbol) ? randomSymbol : PinyinHelper.convertPinyin(randomSymbol) ?? ""
+        if LanguageHelper.isZhuyinOrPinyin(randomSymbol) {
+            return Constants.bpmf.contains(randomSymbol) ? randomSymbol : LanguageHelper.convertPinyin(randomSymbol) ?? ""
+        } else {
+            return randomSymbolExample
+        }
     }
     
     init(
@@ -65,28 +69,42 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         let randomNumber = Int.random(in: 0...topic.vocabulary.count-1)
         randomSymbol = topic.vocabulary[randomNumber].character
         randomSymbolExample = topic.vocabulary[randomNumber].pronunciation
+        
         playSound(symbol: randomSymbol)
     }
     
     private func playSound(symbol: String) {
-        let sound = Constants.bpmf.contains(symbol) ? symbol : PinyinHelper.convertPinyin(symbol) ?? ""
-        
-        switch contentStore.voiceSelection {
-        case .male:
-            SoundManager.instance.playMaleSound(sound: sound)
-        case .female:
-            SoundManager.instance.playFemaleSound(sound: sound)
+        if contentStore.pronunciationVoiceMode {
+            if LanguageHelper.isZhuyinOrPinyin(symbol) {
+                let sound = Constants.bpmf.contains(symbol) ? symbol : LanguageHelper.convertPinyin(symbol) ?? ""
+                
+                switch contentStore.voiceSelection {
+                case .male:
+                    SoundManager.instance.playMaleSound(sound: sound)
+                case .female:
+                    SoundManager.instance.playFemaleSound(sound: sound)
+                }
+            } else {
+                SoundManager.instance.utterSound(
+                    sound: symbol,
+                    rate: contentStore.speakingSpeed
+                )
+            }
         }
     }
     
     private func checkUserInput() {
         guard inputSymbol != "", randomSymbol != "" else { return }
+        print("checking", randomSymbol, inputSymbol)
         if inputSymbol == symbolKey {
             score += 1
             generateNewSymbol()
+            inputSymbol = ""
         }
         
-        inputSymbol = ""
+        if LanguageHelper.isZhuyinOrPinyin(symbolKey) {
+            inputSymbol = ""
+        }
     }
     
     private func testDidFinish() {
