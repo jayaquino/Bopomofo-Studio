@@ -43,7 +43,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     
     private var errorCounter = 0 {
         willSet {
-            if isZhuyinOrPinyin {
+            if isZhuyinOrPinyin, newValue != 0 {
                 showPronunciation = newValue >= 3
             }
         }
