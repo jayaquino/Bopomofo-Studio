@@ -24,11 +24,11 @@ public class ContentStore: ObservableObject {
         case male = "Male"
     }
     
-    @Published public var pronunciationTextMode : Bool = false
+    @Published public var pronunciationTextMode : Bool = true
     @Published public var pronunciationVoiceMode : Bool = true
     @Published public var voiceSelection: VoiceSelection = .female
     @Published public var timerValue: Double = 30.0
-    @Published public var speakingSpeed: Float = 0.5
+    @Published public var speakingSpeed: Float = 50.0
     
     @Published public var zhuyinContent: [CategoryModel]?
     @Published public var featuredContent: [CategoryModel]?

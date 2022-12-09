@@ -52,7 +52,7 @@ class SoundManager{
     ) {
         let utterance = AVSpeechUtterance(string: sound)
         utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
-        utterance.rate = rate
+        utterance.rate = rate / 100
         synth.speak(utterance)
     }
 }
