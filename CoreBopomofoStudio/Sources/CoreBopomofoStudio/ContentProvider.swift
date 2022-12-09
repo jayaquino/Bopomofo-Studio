@@ -11,12 +11,14 @@ import UIKit
 public protocol ContentProvider {
     func saveScore(
         topic: TopicModel,
-        scoreModel: ScoreModel
+        scoreModel: ScoreModel,
+        textAssistance: Bool
     ) async throws -> Bool
     
     func fetchScores(
         topic: TopicModel,
-        scoreModel: ScoreModel
+        scoreModel: ScoreModel,
+        textAssistance: Bool
     ) async throws -> [ScoreModel]
     
     func fetchZhuyinContent() async throws -> [CategoryModel]

@@ -9,7 +9,7 @@ import Foundation
 
 public protocol AnalyticTrackingProtocol {
     var eventName: String { get }
-    var parameters: [String: String] { get }
+    var parameters: [String: Any] { get }
 }
 
 open class AnalyticsProvider {
@@ -39,7 +39,7 @@ open class AnalyticsProvider {
             }
         }
         
-        public var parameters: [String: String] {
+        public var parameters: [String: Any] {
             switch self {
             case
                     .home(event: let event as AnalyticTrackingProtocol),
@@ -69,7 +69,7 @@ open class AnalyticsProvider {
             }
         }
         
-        public var parameters: [String : String] {
+        public var parameters: [String : Any] {
             switch self {
             case .feedbackTapped, .feedbackSendButtonTapped:
                 return [:]
@@ -85,6 +85,8 @@ open class AnalyticsProvider {
         case textAssistance(isOn: Bool)
         case voiceAssistance(isOn: Bool)
         case voiceType(voiceType: String)
+        case timerChanged(timer: Double)
+        case utterSpeedChanged(speed: Float)
         
         public var eventName: String {
             switch self {
@@ -94,17 +96,25 @@ open class AnalyticsProvider {
                 return "Pronunciation_Voice_Assistance_Changed"
             case .voiceType:
                 return "Pronunciation_Voice_Type_Changed"
+            case .timerChanged:
+                return "timer_changed"
+            case .utterSpeedChanged:
+                return "utter_speed_changed"
             }
         }
         
-        public var parameters: [String : String] {
+        public var parameters: [String : Any] {
             switch self {
             case
                     .textAssistance(isOn: let isOn),
                     .voiceAssistance(isOn: let isOn):
-                return ["isOn": isOn.description]
+                return ["isOn": isOn]
             case .voiceType(voiceType: let voiceType):
                 return ["voiceType": voiceType]
+            case .timerChanged(timer: let timer):
+                return ["timer_value": timer]
+            case .utterSpeedChanged(speed: let speed):
+                return ["speed_value": speed]
             }
         }
         
@@ -125,7 +135,7 @@ open class AnalyticsProvider {
             }
         }
         
-        public var parameters: [String : String] {
+        public var parameters: [String : Any] {
             switch self {
             case
                     .beganTest(testSetting: let testSetting),
@@ -142,6 +152,8 @@ open class AnalyticsProvider {
         case viewedSlide(
             slideIndex: Int
         )
+        case notificationsNotNowTapped
+        case notificationEnabled(enabled: Bool)
         
         public var eventName: String {
             switch self {
@@ -151,17 +163,23 @@ open class AnalyticsProvider {
                 return "Onboarding_Finished"
             case .viewedSlide:
                 return "Viewed_Onboarding_Slide"
+            case .notificationsNotNowTapped:
+                return "onboarding_notification_not_now_tapped"
+            case .notificationEnabled:
+                return "onboarding_notification_enabled"
             }
         }
         
-        public var parameters: [String : String] {
+        public var parameters: [String : Any] {
             switch self {
-            case .onboardingStarted, .onboardingFinished:
+            case .onboardingStarted, .onboardingFinished, .notificationsNotNowTapped:
                 return [:]
             case .viewedSlide(slideIndex: let slideIndex):
                 return [
-                    "slideIndex": slideIndex.description
+                    "slideIndex": slideIndex
                 ]
+            case .notificationEnabled(enabled: let enabled):
+                return ["enabled": enabled]
             }
         }
     }

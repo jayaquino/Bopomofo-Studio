@@ -19,19 +19,43 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     private var cancellables = Set<AnyCancellable>()
     
     @Published var timer: Double
-    @Published var testFinished = false
+    @Published var showResults = false
     @Published var scorePercentage: Double?
     @Published var isLoadingData = false
     @Published var randomSymbol = ""
     @Published var randomSymbolExample = ""
     @Published var score = 0
+    @Published var showPronunciation = false {
+        willSet {
+            appendIncorrectVocabulary()
+        }
+    }
     @Published var inputSymbol: String = "" {
         didSet {
             checkUserInput()
         }
     }
+    var incorrectVocabulary: [VocabularyModel] = []
+    
+    var isZhuyinOrPinyin: Bool {
+        LanguageHelper.isZhuyinOrPinyin(randomSymbol)
+    }
+    
+    private var errorCounter = 0 {
+        willSet {
+            if isZhuyinOrPinyin, newValue != 0 {
+                showPronunciation = newValue >= 3
+            }
+        }
+    }
+    
+    private func appendIncorrectVocabulary() {
+        guard let incorrectVocabulary = topic.vocabulary.first(where: { $0.character == randomSymbol }), !self.incorrectVocabulary.contains(where: { $0.id == incorrectVocabulary.id }) else { return }
+        self.incorrectVocabulary.append(incorrectVocabulary)
+    }
+    
     private var symbolKey: String {
-        if LanguageHelper.isZhuyinOrPinyin(randomSymbol) {
+        if isZhuyinOrPinyin {
             return Constants.bpmf.contains(randomSymbol) ? randomSymbol : LanguageHelper.convertPinyin(randomSymbol) ?? ""
         } else {
             return randomSymbolExample
@@ -52,7 +76,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         self.randomSymbol = topic.vocabulary[randomNumber].character
         randomSymbolExample = topic.vocabulary[randomNumber].pronunciation
         
-        playSound(symbol: randomSymbol)
+        playSound()
         addSubscribers()
     }
         
@@ -70,23 +94,23 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         randomSymbol = topic.vocabulary[randomNumber].character
         randomSymbolExample = topic.vocabulary[randomNumber].pronunciation
         
-        playSound(symbol: randomSymbol)
+        playSound()
     }
     
-    private func playSound(symbol: String) {
+    private func playSound() {
         if contentStore.pronunciationVoiceMode {
-            if LanguageHelper.isZhuyinOrPinyin(symbol) {
-                let sound = Constants.bpmf.contains(symbol) ? symbol : LanguageHelper.convertPinyin(symbol) ?? ""
+            if isZhuyinOrPinyin {
+                let sound = Constants.bpmf.contains(randomSymbol) ? randomSymbol : LanguageHelper.convertPinyin(randomSymbol) ?? ""
                 
                 switch contentStore.voiceSelection {
                 case .male:
-                    SoundManager.instance.playMaleSound(sound: sound)
+                    SoundManager.instance.playMaleSound(sound: randomSymbol)
                 case .female:
-                    SoundManager.instance.playFemaleSound(sound: sound)
+                    SoundManager.instance.playFemaleSound(sound: randomSymbol)
                 }
             } else {
                 SoundManager.instance.utterSound(
-                    sound: symbol,
+                    sound: randomSymbol,
                     rate: contentStore.speakingSpeed
                 )
             }
@@ -100,6 +124,9 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
             score += 1
             generateNewSymbol()
             inputSymbol = ""
+            errorCounter = 0
+        } else {
+            errorCounter += 1
         }
         
         if LanguageHelper.isZhuyinOrPinyin(symbolKey) {
@@ -108,7 +135,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     }
     
     private func testDidFinish() {
-        self.testFinished = true
+        self.showResults = true
         if self.score > 0 {
             handleScore()
         }

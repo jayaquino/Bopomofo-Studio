@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import OneSignal
 import CoreBopomofoStudio
 
 class OnboardingViewModel: ObservableObject {
@@ -53,8 +52,8 @@ class OnboardingViewModel: ObservableObject {
             analytics.track(event: .onboarding(event: .viewedSlide(slideIndex: selectionIndex)))
             selection = onboardingSlides[nextIndex]
         } else {
-            OneSignal.promptForPushNotifications(userResponse: { _ in })
             analytics.track(event: .onboarding(event: .viewedSlide(slideIndex: onboardingSlides.count - 1)))
+            analytics.track(event: .onboarding(event: .notificationsNotNowTapped))
             showOnboarding = false
         }
     }

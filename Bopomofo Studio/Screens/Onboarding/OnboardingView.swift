@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import OneSignal
 
 struct OnboardingView: View {
     @StateObject var viewModel: OnboardingViewModel
@@ -17,20 +18,19 @@ struct OnboardingView: View {
             VStack(spacing: 30) {
                 pagerView
                 Spacer()
-                Button {
-                    viewModel.nextButtonPressed()
-                } label: {
+                
+                VStack(spacing: 10) {
                     if viewModel.selection.title == LocalizedStringKey("ONBOARDING_NOTIFICATION_TITLE") {
-                        Image(systemName: "checkmark")
-                    } else {
-                        Image(systemName: "arrow.right")
+                        Button("Enable Notifications") {
+                            enableNotificationButtonTapped()
+                        }
+                        .font(.headline)
+                        .foregroundColor(.accentColor)
                     }
+                    actionButton
                 }
-                .font(.system(size: 30, weight: .light))
-                .foregroundStyle(.white)
-                .frame(width: 86, height: 56)
-                .background(.tint)
-                .clipShape(Circle())
+                .frame(height: 56)
+                
             }
             .padding()
             .onAppear {
@@ -58,6 +58,26 @@ struct OnboardingView: View {
         .animation(.linear, value: viewModel.selection)
     }
     
+    private var actionButton: some View {
+        Button {
+            viewModel.nextButtonPressed()
+        } label: {
+            if viewModel.selection.title == LocalizedStringKey("ONBOARDING_NOTIFICATION_TITLE") {
+                Text("Not Now")
+                    .font(.subheadline)
+                    .foregroundColor(.accentColor)
+            } else {
+                Image(systemName: "arrow.right")
+                    .font(.system(size: 30, weight: .light))
+                    .foregroundStyle(.white)
+                    .frame(width: 86, height: 56)
+                    .background(.tint)
+                    .clipShape(Circle())
+            }
+        }
+        .buttonStyle(.plain)
+    }
+    
     private func onboardingCarouselView(onboardingSlide: OnboardingSlide) -> some View {
         VStack(spacing: 10) {
             Image(onboardingSlide.image)
@@ -73,6 +93,13 @@ struct OnboardingView: View {
             }
             .padding(.horizontal, 16)
         }
+    }
+    
+    private func enableNotificationButtonTapped() {
+        OneSignal.promptForPushNotifications(userResponse: { enabled in
+            viewModel.analytics.track(event: .onboarding(event: .notificationEnabled(enabled: enabled)))
+            showOnboarding = false
+        })
     }
 }
 

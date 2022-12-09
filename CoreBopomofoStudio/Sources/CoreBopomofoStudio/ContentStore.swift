@@ -24,11 +24,11 @@ public class ContentStore: ObservableObject {
         case male = "Male"
     }
     
-    @Published public var pronunciationTextMode : Bool = false
+    @Published public var pronunciationTextMode : Bool = true
     @Published public var pronunciationVoiceMode : Bool = true
     @Published public var voiceSelection: VoiceSelection = .female
     @Published public var timerValue: Double = 30.0
-    @Published public var speakingSpeed: Float = 0.5
+    @Published public var speakingSpeed: Float = 50.0
     
     @Published public var zhuyinContent: [CategoryModel]?
     @Published public var featuredContent: [CategoryModel]?
@@ -48,11 +48,11 @@ public class ContentStore: ObservableObject {
     
     @discardableResult
     public func saveScore(topic: TopicModel, scoreModel: ScoreModel) async throws -> Bool {
-        try await provider.saveScore(topic: topic, scoreModel: scoreModel)
+        try await provider.saveScore(topic: topic, scoreModel: scoreModel, textAssistance: pronunciationTextMode)
     }
     
     public func fetchScores(topic: TopicModel, scoreModel: ScoreModel) async throws -> [ScoreModel] {
-        try await provider.fetchScores(topic: topic, scoreModel: scoreModel)
+        try await provider.fetchScores(topic: topic, scoreModel: scoreModel, textAssistance: pronunciationTextMode)
     }
     
     public func sendFeedback(description: String) async throws -> Bool {
