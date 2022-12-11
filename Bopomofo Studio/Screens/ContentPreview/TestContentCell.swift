@@ -10,7 +10,8 @@ import SwiftUI
 struct TestContentCell: View {
     let image: String
     @Binding var showPronunciation: Bool
-    let description: String
+    let zhuyin: String
+    let pinyin: String
     
     var body: some View {
         HStack(spacing: 10) {
@@ -43,10 +44,12 @@ struct TestContentCell: View {
                     .stroke(.secondary, lineWidth: 1)
             }
             .padding(10)
-            if showPronunciation && description != "\"\"" {
-                Text(description)
-                    .font(.headline)
-                    .fontWeight(.light)
+            if showPronunciation && zhuyin != " " && pinyin != " " {
+                VStack(alignment: .leading) {
+                    Text(zhuyin)
+                    Text(pinyin)
+                }
+                .font(.headline)
             }
         }
         .frame(maxWidth: showPronunciation ? 400 : nil, minHeight: 100, alignment: .leading)
@@ -75,13 +78,15 @@ struct TestContentCell_Previews: PreviewProvider {
             TestContentCell(
                 image: "BPMF",
                 showPronunciation: .constant(true),
-                description: "This is a description"
+                zhuyin: "Zhuyin",
+                pinyin: "Pinyin"
             )
             
             TestContentCell(
                 image: "BPMF",
                 showPronunciation: .constant(false),
-                description: "This is a description"
+                zhuyin: "Zhuyin",
+                pinyin: "Pinyin"
             )
         }
     }

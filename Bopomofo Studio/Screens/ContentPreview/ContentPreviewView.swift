@@ -22,7 +22,8 @@ struct ContentPreviewView: View {
                         TestContentCell(
                             image: viewModel.topic.vocabulary[index].characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "",
                             showPronunciation: $viewModel.pronunciationTextMode,
-                            description: viewModel.topic.vocabulary[index].pronunciationSet[viewModel.contentStore.characterPronunciationSetting.rawValue] ?? ""
+                            zhuyin: viewModel.topic.vocabulary[index].pronunciationSet["zhuyin"] ?? "",
+                            pinyin: viewModel.topic.vocabulary[index].pronunciationSet["pinyin"] ?? ""
                         )
                         .onTapGesture {
                             viewModel.playSound(symbol: viewModel.topic.vocabulary[index].characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")

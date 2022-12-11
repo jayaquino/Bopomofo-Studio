@@ -60,8 +60,6 @@ struct ZhuyinTestView: View {
                             }
                         }
                         .frame(maxHeight: 200)
-
-                    
                         
                         if viewModel.contentStore.pronunciationTextMode == true || viewModel.showPronunciation {
                             Text(viewModel.randomSymbolExample)
