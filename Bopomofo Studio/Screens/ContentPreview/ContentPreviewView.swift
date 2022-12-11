@@ -20,12 +20,12 @@ struct ContentPreviewView: View {
                 VStack(spacing: 40) {
                     ForEach(0..<viewModel.topic.vocabulary.count, id: \.self) { index in
                         TestContentCell(
-                            image: viewModel.topic.vocabulary[index].character,
+                            image: viewModel.topic.vocabulary[index].characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "",
                             showPronunciation: $viewModel.pronunciationTextMode,
-                            description: viewModel.topic.vocabulary[index].pronunciation
+                            description: viewModel.topic.vocabulary[index].characterSet[viewModel.contentStore.characterPronunciationSetting.rawValue] ?? ""
                         )
                         .onTapGesture {
-                            viewModel.playSound(symbol: viewModel.topic.vocabulary[index].character)
+                            viewModel.playSound(symbol: viewModel.topic.vocabulary[index].characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
                         }
                     }
                 }

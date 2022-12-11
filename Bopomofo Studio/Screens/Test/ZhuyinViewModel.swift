@@ -50,7 +50,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     }
     
     private func appendIncorrectVocabulary() {
-        guard let incorrectVocabulary = topic.vocabulary.first(where: { $0.character == randomSymbol }), !self.incorrectVocabulary.contains(where: { $0.id == incorrectVocabulary.id }) else { return }
+        guard let incorrectVocabulary = topic.vocabulary.first(where: { $0.characterSet[contentStore.characterSetSetting.rawValue] ?? "" == randomSymbol }), !self.incorrectVocabulary.contains(where: { $0.id == incorrectVocabulary.id }) else { return }
         self.incorrectVocabulary.append(incorrectVocabulary)
     }
     
@@ -73,8 +73,8 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         self.inputSymbol = ""
         self.timer = contentStore.timerValue
         let randomNumber = Int.random(in: 0...topic.vocabulary.count-1)
-        self.randomSymbol = topic.vocabulary[randomNumber].character
-        randomSymbolExample = topic.vocabulary[randomNumber].pronunciation
+        self.randomSymbol = topic.vocabulary[randomNumber].characterSet[contentStore.characterSetSetting.rawValue] ?? ""
+        randomSymbolExample = topic.vocabulary[randomNumber].characterSet[contentStore.characterPronunciationSetting.rawValue] ?? ""
         
         playSound()
         addSubscribers()
@@ -91,8 +91,8 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     
     private func generateNewSymbol() {
         let randomNumber = Int.random(in: 0...topic.vocabulary.count-1)
-        randomSymbol = topic.vocabulary[randomNumber].character
-        randomSymbolExample = topic.vocabulary[randomNumber].pronunciation
+        randomSymbol = topic.vocabulary[randomNumber].characterSet[contentStore.characterSetSetting.rawValue] ?? ""
+        randomSymbolExample = topic.vocabulary[randomNumber].characterSet[contentStore.characterPronunciationSetting.rawValue] ?? ""
         
         playSound()
     }

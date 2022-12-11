@@ -15,12 +15,16 @@ public class MockContentProvider: ContentProvider {
                     topicImage: "BPMF.png",
                     vocabulary: [
                         VocabularyModel(
-                            character: "去",
-                            pronunciation: "ㄑㄩˋ"
+                            characterSet: ["traditional" :"去", "simplified": "去"],
+                            zhuyin: "ㄑㄩˋ",
+                            pinyin: "qù",
+                            translation: "to go"
                         ),
                         VocabularyModel(
-                            character: "來",
-                            pronunciation: "ㄌㄞˊ"
+                            characterSet: ["traditional" :"來", "simplified": "來"],
+                            zhuyin: "ㄌㄞˊ",
+                            pinyin: "lái",
+                            translation: "to come"
                         )
                     ]
                 ),
@@ -29,12 +33,17 @@ public class MockContentProvider: ContentProvider {
                     topicImage: "BPMF.png",
                     vocabulary: [
                         VocabularyModel(
-                            character: "去",
-                            pronunciation: "ㄑㄩˋ"
+                            characterSet: ["traditional" :"去", "simplified": "去"],
+                            zhuyin: "ㄑㄩˋ",
+                            pinyin: "qù",
+                            translation: "to go"
+
                         ),
                         VocabularyModel(
-                            character: "來",
-                            pronunciation: "ㄌㄞˊ"
+                            characterSet: ["traditional" :"來", "simplified": "來"],
+                            zhuyin: "ㄌㄞˊ",
+                            pinyin: "lái",
+                            translation: "to come"
                         )
                     ]
                 )
@@ -65,12 +74,16 @@ public class MockContentProvider: ContentProvider {
     
     private let mockVocabularyModels =  [
         VocabularyModel(
-            character: "去",
-            pronunciation: "ㄑㄩˋ"
+            characterSet: ["traditional" :"去", "simplified": "去"],
+            zhuyin: "ㄑㄩˋ",
+            pinyin: "qù",
+            translation: "to go"
         ),
         VocabularyModel(
-            character: "來",
-            pronunciation: "ㄌㄞˊ"
+            characterSet: ["traditional" :"來", "simplified": "來"],
+            zhuyin: "ㄌㄞˊ",
+            pinyin: "lái",
+            translation: "to come"
         )
     ]
 

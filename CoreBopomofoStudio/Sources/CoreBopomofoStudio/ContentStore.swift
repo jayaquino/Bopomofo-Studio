@@ -24,9 +24,21 @@ public class ContentStore: ObservableObject {
         case male = "Male"
     }
     
+    public enum WordCharacterSet: String {
+        case traditional
+        case simplified
+    }
+    
+    public enum WordCharacterPronunciation: String {
+        case zhuyin
+        case pinyin
+    }
+    
     @Published public var pronunciationTextMode : Bool = true
     @Published public var pronunciationVoiceMode : Bool = true
     @Published public var voiceSelection: VoiceSelection = .female
+    @Published public var characterSetSetting: WordCharacterSet = .traditional
+    @Published public var characterPronunciationSetting: WordCharacterPronunciation = .zhuyin
     @Published public var timerValue: Double = 30.0
     @Published public var speakingSpeed: Float = 50.0
     
