@@ -46,16 +46,8 @@ public class ContentStore: ObservableObject {
     @Published public var featuredContent: [CategoryModel]?
     @Published public var hanziTestCharacterSet: [VocabularyModel]?
     
-    public func fetchZhuyin() async throws {
-        self.zhuyinContent = try await provider.fetchZhuyin()
-    }
-    
     public func fetchZhuyinContent() async throws {
         self.zhuyinContent = try await provider.fetchZhuyinContent()
-    }
-    
-    public func fetchFeaturedContent() async throws {
-        self.featuredContent = try await provider.fetchFeaturedContent()
     }
     
     public func fetchTestContent() async throws {

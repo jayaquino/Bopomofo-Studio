@@ -79,17 +79,8 @@ public class MockContentProvider: ContentProvider {
             translation: "to come"
         )
     ]
-
-
-    public func fetchZhuyin() async throws -> [CoreBopomofoStudio.CategoryModel] {
-        mockCategoryModels
-    }
     
     public func fetchZhuyinContent() async throws -> [CoreBopomofoStudio.CategoryModel] {
-        mockCategoryModels
-    }
-    
-    public func fetchFeaturedContent() async throws -> [CategoryModel] {
         mockCategoryModels
     }
     
