@@ -75,15 +75,15 @@ class Router: ObservableObject {
         FlashcardView(viewModel: FlashcardViewModel(contentStore: self.contentStore))
     }
     
-    func topicCellView(topic: TopicModel) -> TopicCellView {
-        TopicCellView(viewModel: TopicCellViewModel(
+    func heroCellView(topic: TopicModel) -> HeroCellView {
+        HeroCellView(viewModel: HeroCellViewModel(
             contentStore: self.contentStore,
             topic: topic)
         )
     }
     
-    func featuredContentCellView(topic: TopicModel) -> FeaturedContentCellView {
-        FeaturedContentCellView(viewModel: FeaturedContentViewModel(
+    func homeCategoryView(topic: TopicModel) -> HomeCategoryCellView {
+        HomeCategoryCellView(viewModel: HomeCategoryCellViewModel(
             contentStore: self.contentStore,
             topic: topic)
         )

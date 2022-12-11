@@ -15,8 +15,8 @@ struct HomeView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             ScrollView(.vertical, showsIndicators: false) {
-                if let zhuyinContent = viewModel.zhuyinContent {
-                    ForEach(zhuyinContent, id: \.self) { category in
+                if let heroContent = viewModel.heroContent {
+                    ForEach(heroContent, id: \.self) { category in
                         VStack(alignment: .leading) {
                             Text(category.categoryName)
                                 .font(.largeTitle)
@@ -27,7 +27,7 @@ struct HomeView: View {
                                         NavigationLink {
                                             router.contentPreview(topic: topic)
                                         } label: {
-                                            router.topicCellView(topic: topic)
+                                            router.heroCellView(topic: topic)
                                         }
                                         .padding()
                                         .simultaneousGesture(TapGesture().onEnded({
@@ -51,7 +51,7 @@ struct HomeView: View {
                                         NavigationLink {
                                             router.contentPreview(topic: topic)
                                         } label: {
-                                            router.featuredContentCellView(topic: topic)
+                                            router.homeCategoryView(topic: topic)
                                         }
                                         .padding()
                                         .simultaneousGesture(TapGesture().onEnded({

@@ -42,12 +42,12 @@ public class ContentStore: ObservableObject {
     @Published public var timerValue: Double = 30.0
     @Published public var speakingSpeed: Float = 50.0
     
-    @Published public var zhuyinContent: [CategoryModel]?
+    @Published public var heroContent: [CategoryModel]?
     @Published public var homeCategoryContent: [CategoryModel]?
     @Published public var hanziTestCharacterSet: [VocabularyModel]?
     
     public func fetchZhuyinContent() async throws {
-        self.zhuyinContent = try await provider.fetchZhuyinContent()
+        self.heroContent = try await provider.fetchZhuyinContent()
     }
     
     public func fetchHomeCategoryContent() async throws {
