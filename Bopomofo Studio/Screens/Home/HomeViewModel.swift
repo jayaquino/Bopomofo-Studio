@@ -40,6 +40,10 @@ class HomeViewModel: ObservableObject {
     private func fetchAllContent() {
         fetchZhuyinContent()
         fetchFeaturedContent()
+        
+        if EnvironmentKeys.environment == .STAGING {
+            fetchTestContent()
+        }
     }
     
     private func fetchZhuyinContent() {
@@ -58,6 +62,16 @@ class HomeViewModel: ObservableObject {
                 try await self.contentStore.fetchFeaturedContent()
             } catch {
                 print("Error fetching Featured content")
+            }
+        }
+    }
+    
+    private func fetchTestContent() {
+        Task {
+            do {
+                try await self.contentStore.fetchTestContent()
+            } catch {
+                print("Error fetching Test content")
             }
         }
     }

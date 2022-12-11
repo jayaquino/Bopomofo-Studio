@@ -16,7 +16,7 @@ struct FeaturedContentCellView: View {
         VStack {
             VStack(alignment: .center, spacing: 0) {
                 VStack(spacing: 0) {
-                    LazyImage(url: URL(string: viewModel.topic.topicImage)!, resizingMode: .aspectFit)
+                    LazyImage(url: URL(string: viewModel.topic.topicImage), resizingMode: .aspectFit)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 Text(viewModel.topic.topicName)

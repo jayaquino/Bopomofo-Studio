@@ -25,6 +25,8 @@ public protocol ContentProvider {
     
     func fetchFeaturedContent() async throws -> [CategoryModel]
     
+    func fetchTestContent() async throws -> [CategoryModel]
+    
     func fetchImage(urlString: String) async throws -> UIImage?
         
     func sendFeedback(description: String) async throws -> Bool

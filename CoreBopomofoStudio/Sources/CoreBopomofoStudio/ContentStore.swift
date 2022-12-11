@@ -53,6 +53,14 @@ public class ContentStore: ObservableObject {
     public func fetchFeaturedContent() async throws {
         self.featuredContent = try await provider.fetchFeaturedContent()
     }
+    
+    public func fetchTestContent() async throws {
+        guard let testContent = try await provider.fetchTestContent().first else { return }
+        if self.featuredContent == nil {
+            self.featuredContent = []
+        }
+        self.featuredContent?.append(testContent)
+    }
 
     public func fetchImage(urlString: String) async throws -> UIImage? {
         try await provider.fetchImage(urlString: urlString)

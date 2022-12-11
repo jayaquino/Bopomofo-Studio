@@ -58,6 +58,7 @@ public actor FirebaseProvider {
             do {
                 let values = dict.map({ $0.value })
                 let json = try JSONSerialization.data(withJSONObject: values)
+                print("currentjson", dict)
                 return try JSONDecoder().decode([T].self, from: json)
             } catch let error {
                 throw error

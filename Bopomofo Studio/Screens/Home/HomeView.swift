@@ -15,30 +15,30 @@ struct HomeView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             ScrollView(.vertical, showsIndicators: false) {
-                if let zhuyinContent = viewModel.zhuyinContent {
-                    ForEach(zhuyinContent, id: \.self) { category in
-                        VStack(alignment: .leading) {
-                            Text(category.categoryName)
-                                .font(.largeTitle)
-                                .padding(.horizontal)
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                HStack(spacing: 0) {
-                                    ForEach(category.topicList, id: \.self) { topic in
-                                        NavigationLink {
-                                            router.contentPreview(topic: topic)
-                                        } label: {
-                                            router.topicCellView(topic: topic)
-                                        }
-                                        .padding()
-                                        .simultaneousGesture(TapGesture().onEnded({
-                                            viewModel.trackEvent(event: .topicTapped(topic: topic))
-                                        }))
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+//                if let zhuyinContent = viewModel.zhuyinContent {
+//                    ForEach(zhuyinContent, id: \.self) { category in
+//                        VStack(alignment: .leading) {
+//                            Text(category.categoryName)
+//                                .font(.largeTitle)
+//                                .padding(.horizontal)
+//                            ScrollView(.horizontal, showsIndicators: false) {
+//                                HStack(spacing: 0) {
+//                                    ForEach(category.topicList, id: \.self) { topic in
+//                                        NavigationLink {
+//                                            router.contentPreview(topic: topic)
+//                                        } label: {
+//                                            router.topicCellView(topic: topic)
+//                                        }
+//                                        .padding()
+//                                        .simultaneousGesture(TapGesture().onEnded({
+//                                            viewModel.trackEvent(event: .topicTapped(topic: topic))
+//                                        }))
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
                 if let featuredContent = viewModel.featuredContent {
                     ForEach(featuredContent, id: \.self) { category in
                         VStack(alignment: .leading) {

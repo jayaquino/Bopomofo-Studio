@@ -24,6 +24,10 @@ public class FirebaseContentProvider: ContentProvider {
         try await provider.fetchCategories(location: "featured_content", type: CategoryModel.self)
     }
     
+    public func fetchTestContent() async throws -> [CategoryModel] {
+        try await provider.fetchCategories(location: "test_content", type: CategoryModel.self)
+    }
+    
     public func fetchImage(urlString: String) async throws -> UIImage? {
         try await provider.fetchFromStorage(urlString: urlString)
     }
