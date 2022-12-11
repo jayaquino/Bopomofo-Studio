@@ -10,7 +10,7 @@ import CoreBopomofoStudio
 import UIKit
 
 @MainActor
-class TopicCellViewModel: ObservableObject {
+class HeroCellViewModel: ObservableObject {
     let contentStore: ContentStore
     let topic: TopicModel
     

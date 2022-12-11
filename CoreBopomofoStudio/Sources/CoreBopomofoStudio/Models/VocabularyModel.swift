@@ -7,27 +7,41 @@
 
 import Foundation
 
-public class VocabularyModel: Decodable {
+public class VocabularyModel: Decodable, Hashable, Equatable {
     enum CodingKeys: CodingKey {
-        case character
-        case pronunciation
+        case characterSet
+        case pronunciationSet
+        case translation
     }
     
     public let id = UUID()
-    @Published public var character: String
-    @Published public var pronunciation: String
+    @Published public var characterSet: [String: String]
+    @Published public var pronunciationSet: [String: String]
+    @Published public var translation: String
     
     public init(
-        character: String,
-        pronunciation: String
+        characterSet: [String: String],
+        pronunciationSet: [String: String],
+        translation: String
     ) {
-        self.character = character
-        self.pronunciation = pronunciation
+        self.characterSet = characterSet
+        self.pronunciationSet = pronunciationSet
+        self.translation = translation
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(translation)
+    }
+    
+    public static func == (lhs: VocabularyModel, rhs: VocabularyModel) -> Bool {
+        lhs.id == rhs.id
     }
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        character = try container.decode(String.self, forKey: .character)
-        pronunciation = try container.decode(String.self, forKey: .pronunciation)
+        characterSet = try container.decode([String: String].self, forKey: .characterSet)
+        pronunciationSet = try container.decode([String: String].self, forKey: .pronunciationSet)
+        translation = try container.decode(String.self, forKey: .translation)
     }
 }

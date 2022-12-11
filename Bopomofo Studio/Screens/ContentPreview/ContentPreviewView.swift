@@ -18,14 +18,17 @@ struct ContentPreviewView: View {
         VStack(spacing: 0) {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 40) {
-                    ForEach(0..<viewModel.topic.vocabulary.count, id: \.self) { index in
+                    ForEach(viewModel.topic.vocabulary, id: \.self) { vocabulary in
                         TestContentCell(
-                            image: viewModel.topic.vocabulary[index].character,
                             showPronunciation: $viewModel.pronunciationTextMode,
-                            description: viewModel.topic.vocabulary[index].pronunciation
+                            showTranslation: $viewModel.translationMode,
+                            image: vocabulary.characterSet[viewModel.characterSet.rawValue] ?? "",
+                            zhuyin: vocabulary.pronunciationSet["zhuyin"] ?? "",
+                            pinyin: vocabulary.pronunciationSet["pinyin"] ?? "",
+                            translation: vocabulary.translation
                         )
                         .onTapGesture {
-                            viewModel.playSound(symbol: viewModel.topic.vocabulary[index].character)
+                            viewModel.playSound(symbol: vocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
                         }
                     }
                 }

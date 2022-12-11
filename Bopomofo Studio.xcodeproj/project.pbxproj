@@ -20,12 +20,12 @@
 		07248DE928C5E890003FE4AB /* MockProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 07248DE828C5E890003FE4AB /* MockProvider */; };
 		07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */; };
 		07248DF228C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */; };
-		072518F3293CADBC00977A75 /* TopicCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F2293CADBC00977A75 /* TopicCellViewModel.swift */; };
+		072518F3293CADBC00977A75 /* HeroCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F2293CADBC00977A75 /* HeroCellViewModel.swift */; };
 		072518F5293CC15200977A75 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 072518F4293CC15200977A75 /* FirebaseDatabase */; };
 		072518F7293D2F3500977A75 /* Strings+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F6293D2F3500977A75 /* Strings+Extension.swift */; };
 		072518FA293D30A600977A75 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518F9293D30A600977A75 /* LanguageHelper.swift */; };
-		072518FC293D4BE700977A75 /* FeaturedContentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FB293D4BE700977A75 /* FeaturedContentCellView.swift */; };
-		072518FE293D4BF100977A75 /* FeaturedContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FD293D4BF100977A75 /* FeaturedContentCellViewModel.swift */; };
+		072518FC293D4BE700977A75 /* HomeCategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FB293D4BE700977A75 /* HomeCategoryCellView.swift */; };
+		072518FE293D4BF100977A75 /* HomeCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FD293D4BF100977A75 /* HomeCategoryCellViewModel.swift */; };
 		07251903293F42C500977A75 /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07251902293F42C500977A75 /* TextField+Extensions.swift */; };
 		073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073313B92933313C0053F290 /* FeedbackSheet.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
@@ -51,7 +51,7 @@
 		07E7D28829294124005393AE /* OneSignal in Frameworks */ = {isa = PBXBuildFile; productRef = 07E7D28729294124005393AE /* OneSignal */; };
 		07FB8485293C8456001181A7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB8484293C8456001181A7 /* HomeViewModel.swift */; };
 		07FB8487293C845C001181A7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB8486293C845C001181A7 /* HomeView.swift */; };
-		07FB8489293C9AD8001181A7 /* TopicCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB8488293C9AD8001181A7 /* TopicCellView.swift */; };
+		07FB8489293C9AD8001181A7 /* HeroCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FB8488293C9AD8001181A7 /* HeroCellView.swift */; };
 		07FB848B293C9BD5001181A7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 07FB848A293C9BD5001181A7 /* FirebaseStorage */; };
 		07FB8492293C9EC2001181A7 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 07FB8491293C9EC2001181A7 /* NukeUI */; };
 		5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5215400A279F79B100CDD9FB /* ContentPreviewView.swift */; };
@@ -176,11 +176,11 @@
 		07248DE728C5E6B3003FE4AB /* MockProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MockProvider; sourceTree = "<group>"; };
 		07248DEA28C637D7003FE4AB /* ContentPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewViewModel.swift; sourceTree = "<group>"; };
 		07248DF128C65141003FE4AB /* GoogleService-Info.naquinojr.Bopomofo-Studio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.naquinojr.Bopomofo-Studio.plist"; sourceTree = "<group>"; };
-		072518F2293CADBC00977A75 /* TopicCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellViewModel.swift; sourceTree = "<group>"; };
+		072518F2293CADBC00977A75 /* HeroCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCellViewModel.swift; sourceTree = "<group>"; };
 		072518F6293D2F3500977A75 /* Strings+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extension.swift"; sourceTree = "<group>"; };
 		072518F9293D30A600977A75 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
-		072518FB293D4BE700977A75 /* FeaturedContentCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedContentCellView.swift; sourceTree = "<group>"; };
-		072518FD293D4BF100977A75 /* FeaturedContentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedContentCellViewModel.swift; sourceTree = "<group>"; };
+		072518FB293D4BE700977A75 /* HomeCategoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryCellView.swift; sourceTree = "<group>"; };
+		072518FD293D4BF100977A75 /* HomeCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryCellViewModel.swift; sourceTree = "<group>"; };
 		07251902293F42C500977A75 /* TextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extensions.swift"; sourceTree = "<group>"; };
 		073313B92933313C0053F290 /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		07E7D28429291685005393AE /* GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.naquinojr.Bopomofo-Studio.staging.plist"; sourceTree = "<group>"; };
 		07FB8484293C8456001181A7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		07FB8486293C845C001181A7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		07FB8488293C9AD8001181A7 /* TopicCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCellView.swift; sourceTree = "<group>"; };
+		07FB8488293C9AD8001181A7 /* HeroCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCellView.swift; sourceTree = "<group>"; };
 		5215400A279F79B100CDD9FB /* ContentPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPreviewView.swift; sourceTree = "<group>"; };
 		522D4F3026D1805500578A82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bopomofo Studio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -466,10 +466,10 @@
 			children = (
 				07FB8484293C8456001181A7 /* HomeViewModel.swift */,
 				07FB8486293C845C001181A7 /* HomeView.swift */,
-				07FB8488293C9AD8001181A7 /* TopicCellView.swift */,
-				072518F2293CADBC00977A75 /* TopicCellViewModel.swift */,
-				072518FB293D4BE700977A75 /* FeaturedContentCellView.swift */,
-				072518FD293D4BF100977A75 /* FeaturedContentCellViewModel.swift */,
+				07FB8488293C9AD8001181A7 /* HeroCellView.swift */,
+				072518F2293CADBC00977A75 /* HeroCellViewModel.swift */,
+				072518FB293D4BE700977A75 /* HomeCategoryCellView.swift */,
+				072518FD293D4BF100977A75 /* HomeCategoryCellViewModel.swift */,
 				073313B92933313C0053F290 /* FeedbackSheet.swift */,
 			);
 			path = Home;
@@ -842,14 +842,14 @@
 				070D525F28C5D76500CDA918 /* AppDelegate.swift in Sources */,
 				5237C1A126A5CC0800C7BC56 /* ZhuyinTestView.swift in Sources */,
 				07D1289429309D150011CFD9 /* OnboardingViewModel.swift in Sources */,
-				07FB8489293C9AD8001181A7 /* TopicCellView.swift in Sources */,
+				07FB8489293C9AD8001181A7 /* HeroCellView.swift in Sources */,
 				07AE37A52939FB1600ECDA2F /* FlashcardViewModel.swift in Sources */,
 				52D43816282BD67200FFCAEB /* ZhuyinViewModel.swift in Sources */,
 				5237C17626A5CB3E00C7BC56 /* Bopomofo Studio.swift in Sources */,
 				07D1289E2931F2310011CFD9 /* UserDefaults+Extensions.swift in Sources */,
 				07251903293F42C500977A75 /* TextField+Extensions.swift in Sources */,
 				07248DEB28C637D7003FE4AB /* ContentPreviewViewModel.swift in Sources */,
-				072518FE293D4BF100977A75 /* FeaturedContentCellViewModel.swift in Sources */,
+				072518FE293D4BF100977A75 /* HomeCategoryCellViewModel.swift in Sources */,
 				0702FF8D288D5FB600D78BF6 /* ReviewManager.swift in Sources */,
 				07D128A12931F4D10011CFD9 /* DeveloperControlsView.swift in Sources */,
 				52C479AD26AB886900E3540F /* SettingsView.swift in Sources */,
@@ -865,10 +865,10 @@
 				072518FA293D30A600977A75 /* LanguageHelper.swift in Sources */,
 				07FB8485293C8456001181A7 /* HomeViewModel.swift in Sources */,
 				07D1289629309D1D0011CFD9 /* OnboardingView.swift in Sources */,
-				072518F3293CADBC00977A75 /* TopicCellViewModel.swift in Sources */,
+				072518F3293CADBC00977A75 /* HeroCellViewModel.swift in Sources */,
 				07D1289A29309E940011CFD9 /* OnboardingSlide.swift in Sources */,
 				07D128A32931F4DC0011CFD9 /* DeveloperControlsViewModel.swift in Sources */,
-				072518FC293D4BE700977A75 /* FeaturedContentCellView.swift in Sources */,
+				072518FC293D4BE700977A75 /* HomeCategoryCellView.swift in Sources */,
 				07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -968,7 +968,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
 				PRODUCT_NAME = "Bopomofo Studio - Staging";
 				SWIFT_VERSION = 5.0;
@@ -996,7 +996,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1026,7 +1026,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1056,7 +1056,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1224,7 +1224,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
 				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;
@@ -1250,7 +1250,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
 				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;

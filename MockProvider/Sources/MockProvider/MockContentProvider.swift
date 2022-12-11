@@ -15,12 +15,14 @@ public class MockContentProvider: ContentProvider {
                     topicImage: "BPMF.png",
                     vocabulary: [
                         VocabularyModel(
-                            character: "去",
-                            pronunciation: "ㄑㄩˋ"
+                            characterSet: ["traditional" :"去", "simplified": "去"],
+                            pronunciationSet: ["zhuyin": "ㄑㄩˋ", "pinyin": "qù"],
+                            translation: "to go"
                         ),
                         VocabularyModel(
-                            character: "來",
-                            pronunciation: "ㄌㄞˊ"
+                            characterSet: ["traditional" :"來", "simplified": "來"],
+                            pronunciationSet: ["zhuyin": "ㄌㄞˊ", "pinyin": "lái"],
+                            translation: "to come"
                         )
                     ]
                 ),
@@ -29,12 +31,14 @@ public class MockContentProvider: ContentProvider {
                     topicImage: "BPMF.png",
                     vocabulary: [
                         VocabularyModel(
-                            character: "去",
-                            pronunciation: "ㄑㄩˋ"
+                            characterSet: ["traditional" :"去", "simplified": "去"],
+                            pronunciationSet: ["zhuyin": "ㄑㄩˋ", "pinyin": "qù"],
+                            translation: "to go"
                         ),
                         VocabularyModel(
-                            character: "來",
-                            pronunciation: "ㄌㄞˊ"
+                            characterSet: ["traditional" :"來", "simplified": "來"],
+                            pronunciationSet: ["zhuyin": "ㄌㄞˊ", "pinyin": "lái"],
+                            translation: "to come"
                         )
                     ]
                 )
@@ -65,21 +69,26 @@ public class MockContentProvider: ContentProvider {
     
     private let mockVocabularyModels =  [
         VocabularyModel(
-            character: "去",
-            pronunciation: "ㄑㄩˋ"
+            characterSet: ["traditional" :"去", "simplified": "去"],
+            pronunciationSet: ["zhuyin": "ㄑㄩˋ", "pinyin": "qù"],
+            translation: "to go"
         ),
         VocabularyModel(
-            character: "來",
-            pronunciation: "ㄌㄞˊ"
+            characterSet: ["traditional" :"來", "simplified": "來"],
+            pronunciationSet: ["zhuyin": "ㄌㄞˊ", "pinyin": "lái"],
+            translation: "to come"
         )
     ]
-
-
+    
     public func fetchZhuyinContent() async throws -> [CoreBopomofoStudio.CategoryModel] {
         mockCategoryModels
     }
     
-    public func fetchFeaturedContent() async throws -> [CategoryModel] {
+    public func fetchHomeCategoryContent() async throws -> [CategoryModel] {
+        mockCategoryModels
+    }
+    
+    public func fetchTestContent() async throws -> [CategoryModel] {
         mockCategoryModels
     }
     

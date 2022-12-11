@@ -14,7 +14,7 @@ struct FlashcardView: View {
         VStack {
             if let characterSet = viewModel.characterSet {
                 ForEach(characterSet, id: \.id) { vocabulary in
-                    Text(vocabulary.character)
+                    Text(vocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
                 }
             }
         }

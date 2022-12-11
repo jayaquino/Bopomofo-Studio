@@ -9,7 +9,7 @@ import CoreBopomofoStudio
 import UIKit
 
 @MainActor
-class FeaturedContentViewModel: ObservableObject {
+class HomeCategoryCellViewModel: ObservableObject {
     let contentStore: ContentStore
     let topic: TopicModel
     
