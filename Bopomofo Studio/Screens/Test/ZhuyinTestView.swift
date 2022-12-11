@@ -166,7 +166,7 @@ struct ZhuyinTestView: View {
                         ForEach(viewModel.incorrectVocabulary, id: \.id) { incorrectVocabulary in
                             HStack {
                                 Text(incorrectVocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
-                                Text(incorrectVocabulary.zhuyin)
+                                Text(incorrectVocabulary.pronunciationSet["zhuyin"] ?? "")
                             }
                         }
                     }

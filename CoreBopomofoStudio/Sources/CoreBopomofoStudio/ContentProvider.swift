@@ -23,6 +23,8 @@ public protocol ContentProvider {
     
     func fetchZhuyinContent() async throws -> [CategoryModel]
     
+    func fetchZhuyin() async throws -> [CategoryModel]
+    
     func fetchFeaturedContent() async throws -> [CategoryModel]
     
     func fetchTestContent() async throws -> [CategoryModel]
