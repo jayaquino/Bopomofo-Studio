@@ -23,6 +23,8 @@ public protocol ContentProvider {
     
     func fetchZhuyinContent() async throws -> [CategoryModel]
 
+    func fetchHomeCategoryContent() async throws -> [CategoryModel]
+    
     func fetchTestContent() async throws -> [CategoryModel]
     
     func fetchImage(urlString: String) async throws -> UIImage?

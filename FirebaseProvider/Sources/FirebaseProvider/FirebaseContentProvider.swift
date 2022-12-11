@@ -20,8 +20,8 @@ public class FirebaseContentProvider: ContentProvider {
         try await provider.fetchCategories(location: "zhuyin_content", type: CategoryModel.self)
     }
     
-    public func fetchFeaturedContent() async throws -> [CategoryModel] {
-        try await provider.fetchCategories(location: "featured_content", type: CategoryModel.self)
+    public func fetchHomeCategoryContent() async throws -> [CategoryModel] {
+        try await provider.fetchCategories(location: "home_category_content", type: CategoryModel.self)
     }
     
     public func fetchTestContent() async throws -> [CategoryModel] {

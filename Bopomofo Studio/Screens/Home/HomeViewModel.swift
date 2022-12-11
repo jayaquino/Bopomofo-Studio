@@ -14,7 +14,7 @@ class HomeViewModel: ObservableObject {
     let analytics: AnalyticsProvider
     
     @Published var zhuyinContent: [CategoryModel]?
-    @Published var featuredContent: [CategoryModel]?
+    @Published var homeCategoryContent: [CategoryModel]?
     @Published var feedback = ""
     @Published var showAlert = false
     
@@ -33,12 +33,13 @@ class HomeViewModel: ObservableObject {
         contentStore.$zhuyinContent
             .assign(to: &self.$zhuyinContent)
         
-        contentStore.$featuredContent
-            .assign(to: &self.$featuredContent)
+        contentStore.$homeCategoryContent
+            .assign(to: &self.$homeCategoryContent)
     }
     
     private func fetchAllContent() {
         fetchZhuyinContent()
+        fetchHomeCategoryContent()
         
         if EnvironmentKeys.environment == .STAGING {
             fetchTestContent()
@@ -51,6 +52,16 @@ class HomeViewModel: ObservableObject {
                 try await self.contentStore.fetchZhuyinContent()
             } catch {
                 print("Error fetching Featured content")
+            }
+        }
+    }
+    
+    private func fetchHomeCategoryContent() {
+        Task {
+            do {
+                try await self.contentStore.fetchHomeCategoryContent()
+            } catch {
+                print("Error fetching Home content")
             }
         }
     }

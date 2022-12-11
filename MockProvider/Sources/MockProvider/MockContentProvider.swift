@@ -84,6 +84,10 @@ public class MockContentProvider: ContentProvider {
         mockCategoryModels
     }
     
+    public func fetchHomeCategoryContent() async throws -> [CategoryModel] {
+        mockCategoryModels
+    }
+    
     public func fetchTestContent() async throws -> [CategoryModel] {
         mockCategoryModels
     }

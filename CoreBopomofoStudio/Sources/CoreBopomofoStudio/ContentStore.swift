@@ -43,19 +43,23 @@ public class ContentStore: ObservableObject {
     @Published public var speakingSpeed: Float = 50.0
     
     @Published public var zhuyinContent: [CategoryModel]?
-    @Published public var featuredContent: [CategoryModel]?
+    @Published public var homeCategoryContent: [CategoryModel]?
     @Published public var hanziTestCharacterSet: [VocabularyModel]?
     
     public func fetchZhuyinContent() async throws {
         self.zhuyinContent = try await provider.fetchZhuyinContent()
     }
     
+    public func fetchHomeCategoryContent() async throws {
+        self.homeCategoryContent = try await provider.fetchHomeCategoryContent()
+    }
+    
     public func fetchTestContent() async throws {
         guard let testContent = try await provider.fetchTestContent().first else { return }
-        if self.featuredContent == nil {
-            self.featuredContent = []
+        if self.homeCategoryContent == nil {
+            self.homeCategoryContent = []
         }
-        self.featuredContent?.append(testContent)
+        self.homeCategoryContent?.append(testContent)
     }
 
     public func fetchImage(urlString: String) async throws -> UIImage? {

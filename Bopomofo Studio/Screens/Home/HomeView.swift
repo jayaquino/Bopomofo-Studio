@@ -39,8 +39,8 @@ struct HomeView: View {
                         }
                     }
                 }
-                if let featuredContent = viewModel.featuredContent {
-                    ForEach(featuredContent, id: \.self) { category in
+                if let homeCategoryContent = viewModel.homeCategoryContent {
+                    ForEach(homeCategoryContent, id: \.self) { category in
                         VStack(alignment: .leading) {
                             Text(category.categoryName)
                                 .font(.title)
