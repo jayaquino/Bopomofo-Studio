@@ -24,22 +24,43 @@ public class ContentStore: ObservableObject {
         case male = "Male"
     }
     
-    @Published public var pronunciationTextMode : Bool = true
+    public enum WordCharacterSet: String, CaseIterable {
+        case traditional
+        case simplified
+    }
+    
+    public enum WordCharacterPronunciation: String {
+        case zhuyin
+        case pinyin
+    }
+    
+    @Published public var pronunciationTextMode : Bool = false
     @Published public var pronunciationVoiceMode : Bool = true
+    @Published public var translationMode: Bool = true
     @Published public var voiceSelection: VoiceSelection = .female
+    @Published public var characterSetSetting: WordCharacterSet = .traditional
+    @Published public var characterPronunciationSetting: WordCharacterPronunciation = .zhuyin
     @Published public var timerValue: Double = 30.0
     @Published public var speakingSpeed: Float = 50.0
     
-    @Published public var zhuyinContent: [CategoryModel]?
-    @Published public var featuredContent: [CategoryModel]?
+    @Published public var heroContent: [CategoryModel]?
+    @Published public var homeCategoryContent: [CategoryModel]?
     @Published public var hanziTestCharacterSet: [VocabularyModel]?
     
     public func fetchZhuyinContent() async throws {
-        self.zhuyinContent = try await provider.fetchZhuyinContent()
+        self.heroContent = try await provider.fetchZhuyinContent()
     }
     
-    public func fetchFeaturedContent() async throws {
-        self.featuredContent = try await provider.fetchFeaturedContent()
+    public func fetchHomeCategoryContent() async throws {
+        self.homeCategoryContent = try await provider.fetchHomeCategoryContent()
+    }
+    
+    public func fetchTestContent() async throws {
+        guard let testContent = try await provider.fetchTestContent().first else { return }
+        if self.homeCategoryContent == nil {
+            self.homeCategoryContent = []
+        }
+        self.homeCategoryContent?.append(testContent)
     }
 
     public func fetchImage(urlString: String) async throws -> UIImage? {

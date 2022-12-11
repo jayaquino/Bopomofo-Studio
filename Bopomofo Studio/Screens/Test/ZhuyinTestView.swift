@@ -20,102 +20,90 @@ struct ZhuyinTestView: View {
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     
     var body: some View {
-        
-        ZStack{
-            VStack(alignment: .center) {
-                HStack{
-                    Text("Score: " + String(viewModel.score))
-                        .padding()
-                        .frame(minWidth: Constants.screenWidth*8/10/2,alignment:.center)
-                        .foregroundColor(.white)
-                        .background(Color.accentColor)
-                        .cornerRadius(20)
-                        .shadow(radius: 3)
-                    
-                    Text("High Score: " + String(UserDefaults.standard.integer(forKey: viewModel.topic.topicName)))
-                        .padding()
-                        .frame(minWidth: Constants.screenWidth*8/10/2,alignment:.center)
-                        .foregroundColor(.white)
-                        .background(Color.accentColor)
-                        .cornerRadius(20)
-                        .shadow(radius: 3)
-                }
-                .padding()
+        VStack(alignment: .center, spacing: 5) {
+            VStack(spacing: 5) {
+                Text("High Score: " + String(UserDefaults.standard.integer(forKey: viewModel.topic.topicName)))
                 
-                ZStack{
-                    VStack{
-                        Group {
-                            if LanguageHelper.isZhuyinOrPinyin(viewModel.randomSymbol) {
-                                Image(viewModel.randomSymbol)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .padding()
-                            } else {
-                                Text(viewModel.randomSymbol)
-                                    .font(.system(size: 100))
-                                    .fontWeight(.bold)
-                                    .frame(maxWidth: .infinity, maxHeight: 100)
-                                    .cornerRadius(16)
-                                    .padding(5)
-                            }
-                        }
-                        .frame(maxHeight: 200)
-
-                    
-                        
-                        if viewModel.contentStore.pronunciationTextMode == true || viewModel.showPronunciation {
-                            Text(viewModel.randomSymbolExample)
-                                .frame(height: 30)
-                                .opacity(0.5)
-                        } else {
-                            Text(" ")
-                                .frame(height: 30)
-                        }
-                    }
-                    .frame(minHeight: Constants.screenHeight/3)
-                }
-                
-                HStack{
-                    if viewModel.timer >= 1 {
-                        Text("Time Remaining: \(String(format: "%.0f", viewModel.timer)) s").onReceive(timer) { _ in
-                            if viewModel.timer > 0 {
-                                viewModel.timer -= 1
-                            }
-                        }
-                        
-                        if !viewModel.isZhuyinOrPinyin {
-                            Button {
-                                viewModel.showPronunciation = true
-                            } label: {
-                                Text("Reveal Character")
-                                    .font(.subheadline)
-                                    .padding(.horizontal)
-                                    .background(Color.accentColor)
-                                    .cornerRadius(10)
-                                    .foregroundColor(.white)
-                                    .disabled(viewModel.showPronunciation)
-                            }
-                            .buttonStyle(.plain)
-
-                        }
-                        
-                    } else {
-                        Text("Test Finished")
-                            .fontWeight(.bold)
-                    }
-                }
-                .foregroundColor(.accentColor)
-                .font(.subheadline)
-                
-                TextField("Enter the character shown", text: $viewModel.inputSymbol)
-                    .focused($focus)
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
-                    .onAppear {
-                        focus.toggle()
-                    }
+                Text("Score: " + String(viewModel.score))
             }
+            .frame(maxWidth: 600, maxHeight: 50)
+            .font(.subheadline)
+            .foregroundColor(.white)
+            .background(Color.accentColor)
+            .clipShape(Capsule())
+            .padding()
+            
+            if LanguageHelper.isZhuyinOrPinyin(viewModel.randomCharacter) {
+                Image(viewModel.randomCharacter)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxHeight: 150)
+                    .padding()
+            } else {
+                Text(viewModel.randomCharacter)
+                    .font(.system(size: 125, weight: .bold))
+                    .padding(5)
+            }
+            if viewModel.contentStore.translationMode && viewModel.randomCharacterTranslation != " " {
+                Text(viewModel.randomCharacterTranslation)
+            }
+            
+            if viewModel.contentStore.pronunciationTextMode {
+                HStack {
+                    Text(viewModel.randomCharacterPinyin)
+                        .frame(height: 30)
+                    if viewModel.markIncorrect {
+                        Text(viewModel.randomCharacterZhuyin)
+                            .frame(height: 30)
+                            .opacity(0.5)
+                    } else {
+                        Text(" ")
+                            .frame(height: 30)
+                    }
+                }
+            }
+            
+            HStack {
+                if viewModel.timer >= 1 {
+                    Text("Time Remaining: \(String(format: "%.0f", viewModel.timer)) s").onReceive(timer) { _ in
+                        if viewModel.timer > 0 {
+                            viewModel.timer -= 1
+                        }
+                    }
+                    
+                    if !viewModel.isZhuyinOrPinyin {
+                        Button {
+                            viewModel.skipButtonPressed()
+                        } label: {
+                            Text("Skip")
+                                .font(.subheadline)
+                                .padding()
+                                .background(Color.accentColor)
+                                .cornerRadius(10)
+                                .foregroundColor(.white)
+                                .disabled(viewModel.markIncorrect)
+                        }
+                        .buttonStyle(.plain)
+                        
+                    }
+                    
+                } else {
+                    Text("Test Finished")
+                        .fontWeight(.bold)
+                }
+            }
+            .font(.subheadline)
+            
+            TextField("Enter the character shown", text: $viewModel.inputSymbol)
+                .focused($focus)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+                .onAppear {
+                    focus.toggle()
+                }
         }
+        .padding(.top, 30)
+        .foregroundColor(.accentColor)
         .navigationBarHidden(true)
         .onAppear {
             viewModel.trackEvent(event: .beganTest(testSetting: viewModel.contentStore.timerValue.description))
@@ -155,7 +143,7 @@ struct ZhuyinTestView: View {
                         .font(.headline)
                     
                     RoundedRectangle(cornerRadius: 1)
-                        .frame(width: Constants.screenWidth*2/3, height: 2)
+                        .frame(width: 200, height: 2)
                     
                     if viewModel.incorrectVocabulary.isEmpty && viewModel.score > 0 {
                         Image(systemName: "checkmark.circle")
@@ -165,8 +153,10 @@ struct ZhuyinTestView: View {
                     } else {
                         ForEach(viewModel.incorrectVocabulary, id: \.id) { incorrectVocabulary in
                             HStack {
-                                Text(incorrectVocabulary.character)
-                                Text(incorrectVocabulary.pronunciation)
+                                Text(incorrectVocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
+                                Text(incorrectVocabulary.pronunciationSet["zhuyin"] ?? "")
+                                Text(incorrectVocabulary.pronunciationSet["pinyin"] ?? "")
+                                Text(incorrectVocabulary.translation)
                             }
                         }
                     }

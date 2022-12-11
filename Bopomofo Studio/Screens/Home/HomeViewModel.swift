@@ -13,8 +13,8 @@ class HomeViewModel: ObservableObject {
     let contentStore: ContentStore
     let analytics: AnalyticsProvider
     
-    @Published var zhuyinContent: [CategoryModel]?
-    @Published var featuredContent: [CategoryModel]?
+    @Published var heroContent: [CategoryModel]?
+    @Published var homeCategoryContent: [CategoryModel]?
     @Published var feedback = ""
     @Published var showAlert = false
     
@@ -30,16 +30,20 @@ class HomeViewModel: ObservableObject {
     }
     
     private func assignVariables() {
-        contentStore.$zhuyinContent
-            .assign(to: &self.$zhuyinContent)
+        contentStore.$heroContent
+            .assign(to: &self.$heroContent)
         
-        contentStore.$featuredContent
-            .assign(to: &self.$featuredContent)
+        contentStore.$homeCategoryContent
+            .assign(to: &self.$homeCategoryContent)
     }
     
     private func fetchAllContent() {
         fetchZhuyinContent()
-        fetchFeaturedContent()
+        fetchHomeCategoryContent()
+        
+        if EnvironmentKeys.environment == .STAGING {
+            fetchTestContent()
+        }
     }
     
     private func fetchZhuyinContent() {
@@ -47,17 +51,27 @@ class HomeViewModel: ObservableObject {
             do {
                 try await self.contentStore.fetchZhuyinContent()
             } catch {
-                print("Error fetching Zhuyin content")
+                print("Error fetching Featured content")
             }
         }
     }
     
-    private func fetchFeaturedContent() {
+    private func fetchHomeCategoryContent() {
         Task {
             do {
-                try await self.contentStore.fetchFeaturedContent()
+                try await self.contentStore.fetchHomeCategoryContent()
             } catch {
-                print("Error fetching Featured content")
+                print("Error fetching Home content")
+            }
+        }
+    }
+    
+    private func fetchTestContent() {
+        Task {
+            do {
+                try await self.contentStore.fetchTestContent()
+            } catch {
+                print("Error fetching Test content")
             }
         }
     }

@@ -15,9 +15,11 @@ class SettingsViewModel: ObservableObject {
     let contentStore: ContentStore
     let analytics: AnalyticsProvider
     
+    @Published var characterSet: ContentStore.WordCharacterSet
     @Published var voiceSelection: ContentStore.VoiceSelection
     @Published var pronunciationTextMode: Bool
     @Published var pronunciationVoiceMode: Bool
+    @Published var translationMode: Bool
     @Published var timerValue: Double
     @Published var speakingSpeed: Float
     
@@ -30,9 +32,11 @@ class SettingsViewModel: ObservableObject {
         self.analytics = analytics
         self.contentStore = contentStore
 
+        self.characterSet = contentStore.characterSetSetting
         self.voiceSelection = contentStore.voiceSelection
         self.pronunciationTextMode = contentStore.pronunciationTextMode
         self.pronunciationVoiceMode = contentStore.pronunciationVoiceMode
+        self.translationMode = contentStore.translationMode
         self.timerValue = contentStore.timerValue
         self.speakingSpeed = contentStore.speakingSpeed
 
@@ -40,6 +44,14 @@ class SettingsViewModel: ObservableObject {
     }
     
     private func addSubscribers() {
+        $characterSet
+            .dropFirst()
+            .sink { [weak self] characterSet in
+                self?.contentStore.characterSetSetting = characterSet
+            }
+            .store(in: &cancellables)
+        
+        
         $voiceSelection
             .dropFirst()
             .sink { [weak self] voiceType in
@@ -61,6 +73,13 @@ class SettingsViewModel: ObservableObject {
             .sink { [weak self] isOn in
                 self?.contentStore.pronunciationVoiceMode = isOn
                 self?.trackEvent(event: .voiceAssistance(isOn: isOn))
+            }
+            .store(in: &cancellables)
+        
+        $translationMode
+            .dropFirst()
+            .sink { [weak self] isOn in
+                self?.contentStore.translationMode = isOn
             }
             .store(in: &cancellables)
     }

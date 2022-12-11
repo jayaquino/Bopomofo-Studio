@@ -1,29 +1,30 @@
 //
-//  TopicCellView.swift
+//  FeaturedContentCellView.swift
 //  Bopomofo Studio
 //
-//  Created by Nelson Aquino Jr. on 12/4/22.
+//  Created by Nelson Aquino Jr. on 12/5/22.
 //
 
 import SwiftUI
-import FirebaseStorage
 import CoreBopomofoStudio
 import NukeUI
 
-struct TopicCellView: View {
-    @ObservedObject var viewModel: TopicCellViewModel
+struct HomeCategoryCellView: View {
+    @ObservedObject var viewModel: HomeCategoryCellViewModel
     
     var body: some View {
         VStack {
             VStack(alignment: .center, spacing: 0) {
-                LazyImage(url: URL(string: viewModel.topic.topicImage)!, resizingMode: .aspectFit)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                VStack(spacing: 0) {
+                    LazyImage(url: URL(string: viewModel.topic.topicImage), resizingMode: .aspectFit)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
                 Text(viewModel.topic.topicName)
-                    .font(.headline)
+                    .font(.subheadline)
                     .fontWeight(.light)
                     .padding()
             }
-            .frame(width: 250, height: 300, alignment: .top)
+            .frame(width: 200, height: 250, alignment: .top)
             .cornerRadius(16)
             .background(
                 RoundedRectangle(cornerRadius: 16)
@@ -47,14 +48,16 @@ struct TopicCellView: View {
     }
 }
 
-struct TopicCellView_Previews: PreviewProvider {
+struct HomeCategoryCellView_Previews: PreviewProvider {
     static var previews: some View {
-        TopicCellView(viewModel: TopicCellViewModel(
-            contentStore: dev.contentStore, topic: TopicModel(
-                topicName: "BPMF",
-                topicImage: "BPMF.png",
-                vocabulary: []
+        HomeCategoryCellView(
+            viewModel: HomeCategoryCellViewModel(
+                contentStore: dev.contentStore,
+                topic: TopicModel(
+                    topicName: "",
+                    topicImage: "",
+                    vocabulary: [])
             )
-        ))
+        )
     }
 }

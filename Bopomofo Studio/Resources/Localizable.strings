@@ -9,14 +9,16 @@
 //MARK: - TOGGLE
 "TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE" = "Pronunciation Text Assistance";
 "TOGGLE_PRONUNCIATION_VOICE_ASSISTANCE" = "Pronunciation Voice Assistance";
+"TOGGLE_TRANSLATION" = "Translation";
 
 //MARK: - BUTTON
 "START_BUTTON" = "Start";
 "SEND_FEEDBACK_BUTTON" = "Got Suggestions? Send Feedback!";
 
 //MARK: - PICKER
-"PICKER_PRONUNCIATION_TEXT_ASSISTANCE_SUBTEXT" = "Shows pronunciation below the zhuyin or pinyin.";
-"PICKER_PRONUNCIATION_VOICE_ASSISTANCE_SUBTEXT" = "Turn on volume to hear pronunciation assistance.";
+"TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE_SUBTEXT" = "Shows pronunciation below the zhuyin or pinyin.";
+"TOGGLE_PRONUNCIATION_VOICE_ASSISTANCE_SUBTEXT" = "Turn on volume to hear pronunciation assistance.";
+"TOGGLE_TRANSLATION_SUBTEXT" = "Show the English translations of characters.";
 
 //MARK: - TEXTFIELDS
 "SEND_FEEDBACK_TEXTFIELD" = "Any comments or feature suggestions?";

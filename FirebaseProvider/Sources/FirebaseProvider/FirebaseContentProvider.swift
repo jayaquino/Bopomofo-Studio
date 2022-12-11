@@ -16,12 +16,16 @@ public class FirebaseContentProvider: ContentProvider {
         self.provider = provider
     }
     
-    public func fetchZhuyinContent() async throws -> [CoreBopomofoStudio.CategoryModel] {
-        try await provider.fetchCategories(location: "zhuyin", type: CategoryModel.self)
+    public func fetchZhuyinContent() async throws -> [CategoryModel] {
+        try await provider.fetchCategories(location: "zhuyin_content", type: CategoryModel.self)
     }
     
-    public func fetchFeaturedContent() async throws -> [CategoryModel] {
-        try await provider.fetchCategories(location: "featured_content", type: CategoryModel.self)
+    public func fetchHomeCategoryContent() async throws -> [CategoryModel] {
+        try await provider.fetchCategories(location: "home_category_content", type: CategoryModel.self)
+    }
+    
+    public func fetchTestContent() async throws -> [CategoryModel] {
+        try await provider.fetchCategories(location: "test_content", type: CategoryModel.self)
     }
     
     public func fetchImage(urlString: String) async throws -> UIImage? {
