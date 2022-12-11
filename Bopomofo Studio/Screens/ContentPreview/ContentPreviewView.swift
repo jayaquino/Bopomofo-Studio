@@ -22,7 +22,7 @@ struct ContentPreviewView: View {
                         TestContentCell(
                             image: viewModel.topic.vocabulary[index].characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "",
                             showPronunciation: $viewModel.pronunciationTextMode,
-                            description: viewModel.topic.vocabulary[index].characterSet[viewModel.contentStore.characterPronunciationSetting.rawValue] ?? ""
+                            description: viewModel.topic.vocabulary[index].pronunciationSet[viewModel.contentStore.characterPronunciationSetting.rawValue] ?? ""
                         )
                         .onTapGesture {
                             viewModel.playSound(symbol: viewModel.topic.vocabulary[index].characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")

@@ -34,7 +34,7 @@ public class ContentStore: ObservableObject {
         case pinyin
     }
     
-    @Published public var pronunciationTextMode : Bool = true
+    @Published public var pronunciationTextMode : Bool = false
     @Published public var pronunciationVoiceMode : Bool = true
     @Published public var voiceSelection: VoiceSelection = .female
     @Published public var characterSetSetting: WordCharacterSet = .traditional

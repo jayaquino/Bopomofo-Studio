@@ -32,7 +32,7 @@ public class VocabularyModel: Decodable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         characterSet = try container.decode([String: String].self, forKey: .characterSet)
-        pronunciationSet = try container.decode([String: String].self, forKey: .characterSet)
+        pronunciationSet = try container.decode([String: String].self, forKey: .pronunciationSet)
         translation = try container.decode(String.self, forKey: .translation)
     }
 }
