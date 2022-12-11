@@ -47,7 +47,9 @@ struct TestContentCell: View {
             if showPronunciation && zhuyin != " " && pinyin != " " {
                 VStack(alignment: .leading) {
                     Text(zhuyin)
-                    Text(pinyin)
+                    if zhuyin != pinyin {
+                        Text(pinyin)
+                    }
                 }
                 .font(.headline)
             }
