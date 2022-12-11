@@ -21,16 +21,30 @@ struct SettingsView: View {
                     VStack(spacing: 10) {
                         Text("General")
                             .font(.title)
+                        Picker("", selection: $viewModel.characterSet) {
+                            ForEach(ContentStore.WordCharacterSet.allCases, id: \.self) {
+                                Text($0.rawValue)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        
+                        VStack(alignment: .leading, spacing: 0) {
+                            Toggle("TOGGLE_TRANSLATION", isOn: $viewModel.translationMode)
+                            Text("TOGGLE_TRANSLATION_SUBTEXT")
+                                .font(.subheadline)
+                                .fontWeight(.thin)
+                        }
+                        
                         VStack(alignment: .leading, spacing: 0) {
                             Toggle("TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE", isOn: $viewModel.pronunciationTextMode)
-                            Text("PICKER_PRONUNCIATION_TEXT_ASSISTANCE_SUBTEXT")
+                            Text("TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE_SUBTEXT")
                                 .font(.subheadline)
                                 .fontWeight(.thin)
                         }
                         
                         VStack(alignment: .leading, spacing: 0) {
                             Toggle("TOGGLE_PRONUNCIATION_VOICE_ASSISTANCE", isOn: $viewModel.pronunciationVoiceMode)
-                            Text("PICKER_PRONUNCIATION_VOICE_ASSISTANCE_SUBTEXT")
+                            Text("TOGGLE_PRONUNCIATION_VOICE_ASSISTANCE_SUBTEXT")
                                 .font(.subheadline)
                                 .fontWeight(.thin)
                         }

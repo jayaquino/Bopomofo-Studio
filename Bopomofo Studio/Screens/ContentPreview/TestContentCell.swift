@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct TestContentCell: View {
-    let image: String
     @Binding var showPronunciation: Bool
+    @Binding var showTranslation: Bool
+    
+    let image: String
     let zhuyin: String
     let pinyin: String
+    let translation: String
     
     var body: some View {
         HStack(spacing: 10) {
@@ -23,7 +26,7 @@ struct TestContentCell: View {
                         .frame(maxWidth: 80, maxHeight: 80)
                         .cornerRadius(16)
                         .padding(5)
-                } else if image == "\"\"" {
+                } else if image == " " {
                     Text("Coming Soon!")
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity, maxHeight: 80)
@@ -44,17 +47,26 @@ struct TestContentCell: View {
                     .stroke(.secondary, lineWidth: 1)
             }
             .padding(10)
-            if showPronunciation && zhuyin != " " && pinyin != " " {
+            
+            if (showPronunciation || showTranslation) && image != " " {
                 VStack(alignment: .leading) {
-                    Text(zhuyin)
-                    if zhuyin != pinyin {
-                        Text(pinyin)
+                    if showPronunciation && zhuyin != " " && pinyin != " " {
+                        VStack(alignment: .leading) {
+                            Text(zhuyin)
+                            if zhuyin != pinyin {
+                                Text(pinyin)
+                            }
+                        }
+                    }
+                    if showTranslation && translation != " " {
+                        Text(translation)
                     }
                 }
+                .padding()
                 .font(.headline)
             }
         }
-        .frame(maxWidth: showPronunciation ? 400 : nil, minHeight: 100, alignment: .leading)
+        .frame(maxWidth: (showPronunciation || showTranslation) ? 400 : nil, minHeight: 100, alignment: .leading)
         .cornerRadius(16)
         .background(
             RoundedRectangle(cornerRadius: 16)
@@ -78,17 +90,21 @@ struct TestContentCell_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             TestContentCell(
-                image: "BPMF",
                 showPronunciation: .constant(true),
+                showTranslation: .constant(true),
+                image: "BPMF",
                 zhuyin: "Zhuyin",
-                pinyin: "Pinyin"
+                pinyin: "Pinyin",
+                translation: "None"
             )
             
             TestContentCell(
-                image: "BPMF",
                 showPronunciation: .constant(false),
+                showTranslation: .constant(true),
+                image: "BPMF",
                 zhuyin: "Zhuyin",
-                pinyin: "Pinyin"
+                pinyin: "Pinyin",
+                translation: "None"
             )
         }
     }

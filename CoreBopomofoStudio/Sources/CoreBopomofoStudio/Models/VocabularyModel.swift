@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class VocabularyModel: Decodable {
+public class VocabularyModel: Decodable, Hashable, Equatable {
     enum CodingKeys: CodingKey {
         case characterSet
         case pronunciationSet
@@ -27,6 +27,15 @@ public class VocabularyModel: Decodable {
         self.characterSet = characterSet
         self.pronunciationSet = pronunciationSet
         self.translation = translation
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(translation)
+    }
+    
+    public static func == (lhs: VocabularyModel, rhs: VocabularyModel) -> Bool {
+        lhs.id == rhs.id
     }
     
     public required init(from decoder: Decoder) throws {

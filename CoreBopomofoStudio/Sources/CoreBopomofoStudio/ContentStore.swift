@@ -24,7 +24,7 @@ public class ContentStore: ObservableObject {
         case male = "Male"
     }
     
-    public enum WordCharacterSet: String {
+    public enum WordCharacterSet: String, CaseIterable {
         case traditional
         case simplified
     }
@@ -36,6 +36,7 @@ public class ContentStore: ObservableObject {
     
     @Published public var pronunciationTextMode : Bool = false
     @Published public var pronunciationVoiceMode : Bool = true
+    @Published public var translationMode: Bool = true
     @Published public var voiceSelection: VoiceSelection = .female
     @Published public var characterSetSetting: WordCharacterSet = .traditional
     @Published public var characterPronunciationSetting: WordCharacterPronunciation = .zhuyin

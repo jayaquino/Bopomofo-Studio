@@ -20,7 +20,7 @@ struct ZhuyinTestView: View {
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 5) {
             VStack(spacing: 5) {
                 Text("High Score: " + String(UserDefaults.standard.integer(forKey: viewModel.topic.topicName)))
                 
@@ -43,6 +43,9 @@ struct ZhuyinTestView: View {
                 Text(viewModel.randomCharacter)
                     .font(.system(size: 125, weight: .bold))
                     .padding(5)
+            }
+            if viewModel.contentStore.translationMode && viewModel.randomCharacterTranslation != " " {
+                Text(viewModel.randomCharacterTranslation)
             }
             
             if viewModel.contentStore.pronunciationTextMode {
@@ -90,7 +93,6 @@ struct ZhuyinTestView: View {
                 }
             }
             .font(.subheadline)
-            .padding()
             
             TextField("Enter the character shown", text: $viewModel.inputSymbol)
                 .focused($focus)
@@ -154,6 +156,7 @@ struct ZhuyinTestView: View {
                                 Text(incorrectVocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
                                 Text(incorrectVocabulary.pronunciationSet["zhuyin"] ?? "")
                                 Text(incorrectVocabulary.pronunciationSet["pinyin"] ?? "")
+                                Text(incorrectVocabulary.translation)
                             }
                         }
                     }

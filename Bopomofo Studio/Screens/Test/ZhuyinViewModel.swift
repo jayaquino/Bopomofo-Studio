@@ -25,6 +25,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     @Published var randomCharacter = ""
     @Published var randomCharacterZhuyin = ""
     @Published var randomCharacterPinyin = ""
+    @Published var randomCharacterTranslation = ""
     @Published var score = 0
     @Published var markIncorrect = false {
         willSet {
@@ -80,6 +81,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         self.randomCharacter = topic.vocabulary[randomNumber].characterSet[contentStore.characterSetSetting.rawValue] ?? ""
         randomCharacterZhuyin = topic.vocabulary[randomNumber].pronunciationSet["zhuyin"] ?? ""
         randomCharacterPinyin = topic.vocabulary[randomNumber].pronunciationSet["pinyin"] ?? ""
+        randomCharacterTranslation = topic.vocabulary[randomNumber].translation
         
         playSound()
         addSubscribers()
@@ -105,6 +107,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         randomCharacter = topic.vocabulary[randomNumber].characterSet[contentStore.characterSetSetting.rawValue] ?? ""
         randomCharacterZhuyin = topic.vocabulary[randomNumber].pronunciationSet["zhuyin"] ?? ""
         randomCharacterPinyin = topic.vocabulary[randomNumber].pronunciationSet["pinyin"] ?? ""
+        randomCharacterTranslation = topic.vocabulary[randomNumber].translation
 
         playSound()
     }
