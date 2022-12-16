@@ -20,8 +20,8 @@ public class ContentStore: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     public enum VoiceSelection: String, CaseIterable {
-        case female = "Female"
-        case male = "Male"
+        case female
+        case male
     }
     
     public enum WordCharacterSet: String, CaseIterable {

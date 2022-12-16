@@ -17,7 +17,7 @@ struct TestContentCell: View {
     let translation: String
     
     var body: some View {
-        HStack(spacing: 10) {
+        HStack(spacing: 0) {
             Group {
                 if LanguageHelper.isZhuyinOrPinyin(image) {
                     Image(image)
@@ -62,7 +62,8 @@ struct TestContentCell: View {
                             .lineLimit(2)
                     }
                 }
-                .padding(.trailing)
+                .padding(.vertical, 10)
+                .padding(.trailing, 10)
                 .lineLimit(1)
                 .minimumScaleFactor(0.2)
                 .font(.headline)
