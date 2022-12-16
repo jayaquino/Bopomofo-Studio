@@ -46,9 +46,9 @@ struct TestContentCell: View {
             }
             .padding(10)
             
-            if (showPronunciation || showTranslation) && image != " " {
+            if ((showPronunciation && zhuyin != " " && pinyin != " ") || (showTranslation && translation != " ")) && image != " " {
                 VStack(alignment: .leading) {
-                    if showPronunciation && zhuyin != " " && pinyin != " " {
+                    if showPronunciation {
                         VStack(alignment: .leading) {
                             Text(zhuyin)
                             
@@ -57,7 +57,7 @@ struct TestContentCell: View {
                             }
                         }
                     }
-                    if showTranslation && translation != " " {
+                    if showTranslation {
                         Text(translation)
                             .lineLimit(2)
                     }
