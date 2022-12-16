@@ -18,30 +18,28 @@ struct TestContentCell: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            VStack(spacing: 0) {
+            Group {
                 if LanguageHelper.isZhuyinOrPinyin(image) {
                     Image(image)
                         .resizable()
                         .scaledToFit()
-                        .frame(maxWidth: 80, maxHeight: 80)
-                        .cornerRadius(16)
-                        .padding(5)
+                        .padding()
                 } else if image == " " {
                     Text("Coming Soon!")
                         .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, maxHeight: 80)
-                        .cornerRadius(16)
-                        .padding(5)
+                        .padding()
                         .multilineTextAlignment(.center)
                 } else {
                     Text(image)
                         .font(.system(size: 40))
                         .fontWeight(.bold)
-                        .frame(maxWidth: 80, maxHeight: 80)
-                        .cornerRadius(16)
-                        .padding(5)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.5)
+                        .padding()
                 }
             }
+            .frame(maxWidth: 120, maxHeight: .infinity, alignment: .center)
+            .cornerRadius(16)
             .overlay {
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(.secondary, lineWidth: 1)
@@ -53,6 +51,7 @@ struct TestContentCell: View {
                     if showPronunciation && zhuyin != " " && pinyin != " " {
                         VStack(alignment: .leading) {
                             Text(zhuyin)
+                            
                             if zhuyin != pinyin {
                                 Text(pinyin)
                             }
@@ -60,13 +59,19 @@ struct TestContentCell: View {
                     }
                     if showTranslation && translation != " " {
                         Text(translation)
+                            .lineLimit(2)
                     }
                 }
-                .padding()
+                .padding(.trailing)
+                .lineLimit(1)
+                .minimumScaleFactor(0.2)
                 .font(.headline)
             }
         }
-        .frame(maxWidth: (showPronunciation || showTranslation) ? 400 : nil, minHeight: 100, alignment: .leading)
+        .frame(
+            maxWidth: ((showPronunciation && zhuyin != " " && pinyin != " ") || (showTranslation && translation != " ")) ? 400 : nil,
+            maxHeight: 120, alignment: .leading
+        )
         .cornerRadius(16)
         .background(
             RoundedRectangle(cornerRadius: 16)
@@ -92,10 +97,10 @@ struct TestContentCell_Previews: PreviewProvider {
             TestContentCell(
                 showPronunciation: .constant(true),
                 showTranslation: .constant(true),
-                image: "BPMF",
-                zhuyin: "Zhuyin",
-                pinyin: "Pinyin",
-                translation: "None"
+                image: "時光飛逝",
+                zhuyin: "Zhuyin with a very long description",
+                pinyin: "Pinyin with a very long description",
+                translation: "Translation with a very long description"
             )
             
             TestContentCell(
