@@ -49,6 +49,7 @@ class SettingsViewModel: ObservableObject {
             .sink { [weak self] characterSet in
                 UserDefaults.characterSet = characterSet.rawValue
                 self?.contentStore.characterSetSetting = characterSet
+                self?.trackEvent(event: .characterSet(characterSet: characterSet.rawValue))
             }
             .store(in: &cancellables)
         
@@ -85,6 +86,7 @@ class SettingsViewModel: ObservableObject {
             .sink { [weak self] isOn in
                 self?.contentStore.translationMode = isOn
                 UserDefaults.translationMode = isOn
+                self?.trackEvent(event: .translationMode(isOn: isOn))
             }
             .store(in: &cancellables)
     }
