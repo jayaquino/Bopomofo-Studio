@@ -13,6 +13,8 @@ import CoreBopomofoStudio
 class ContentPreviewViewModel: ObservableObject {
     
     let contentStore: ContentStore
+    let analytics: AnalyticsProvider
+    
     let topic: TopicModel
     @Published var pronunciationTextMode: Bool
     @Published var translationMode: Bool
@@ -22,9 +24,11 @@ class ContentPreviewViewModel: ObservableObject {
     
     init(
         contentStore: ContentStore,
+        analytics: AnalyticsProvider,
         topic: TopicModel
     ) {
         self.contentStore = contentStore
+        self.analytics = analytics
         self.topic = topic
         
         self.pronunciationTextMode = contentStore.pronunciationTextMode
@@ -60,5 +64,9 @@ class ContentPreviewViewModel: ObservableObject {
                 rate: contentStore.speakingSpeed
             )
         }
+    }
+    
+    func trackEvent(event: AnalyticsProvider.ContentPreviewAnalyticEvent) {
+        self.analytics.track(event: .contentPreview(event: event))
     }
 }

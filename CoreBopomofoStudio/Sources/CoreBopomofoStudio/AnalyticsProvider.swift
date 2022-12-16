@@ -25,6 +25,7 @@ open class AnalyticsProvider {
         case settings(event: SettingsAnalyticEvent)
         case test(event: TestAnalyticEvent)
         case home(event: HomeAnalyticEvent)
+        case contentPreview(event: ContentPreviewAnalyticEvent)
         
         public var eventName: String {
             switch self {
@@ -32,8 +33,9 @@ open class AnalyticsProvider {
                     .home(event: let event as AnalyticTrackingProtocol),
                     .onboarding(event: let event as AnalyticTrackingProtocol),
                     .settings(event: let event as AnalyticTrackingProtocol),
-                    .test(event: let event as AnalyticTrackingProtocol):
-                
+                    .test(event: let event as AnalyticTrackingProtocol),
+                    .contentPreview(event: let event as AnalyticTrackingProtocol)
+                :
                 
                 return event.eventName
             }
@@ -45,7 +47,9 @@ open class AnalyticsProvider {
                     .home(event: let event as AnalyticTrackingProtocol),
                     .onboarding(event: let event as AnalyticTrackingProtocol),
                     .settings(event: let event as AnalyticTrackingProtocol),
-                    .test(event: let event as AnalyticTrackingProtocol):
+                    .test(event: let event as AnalyticTrackingProtocol),
+                    .contentPreview(event: let event as AnalyticTrackingProtocol)
+                :
                 
                 return event.parameters
             }
@@ -189,6 +193,31 @@ open class AnalyticsProvider {
                 ]
             case .notificationEnabled(enabled: let enabled):
                 return ["enabled": enabled]
+            }
+        }
+    }
+    
+    // MARK: - ContentPreview Analytics
+    public enum ContentPreviewAnalyticEvent: AnalyticTrackingProtocol {
+        case playSound(
+            topicName: String,
+            character: String
+        )
+        
+        public var eventName: String {
+            switch self {
+            case .playSound:
+                return "sound_played"
+            }
+        }
+        
+        public var parameters: [String : Any] {
+            switch self {
+            case .playSound(let topicName, let character):
+                return [
+                    "topic_name": topicName,
+                    "character": character
+                ]
             }
         }
     }
