@@ -119,9 +119,9 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
                 
                 switch contentStore.voiceSelection {
                 case .male:
-                    SoundManager.instance.playMaleSound(sound: randomCharacter)
+                    SoundManager.instance.playMaleSound(sound: sound)
                 case .female:
-                    SoundManager.instance.playFemaleSound(sound: randomCharacter)
+                    SoundManager.instance.playFemaleSound(sound: sound)
                 }
             } else {
                 SoundManager.instance.utterSound(
@@ -134,8 +134,9 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     
     private func checkUserInput() {
         guard inputSymbol != "", randomCharacter != "" else { return }
-        print("checking", randomCharacter, inputSymbol)
-        if inputSymbol == symbolKey {
+        var processedSymbol = inputSymbol.replacingOccurrences(of: "ˉ", with: " ")
+        print("checking", randomCharacter, processedSymbol)
+        if processedSymbol == symbolKey {
             score += 1
             generateNewSymbol()
             inputSymbol = ""

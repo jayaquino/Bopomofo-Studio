@@ -20,88 +20,100 @@ struct ZhuyinTestView: View {
     let timer = Timer.publish(every: 1, on: .current, in: .common).autoconnect()
     
     var body: some View {
-        VStack(alignment: .center, spacing: 5) {
-            VStack(spacing: 5) {
-                Text("High Score: " + String(UserDefaults.standard.integer(forKey: viewModel.topic.topicName)))
-                
-                Text("Score: " + String(viewModel.score))
-            }
-            .frame(maxWidth: 600, maxHeight: 50)
-            .font(.subheadline)
-            .foregroundColor(.white)
-            .background(Color.accentColor)
-            .clipShape(Capsule())
-            .padding()
-            
-            if LanguageHelper.isZhuyinOrPinyin(viewModel.randomCharacter) {
-                Image(viewModel.randomCharacter)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxHeight: 150)
-                    .padding()
-            } else {
-                Text(viewModel.randomCharacter)
-                    .font(.system(size: 125, weight: .bold))
-                    .padding(5)
-            }
-            if viewModel.contentStore.translationMode && viewModel.randomCharacterTranslation != " " {
-                Text(viewModel.randomCharacterTranslation)
-            }
-            
-            if viewModel.contentStore.pronunciationTextMode {
-                HStack {
-                    Text(viewModel.randomCharacterPinyin)
-                        .frame(height: 30)
-                    if viewModel.markIncorrect {
-                        Text(viewModel.randomCharacterZhuyin)
-                            .frame(height: 30)
-                            .opacity(0.5)
-                    } else {
-                        Text(" ")
-                            .frame(height: 30)
-                    }
+        ZStack {
+            VStack(alignment: .center, spacing: 5) {
+                HStack(spacing: 5) {
+                    Text("High Score: " + String(UserDefaults.standard.integer(forKey: viewModel.topic.topicName)))
+                        .padding()
+                    Spacer()
+                    Text("Score: " + String(viewModel.score))
+                        .padding()
                 }
-            }
-            
-            HStack {
-                if viewModel.timer >= 1 {
-                    Text("Time Remaining: \(String(format: "%.0f", viewModel.timer)) s").onReceive(timer) { _ in
-                        if viewModel.timer > 0 {
-                            viewModel.timer -= 1
-                        }
-                    }
-                    
-                    if !viewModel.isZhuyinOrPinyin {
-                        Button {
-                            viewModel.skipButtonPressed()
-                        } label: {
-                            Text("Skip")
-                                .font(.subheadline)
-                                .padding()
-                                .background(Color.accentColor)
-                                .cornerRadius(10)
-                                .foregroundColor(.white)
-                                .disabled(viewModel.markIncorrect)
-                        }
-                        .buttonStyle(.plain)
-                        
-                    }
-                    
-                } else {
-                    Text("Test Finished")
-                        .fontWeight(.bold)
-                }
-            }
-            .font(.subheadline)
-            
-            TextField("Enter the character shown", text: $viewModel.inputSymbol)
-                .focused($focus)
-                .textFieldStyle(.roundedBorder)
+                .frame(maxWidth: 600, maxHeight: 50)
+                .font(.subheadline)
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
+                .foregroundColor(.white)
+                .background(Color.accentColor)
+                .clipShape(Capsule())
                 .padding()
-                .onAppear {
-                    focus.toggle()
+                
+                if LanguageHelper.isZhuyinOrPinyin(viewModel.randomCharacter) {
+                    Image(viewModel.randomCharacter)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight: 150)
+                        .padding()
+                } else {
+                    Text(viewModel.randomCharacter)
+                        .font(.system(size: 125, weight: .bold))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.5)
+                        .padding()
                 }
+                if viewModel.contentStore.translationMode && viewModel.randomCharacterTranslation != " " {
+                    Text(viewModel.randomCharacterTranslation)
+                }
+                
+                if viewModel.contentStore.pronunciationTextMode {
+                    HStack {
+                        Text(viewModel.randomCharacterPinyin)
+                            .frame(height: 30)
+                        if viewModel.markIncorrect {
+                            Text(viewModel.randomCharacterZhuyin)
+                                .frame(height: 30)
+                                .opacity(0.5)
+                        } else {
+                            Text(" ")
+                                .frame(height: 30)
+                        }
+                    }
+                }
+                
+                HStack {
+                    if viewModel.timer >= 1 {
+                        Text("Time Remaining: \(String(format: "%.0f", viewModel.timer)) s")
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.5)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                            .onReceive(timer) { _ in
+                                if viewModel.timer > 0 {
+                                    viewModel.timer -= 1
+                                }
+                            }
+                        Spacer()
+                        if !viewModel.isZhuyinOrPinyin {
+                            Button {
+                                viewModel.skipButtonPressed()
+                            } label: {
+                                Text("Skip")
+                                    .padding()
+                                    .background(Color.accentColor)
+                                    .cornerRadius(10)
+                                    .foregroundColor(.white)
+                                    .disabled(viewModel.markIncorrect)
+                            }
+                            .padding()
+                            .buttonStyle(.plain)
+                        }
+                    } else {
+                        Text("Test Finished")
+                            .fontWeight(.bold)
+                    }
+                }
+                .font(.subheadline)
+                
+                TextField("Enter the character shown", text: $viewModel.inputSymbol)
+                    .focused($focus)
+                    .textFieldStyle(.roundedBorder)
+                    .padding()
+                    .onAppear {
+                        focus.toggle()
+                    }
+            }
         }
+        .frame(maxHeight: .infinity, alignment: .top)
         .padding(.top, 30)
         .foregroundColor(.accentColor)
         .navigationBarHidden(true)
@@ -176,7 +188,18 @@ struct Zhuyin_Previews: PreviewProvider {
     
     static var previews: some View {
         ZhuyinTestView(viewModel: ZhuyinViewModel(
-            topic: TopicModel(topicName: "", topicImage: "", vocabulary: []),
+            topic: TopicModel(topicName: "", topicImage: "", vocabulary:[
+                VocabularyModel(
+                    characterSet: ["traditional" :"去", "simplified": "去"],
+                    pronunciationSet: ["zhuyin": "ㄑㄩˋ", "pinyin": "qù"],
+                    translation: "to go"
+                ),
+                VocabularyModel(
+                    characterSet: ["traditional" :"一石二鳥", "simplified": "一石二鸟"],
+                    pronunciationSet: ["zhuyin": "ㄧ ㄕˊㄦˋㄋㄧㄠˇ", "pinyin": "yī shí èr niǎo"],
+                    translation: "to come"
+                )
+            ]),
             contentStore: dev.contentStore,
             analytics: dev.analytics)
         )
