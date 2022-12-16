@@ -77,13 +77,8 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         self.analytics = analytics
         self.inputSymbol = ""
         self.timer = contentStore.timerValue
-        let randomNumber = Int.random(in: 0...topic.vocabulary.count-1)
-        self.randomCharacter = topic.vocabulary[randomNumber].characterSet[contentStore.characterSetSetting.rawValue] ?? ""
-        randomCharacterZhuyin = topic.vocabulary[randomNumber].pronunciationSet["zhuyin"] ?? ""
-        randomCharacterPinyin = topic.vocabulary[randomNumber].pronunciationSet["pinyin"] ?? ""
-        randomCharacterTranslation = topic.vocabulary[randomNumber].translation
         
-        playSound()
+        generateNewSymbol()
         addSubscribers()
     }
         
@@ -103,6 +98,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     }
     
     private func generateNewSymbol() {
+        inputSymbol = ""
         let randomNumber = Int.random(in: 0...topic.vocabulary.count-1)
         randomCharacter = topic.vocabulary[randomNumber].characterSet[contentStore.characterSetSetting.rawValue] ?? ""
         randomCharacterZhuyin = topic.vocabulary[randomNumber].pronunciationSet["zhuyin"] ?? ""
@@ -134,14 +130,13 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     
     private func checkUserInput() {
         guard inputSymbol != "", randomCharacter != "" else { return }
-        var processedSymbol = inputSymbol.replacingOccurrences(of: "ˉ", with: " ")
+        let processedSymbol = inputSymbol.replacingOccurrences(of: "ˉ", with: " ")
         print("checking", randomCharacter, processedSymbol)
         if processedSymbol == symbolKey {
             score += 1
-            generateNewSymbol()
-            inputSymbol = ""
             errorCounter = 0
             markIncorrect = false
+            generateNewSymbol()
         } else {
             errorCounter += 1
         }
