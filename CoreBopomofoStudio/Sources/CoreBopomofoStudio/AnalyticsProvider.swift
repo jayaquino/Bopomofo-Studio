@@ -25,6 +25,7 @@ open class AnalyticsProvider {
         case settings(event: SettingsAnalyticEvent)
         case test(event: TestAnalyticEvent)
         case home(event: HomeAnalyticEvent)
+        case contentPreview(event: ContentPreviewAnalyticEvent)
         
         public var eventName: String {
             switch self {
@@ -32,8 +33,9 @@ open class AnalyticsProvider {
                     .home(event: let event as AnalyticTrackingProtocol),
                     .onboarding(event: let event as AnalyticTrackingProtocol),
                     .settings(event: let event as AnalyticTrackingProtocol),
-                    .test(event: let event as AnalyticTrackingProtocol):
-                
+                    .test(event: let event as AnalyticTrackingProtocol),
+                    .contentPreview(event: let event as AnalyticTrackingProtocol)
+                :
                 
                 return event.eventName
             }
@@ -45,7 +47,9 @@ open class AnalyticsProvider {
                     .home(event: let event as AnalyticTrackingProtocol),
                     .onboarding(event: let event as AnalyticTrackingProtocol),
                     .settings(event: let event as AnalyticTrackingProtocol),
-                    .test(event: let event as AnalyticTrackingProtocol):
+                    .test(event: let event as AnalyticTrackingProtocol),
+                    .contentPreview(event: let event as AnalyticTrackingProtocol)
+                :
                 
                 return event.parameters
             }
@@ -87,6 +91,8 @@ open class AnalyticsProvider {
         case voiceType(voiceType: String)
         case timerChanged(timer: Double)
         case utterSpeedChanged(speed: Float)
+        case characterSet(characterSet: String)
+        case translationMode(isOn: Bool)
         
         public var eventName: String {
             switch self {
@@ -100,6 +106,10 @@ open class AnalyticsProvider {
                 return "timer_changed"
             case .utterSpeedChanged:
                 return "utter_speed_changed"
+            case .characterSet:
+                return "character_set_changed"
+            case .translationMode:
+                return "translation_mode_changed"
             }
         }
         
@@ -107,7 +117,8 @@ open class AnalyticsProvider {
             switch self {
             case
                     .textAssistance(isOn: let isOn),
-                    .voiceAssistance(isOn: let isOn):
+                    .voiceAssistance(isOn: let isOn),
+                    .translationMode(isOn: let isOn):
                 return ["isOn": isOn]
             case .voiceType(voiceType: let voiceType):
                 return ["voiceType": voiceType]
@@ -115,6 +126,8 @@ open class AnalyticsProvider {
                 return ["timer_value": timer]
             case .utterSpeedChanged(speed: let speed):
                 return ["speed_value": speed]
+            case .characterSet(characterSet: let characterSet):
+                return ["character_set": characterSet]
             }
         }
         
@@ -180,6 +193,31 @@ open class AnalyticsProvider {
                 ]
             case .notificationEnabled(enabled: let enabled):
                 return ["enabled": enabled]
+            }
+        }
+    }
+    
+    // MARK: - ContentPreview Analytics
+    public enum ContentPreviewAnalyticEvent: AnalyticTrackingProtocol {
+        case playSound(
+            topicName: String,
+            character: String
+        )
+        
+        public var eventName: String {
+            switch self {
+            case .playSound:
+                return "sound_played"
+            }
+        }
+        
+        public var parameters: [String : Any] {
+            switch self {
+            case .playSound(let topicName, let character):
+                return [
+                    "topic_name": topicName,
+                    "character": character
+                ]
             }
         }
     }

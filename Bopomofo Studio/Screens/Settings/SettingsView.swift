@@ -18,37 +18,24 @@ struct SettingsView: View {
         VStack {
             ScrollView {
                 VStack(spacing: 40) {
-                    VStack(spacing: 10) {
+                    VStack(spacing: 20) {
                         Text("General")
                             .font(.title)
-                        Picker("", selection: $viewModel.characterSet) {
-                            ForEach(ContentStore.WordCharacterSet.allCases, id: \.self) {
-                                Text($0.rawValue)
-                            }
-                        }
-                        .pickerStyle(.segmented)
                         
-                        VStack(alignment: .leading, spacing: 0) {
-                            Toggle("TOGGLE_TRANSLATION", isOn: $viewModel.translationMode)
-                            Text("TOGGLE_TRANSLATION_SUBTEXT")
-                                .font(.subheadline)
-                                .fontWeight(.thin)
-                        }
-                        
-                        VStack(alignment: .leading, spacing: 0) {
+                        VStack(alignment: .leading) {
                             Toggle("TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE", isOn: $viewModel.pronunciationTextMode)
                             Text("TOGGLE_PRONUNCIATION_TEXT_ASSISTANCE_SUBTEXT")
                                 .font(.subheadline)
                                 .fontWeight(.thin)
                         }
                         
-                        VStack(alignment: .leading, spacing: 0) {
+                        VStack(alignment: .leading) {
                             Toggle("TOGGLE_PRONUNCIATION_VOICE_ASSISTANCE", isOn: $viewModel.pronunciationVoiceMode)
                             Text("TOGGLE_PRONUNCIATION_VOICE_ASSISTANCE_SUBTEXT")
                                 .font(.subheadline)
                                 .fontWeight(.thin)
                         }
-                        VStack(alignment: .center, spacing: 0) {
+                        VStack(alignment: .center) {
                             Slider(value: $viewModel.timerValue, in: 30...300, step:10, onEditingChanged: { editing in
                                 if !editing {
                                     viewModel.handleTimerValueSliderChanged()
@@ -77,11 +64,25 @@ struct SettingsView: View {
                     }
                     Divider()
                         .padding()
-                    VStack(spacing: 10) {
+                    VStack(spacing: 20) {
                         Text("Characters")
                             .font(.title)
                         
-                        VStack(alignment: .center, spacing: 0) {
+                            Picker("", selection: $viewModel.characterSet) {
+                                ForEach(ContentStore.WordCharacterSet.allCases, id: \.self) {
+                                    Text($0.rawValue)
+                                }
+                            }
+                            .pickerStyle(.segmented)
+                            
+                            VStack(alignment: .leading) {
+                                Toggle("TOGGLE_TRANSLATION", isOn: $viewModel.translationMode)
+                                Text("TOGGLE_TRANSLATION_SUBTEXT")
+                                    .font(.subheadline)
+                                    .fontWeight(.thin)
+                            }
+                            
+                            
                             Slider(value: $viewModel.speakingSpeed, in: 0...100, step: 1, onEditingChanged: { editing in
                                 if !editing {
                                     viewModel.handleSpeakingSpeedSliderChanged()
@@ -90,7 +91,6 @@ struct SettingsView: View {
                             Text("Speech Speed (slow - fast)")
                                 .foregroundColor(.accentColor)
                                 .font(.subheadline)
-                        }
                     }
                 }
                 .padding()

@@ -29,6 +29,11 @@ struct ContentPreviewView: View {
                         )
                         .onTapGesture {
                             viewModel.playSound(symbol: vocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
+                            
+                            viewModel.trackEvent(event: .playSound(
+                                topicName: viewModel.topic.topicName,
+                                character: vocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
+                            )
                         }
                     }
                 }
@@ -85,7 +90,7 @@ struct ContentPreviewZhuyin_Previews: PreviewProvider {
     
     static var previews: some View {
         ContentPreviewView(
-            viewModel: ContentPreviewViewModel(contentStore: ContentStore(provider: MockContentProvider()), topic: TopicModel(
+            viewModel: ContentPreviewViewModel(contentStore: ContentStore(provider: MockContentProvider()), analytics: dev.analytics, topic: TopicModel(
                 topicName: "", topicImage: "", vocabulary: [])))
         .environmentObject(dev.router)
     }
