@@ -47,7 +47,9 @@ class SettingsViewModel: ObservableObject {
         $characterSet
             .dropFirst()
             .sink { [weak self] characterSet in
+                UserDefaults.characterSet = characterSet.rawValue
                 self?.contentStore.characterSetSetting = characterSet
+                self?.trackEvent(event: .characterSet(characterSet: characterSet.rawValue))
             }
             .store(in: &cancellables)
         
@@ -55,6 +57,7 @@ class SettingsViewModel: ObservableObject {
         $voiceSelection
             .dropFirst()
             .sink { [weak self] voiceType in
+                UserDefaults.voiceSelection = voiceType.rawValue
                 self?.contentStore.voiceSelection = voiceType
                 self?.trackEvent(event: .voiceType(voiceType: voiceType.rawValue))
             }
@@ -64,6 +67,7 @@ class SettingsViewModel: ObservableObject {
             .dropFirst()
             .sink { [weak self] isOn in
                 self?.contentStore.pronunciationTextMode = isOn
+                UserDefaults.pronunciationTextMode = isOn
                 self?.trackEvent(event: .textAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
@@ -72,6 +76,7 @@ class SettingsViewModel: ObservableObject {
             .dropFirst()
             .sink { [weak self] isOn in
                 self?.contentStore.pronunciationVoiceMode = isOn
+                UserDefaults.pronunciationVoiceMode = isOn
                 self?.trackEvent(event: .voiceAssistance(isOn: isOn))
             }
             .store(in: &cancellables)
@@ -80,17 +85,21 @@ class SettingsViewModel: ObservableObject {
             .dropFirst()
             .sink { [weak self] isOn in
                 self?.contentStore.translationMode = isOn
+                UserDefaults.translationMode = isOn
+                self?.trackEvent(event: .translationMode(isOn: isOn))
             }
             .store(in: &cancellables)
     }
     
     func handleSpeakingSpeedSliderChanged() {
         self.contentStore.speakingSpeed = self.speakingSpeed
+        UserDefaults.speakingSpeed = self.speakingSpeed
         self.trackEvent(event: .utterSpeedChanged(speed: self.speakingSpeed))
     }
     
     func handleTimerValueSliderChanged() {
         self.contentStore.timerValue = self.timerValue
+        UserDefaults.timerValue = self.timerValue
         self.trackEvent(event: .timerChanged(timer: self.timerValue))
     }
     

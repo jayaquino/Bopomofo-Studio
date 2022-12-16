@@ -66,6 +66,7 @@ class Router: ObservableObject {
         ContentPreviewView(
             viewModel: ContentPreviewViewModel(
                 contentStore: self.contentStore,
+                analytics: self.analytics,
                 topic: topic
             )
         )

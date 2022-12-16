@@ -21,7 +21,7 @@ struct Bopomofo_StudioApp: App {
     init() {
         let filePath = Bundle.main.path(forResource: EnvironmentKeys.googlePlist, ofType: "plist")
         guard let options = FirebaseOptions(contentsOfFile: filePath!)
-          else {
+        else {
             fatalError("Couldn't load config file")
         }
         FirebaseApp.configure(options: options)
@@ -30,7 +30,9 @@ struct Bopomofo_StudioApp: App {
             provider: FirebaseContentProvider(provider: FirebaseProvider())
         )
         
-       let analytics = MixpanelProvider(
+        setUpStore()
+        
+        let analytics = MixpanelProvider(
             key: EnvironmentKeys.mixpanelKey,
             environment: EnvironmentKeys.environment
         )
@@ -41,8 +43,18 @@ struct Bopomofo_StudioApp: App {
             contentStore: contentStore,
             analytics: analytics
         )
-    }
         
+        func setUpStore() {
+            contentStore.characterSetSetting = .init(rawValue: UserDefaults.characterSet) ?? .simplified
+            contentStore.voiceSelection = .init(rawValue: UserDefaults.voiceSelection) ?? .female
+            contentStore.pronunciationTextMode = UserDefaults.pronunciationTextMode
+            contentStore.pronunciationVoiceMode = UserDefaults.pronunciationVoiceMode
+            contentStore.translationMode = UserDefaults.translationMode
+            contentStore.speakingSpeed = UserDefaults.speakingSpeed == 0.0 ? 50.0 : UserDefaults.speakingSpeed
+            contentStore.timerValue = UserDefaults.timerValue == 0.0 ? 30.0 : UserDefaults.timerValue
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
             MainView()

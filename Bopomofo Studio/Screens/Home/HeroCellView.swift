@@ -18,6 +18,8 @@ struct HeroCellView: View {
             VStack(alignment: .center, spacing: 0) {
                 LazyImage(url: URL(string: viewModel.topic.topicImage)!, resizingMode: .aspectFit)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .padding(.horizontal)
+                        .padding(.top)
                 Text(viewModel.topic.topicName)
                     .font(.headline)
                     .fontWeight(.light)
