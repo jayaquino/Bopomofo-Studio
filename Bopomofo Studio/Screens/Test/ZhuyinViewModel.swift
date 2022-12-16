@@ -132,7 +132,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         guard inputSymbol != "", randomCharacter != "" else { return }
         let processedSymbol = inputSymbol.replacingOccurrences(of: "ˉ", with: " ")
         print("checking", randomCharacter, processedSymbol)
-        if processedSymbol == symbolKey {
+        if processedSymbol == symbolKey || processedSymbol == randomCharacter {
             score += 1
             errorCounter = 0
             markIncorrect = false
