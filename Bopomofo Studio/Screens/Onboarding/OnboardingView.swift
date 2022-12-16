@@ -64,7 +64,7 @@ struct OnboardingView: View {
         } label: {
             if viewModel.selection.title == LocalizedStringKey("ONBOARDING_NOTIFICATION_TITLE") {
                 Text("Not Now")
-                    .font(.subheadline)
+                    .font(.footnote)
                     .foregroundColor(.accentColor)
             } else {
                 Image(systemName: "arrow.right")
@@ -75,6 +75,7 @@ struct OnboardingView: View {
                     .clipShape(Circle())
             }
         }
+        .padding(.bottom)
         .buttonStyle(.plain)
     }
     
@@ -87,9 +88,13 @@ struct OnboardingView: View {
             VStack(alignment: .leading, spacing: 16) {
                 Text(onboardingSlide.title)
                     .font(.title)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
                 
                 Text(onboardingSlide.description)
                     .font(.callout)
+                    .lineLimit(5)
+                    .minimumScaleFactor(0.3)
             }
             .padding(.horizontal, 16)
         }
