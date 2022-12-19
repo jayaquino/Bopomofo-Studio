@@ -41,7 +41,6 @@ public actor FirebaseProvider {
     }
     
     public func fetchFromStorage(urlString: String) async throws -> UIImage? {
-        let reference = Storage.storage().reference(withPath: urlString)
         let data = try await Storage.storage().reference(withPath: urlString).data(maxSize: 1 * 1024 * 1024)
         return UIImage(data: data)
     }
