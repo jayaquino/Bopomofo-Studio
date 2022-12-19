@@ -40,7 +40,7 @@ public class FirebaseContentProvider: ContentProvider {
     }
     
     public func fetchScores(topic: TopicModel, scoreModel: ScoreModel, textAssistance: Bool) async throws -> [ScoreModel] {
-        try await provider.fetchScores(location: "\(topic.topicName): \(scoreModel.time), textAssistance \(textAssistance.description)")
+        try await provider.fetchDocuments(location: "\(topic.topicName): \(scoreModel.time), textAssistance \(textAssistance.description)")
     }
     
     public func sendFeedback(description: String) async throws -> Bool {

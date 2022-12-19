@@ -29,9 +29,15 @@ public actor FirebaseProvider {
         })
     }
     
-    public func fetchScores(location: String) async throws -> [ScoreModel] {
-        let documents = try await Firestore.firestore().collection(location).getDocuments()
-        return documents.documents.compactMap({ ScoreModel(data: $0.data()) })
+    public func fetchDocuments<T: Decodable>(location: String) async throws -> [T] {
+        let documents = try await Firestore.firestore().collection(location).getDocuments().documents
+        do {
+            let values = documents.compactMap({ $0.data() })
+            let json = try JSONSerialization.data(withJSONObject: values)
+            return try JSONDecoder().decode([T].self, from: json)
+        } catch {
+            throw error
+        }
     }
     
     public func fetchFromStorage(urlString: String) async throws -> UIImage? {
