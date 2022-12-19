@@ -29,23 +29,20 @@ public actor FirebaseProvider {
         })
     }
     
-    public func fetchScores(location: String) async throws -> [ScoreModel] {
-        let documents = try await Firestore.firestore().collection(location).getDocuments()
-        return documents.documents.compactMap({ ScoreModel(data: $0.data()) })
+    public func fetchDocuments<T: Decodable>(location: String) async throws -> [T] {
+        let documents = try await Firestore.firestore().collection(location).getDocuments().documents
+        do {
+            let values = documents.compactMap({ $0.data() })
+            let json = try JSONSerialization.data(withJSONObject: values)
+            return try JSONDecoder().decode([T].self, from: json)
+        } catch {
+            throw error
+        }
     }
     
     public func fetchFromStorage(urlString: String) async throws -> UIImage? {
-        let reference = Storage.storage().reference(withPath: urlString)
-        
-        return try await withCheckedThrowingContinuation({ continuation in
-            reference.getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
-                if let error {
-                    continuation.resume(throwing: error)
-                } else {
-                    continuation.resume(returning: UIImage(data: data!))
-                }
-            }
-        })
+        let data = try await Storage.storage().reference(withPath: urlString).data(maxSize: 1 * 1024 * 1024)
+        return UIImage(data: data)
     }
     
     public func fetchCategories<T: Decodable>(location: String, type: T.Type) async throws -> [T] {
@@ -58,7 +55,6 @@ public actor FirebaseProvider {
             do {
                 let values = dict.map({ $0.value })
                 let json = try JSONSerialization.data(withJSONObject: values)
-                print("currentjson", dict)
                 return try JSONDecoder().decode([T].self, from: json)
             } catch let error {
                 throw error
