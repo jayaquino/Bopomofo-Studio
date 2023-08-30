@@ -12,7 +12,7 @@ import MockProvider
 
 struct ZhuyinTestView: View {
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel : ZhuyinViewModel
+    @StateObject var viewModel : ZhuyinViewModel
     
     @FocusState private var focus: Bool
     
@@ -178,7 +178,6 @@ struct ZhuyinTestView: View {
             .padding()
         }
         .onTapGesture {
-            viewModel.showResults = false
             dismiss()
         }
     }

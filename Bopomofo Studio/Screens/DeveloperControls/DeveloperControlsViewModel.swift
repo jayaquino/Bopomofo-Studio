@@ -15,6 +15,7 @@ class DeveloperControlsViewModel: ObservableObject {
     
     @Published var didSeeOnboarding = false
     @Published var timerOverride = false
+    @Published var soundTipOverride = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -37,6 +38,12 @@ class DeveloperControlsViewModel: ObservableObject {
                 self?.overrideTestTimerToFiveSeconds()
             }
             .store(in: &cancellables)
+        
+        $soundTipOverride
+            .sink { [weak self] soundTipOverride in
+                self?.overrideDidPlaySoundAtLeastOnce()
+            }
+            .store(in: &cancellables)
     }
     
     func resetDidSeeOnboarding() {
@@ -45,5 +52,9 @@ class DeveloperControlsViewModel: ObservableObject {
     
     func overrideTestTimerToFiveSeconds() {
         contentStore.timerValue = 5
+    }
+    
+    func overrideDidPlaySoundAtLeastOnce() {
+        UserDefaults.didPlayASoundAtLeastOnce = false
     }
 }

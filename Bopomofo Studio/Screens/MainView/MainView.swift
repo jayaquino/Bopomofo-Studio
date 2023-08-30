@@ -12,19 +12,19 @@ struct MainView: View {
     @State private var showOnboarding =  !UserDefaults.didSeeOnboarding
     
     var body: some View {
-        TabView {
-            NavigationView {
+        NavigationView {
+            TabView {
                 router.homeView()
-            }
-            .tabItem {
-                Label("Home", systemImage: "house")
-            }
-                
-            if EnvironmentKeys.environment == .STAGING {
-                router.developerControlsView()
                     .tabItem {
-                        Label("Dev", systemImage: "ant")
+                        Label("Home", systemImage: "house")
                     }
+                
+                if EnvironmentKeys.environment == .STAGING {
+                    router.developerControlsView()
+                        .tabItem {
+                            Label("Dev", systemImage: "ant")
+                        }
+                }
             }
         }
         .fullScreenCover(isPresented: $showOnboarding) {
