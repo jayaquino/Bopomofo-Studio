@@ -28,6 +28,8 @@
 		072518FE293D4BF100977A75 /* HomeCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FD293D4BF100977A75 /* HomeCategoryCellViewModel.swift */; };
 		07251903293F42C500977A75 /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07251902293F42C500977A75 /* TextField+Extensions.swift */; };
 		073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073313B92933313C0053F290 /* FeedbackSheet.swift */; };
+		07729E9E2A9F05000015BE3B /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07729E9D2A9F05000015BE3B /* StatisticsView.swift */; };
+		07729EA12A9F05AC0015BE3B /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07729EA02A9F05AC0015BE3B /* StatisticsViewModel.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
 		07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A22939FB0800ECDA2F /* FlashcardView.swift */; };
 		07AE37A52939FB1600ECDA2F /* FlashcardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A42939FB1600ECDA2F /* FlashcardViewModel.swift */; };
@@ -183,6 +185,8 @@
 		072518FD293D4BF100977A75 /* HomeCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryCellViewModel.swift; sourceTree = "<group>"; };
 		07251902293F42C500977A75 /* TextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extensions.swift"; sourceTree = "<group>"; };
 		073313B92933313C0053F290 /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
+		07729E9D2A9F05000015BE3B /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		07729EA02A9F05AC0015BE3B /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
 		07AE37A22939FB0800ECDA2F /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
@@ -337,6 +341,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		07729E9F2A9F05070015BE3B /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				07729E9D2A9F05000015BE3B /* StatisticsView.swift */,
+				07729EA02A9F05AC0015BE3B /* StatisticsViewModel.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		0782F0E02920FB2B0080CAAF /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +434,7 @@
 		07DFD73929210DB700C23485 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				07729E9F2A9F05070015BE3B /* Statistics */,
 				07FB8483293C844C001181A7 /* Home */,
 				07AE37A12939FAF900ECDA2F /* Flashcard */,
 				07D1289F2931F4C00011CFD9 /* DeveloperControls */,
@@ -867,9 +881,11 @@
 				07D1289629309D1D0011CFD9 /* OnboardingView.swift in Sources */,
 				072518F3293CADBC00977A75 /* HeroCellViewModel.swift in Sources */,
 				07D1289A29309E940011CFD9 /* OnboardingSlide.swift in Sources */,
+				07729E9E2A9F05000015BE3B /* StatisticsView.swift in Sources */,
 				07D128A32931F4DC0011CFD9 /* DeveloperControlsViewModel.swift in Sources */,
 				072518FC293D4BE700977A75 /* HomeCategoryCellView.swift in Sources */,
 				07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */,
+				07729EA12A9F05AC0015BE3B /* StatisticsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -968,7 +984,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.2;
+				MARKETING_VERSION = 1.5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
 				PRODUCT_NAME = "Bopomofo Studio - Staging";
 				SWIFT_VERSION = 5.0;
@@ -996,7 +1012,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.2;
+				MARKETING_VERSION = 1.5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1026,7 +1042,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.2;
+				MARKETING_VERSION = 1.5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1056,7 +1072,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.2;
+				MARKETING_VERSION = 1.5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging.OneSignalNotificationServiceExtension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1224,7 +1240,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.2;
+				MARKETING_VERSION = 1.5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
 				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;
@@ -1250,7 +1266,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.2;
+				MARKETING_VERSION = 1.5.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
 				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;

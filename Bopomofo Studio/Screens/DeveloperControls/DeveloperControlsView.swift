@@ -21,6 +21,10 @@ struct DeveloperControlsView: View {
             Toggle(isOn: $viewModel.timerOverride) {
                 Text("OVERRIDE_TIMER_TITLE")
             }
+            
+            Toggle(isOn: $viewModel.soundTipOverride) {
+                Text("OVERRIDE_SOUND_TIP_TITLE")
+            }
         }
         .padding()
     }

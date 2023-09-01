@@ -72,8 +72,8 @@ public class ContentStore: ObservableObject {
         try await provider.saveScore(topic: topic, scoreModel: scoreModel, textAssistance: pronunciationTextMode)
     }
     
-    public func fetchScores(topic: TopicModel, scoreModel: ScoreModel) async throws -> [ScoreModel] {
-        try await provider.fetchScores(topic: topic, scoreModel: scoreModel, textAssistance: pronunciationTextMode)
+    public func fetchScores(topic: TopicModel, scoreModel: ScoreModel, textAssistance: Bool? = nil) async throws -> [ScoreModel] {
+        try await provider.fetchScores(topic: topic, scoreModel: scoreModel, textAssistance: textAssistance ?? pronunciationTextMode)
     }
     
     public func sendFeedback(description: String) async throws -> Bool {

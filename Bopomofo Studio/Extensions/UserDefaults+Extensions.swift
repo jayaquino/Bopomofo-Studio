@@ -90,5 +90,15 @@ extension UserDefaults {
             standard.set(newValue, forKey: "timerValue")
         }
     }
+    
+    static var didPlayASoundAtLeastOnce: Bool {
+        get {
+            standard.bool(forKey: "didPlayASoundAtLeastOnce")
+        }
+
+        set {
+            standard.set(newValue, forKey: "didPlayASoundAtLeastOnce")
+        }
+    }
 
 }
