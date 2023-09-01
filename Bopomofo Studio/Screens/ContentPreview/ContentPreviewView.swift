@@ -13,50 +13,56 @@ struct ContentPreviewView: View {
     @EnvironmentObject var router: Router
     @StateObject var viewModel: ContentPreviewViewModel
     
-    @State var showTestView = false
     var body: some View {
-        VStack(spacing: 0) {
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 40) {
-                    ForEach(viewModel.topic.vocabulary, id: \.self) { vocabulary in
-                        TestContentCell(
-                            showPronunciation: $viewModel.pronunciationTextMode,
-                            showTranslation: $viewModel.translationMode,
-                            image: vocabulary.characterSet[viewModel.characterSet.rawValue] ?? "",
-                            zhuyin: vocabulary.pronunciationSet["zhuyin"] ?? "",
-                            pinyin: vocabulary.pronunciationSet["pinyin"] ?? "",
-                            translation: vocabulary.translation
-                        )
-                        .onTapGesture {
-                            viewModel.playSound(symbol: vocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
-                            
-                            viewModel.trackEvent(event: .playSound(
-                                topicName: viewModel.topic.topicName,
-                                character: vocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
-                            )
+        ZStack {
+            VStack(spacing: 0) {
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 40) {
+                        ForEach(viewModel.topic.vocabulary, id: \.self) { vocabulary in
+                            HStack {
+                                TestContentCell(
+                                    showPronunciation: $viewModel.pronunciationTextMode,
+                                    showTranslation: $viewModel.translationMode,
+                                    image: vocabulary.characterSet[viewModel.characterSet.rawValue] ?? "",
+                                    zhuyin: vocabulary.pronunciationSet["zhuyin"] ?? "",
+                                    pinyin: vocabulary.pronunciationSet["pinyin"] ?? "",
+                                    translation: vocabulary.translation
+                                )
+                                .onTapGesture {
+                                    viewModel.playSound(symbol: vocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
+                                    
+                                    viewModel.trackEvent(event: .playSound(
+                                        topicName: viewModel.topic.topicName,
+                                        character: vocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
+                                    )
+                                }
+                                
+                                if !UserDefaults.didPlayASoundAtLeastOnce && vocabulary == viewModel.topic.vocabulary.first {
+                                    Image(systemName: "chevron.left")
+                                    Text("Tap to play sound!")
+                                        .bold()
+                                }
+                            }
                         }
                     }
                 }
+                .foregroundColor(.accentColor)
+                
+                Divider()
+                
+                NavigationLink {
+                    router.zhuyinTestView(topic: viewModel.topic)
+                } label: {
+                    Text("Start")
+                        .font(.title)
+                        .padding(.horizontal)
+                        .background(Color.accentColor)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                }
+                .disabled(viewModel.topic.vocabulary.count <= 1)
+                .padding()
             }
-            .foregroundColor(.accentColor)
-            
-            Divider()
-            
-            Button(action: {
-                showTestView = true
-            }, label: {
-                Text("Start")
-                    .font(.title)
-                    .padding(.horizontal)
-                    .background(Color.accentColor)
-                    .cornerRadius(10)
-                    .foregroundColor(.white)
-            })
-            .padding()
-            .disabled(viewModel.topic.vocabulary.count <= 1)
-        }
-        .fullScreenCover(isPresented: $showTestView) {
-            router.zhuyinTestView(topic: viewModel.topic)
         }
         .navigationTitle("Content Preview")
         .toolbar {

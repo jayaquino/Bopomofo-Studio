@@ -49,6 +49,10 @@ class ContentPreviewViewModel: ObservableObject {
     }
     
     func playSound(symbol: String) {
+        if !UserDefaults.didPlayASoundAtLeastOnce {
+            UserDefaults.didPlayASoundAtLeastOnce = true
+        }
+        
         let sound = Constants.bpmf.contains(symbol) ? symbol : LanguageHelper.convertPinyin(symbol) ?? ""
         
         if LanguageHelper.isZhuyinOrPinyin(symbol) {
