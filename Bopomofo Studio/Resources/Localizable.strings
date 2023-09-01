@@ -41,3 +41,16 @@
 //MARK: - ALERTS
 "FEEDBACK_ALERT_TITLE" = "Thanks for the feedback!";
 "ALERT_CONTINUE_BUTTON" = "Continue";
+
+//MARK: - STATISTICS
+"NO_RECORD_AVAILABLE_TITLE" = "No record available";
+
+"TIMER_MEANING_DESCRIPTION" = "- The time indicates the timer that was used during that particular topic test.";
+
+"PRONUNCIATION_ASSISTANCE_DESCRIPTION" = "- The pronunciation assistance toggle indicates if you used that feature during the test.";
+
+"PERCENT_MEANING_DESCRIPTION" = "- A percentage above zero represents your top score's percentage ranking, with 100% being top 1.";
+
+"ZERO_PERCENT_MEANING_DESCRIPTION" = "- A percentage of zero means you haven't tested that particular topic before, but some others have.";
+
+"NO_RECORD_AVAILABLE_DESCRIPTION" = "- No record available indicates no one has done this particular test before.";

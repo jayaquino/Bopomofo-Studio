@@ -19,6 +19,11 @@ struct MainView: View {
                         Label("Home", systemImage: "house")
                     }
                 
+                router.statisticsView()
+                    .tabItem {
+                        Label("Statistics", systemImage: "chart.bar.xaxis")
+                    }
+                
                 if EnvironmentKeys.environment == .STAGING {
                     router.developerControlsView()
                         .tabItem {
