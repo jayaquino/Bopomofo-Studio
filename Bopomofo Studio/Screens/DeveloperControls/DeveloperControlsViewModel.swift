@@ -13,16 +13,19 @@ import ChatGPTAIProvider
 @MainActor
 class DeveloperControlsViewModel: ObservableObject {
     let contentStore: ContentStore
+    let aiStore: AIStore
     
     @Published var didSeeOnboarding = false
     @Published var timerOverride = false
     @Published var soundTipOverride = false
     @Published var messages: [AIMessage] = []
+    @Published var input = ""
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(contentStore: ContentStore) {
+    init(contentStore: ContentStore, aiStore: AIStore) {
         self.contentStore = contentStore
+        self.aiStore = aiStore
         addSubscribers()
     }
     
@@ -46,6 +49,16 @@ class DeveloperControlsViewModel: ObservableObject {
                 self?.overrideDidPlaySoundAtLeastOnce()
             }
             .store(in: &cancellables)
+        
+        $input
+            .debounce(for: 5, scheduler: DispatchQueue.main)
+            .sink { [weak self] input in
+                guard let self, !input.isEmpty else { return }
+                Task {
+                    await self.sendMessage()
+                }
+            }
+            .store(in: &cancellables)
     }
     
     func resetDidSeeOnboarding() {
@@ -61,7 +74,16 @@ class DeveloperControlsViewModel: ObservableObject {
     }
     
     func sendMessage() async {
-        let newMessage = AIMessage(id: UUID(), role: .user, content: "Hello", createdAt: Date())
+        let newMessage = AIMessage(id: UUID(), role: .user, content: input, createdAt: Date())
         messages.append(newMessage)
+        
+        do {
+            let response = try await aiStore.sendMessage(messages: messages)
+            guard let receivedAIMessage = response.choices.first?.message else { return }
+            let receivedMessage = AIMessage(id: UUID(), role: receivedAIMessage.role, content: receivedAIMessage.content, createdAt: Date())
+            messages.append(receivedMessage)
+        } catch {
+            print("error", error.localizedDescription)
+        }
     }
 }

@@ -14,4 +14,8 @@ public class AIStore: ObservableObject {
     public init(provider: AIProvider) {
         self.provider = provider
     }
+    
+    public func sendMessage(messages: [AIMessage]) async throws -> AIResponse {
+        try await provider.sendMessage(messages: messages)
+    }
 }

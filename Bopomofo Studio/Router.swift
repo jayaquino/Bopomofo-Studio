@@ -65,7 +65,7 @@ class Router: ObservableObject {
     
     func developerControlsView() -> DeveloperControlsView {
         DeveloperControlsView(
-            viewModel: DeveloperControlsViewModel(contentStore: self.contentStore)
+            viewModel: DeveloperControlsViewModel(contentStore: self.contentStore, aiStore: self.aiStore)
         )
     }
     

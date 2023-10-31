@@ -11,7 +11,7 @@ import CoreBopomofoStudio
 public class MockAIProvider: AIProvider {
     public init() {}
     
-    public func sendMessage(messages: [CoreBopomofoStudio.AIMessage]) async -> CoreBopomofoStudio.AIResponse? {
+    public func sendMessage(messages: [CoreBopomofoStudio.AIMessage]) async throws -> CoreBopomofoStudio.AIResponse {
         return AIResponse(choices: [AIChatChoice(message: .init(id: UUID(), role: .assistant, content: "Hello", createdAt: Date()))])
     }
 }
