@@ -29,6 +29,7 @@
 		07251903293F42C500977A75 /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07251902293F42C500977A75 /* TextField+Extensions.swift */; };
 		073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073313B92933313C0053F290 /* FeedbackSheet.swift */; };
 		075EF7612AF0B8BB00684ACE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 075EF7602AF0B8BB00684ACE /* Alamofire */; };
+		075EF7632AF0C17E00684ACE /* ChatGPTAIProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 075EF7622AF0C17E00684ACE /* ChatGPTAIProvider */; };
 		07729E9E2A9F05000015BE3B /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07729E9D2A9F05000015BE3B /* StatisticsView.swift */; };
 		07729EA12A9F05AC0015BE3B /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07729EA02A9F05AC0015BE3B /* StatisticsViewModel.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
@@ -320,6 +321,7 @@
 				070D526628C5DD5200CDA918 /* CoreBopomofoStudio in Frameworks */,
 				07DFD74929211B0900C23485 /* MixpanelProvider in Frameworks */,
 				07248DE928C5E890003FE4AB /* MockProvider in Frameworks */,
+				075EF7632AF0C17E00684ACE /* ChatGPTAIProvider in Frameworks */,
 				07FB8492293C9EC2001181A7 /* NukeUI in Frameworks */,
 				07FB848B293C9BD5001181A7 /* FirebaseStorage in Frameworks */,
 				07DFD73729210D7C00C23485 /* Mixpanel in Frameworks */,
@@ -694,6 +696,7 @@
 				07FB8491293C9EC2001181A7 /* NukeUI */,
 				072518F4293CC15200977A75 /* FirebaseDatabase */,
 				075EF7602AF0B8BB00684ACE /* Alamofire */,
+				075EF7622AF0C17E00684ACE /* ChatGPTAIProvider */,
 			);
 			productName = "Bopomofo Studio";
 			productReference = 5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */;
@@ -1400,6 +1403,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 075EF75F2AF0B8BB00684ACE /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		075EF7622AF0C17E00684ACE /* ChatGPTAIProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ChatGPTAIProvider;
 		};
 		07DFD73629210D7C00C23485 /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;

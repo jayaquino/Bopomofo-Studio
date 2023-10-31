@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct AIChatChoice: Decodable {
-    let message: AIMessage
+public struct AIChatChoice: Decodable {
+    public let message: AIMessage
+    
+    public init(message: AIMessage) {
+        self.message = message
+    }
 }

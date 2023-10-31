@@ -14,13 +14,16 @@ import SwiftUI
 class Router: ObservableObject {
     
     private let contentStore: ContentStore
+    private let aiStore: AIStore
     private let analytics: AnalyticsProvider
     
     init(
         contentStore: ContentStore,
+        aiStore: AIStore,
         analytics: AnalyticsProvider
     ) {
         self.contentStore = contentStore
+        self.aiStore = aiStore
         self.analytics = analytics
     }
     

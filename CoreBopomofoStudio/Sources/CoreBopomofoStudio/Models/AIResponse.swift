@@ -8,5 +8,9 @@
 import Foundation
 
 public struct AIResponse: Decodable {
-    let choices: [AIChatChoice]
+    public let choices: [AIChatChoice]
+    
+    public init(choices: [AIChatChoice]) {
+        self.choices = choices
+    }
 }

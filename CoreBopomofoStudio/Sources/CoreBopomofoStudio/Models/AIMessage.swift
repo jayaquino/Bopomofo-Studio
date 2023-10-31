@@ -12,4 +12,16 @@ public struct AIMessage: Decodable {
     public let role: AISenderRole
     public let content: String
     public let createdAt: Date
+    
+    public init(
+        id: UUID,
+        role: AISenderRole,
+        content: String,
+        createdAt: Date
+    ) {
+        self.id = id
+        self.role = role
+        self.content = content
+        self.createdAt = createdAt
+    }
 }

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import CoreBopomofoStudio
+import ChatGPTAIProvider
 
 @MainActor
 class DeveloperControlsViewModel: ObservableObject {
@@ -16,6 +17,7 @@ class DeveloperControlsViewModel: ObservableObject {
     @Published var didSeeOnboarding = false
     @Published var timerOverride = false
     @Published var soundTipOverride = false
+    @Published var messages: [AIMessage] = []
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -56,5 +58,10 @@ class DeveloperControlsViewModel: ObservableObject {
     
     func overrideDidPlaySoundAtLeastOnce() {
         UserDefaults.didPlayASoundAtLeastOnce = false
+    }
+    
+    func sendMessage() async {
+        let newMessage = AIMessage(id: UUID(), role: .user, content: "Hello", createdAt: Date())
+        messages.append(newMessage)
     }
 }

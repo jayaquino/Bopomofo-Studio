@@ -5,6 +5,8 @@ public final class ChatGPTAIProvider: AIProvider {
     private let endpointURL = "https://api.openai.com/v1/chat/completions"
     private let openAIKey = "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"
 
+    public init() { }
+    
     public func sendMessage(messages: [AIMessage]) async -> AIResponse? {
         
         let chatGPTAIMessages = messages.map({ ChatGPTAIMessage(role: $0.role, content: $0.content) })
