@@ -185,6 +185,7 @@
 		072518FD293D4BF100977A75 /* HomeCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryCellViewModel.swift; sourceTree = "<group>"; };
 		07251902293F42C500977A75 /* TextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extensions.swift"; sourceTree = "<group>"; };
 		073313B92933313C0053F290 /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
+		075EF75E2AF08CF400684ACE /* ChatGPTAIProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ChatGPTAIProvider; sourceTree = "<group>"; };
 		07729E9D2A9F05000015BE3B /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		07729EA02A9F05AC0015BE3B /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
@@ -492,6 +493,7 @@
 		5237C16926A5CB3E00C7BC56 = {
 			isa = PBXGroup;
 			children = (
+				075EF75E2AF08CF400684ACE /* ChatGPTAIProvider */,
 				07DFD73A29210FF200C23485 /* MixpanelProvider */,
 				07248DE728C5E6B3003FE4AB /* MockProvider */,
 				070D526128C5DAAE00CDA918 /* CoreBopomofoStudio */,
