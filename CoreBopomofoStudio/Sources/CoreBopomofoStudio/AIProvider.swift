@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol AIProvider {
-    func sendMessage()
+    func sendMessage(messages: [AIMessage]) async -> AIResponse?
 }

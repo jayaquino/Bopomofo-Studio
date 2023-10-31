@@ -12,7 +12,8 @@ let package = Package(
             targets: ["ChatGPTAIProvider"]),
     ],
     dependencies: [
-        .package(path: "./CoreBopomofoStudio")
+        .package(path: "./CoreBopomofoStudio"),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.0.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -20,7 +21,8 @@ let package = Package(
         .target(
             name: "ChatGPTAIProvider",
             dependencies: [
-                .product(name: "CoreBopomofoStudio", package: "CoreBopomofoStudio")
+                .product(name: "CoreBopomofoStudio", package: "CoreBopomofoStudio"),
+                .product(name: "Alamofire", package: "Alamofire")
             ]),
         .testTarget(
             name: "ChatGPTAIProviderTests",
