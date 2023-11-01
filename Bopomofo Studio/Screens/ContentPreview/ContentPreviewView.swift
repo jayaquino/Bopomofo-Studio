@@ -12,9 +12,18 @@ import MockProvider
 struct ContentPreviewView: View {
     @EnvironmentObject var router: Router
     @StateObject var viewModel: ContentPreviewViewModel
+    @State private var shouldShowAICommunicationView = false
     
     var body: some View {
         ZStack {
+            if let selectedVocabulary = viewModel.selectedVocabulary {
+                NavigationLink(isActive: $shouldShowAICommunicationView) {
+                    router.aiCommunicationView(vocabulary: selectedVocabulary, topic: viewModel.topic)
+                } label: {
+                    EmptyView()
+                }
+            }
+            
             VStack(spacing: 0) {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 40) {
@@ -35,6 +44,14 @@ struct ContentPreviewView: View {
                                         topicName: viewModel.topic.topicName,
                                         character: vocabulary.characterSet[viewModel.contentStore.characterSetSetting.rawValue] ?? "")
                                     )
+                                }
+                                .onLongPressGesture {
+                                    guard !["Zhuyin Basics", "Pinyin To Zhuyin"].contains(viewModel.topic.topicName) else { return }
+                                    Task {
+                                        viewModel.selectedVocabulary = vocabulary
+                                        try? await Task.sleep(nanoseconds: 100_000_000)
+                                        self.shouldShowAICommunicationView = true
+                                    }
                                 }
                                 
                                 if !UserDefaults.didPlayASoundAtLeastOnce && vocabulary == viewModel.topic.vocabulary.first {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class VocabularyModel: Decodable, Hashable, Equatable {
+public class VocabularyModel: Decodable, Hashable, Equatable, Identifiable {
     enum CodingKeys: CodingKey {
         case characterSet
         case pronunciationSet

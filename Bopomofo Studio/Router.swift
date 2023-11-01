@@ -96,4 +96,8 @@ class Router: ObservableObject {
             topic: topic)
         )
     }
+    
+    func aiCommunicationView(vocabulary: VocabularyModel, topic: TopicModel) -> AICommunicationView {
+        AICommunicationView(viewModel: AICommunicationViewModel(vocabulary: vocabulary, topic: topic, aiStore: self.aiStore, contentStore: self.contentStore))
+    }
 }
