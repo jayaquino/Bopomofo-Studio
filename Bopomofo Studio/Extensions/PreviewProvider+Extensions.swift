@@ -25,16 +25,19 @@ struct DeveloperPreview {
     
     let router: Router
     let contentStore: ContentStore
+    let aiStore: AIStore
     let analytics: MixpanelProvider
     
     private init() {
         self.contentStore = ContentStore(provider: MockContentProvider())
+        self.aiStore = AIStore(provider: MockAIProvider())
         self.analytics = MixpanelProvider(
             key: "",
             environment: .STAGING
         )
         self.router = Router(
             contentStore: self.contentStore,
+            aiStore: self.aiStore,
             analytics: self.analytics
         )
     }
