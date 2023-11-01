@@ -28,6 +28,10 @@
 		072518FE293D4BF100977A75 /* HomeCategoryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072518FD293D4BF100977A75 /* HomeCategoryCellViewModel.swift */; };
 		07251903293F42C500977A75 /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07251902293F42C500977A75 /* TextField+Extensions.swift */; };
 		073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073313B92933313C0053F290 /* FeedbackSheet.swift */; };
+		075EF7612AF0B8BB00684ACE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 075EF7602AF0B8BB00684ACE /* Alamofire */; };
+		075EF7632AF0C17E00684ACE /* ChatGPTAIProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 075EF7622AF0C17E00684ACE /* ChatGPTAIProvider */; };
+		075EF7662AF2092A00684ACE /* AICommunicationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EF7652AF2092A00684ACE /* AICommunicationView.swift */; };
+		075EF7682AF2093400684ACE /* AICommunicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EF7672AF2093400684ACE /* AICommunicationViewModel.swift */; };
 		07729E9E2A9F05000015BE3B /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07729E9D2A9F05000015BE3B /* StatisticsView.swift */; };
 		07729EA12A9F05AC0015BE3B /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07729EA02A9F05AC0015BE3B /* StatisticsViewModel.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
@@ -185,6 +189,9 @@
 		072518FD293D4BF100977A75 /* HomeCategoryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryCellViewModel.swift; sourceTree = "<group>"; };
 		07251902293F42C500977A75 /* TextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extensions.swift"; sourceTree = "<group>"; };
 		073313B92933313C0053F290 /* FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackSheet.swift; sourceTree = "<group>"; };
+		075EF75E2AF08CF400684ACE /* ChatGPTAIProvider */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ChatGPTAIProvider; sourceTree = "<group>"; };
+		075EF7652AF2092A00684ACE /* AICommunicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AICommunicationView.swift; sourceTree = "<group>"; };
+		075EF7672AF2093400684ACE /* AICommunicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AICommunicationViewModel.swift; sourceTree = "<group>"; };
 		07729E9D2A9F05000015BE3B /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		07729EA02A9F05AC0015BE3B /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
@@ -318,6 +325,7 @@
 				070D526628C5DD5200CDA918 /* CoreBopomofoStudio in Frameworks */,
 				07DFD74929211B0900C23485 /* MixpanelProvider in Frameworks */,
 				07248DE928C5E890003FE4AB /* MockProvider in Frameworks */,
+				075EF7632AF0C17E00684ACE /* ChatGPTAIProvider in Frameworks */,
 				07FB8492293C9EC2001181A7 /* NukeUI in Frameworks */,
 				07FB848B293C9BD5001181A7 /* FirebaseStorage in Frameworks */,
 				07DFD73729210D7C00C23485 /* Mixpanel in Frameworks */,
@@ -327,6 +335,7 @@
 				070D526828C5DD5500CDA918 /* FirebaseProvider in Frameworks */,
 				070D525B28C5D6EF00CDA918 /* FirebaseCrashlytics in Frameworks */,
 				070D525D28C5D6EF00CDA918 /* FirebaseFirestore in Frameworks */,
+				075EF7612AF0B8BB00684ACE /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +348,15 @@
 				072518F9293D30A600977A75 /* LanguageHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		075EF7642AF2091100684ACE /* AICommunication */ = {
+			isa = PBXGroup;
+			children = (
+				075EF7652AF2092A00684ACE /* AICommunicationView.swift */,
+				075EF7672AF2093400684ACE /* AICommunicationViewModel.swift */,
+			);
+			path = AICommunication;
 			sourceTree = "<group>";
 		};
 		07729E9F2A9F05070015BE3B /* Statistics */ = {
@@ -434,6 +452,7 @@
 		07DFD73929210DB700C23485 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				075EF7642AF2091100684ACE /* AICommunication */,
 				07729E9F2A9F05070015BE3B /* Statistics */,
 				07FB8483293C844C001181A7 /* Home */,
 				07AE37A12939FAF900ECDA2F /* Flashcard */,
@@ -492,6 +511,7 @@
 		5237C16926A5CB3E00C7BC56 = {
 			isa = PBXGroup;
 			children = (
+				075EF75E2AF08CF400684ACE /* ChatGPTAIProvider */,
 				07DFD73A29210FF200C23485 /* MixpanelProvider */,
 				07248DE728C5E6B3003FE4AB /* MockProvider */,
 				070D526128C5DAAE00CDA918 /* CoreBopomofoStudio */,
@@ -689,6 +709,8 @@
 				07FB848A293C9BD5001181A7 /* FirebaseStorage */,
 				07FB8491293C9EC2001181A7 /* NukeUI */,
 				072518F4293CC15200977A75 /* FirebaseDatabase */,
+				075EF7602AF0B8BB00684ACE /* Alamofire */,
+				075EF7622AF0C17E00684ACE /* ChatGPTAIProvider */,
 			);
 			productName = "Bopomofo Studio";
 			productReference = 5237C17226A5CB3E00C7BC56 /* Bopomofo Studio.app */;
@@ -725,6 +747,7 @@
 				07DFD73529210D7C00C23485 /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 				07E7D28029290990005393AE /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
 				07FB848E293C9D99001181A7 /* XCRemoteSwiftPackageReference "Nuke" */,
+				075EF75F2AF0B8BB00684ACE /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 5237C17326A5CB3E00C7BC56 /* Products */;
 			projectDirPath = "";
@@ -869,6 +892,7 @@
 				52C479AD26AB886900E3540F /* SettingsView.swift in Sources */,
 				073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */,
 				52D43812282BD12700FFCAEB /* SoundManager.swift in Sources */,
+				075EF7662AF2092A00684ACE /* AICommunicationView.swift in Sources */,
 				07248DE628C5E287003FE4AB /* SettingsViewModel.swift in Sources */,
 				5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */,
 				52D43814282BD15C00FFCAEB /* Constants.swift in Sources */,
@@ -876,6 +900,7 @@
 				070D526328C5DCCD00CDA918 /* Router.swift in Sources */,
 				07D1289C2930B46A0011CFD9 /* TestContentCell.swift in Sources */,
 				07BB8BAE292A456800B2CE7C /* MainView.swift in Sources */,
+				075EF7682AF2093400684ACE /* AICommunicationViewModel.swift in Sources */,
 				072518FA293D30A600977A75 /* LanguageHelper.swift in Sources */,
 				07FB8485293C8456001181A7 /* HomeViewModel.swift in Sources */,
 				07D1289629309D1D0011CFD9 /* OnboardingView.swift in Sources */,
@@ -1318,6 +1343,14 @@
 				kind = branch;
 			};
 		};
+		075EF75F2AF0B8BB00684ACE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		07DFD73529210D7C00C23485 /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mixpanel/mixpanel-swift.git";
@@ -1381,6 +1414,15 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 070D525728C5D6EF00CDA918 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		075EF7602AF0B8BB00684ACE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 075EF75F2AF0B8BB00684ACE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		075EF7622AF0C17E00684ACE /* ChatGPTAIProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ChatGPTAIProvider;
 		};
 		07DFD73629210D7C00C23485 /* Mixpanel */ = {
 			isa = XCSwiftPackageProductDependency;

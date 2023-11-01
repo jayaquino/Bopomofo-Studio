@@ -100,5 +100,14 @@ extension UserDefaults {
             standard.set(newValue, forKey: "didPlayASoundAtLeastOnce")
         }
     }
+    
+    static var didNavigateToAICommunicationViewAtLeastOnce: Bool {
+        get {
+            standard.bool(forKey: "didNavigateToAICommunicationViewAtLeastOnce")
+        }
 
+        set {
+            standard.set(newValue, forKey: "didNavigateToAICommunicationViewAtLeastOnce")
+        }
+    }
 }

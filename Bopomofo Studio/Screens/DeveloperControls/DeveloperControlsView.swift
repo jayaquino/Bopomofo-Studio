@@ -25,6 +25,16 @@ struct DeveloperControlsView: View {
             Toggle(isOn: $viewModel.soundTipOverride) {
                 Text("OVERRIDE_SOUND_TIP_TITLE")
             }
+            
+            VStack {
+                ForEach(viewModel.messages, id: \.self) { message in
+                    Text(message.content)
+                }
+            }
+            
+            Spacer()
+            
+            TextField("", text: $viewModel.input)
         }
         .padding()
     }
@@ -32,7 +42,7 @@ struct DeveloperControlsView: View {
 
 struct DeveloperControlsView_Previews: PreviewProvider {
     static var previews: some View {
-        DeveloperControlsView(viewModel: DeveloperControlsViewModel(contentStore: dev.contentStore))
+        DeveloperControlsView(viewModel: DeveloperControlsViewModel(contentStore: dev.contentStore, aiStore: dev.aiStore))
             .environmentObject(dev.router)
     }
 }

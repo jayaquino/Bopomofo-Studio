@@ -14,13 +14,16 @@ import SwiftUI
 class Router: ObservableObject {
     
     private let contentStore: ContentStore
+    private let aiStore: AIStore
     private let analytics: AnalyticsProvider
     
     init(
         contentStore: ContentStore,
+        aiStore: AIStore,
         analytics: AnalyticsProvider
     ) {
         self.contentStore = contentStore
+        self.aiStore = aiStore
         self.analytics = analytics
     }
     
@@ -62,7 +65,7 @@ class Router: ObservableObject {
     
     func developerControlsView() -> DeveloperControlsView {
         DeveloperControlsView(
-            viewModel: DeveloperControlsViewModel(contentStore: self.contentStore)
+            viewModel: DeveloperControlsViewModel(contentStore: self.contentStore, aiStore: self.aiStore)
         )
     }
     
@@ -92,5 +95,9 @@ class Router: ObservableObject {
             contentStore: self.contentStore,
             topic: topic)
         )
+    }
+    
+    func aiCommunicationView(vocabulary: VocabularyModel, topic: TopicModel) -> AICommunicationView {
+        AICommunicationView(viewModel: AICommunicationViewModel(vocabulary: vocabulary, topic: topic, aiStore: self.aiStore, contentStore: self.contentStore))
     }
 }

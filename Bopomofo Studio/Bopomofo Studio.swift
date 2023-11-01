@@ -10,6 +10,7 @@ import CoreBopomofoStudio
 import FirebaseProvider
 import Firebase
 import MixpanelProvider
+import ChatGPTAIProvider
 
 @main
 struct Bopomofo_StudioApp: App {
@@ -30,6 +31,8 @@ struct Bopomofo_StudioApp: App {
             provider: FirebaseContentProvider(provider: FirebaseProvider())
         )
         
+        let aiStore = AIStore(provider: ChatGPTAIProvider())
+        
         setUpStore()
         
         let analytics = MixpanelProvider(
@@ -41,6 +44,7 @@ struct Bopomofo_StudioApp: App {
         
         self.router = Router(
             contentStore: contentStore,
+            aiStore: aiStore,
             analytics: analytics
         )
         

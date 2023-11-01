@@ -19,6 +19,7 @@ class ContentPreviewViewModel: ObservableObject {
     @Published var pronunciationTextMode: Bool
     @Published var translationMode: Bool
     @Published var characterSet: ContentStore.WordCharacterSet
+    @Published var selectedVocabulary: VocabularyModel?
     
     private var cancellables = Set<AnyCancellable>()
     
