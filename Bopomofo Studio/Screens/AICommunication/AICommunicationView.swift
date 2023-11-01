@@ -55,6 +55,9 @@ struct AICommunicationView: View {
             }
             .opacity(viewModel.isFetching ? 0 : 1)
         }
+        .onAppear {
+            UserDefaults.didNavigateToAICommunicationViewAtLeastOnce = true
+        }
     }
 }
 

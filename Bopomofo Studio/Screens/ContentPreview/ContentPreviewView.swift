@@ -25,6 +25,21 @@ struct ContentPreviewView: View {
             }
             
             VStack(spacing: 0) {
+                VStack(spacing: 8) {
+                    if !UserDefaults.didPlayASoundAtLeastOnce {
+                        Text("Tap the cells play sound!")
+                            .bold()
+                            .multilineTextAlignment(.center)
+                    }
+                    
+                    if !UserDefaults.didNavigateToAICommunicationViewAtLeastOnce, !["Zhuyin Basics", "Pinyin To Zhuyin"].contains(viewModel.topic.topicName) {
+                        Text("Tap and hold the cells to see example sentences!")
+                            .bold()
+                            .multilineTextAlignment(.center)
+                    }
+                }
+                .padding(16)
+                
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 40) {
                         ForEach(viewModel.topic.vocabulary, id: \.self) { vocabulary in
@@ -52,12 +67,6 @@ struct ContentPreviewView: View {
                                         try? await Task.sleep(nanoseconds: 100_000_000)
                                         self.shouldShowAICommunicationView = true
                                     }
-                                }
-                                
-                                if !UserDefaults.didPlayASoundAtLeastOnce && vocabulary == viewModel.topic.vocabulary.first {
-                                    Image(systemName: "chevron.left")
-                                    Text("Tap to play sound!")
-                                        .bold()
                                 }
                             }
                         }
