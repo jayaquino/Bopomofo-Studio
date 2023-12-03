@@ -8,5 +8,6 @@
 import Foundation
 
 public protocol AIProvider {
+    var secret: String { get }
     func sendMessage(messages: [AIMessage]) async throws -> AIResponse
 }

@@ -31,7 +31,7 @@ struct Bopomofo_StudioApp: App {
             provider: FirebaseContentProvider(provider: FirebaseProvider())
         )
         
-        let aiStore = AIStore(provider: ChatGPTAIProvider())
+        let aiStore = AIStore(provider: ChatGPTAIProvider(secret: EnvironmentKeys.openAIKey))
         
         setUpStore()
         
