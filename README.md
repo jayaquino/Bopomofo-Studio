@@ -1,6 +1,32 @@
 # Bopomofo-Studio
+# Nov '23
+* Added ChatGPT integration to give example sentences using a specific context the vocabulary will be used in.
+
+# Dec '22
+<p float="left">
+ <img src = "https://user-images.githubusercontent.com/46248987/206696459-928fe14f-92bb-4559-a22e-9906b2e04ec1.png" height="250"> 
+ <img src = "https://user-images.githubusercontent.com/46248987/206696479-166f1936-276e-4cca-9675-599615c51292.png" height = "250">
+  <img src = "https://user-images.githubusercontent.com/46248987/206696490-e06556e2-4038-4313-a3f7-b9d2b52cf8d3.png" height = "250">
+  <img src = "https://user-images.githubusercontent.com/46248987/206696501-dc1da775-22cf-4e1b-bad9-b2ee39456db5.png" height = "250">
+ 
+ * Using Firebase Realtime Database to fetch all vocabulary. Vocabulary is editable in the database.
+ * Tab bar setup for future features.
+ * Home screen refactor.
+ * Testing feature is extended to Chinese characters.
+ * More analytics implemented.
+ 
+
 # Nov '22
- <img src = "https://user-images.githubusercontent.com/46248987/203016987-bbcdc52f-737e-467e-9080-7130468d2476.jpeg" height="250"> 
+<p float="left">
+ <img src = "https://user-images.githubusercontent.com/46248987/204400536-83bf67ec-78a5-4541-a8ee-166a73f37337.png" height="250"> 
+ <img src = "https://user-images.githubusercontent.com/46248987/204400299-29c9a770-78be-4dfb-9375-0a46b2402dd0.png" height = "250">
+  <img src = "https://user-images.githubusercontent.com/46248987/204400718-48f895f6-193e-4c21-9fd0-497c42cb177d.png" height = "250">
+
+<p float="left">
+ <img src = "https://user-images.githubusercontent.com/46248987/204400420-03e6b393-cc8f-407f-8128-5b0bcb819a4c.png" height="250"> 
+ <img src = "https://user-images.githubusercontent.com/46248987/204400608-83b371a9-fc6a-4cfb-af56-cbf2835a5156.png" height = "250">
+ <img src = "https://user-images.githubusercontent.com/46248987/204400729-fb5a0775-176c-42a1-a283-f7e3ba5e54fe.png" height = "250">
+
  
 * Refactored to a modular architecture (Using providers; mock and remote).
 * Integrated a simple Firebase implementation for scores.
@@ -8,6 +34,7 @@
 * Integrated Mixpanel for simple analytics (staging and release). 
 * Integrated push notifications (staging and release).
 * Integrated Tab Bar & slight UI refactor.
+* iPad support
 
 
 # May '22
