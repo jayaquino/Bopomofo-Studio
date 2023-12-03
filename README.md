@@ -1,4 +1,7 @@
 # Bopomofo-Studio
+# Nov '23
+* Added ChatGPT integration to give example sentences using a specific context the vocabulary will be used in.
+
 # Dec '22
 <p float="left">
  <img src = "https://user-images.githubusercontent.com/46248987/206696459-928fe14f-92bb-4559-a22e-9906b2e04ec1.png" height="250"> 
