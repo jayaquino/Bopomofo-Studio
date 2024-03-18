@@ -148,7 +148,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     
     private func testDidFinish() {
         self.showResults = true
-        if self.score > 0 {
+        if self.score > 0, !topic.isReview {
             handleScore()
         }
         ReviewManager.shared.updateSessionsCompleted()

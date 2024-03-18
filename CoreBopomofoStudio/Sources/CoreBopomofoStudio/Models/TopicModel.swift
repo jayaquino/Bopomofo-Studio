@@ -44,4 +44,8 @@ public class TopicModel: Decodable, Hashable, Equatable {
         topicImage = try container.decode(String.self, forKey: .topicImage)
         vocabulary = try container.decode([VocabularyModel].self, forKey: .vocabulary)
     }
+    
+    public var isReview: Bool {
+        self.topicName == "Review"
+    }
 }

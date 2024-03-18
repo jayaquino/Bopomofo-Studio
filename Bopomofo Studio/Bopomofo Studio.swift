@@ -11,6 +11,7 @@ import FirebaseProvider
 import Firebase
 import MixpanelProvider
 import ChatGPTAIProvider
+import SwiftData
 
 @main
 struct Bopomofo_StudioApp: App {
@@ -66,5 +67,6 @@ struct Bopomofo_StudioApp: App {
                 .navigationViewStyle(StackNavigationViewStyle())
             
         }
+        .modelContainer(for: VocabularyModel.self)
     }
 }

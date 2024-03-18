@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,6 +34,8 @@
 		075EF7682AF2093400684ACE /* AICommunicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EF7672AF2093400684ACE /* AICommunicationViewModel.swift */; };
 		07729E9E2A9F05000015BE3B /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07729E9D2A9F05000015BE3B /* StatisticsView.swift */; };
 		07729EA12A9F05AC0015BE3B /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07729EA02A9F05AC0015BE3B /* StatisticsViewModel.swift */; };
+		07920CA32BA7CF2100B846AC /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07920CA22BA7CF2100B846AC /* ReviewViewModel.swift */; };
+		07920CA52BA7CF4900B846AC /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07920CA42BA7CF4900B846AC /* ReviewView.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
 		07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A22939FB0800ECDA2F /* FlashcardView.swift */; };
 		07AE37A52939FB1600ECDA2F /* FlashcardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A42939FB1600ECDA2F /* FlashcardViewModel.swift */; };
@@ -194,6 +196,8 @@
 		075EF7672AF2093400684ACE /* AICommunicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AICommunicationViewModel.swift; sourceTree = "<group>"; };
 		07729E9D2A9F05000015BE3B /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		07729EA02A9F05AC0015BE3B /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		07920CA22BA7CF2100B846AC /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		07920CA42BA7CF4900B846AC /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
 		07AE37A22939FB0800ECDA2F /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
@@ -396,6 +400,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		07920CA12BA7CF1500B846AC /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				07920CA22BA7CF2100B846AC /* ReviewViewModel.swift */,
+				07920CA42BA7CF4900B846AC /* ReviewView.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
 		07AE37A12939FAF900ECDA2F /* Flashcard */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +465,7 @@
 		07DFD73929210DB700C23485 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				07920CA12BA7CF1500B846AC /* Review */,
 				075EF7642AF2091100684ACE /* AICommunication */,
 				07729E9F2A9F05070015BE3B /* Statistics */,
 				07FB8483293C844C001181A7 /* Home */,
@@ -873,6 +887,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07920CA52BA7CF4900B846AC /* ReviewView.swift in Sources */,
 				07FB8487293C845C001181A7 /* HomeView.swift in Sources */,
 				07DFD740292117BA00C23485 /* EnvironmentKeys.swift in Sources */,
 				07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */,
@@ -892,6 +907,7 @@
 				52C479AD26AB886900E3540F /* SettingsView.swift in Sources */,
 				073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */,
 				52D43812282BD12700FFCAEB /* SoundManager.swift in Sources */,
+				07920CA32BA7CF2100B846AC /* ReviewViewModel.swift in Sources */,
 				075EF7662AF2092A00684ACE /* AICommunicationView.swift in Sources */,
 				07248DE628C5E287003FE4AB /* SettingsViewModel.swift in Sources */,
 				5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */,
@@ -981,7 +997,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1004,7 +1020,7 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bopomofo Studio/Resources/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1031,7 +1047,7 @@
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1061,7 +1077,7 @@
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1091,7 +1107,7 @@
 				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1171,7 +1187,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1237,7 +1253,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1260,7 +1276,7 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bopomofo Studio/Resources/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1286,7 +1302,7 @@
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Bopomofo Studio/Resources/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
