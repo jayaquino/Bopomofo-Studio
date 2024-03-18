@@ -46,6 +46,7 @@ struct ContentPreviewView: View {
                         ForEach(viewModel.topic.vocabulary, id: \.self) { vocabulary in
                             HStack {
                                 TestContentCell(
+                                    vocabularyModel: vocabulary,
                                     showPronunciation: $viewModel.pronunciationTextMode,
                                     showTranslation: $viewModel.translationMode,
                                     image: vocabulary.characterSet[viewModel.characterSet.rawValue] ?? "",
@@ -69,13 +70,6 @@ struct ContentPreviewView: View {
                                         self.shouldShowAICommunicationView = true
                                     }
                                 }
-                                .overlay(
-                                    Button(action: {
-                                        addVocabularyToSwiftData(vocabulary)
-                                    }, label: {
-                                        Text("Add")
-                                    }), alignment: .topTrailing
-                                )
                             }
                         }
                     }
@@ -109,10 +103,6 @@ struct ContentPreviewView: View {
                 }
             }
         }
-    }
-    
-    private func addVocabularyToSwiftData(_ vocabulary: VocabularyModel) {
-        context.insert(vocabulary)
     }
     
     private func testContent(content: [String]) -> some View {

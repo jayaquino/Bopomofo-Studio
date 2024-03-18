@@ -39,7 +39,7 @@ class Router: ObservableObject {
     }
     
     func reviewView() -> ReviewView {
-        ReviewView(viewModel: ReviewViewModel())
+        ReviewView(viewModel: ReviewViewModel(contentStore: self.contentStore))
     }
     
     func onboardingView(showOnboarding: Binding<Bool>) -> OnboardingView {
