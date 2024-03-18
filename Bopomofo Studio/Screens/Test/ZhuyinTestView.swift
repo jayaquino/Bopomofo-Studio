@@ -23,8 +23,10 @@ struct ZhuyinTestView: View {
         ZStack {
             VStack(alignment: .center, spacing: 5) {
                 HStack(spacing: 5) {
-                    Text("High Score: " + String(UserDefaults.standard.integer(forKey: viewModel.topic.topicName)))
-                        .padding()
+                    if !viewModel.topic.isReview {
+                        Text("High Score: " + String(UserDefaults.standard.integer(forKey: viewModel.topic.topicName)))
+                            .padding()
+                    }
                     Spacer()
                     Text("Score: " + String(viewModel.score))
                         .padding()

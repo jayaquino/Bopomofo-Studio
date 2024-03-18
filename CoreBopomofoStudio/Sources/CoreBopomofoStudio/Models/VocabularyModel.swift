@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import SwiftData
 
+@Model
 public class VocabularyModel: Decodable, Hashable, Equatable, Identifiable {
     enum CodingKeys: CodingKey {
         case characterSet
@@ -15,9 +17,9 @@ public class VocabularyModel: Decodable, Hashable, Equatable, Identifiable {
     }
     
     public let id = UUID()
-    @Published public var characterSet: [String: String]
-    @Published public var pronunciationSet: [String: String]
-    @Published public var translation: String
+    public var characterSet: [String: String]
+    public var pronunciationSet: [String: String]
+    public var translation: String
     
     public init(
         characterSet: [String: String],

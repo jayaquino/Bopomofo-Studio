@@ -11,6 +11,7 @@ import MockProvider
 
 struct ContentPreviewView: View {
     @EnvironmentObject var router: Router
+    @Environment(\.modelContext) private var context
     @StateObject var viewModel: ContentPreviewViewModel
     @State private var shouldShowAICommunicationView = false
     
@@ -45,6 +46,7 @@ struct ContentPreviewView: View {
                         ForEach(viewModel.topic.vocabulary, id: \.self) { vocabulary in
                             HStack {
                                 TestContentCell(
+                                    vocabularyModel: vocabulary,
                                     showPronunciation: $viewModel.pronunciationTextMode,
                                     showTranslation: $viewModel.translationMode,
                                     image: vocabulary.characterSet[viewModel.characterSet.rawValue] ?? "",
