@@ -11,6 +11,7 @@ import MockProvider
 
 struct ContentPreviewView: View {
     @EnvironmentObject var router: Router
+    @Environment(\.modelContext) private var context
     @StateObject var viewModel: ContentPreviewViewModel
     @State private var shouldShowAICommunicationView = false
     
@@ -68,6 +69,13 @@ struct ContentPreviewView: View {
                                         self.shouldShowAICommunicationView = true
                                     }
                                 }
+                                .overlay(
+                                    Button(action: {
+                                        addVocabularyToSwiftData(vocabulary)
+                                    }, label: {
+                                        Text("Add")
+                                    }), alignment: .topTrailing
+                                )
                             }
                         }
                     }
@@ -101,6 +109,10 @@ struct ContentPreviewView: View {
                 }
             }
         }
+    }
+    
+    private func addVocabularyToSwiftData(_ vocabulary: VocabularyModel) {
+        context.insert(vocabulary)
     }
     
     private func testContent(content: [String]) -> some View {

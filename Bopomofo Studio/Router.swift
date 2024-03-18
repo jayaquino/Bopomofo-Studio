@@ -38,6 +38,10 @@ class Router: ObservableObject {
         StatisticsView(viewModel: StatisticsViewModel(contentStore: self.contentStore))
     }
     
+    func reviewView() -> ReviewView {
+        ReviewView(viewModel: ReviewViewModel())
+    }
+    
     func onboardingView(showOnboarding: Binding<Bool>) -> OnboardingView {
         OnboardingView(viewModel: OnboardingViewModel(analytics: self.analytics), showOnboarding: showOnboarding)
     }

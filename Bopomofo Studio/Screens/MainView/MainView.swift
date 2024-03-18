@@ -19,6 +19,11 @@ struct MainView: View {
                         Label("Home", systemImage: "house")
                     }
                 
+                router.reviewView()
+                    .tabItem {
+                        Label("Review", systemImage: "book")
+                    }
+                
                 router.statisticsView()
                     .tabItem {
                         Label("Statistics", systemImage: "chart.bar.xaxis")
