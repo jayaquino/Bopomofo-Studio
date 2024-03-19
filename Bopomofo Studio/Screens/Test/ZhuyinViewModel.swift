@@ -104,7 +104,6 @@ final class ZhuyinViewModel: ViewModel, Identifiable {
     }
     
     private func generateNewSymbol() {
-        inputSymbol = ""
         let randomNumber = Int.random(in: 0...topic.vocabulary.count-1)
         randomCharacter = topic.vocabulary[randomNumber].characterSet[contentStore.characterSetSetting.rawValue] ?? ""
         randomCharacterZhuyin = topic.vocabulary[randomNumber].pronunciationSet["zhuyin"] ?? ""
@@ -145,10 +144,6 @@ final class ZhuyinViewModel: ViewModel, Identifiable {
             generateNewSymbol()
         } else {
             errorCounter += 1
-        }
-        
-        if LanguageHelper.isZhuyinOrPinyin(symbolKey) {
-            inputSymbol = ""
         }
     }
     
