@@ -115,6 +115,7 @@ struct ZhuyinTestView: View {
                     }
             }
         }
+        .linkToViewModel(viewModel)
         .frame(maxHeight: .infinity, alignment: .top)
         .padding(.top, 30)
         .foregroundColor(.accentColor)

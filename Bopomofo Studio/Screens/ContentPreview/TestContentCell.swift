@@ -56,29 +56,33 @@ struct TestContentCell: View {
             
             VStack(alignment: .trailing) {
                 Button {
-                    if vocabulary.compactMap({ $0.translation }).contains(translation) {
-                        removeVocabularyToSwiftData(vocabularyModel)
-                    } else {
-                        addVocabularyToSwiftData(vocabularyModel)
+                    if let zhuyin = vocabularyModel.pronunciationSet["zhuyin"], let pinyin = vocabularyModel.pronunciationSet["pinyin"]  {
+                        if vocabulary.compactMap({ $0.pronunciationSet["zhuyin"] }).contains(zhuyin) && vocabulary.compactMap({ $0.pronunciationSet["pinyin"] }).contains(pinyin) {
+                            removeVocabularyToSwiftData(vocabularyModel)
+                        } else {
+                            addVocabularyToSwiftData(vocabularyModel)
+                        }
                     }
                 } label: {
                     Group {
-                        if vocabulary.compactMap({ $0.translation }).contains(translation) {
-                            Text("Remove")
-                                .foregroundStyle(Color.white)
-                                .padding(8)
-                                .background(
-                                    RoundedRectangle(cornerRadius: .infinity)
-                                        .fill(Color.red)
-                                )
-                        } else {
-                            Text("Add")
-                                .foregroundStyle(Color.white)
-                                .padding(8)
-                                .background(
-                                    RoundedRectangle(cornerRadius: .infinity)
-                                        .fill(Color.blue)
+                        if let zhuyin = vocabularyModel.pronunciationSet["zhuyin"], let pinyin = vocabularyModel.pronunciationSet["pinyin"]  {
+                            if vocabulary.compactMap({ $0.pronunciationSet["zhuyin"] }).contains(zhuyin) && vocabulary.compactMap({ $0.pronunciationSet["pinyin"] }).contains(pinyin) {
+                                Text("Remove")
+                                    .foregroundStyle(Color.white)
+                                    .padding(8)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: .infinity)
+                                            .fill(Color.red)
                                     )
+                            } else {
+                                Text("Add")
+                                    .foregroundStyle(Color.white)
+                                    .padding(8)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: .infinity)
+                                            .fill(Color.blue)
+                                    )
+                            }
                         }
                     }
                 }
