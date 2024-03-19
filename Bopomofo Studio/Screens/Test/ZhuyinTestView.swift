@@ -113,8 +113,25 @@ struct ZhuyinTestView: View {
                     .onAppear {
                         focus.toggle()
                     }
+                
+                HStack {
+                    Spacer()
+                    Button {
+                        viewModel.inputSymbol.removeAll()
+                    } label: {
+                        Text("Clear")
+                            .foregroundStyle(Color.white)
+                            .padding(8)
+                            .background(
+                                RoundedRectangle(cornerRadius: .infinity)
+                                    .fill(Color.blue)
+                            )
+                    }
+                    .padding(16)
+                }
             }
         }
+        .linkToViewModel(viewModel)
         .frame(maxHeight: .infinity, alignment: .top)
         .padding(.top, 30)
         .foregroundColor(.accentColor)

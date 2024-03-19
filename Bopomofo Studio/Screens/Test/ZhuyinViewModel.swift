@@ -10,7 +10,7 @@ import Combine
 import CoreBopomofoStudio
 
 @MainActor
-class ZhuyinViewModel: ObservableObject, Identifiable {
+final class ZhuyinViewModel: ViewModel, Identifiable {
     
     let contentStore: ContentStore
     let topic: TopicModel
@@ -78,6 +78,7 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         self.inputSymbol = ""
         self.timer = contentStore.timerValue
         
+        super.init()
         generateNewSymbol()
         addSubscribers()
     }
@@ -86,7 +87,12 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
         $timer
             .first(where: { $0 <= 0 })
             .sink { [weak self] time in
-                self?.testDidFinish()
+                guard let self else { return }
+                if self.topic.isReview {
+                    dismissView?()
+                } else {
+                    self.testDidFinish()
+                }
             }
             .store(in: &cancellables)
     }
@@ -98,7 +104,6 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
     }
     
     private func generateNewSymbol() {
-        inputSymbol = ""
         let randomNumber = Int.random(in: 0...topic.vocabulary.count-1)
         randomCharacter = topic.vocabulary[randomNumber].characterSet[contentStore.characterSetSetting.rawValue] ?? ""
         randomCharacterZhuyin = topic.vocabulary[randomNumber].pronunciationSet["zhuyin"] ?? ""
@@ -139,10 +144,6 @@ class ZhuyinViewModel: ObservableObject, Identifiable {
             generateNewSymbol()
         } else {
             errorCounter += 1
-        }
-        
-        if LanguageHelper.isZhuyinOrPinyin(symbolKey) {
-            inputSymbol = ""
         }
     }
     

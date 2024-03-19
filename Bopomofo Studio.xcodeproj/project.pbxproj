@@ -36,6 +36,7 @@
 		07729EA12A9F05AC0015BE3B /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07729EA02A9F05AC0015BE3B /* StatisticsViewModel.swift */; };
 		07920CA32BA7CF2100B846AC /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07920CA22BA7CF2100B846AC /* ReviewViewModel.swift */; };
 		07920CA52BA7CF4900B846AC /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07920CA42BA7CF4900B846AC /* ReviewView.swift */; };
+		07920CA72BA9370100B846AC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07920CA62BA9370100B846AC /* ViewModel.swift */; };
 		07A4DE7A29212A6D00D31402 /* PreviewProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */; };
 		07AE37A32939FB0800ECDA2F /* FlashcardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A22939FB0800ECDA2F /* FlashcardView.swift */; };
 		07AE37A52939FB1600ECDA2F /* FlashcardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE37A42939FB1600ECDA2F /* FlashcardViewModel.swift */; };
@@ -198,6 +199,7 @@
 		07729EA02A9F05AC0015BE3B /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		07920CA22BA7CF2100B846AC /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 		07920CA42BA7CF4900B846AC /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		07920CA62BA9370100B846AC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		07A4DE7929212A6D00D31402 /* PreviewProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewProvider+Extensions.swift"; sourceTree = "<group>"; };
 		07A4DE7B292199C000D31402 /* Bopomofo Studio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Bopomofo Studio.entitlements"; sourceTree = "<group>"; };
 		07AE37A22939FB0800ECDA2F /* FlashcardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardView.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 				072518F6293D2F3500977A75 /* Strings+Extension.swift */,
 				07251902293F42C500977A75 /* TextField+Extensions.swift */,
 				07D1289D2931F2310011CFD9 /* UserDefaults+Extensions.swift */,
+				07920CA62BA9370100B846AC /* ViewModel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				073313BA2933313C0053F290 /* FeedbackSheet.swift in Sources */,
 				52D43812282BD12700FFCAEB /* SoundManager.swift in Sources */,
 				07920CA32BA7CF2100B846AC /* ReviewViewModel.swift in Sources */,
+				07920CA72BA9370100B846AC /* ViewModel.swift in Sources */,
 				075EF7662AF2092A00684ACE /* AICommunicationView.swift in Sources */,
 				07248DE628C5E287003FE4AB /* SettingsViewModel.swift in Sources */,
 				5215400B279F79B100CDD9FB /* ContentPreviewView.swift in Sources */,
@@ -1025,7 +1029,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.1;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
 				PRODUCT_NAME = "Bopomofo Studio - Staging";
 				SWIFT_VERSION = 5.0;
@@ -1281,7 +1285,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.1;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio.staging";
 				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;
@@ -1307,7 +1311,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.1;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "naquinojr.Bopomofo-Studio";
 				PRODUCT_NAME = "Bopomofo Studio";
 				SWIFT_VERSION = 5.0;
